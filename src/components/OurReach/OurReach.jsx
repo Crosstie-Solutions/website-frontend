@@ -48,7 +48,8 @@ function OurReach() {
   }, [hasCounted]);
 
   return (
-    <div className="flex flex-col h-auto gap-5 w-80vw">
+    <div className="flex flex-col h-auto gap-5 large:w-80vw small:w-90vw">
+      
       <div className="flex flex-col h-auto gap-0.5 w-100">
         <div className="flex items-center w-auto h-auto gap-1">
           <hr className="h-2px w-40px bg-crossLightPurple" />
@@ -61,7 +62,7 @@ function OurReach() {
       </div>
 
       <div
-        className="flex flex-row items-center justify-center gap-3 border border-gray-300 h-150px w-100 bg-crossIconBg rounded-10"
+        className="flex items-center justify-center gap-3 border border-gray-300 large:flex-row large:h-150px w-100 bg-crossIconBg rounded-10 small:flex-col small:h-auto small:py-2 large:py-0"
         ref={counterRef}
       >
 
@@ -75,7 +76,7 @@ function OurReach() {
           return (
 
             <div
-              className="flex flex-col justify-center border-r h-70 border-crossLightPurple w-150px"
+              className={`flex flex-col justify-center h-70 border-crossLightPurple w-150px  ${index === counter.length - 1 ? "" : "large:border-r small:border-b"}`}
               key={index}
             >
               <h3 className="font-bold text-center text-30px text-crossLightPurple">
