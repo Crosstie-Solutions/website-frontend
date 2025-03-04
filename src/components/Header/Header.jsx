@@ -82,7 +82,7 @@ function Header() {
       
       {/* Mobile nav */}
       {navBar &&
-      <ul className="fixed top-0 left-0 flex-col items-start justify-center gap-2 pl-2 bg-white small:flex w-70vw h-100vh large:hidden"
+      <ul className="fixed top-0 left-0 z-20 flex-col items-start justify-center gap-2 pl-2 bg-white small:flex w-70vw h-100vh large:hidden"
       ref={navBarRef}
       >
 
