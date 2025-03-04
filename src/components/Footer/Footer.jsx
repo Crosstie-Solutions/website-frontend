@@ -18,7 +18,7 @@ function Footer() {
       <div className="flex justify-between h-auto pb-1 border-b-2 large:flex-row w-100 border-crossLightPurple small:flex-col small:gap-2 large:gap-0">
         
         <div className="flex flex-col h-auto gap-1 large:w-40 small:w-100">
-          <div>Subscribe To our newsletter</div>
+          <div className="large:text-30px small:text-20px">Subscribe To our newsletter</div>
           <div className="flex items-center h-auto w-100">
             <input type="text" placeholder="Email Address" className="p-1 text-black rounded-tl rounded-bl h-40px w-90"/>
             <button className="flex items-center justify-center w-auto px-1 rounded-tr rounded-br h-40px bg-crossLightPurple">Subscribe</button>
