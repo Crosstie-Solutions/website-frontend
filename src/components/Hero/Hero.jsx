@@ -5,9 +5,9 @@ import "./Hero.css";
 
 function Hero() {
   return (
-    <div className="flex flex-col items-start justify-center text-white border large:pl-15 large:w-100vw large:h-78vh hero small:w-100vw small:h-65vh">
+    <div className="flex flex-col items-start justify-center text-white large:pl-15 large:w-100vw large:h-78vh hero small:w-100vw small:h-65vh">
       
-      <div className="z-10 flex flex-col items-start justify-center gap-1 border w-100 h-100 small:px-2 large:p-0">
+      <div className="z-10 flex flex-col items-start justify-center gap-1 w-100 h-100 small:px-2 large:p-0">
         
         
         <div className="flex items-center w-auto gap-1 pr-2 large:pl-1 rounded-20 bg-crossYellow large:h-40px small:h-20px large:text-17px small:text-13px">
@@ -19,7 +19,7 @@ function Hero() {
 
 
 
-        <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-extrabold small:w-100 small:text-15px">
+        <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-extrabold small:w-100 small:text-17px">
           PEOPLE DEVELOPMENT & MANAGEMENT CONSULTING
         </h1>
 

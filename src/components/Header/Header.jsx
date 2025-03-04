@@ -161,7 +161,7 @@ function Header() {
 
           {/* mobile all courses and search */}
           
-      <div className="flex justify-around h-auto w-50">
+      <div className="justify-around h-auto small:flex w-50 large:hidden">
         <div className="flex items-center justify-center px-1 text-white cursor-pointer bg-crossLightPurple rounded-10"
         onClick={()=>{
           toggleCoursesDD();
