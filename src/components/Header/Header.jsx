@@ -1,0 +1,178 @@
+import React, { useContext, useState } from "react";
+import { PHOTOS } from "../../assets/images";
+import { NavLink, Link } from "react-router-dom";
+import { CiSearch } from "react-icons/ci";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { CrossContext } from "../../Context/CrossContext";
+import { IoCloseOutline } from "react-icons/io5";
+import { HiMenuAlt2 } from "react-icons/hi";
+
+
+function Header() {
+
+    const {hideAboutDD, showAboutDD, showSolutionsDD, hideSolutionsDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, navBarRef, setNavCourses, navCourses} = useContext(CrossContext);
+
+    
+  return (
+    <nav className="flex flex-row items-center justify-around w-100 h-80px bg-vogueWhite">
+     
+     {/* logo container */}
+     <div className="flex flex-row items-center justify-center w-auto h-auto gap-2">
+     
+        <HiMenuAlt2 className="cursor-pointer text-30px text-crossLightPurple small:flex large:hidden"
+        onClick={toggleNav}
+        />
+        <a href="/" className="flex items-center justify-center large:w-150px large:h-50 small:h-30px small:w-70px">
+            <img src={PHOTOS.logo} alt="logo" className="w-100 h-100" />
+          </a>
+     </div>
+
+      {/* desktop Nav */}
+      <ul className="flex-row items-center justify-between large:flex w-30 h-100 small:hidden">
+        <li className="flex items-center list-none cursor-pointer h-100 hover:text-crossLightPurple"
+        onMouseEnter={showAboutDD}
+        onMouseLeave={hideAboutDD}
+        >
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "flex items-center gap-0.5 text-crossLightPurple"
+                : "flex items-center gap-0.5"
+            }
+            to="/"
+          >
+            About Us <MdKeyboardArrowDown className="text-25px" />
+          </NavLink>
+        </li>
+
+        <li className="flex items-center list-none cursor-pointer h-100 hover:text-crossLightPurple"
+        
+        onMouseEnter={showSolutionsDD}
+        onMouseLeave={hideSolutionsDD}
+        >
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "flex items-center gap-0.5 text-crossLightPurple"
+                : "flex items-center gap-0.5"
+            }
+            to="/our-solutions"
+          >
+            Our Solutions <MdKeyboardArrowDown className="text-25px" />
+          </NavLink>
+        </li>
+
+        <li className="flex items-center list-none cursor-pointer h-100 hover:text-crossLightPurple"
+        onMouseEnter={showCoursesDD}
+        onMouseLeave={hideCoursesDD}
+        >
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "flex items-center gap-0.5 text-crossLightPurple"
+                : "flex items-center gap-0.5"
+            }
+            to="/our-courses"
+          >
+            Our Courses <MdKeyboardArrowDown className="text-25px" />
+          </NavLink>
+        </li>
+      </ul>
+
+      
+      {/* Mobile nav */}
+      {navBar &&
+      <ul className="fixed top-0 left-0 flex-col items-start justify-center gap-2 pl-2 bg-white small:flex w-70vw h-100vh large:hidden"
+      ref={navBarRef}
+      >
+
+        <div className="absolute left-0 flex items-center justify-between h-auto px-2 top-2 w-100">
+          <Link to="/"><img src={PHOTOS.logo} alt="logo" className="h-30px w-100px"/></Link>
+
+          <IoCloseOutline className="cursor-pointer text-25px text-crossLightPurple"
+          onClick={toggleNav}
+          />
+        </div>
+        
+        
+        <li className="flex items-center h-auto list-none cursor-pointer hover:text-crossLightPurple"
+        onClick={toggleAboutDD}
+        ref={dropdownRef}
+        >
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "flex items-center gap-0.5 text-crossLightPurple"
+                : "flex items-center gap-0.5"
+            }
+            to="/"
+          >
+            About Us <MdKeyboardArrowDown className="text-25px" />
+          </NavLink>
+        </li>
+
+        <li className="flex items-center h-auto list-none cursor-pointer hover:text-crossLightPurple"
+        
+        onClick={toggleSolutionsDD}
+        ref={dropdownRef}
+        >
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "flex items-center gap-0.5 text-crossLightPurple"
+                : "flex items-center gap-0.5"
+            }
+            to="/our-solutions"
+          >
+            Our Solutions <MdKeyboardArrowDown className="text-25px" />
+          </NavLink>
+        </li>
+
+        <li className="flex items-center h-auto list-none cursor-pointer hover:text-crossLightPurple"
+        onClick={toggleCoursesDD}
+        ref={dropdownRef}
+        >
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "flex items-center gap-0.5 text-crossLightPurple"
+                : "flex items-center gap-0.5"
+            }
+            to="/our-courses"
+          >
+            Our Courses <MdKeyboardArrowDown className="text-25px" />
+          </NavLink>
+        </li>
+      </ul>}
+
+      
+
+      
+        {/* desktop search and all login */}
+        
+      <div className="flex-row items-center w-auto gap-3 large:flex h-100 small:hidden">
+        <div className="flex flex-row items-center justify-between gap-1 pl-1 text-gray-400 border cursor-pointer pr-0.5 w-260px text-13px h-40px rounded-20 border-crossLightPurple">
+          <input className="h-90 w-90 text-11px focus:border-none focus:outline-none"  placeholder="What would you love to learn today?"/>
+          <CiSearch className="rounded-full text-30px bg-crossLightPurple text-vogueWhite p-0.5"/>
+        </div>
+
+        <Link className="flex items-center justify-center w-auto px-2 border h-40px border-crossLightPurple text-crossLightPurple rounded-20 hover:bg-crossLightPurple hover:text-vogueWhite">Log In</Link>
+      </div>
+
+          {/* mobile all courses and search */}
+          
+      <div className="flex justify-around h-auto w-50">
+        <div className="flex items-center justify-center px-1 text-white cursor-pointer bg-crossLightPurple rounded-10"
+        onClick={()=>{
+          toggleCoursesDD();
+          setNavCourses(true);
+        }}
+        >Our Courses <MdKeyboardArrowDown className="text-25px" /></div>
+
+        <CiSearch className="cursor-pointer text-30px text-crossLightPurple"/>
+      </div>
+    </nav>
+  );
+}
+
+export default Header;
