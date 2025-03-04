@@ -7,7 +7,7 @@ function Hero() {
   return (
     <div className="flex flex-col items-start justify-center text-white large:pl-15 large:w-100vw large:h-78vh hero small:w-100vw small:h-65vh">
       
-      <div className="z-10 flex flex-col items-start justify-center gap-1 w-100 h-100 small:px-2 large:p-0">
+      <div className="z-10 flex flex-col items-start justify-center large:gap-1 w-100 h-100 small:px-2 large:p-0 small:gap-2">
         
         
         <div className="flex items-center w-auto gap-1 pr-2 large:pl-1 rounded-20 bg-crossYellow large:h-40px small:h-20px large:text-17px small:text-13px">

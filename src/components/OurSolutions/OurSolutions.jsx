@@ -16,7 +16,7 @@ function OurSolutions() {
 
     
   return (
-    <div className='flex flex-col h-auto gap-5 w-80vw'>
+    <div className='flex flex-col h-auto gap-5 border w-80vw'>
       <div className='flex flex-col h-auto gap-0.5 w-100'>
         <div className='flex items-center w-auto h-auto gap-1'>
             <hr className='h-2px w-40px bg-crossLightPurple'/>
