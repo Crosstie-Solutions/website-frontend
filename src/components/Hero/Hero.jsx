@@ -19,7 +19,7 @@ function Hero() {
 
 
 
-        <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-extrabold small:w-100 small:text-17px">
+        <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-extrabold small:w-100 small:text-20px">
           PEOPLE DEVELOPMENT & MANAGEMENT CONSULTING
         </h1>
 
