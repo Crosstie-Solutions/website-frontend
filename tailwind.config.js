@@ -131,6 +131,8 @@ export default {
         '100vh': '100vh',
         '90vh': '90vh',
         '80vh': '80vh',
+        '60vh': '60vh',
+        '65vh': '65vh',
         '70vh': '70vh',
         '75vh': '75vh',
         '76vh': '76vh',
