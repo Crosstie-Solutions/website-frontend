@@ -93,22 +93,22 @@ const toggleCoursesDD = ()=>{
   }
 
   // click outside to close mobile nav
-  let navBarRef = useRef();
+  // let navBarRef = useRef();
 
-  useEffect(() =>{
-    let handler = (event) =>{
-      if(!navBarRef.current?.contains(event.target)){
-        SetNavBar(false);
-      }
-    }
+  // useEffect(() =>{
+  //   let handler = (event) =>{
+  //     if(!navBarRef.current?.contains(event.target)){
+  //       SetNavBar(false);
+  //     }
+  //   }
 
-    document.addEventListener("mousedown", handler);
+  //   document.addEventListener("mousedown", handler);
 
-    return ()=>{
-      document.removeEventListener("mousedown", handler);
-    }
+  //   return ()=>{
+  //     document.removeEventListener("mousedown", handler);
+  //   }
 
-  });
+  // });
 
   const [navCourses, setNavCourses] = useState(false);
 
