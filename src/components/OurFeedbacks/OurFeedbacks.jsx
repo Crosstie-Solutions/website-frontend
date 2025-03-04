@@ -6,7 +6,7 @@ import { MdOutlineChevronRight } from "react-icons/md";
 
 function OurFeedbacks() {
   return (
-    <div className="flex flex-col h-auto gap-3 w-80vw">
+    <div className="flex flex-col h-auto gap-3 large:w-80vw small:w-90vw">
       <div className="flex flex-col h-auto gap-0.5 w-100">
         <div className="flex items-center w-auto h-auto gap-1">
           <hr className="h-2px w-40px bg-crossLightPurple" />
@@ -21,11 +21,12 @@ function OurFeedbacks() {
         </p>
       </div>
 
+
       <div className="flex flex-row h-auto p-2 border border-crossIconBg w-100 rounded-10 text-13px">
         <div className="flex flex-col items-center h-auto gap-4 w-100">
-          <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
+          <div className="flex justify-center h-auto gap-3 large:flex-wrap large:flex-row w-100 small:flex-col">
             
-            <div className="flex flex-col items-center h-auto gap-1 px-2 py-3 border shadow-lg w-30 border-crossIconBg rounded-10">
+            <div className="flex flex-col items-center h-auto gap-1 px-2 py-3 border shadow-lg large:w-30 border-crossIconBg rounded-10 small:w-100">
               
               <div className="flex flex-col items-center h-auto gap-1 w-100">
                 <h3 className="font-bold text-crossLightPurple">
@@ -58,7 +59,7 @@ function OurFeedbacks() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center h-auto gap-1 px-2 py-3 border shadow-lg w-30 border-crossIconBg rounded-10">
+            <div className="flex flex-col items-center h-auto gap-1 px-2 py-3 border shadow-lg large:w-30 border-crossIconBg rounded-10 small:w-100">
               
               <div className="flex flex-col items-center h-auto gap-1 w-100">
                 <h3 className="font-bold text-crossLightPurple">
@@ -91,7 +92,7 @@ function OurFeedbacks() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center h-auto gap-1 px-2 py-3 border shadow-lg w-30 border-crossIconBg rounded-10">
+            <div className="flex flex-col items-center h-auto gap-1 px-2 py-3 border shadow-lg large:w-30 border-crossIconBg rounded-10 small:w-100">
               
               <div className="flex flex-col items-center h-auto gap-1 w-100">
                 <h3 className="font-bold text-crossLightPurple">

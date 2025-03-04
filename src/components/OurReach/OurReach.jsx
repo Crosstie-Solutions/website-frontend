@@ -76,7 +76,7 @@ function OurReach() {
           return (
 
             <div
-              className={`flex flex-col justify-center h-70 border-crossLightPurple w-150px  ${index === counter.length - 1 ? "" : "large:border-r small:border-b"}`}
+              className={`flex flex-col justify-center h-70 border-crossLightPurple w-150px  border-r`}
               key={index}
             >
               <h3 className="font-bold text-center text-30px text-crossLightPurple">

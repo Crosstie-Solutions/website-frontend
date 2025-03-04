@@ -15,7 +15,8 @@ function OurClients() {
 
     
   return (
-    <div className='flex flex-col h-auto gap-3 w-80vw'>
+    <div className='flex flex-col h-auto gap-3 large:w-80vw small:w-90vw'>
+      
       <div className='flex flex-col h-auto gap-0.5 w-100'>
         <div className='flex items-center w-auto h-auto gap-1'>
             <hr className='h-2px w-40px bg-crossLightPurple'/>
@@ -25,13 +26,15 @@ function OurClients() {
         <p className='text-15px text-crossTextGray'>Proud Partners with Exceptional Organizations</p>
       </div>
 
-        <div className='flex flex-row h-auto p-2 border border-crossIconBg w-100 rounded-10'>
-            <div className='flex items-center justify-center w-20 h-auto'>
-                <h2 className='font-bold text-30px'>Trusted by</h2>
+
+        <div className='flex h-auto gap-2 border small:p-1 large:p-2 small:flex-col large:flex-row border-crossIconBg w-100 rounded-10'>
+            
+            <div className='flex items-center justify-center h-auto large:w-20 small:w-100'>
+                <h2 className='font-bold large:text-30px small:text-20px'>Trusted by</h2>
             </div>
 
-            <div className='flex flex-col items-center h-auto gap-3 w-80'>
-                <div className='flex flex-row flex-wrap justify-center h-auto gap-3 w-100'>
+            <div className='flex flex-col items-center h-auto gap-3 large:w-80 small:w-100'>
+                <div className='flex flex-row flex-wrap justify-center h-auto large:gap-3 w-100 small:gap-1'>
                     <img src={PHOTOS.cl1} alt="partner" className='px-2 py-1 border border-crossIconBg rounded-5 w-150px h-70px'/>
 
                     <img src={PHOTOS.cl2} alt="partner" className='px-2 py-1 border border-crossIconBg rounded-5 w-150px h-70px'/>

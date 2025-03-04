@@ -13,10 +13,11 @@ function Footer() {
     const year = date.getFullYear();
     
   return (
-    <footer className="flex flex-col gap-5 px-10 py-5 mt-10 text-white bg-crossDarkPurple w-100vw text-15px">
-      <div className="flex flex-row justify-between h-auto pb-1 border-b-2 w-100 border-crossLightPurple">
+    <footer className="flex flex-col gap-5 py-5 mt-10 text-white small:px-2 large:px-10 bg-crossDarkPurple w-100vw large:text-15px small:text-13px">
+      
+      <div className="flex justify-between h-auto pb-1 border-b-2 large:flex-row w-100 border-crossLightPurple small:flex-col small:gap-2 large:gap-0">
         
-        <div className="flex flex-col w-40 h-auto gap-1">
+        <div className="flex flex-col h-auto gap-1 large:w-40 small:w-100">
           <div>Subscribe To our newsletter</div>
           <div className="flex items-center h-auto w-100">
             <input type="text" placeholder="Email Address" className="p-1 rounded-tl rounded-bl h-40px w-90"/>
@@ -25,17 +26,17 @@ function Footer() {
         </div>
 
         <div className="flex items-end justify-center gap-2">
-          <RiYoutubeLine className="p-0.5 rounded-full text-35px bg-crossLightPurple"/>
-          <SiFacebook className="p-0.5 rounded-full text-35px bg-crossLightPurple"/>
-          <AiOutlineLinkedin className="p-0.5 rounded-full text-35px bg-crossLightPurple"/>
-          <BsTwitterX className="p-0.5 rounded-full text-35px bg-crossLightPurple"/>
+          <RiYoutubeLine className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/>
+          <SiFacebook className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/>
+          <AiOutlineLinkedin className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/>
+          <BsTwitterX className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/>
         </div>
       </div>
       
 
 
 
-      <div className="flex flex-row items-center justify-start gap-20 pb-1 font-light border-b-2 w-100 border-crossLightPurple">
+      <div className="flex justify-start pb-1 border-b-2 large:items-center large:gap-20 large:flex-row w-100 border-crossLightPurple small:flex-col small:items-start small:gap-3">
         <ul>
             <h5 className="text-crossFooterText">Company</h5>
             <li><Link to="">About Us</Link></li>
@@ -71,7 +72,7 @@ function Footer() {
       <small>All rights reserved. ©2013 – {year}. Crosstie Solutions Ltd.</small>
 
       <div>
-        <ul className="list-disc">
+        <ul className="flex list-disc flex-col gap-0.5">
             <li>Crosstie Solutions is rated 4.9 stars on Google Reviews: <a href="https://g.page/r/Cd9bjtmg4w7hEAE/review" className="text-crossFooterText">https://g.page/r/Cd9bjtmg4w7hEAE/review</a></li>
             <li> Crosstie Solutions is a registered Training Service Provider with the Chartered Institute of Bankers of Nigeria (CIBN), serving the  Banking and Finance Industry.</li>
             <li> Crosstie Solutions is a proud Full Member of the International Federation of Training and Development Organizations (IFTDO).</li>

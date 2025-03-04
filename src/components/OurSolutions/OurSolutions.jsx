@@ -27,7 +27,7 @@ function OurSolutions() {
       </div>
 
     
-    <div className='flex flex-col h-auto gap-3 w-100'>
+    <div className='flex flex-col h-auto gap-5 w-100'>
         
         <div className='flex flex-row justify-around h-auto border large:py-1 large:gap-2 large:w-70 rounded-3xl border-crossIconBg small:w-100 small:gap-1 py-0.5'>
             
@@ -88,9 +88,9 @@ function OurSolutions() {
 
          {/* Consulting Services */}
          {solution==="Consulting Services" &&
-        <div className='flex flex-row items-center justify-between h-auto w-100'>
+        <div className='flex items-center justify-between h-auto large:flex-row w-100 small:flex-col small:gap-3 large:gap-0'>
             
-            <div className='flex flex-col gap-1 p-1 border border-crossIconBg w-30 h-250px text-15px rounded-20'>
+            <div className='flex flex-col gap-1 p-1 border border-crossIconBg large:w-30 h-250px text-15px rounded-20 small:w-100'>
                 <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><HiOutlineUsers className='text-crossLightPurple text-50px'/></div>
                 
                 <h3 className='font-bold text-crossLightPurple'>Culture Assessment and Transformation</h3>
@@ -101,7 +101,7 @@ function OurSolutions() {
             </div>
 
 
-            <div className='flex flex-col gap-1 p-1 border border-crossIconBg w-30 h-250px text-15px rounded-20'>
+            <div className='flex flex-col gap-1 p-1 border border-crossIconBg large:w-30 h-250px text-15px rounded-20 small:w-100'>
                 <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><GiTeamIdea className='text-crossLightPurple text-50px'/></div>
                 
                 <h3 className='font-bold text-crossLightPurple'>Strategy Development and Execution</h3>
@@ -112,7 +112,7 @@ function OurSolutions() {
             </div>
 
 
-            <div className='flex flex-col gap-1 p-1 border border-crossIconBg w-30 h-250px text-15px rounded-20'>
+            <div className='flex flex-col gap-1 p-1 border border-crossIconBg large:w-30 h-250px text-15px rounded-20 small:w-100'>
                 <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><LiaBusinessTimeSolid className='text-crossLightPurple text-50px'/></div>
                 
                 <h3 className='font-bold text-crossLightPurple'>Business Process Documentation and Improvement</h3>
@@ -127,9 +127,9 @@ function OurSolutions() {
 
          {/* High-demand Courses */}
          {solution==="High-demand Courses" &&
-        <div className='flex flex-row flex-wrap items-center justify-between h-auto gap-2 w-100'>
+        <div className='flex flex-row flex-wrap items-center justify-around h-auto border small:gap-1 large:gap-2 w-100'>
             
-            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-200px border-crossIconBg text-15px rounded-20'>
+            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-120px border-crossIconBg large:text-15px rounded-20 small:text-13px'>
                 <div className='flex flex-col justify-center gap-1 px-1 border-l h-100px border-crossLightPurple w-100'>
                     
                     <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-40px w-40px'><GiTeacher className='text-crossLightPurple text-50px'/></div>
@@ -138,7 +138,7 @@ function OurSolutions() {
                 </div>
             </Link>
             
-            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-200px border-crossIconBg text-15px rounded-20'>
+            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-120px border-crossIconBg text-15px rounded-20'>
                 <div className='flex flex-col justify-center gap-1 px-1 border-l h-100px border-crossLightPurple w-100'>
                     
                     <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-40px w-40px'><GiTeacher className='text-crossLightPurple text-50px'/></div>
@@ -147,7 +147,7 @@ function OurSolutions() {
                 </div>
             </Link>
 
-            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-200px border-crossIconBg text-15px rounded-20'>
+            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-120px border-crossIconBg text-15px rounded-20'>
                 <div className='flex flex-col justify-center gap-1 px-1 border-l h-100px border-crossLightPurple w-100'>
                     
                     <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-40px w-40px'><GiTeacher className='text-crossLightPurple text-50px'/></div>
@@ -156,7 +156,7 @@ function OurSolutions() {
                 </div>
             </Link>
 
-            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-200px border-crossIconBg text-15px rounded-20'>
+            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-120px border-crossIconBg text-15px rounded-20'>
                 <div className='flex flex-col justify-center gap-1 px-1 border-l h-100px border-crossLightPurple w-100'>
                     
                     <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-40px w-40px'><GiTeacher className='text-crossLightPurple text-50px'/></div>
@@ -165,7 +165,7 @@ function OurSolutions() {
                 </div>
             </Link>
 
-            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-200px border-crossIconBg text-15px rounded-20'>
+            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-120px border-crossIconBg text-15px rounded-20'>
                 <div className='flex flex-col justify-center gap-1 px-1 border-l h-100px border-crossLightPurple w-100'>
                     
                     <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-40px w-40px'><GiTeacher className='text-crossLightPurple text-50px'/></div>
@@ -174,7 +174,7 @@ function OurSolutions() {
                 </div>
             </Link>
 
-            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-200px border-crossIconBg text-15px rounded-20'>
+            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-120px border-crossIconBg text-15px rounded-20'>
                 <div className='flex flex-col justify-center gap-1 px-1 border-l h-100px border-crossLightPurple w-100'>
                     
                     <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-40px w-40px'><GiTeacher className='text-crossLightPurple text-50px'/></div>
@@ -183,7 +183,7 @@ function OurSolutions() {
                 </div>
             </Link>
 
-            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-200px border-crossIconBg text-15px rounded-20'>
+            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-120px border-crossIconBg text-15px rounded-20'>
                 <div className='flex flex-col justify-center gap-1 px-1 border-l h-100px border-crossLightPurple w-100'>
                     
                     <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-40px w-40px'><GiTeacher className='text-crossLightPurple text-50px'/></div>
@@ -192,7 +192,7 @@ function OurSolutions() {
                 </div>
             </Link>
 
-            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-200px border-crossIconBg text-15px rounded-20'>
+            <Link to='/' className='flex flex-col h-auto gap-1 py-1 border w-120px border-crossIconBg text-15px rounded-20'>
                 <div className='flex flex-col justify-center gap-1 px-1 border-l h-100px border-crossLightPurple w-100'>
                     
                     <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-40px w-40px'><GiTeacher className='text-crossLightPurple text-50px'/></div>
