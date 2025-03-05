@@ -79,11 +79,12 @@ function OurReach() {
               className={`flex flex-col justify-start h-70 border-crossLightPurple w-150px  border-r`}
               key={index}
             >
-              <h3 className="font-bold text-center text-30px text-crossLightPurple">
+              <h3 className="font-bold text-center text-30px text-crossLightPurple w-80">
               {value}+
               </h3>
               <p className="text-center text-15px w-80">{counter.label}</p>
             </div>
+            
           );
         })}
 
