@@ -35,21 +35,22 @@ function OurClients() {
 
             <div className='flex flex-col items-center h-auto gap-3 large:w-80 small:w-100'>
                 <div className='flex flex-row flex-wrap justify-center h-auto large:gap-3 w-100 small:gap-1'>
-                    <img src={PHOTOS.cl1} alt="partner" className='px-2 py-1 border border-crossIconBg rounded-5 large:w-150px h-70px small:w-100px'/>
                     
-                    <img src={PHOTOS.cl2} alt="partner" className='px-2 py-1 border border-crossIconBg rounded-5 w-large:w-150px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl1} alt="partner" className='px-2 py-1 border shadow-xl border-crossLightPurple rounded-5 large:w-150px h-70px small:w-100px'/>
+                    
+                    <img src={PHOTOS.cl2} alt="partner" className='px-2 py-1 border border-crossLightPurple rounded-5 w-large:w-150px small:w-100px h-70px'/>
 
-                    <img src={PHOTOS.cl3} alt="partner" className='px-2 py-1 border border-crossIconBg rounded-5 w-large:w-150px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl3} alt="partner" className='px-2 py-1 border border-crossLightPurple rounded-5 w-large:w-150px small:w-100px h-70px'/>
 
-                    <img src={PHOTOS.cl4} alt="partner" className='px-2 py-1 border border-crossIconBg rounded-5 w-large:w-150px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl4} alt="partner" className='px-2 py-1 border border-crossLightPurple rounded-5 w-large:w-150px small:w-100px h-70px'/>
 
-                    <img src={PHOTOS.cl5} alt="partner" className='px-2 py-1 border border-crossIconBg rounded-5 w-large:w-150px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl5} alt="partner" className='px-2 py-1 border border-crossLightPurple rounded-5 w-large:w-150px small:w-100px h-70px'/>
 
-                    <img src={PHOTOS.cl2} alt="partner" className='px-2 py-1 border border-crossIconBg rounded-5 w-large:w-150px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl2} alt="partner" className='px-2 py-1 border border-crossLightPurple rounded-5 w-large:w-150px small:w-100px h-70px'/>
 
-                    <img src={PHOTOS.cl4} alt="partner" className='px-2 py-1 border border-crossIconBg rounded-5 w-large:w-150px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl4} alt="partner" className='px-2 py-1 border border-crossLightPurple rounded-5 w-large:w-150px small:w-100px h-70px'/>
 
-                    <img src={PHOTOS.cl1} alt="partner" className='px-2 py-1 border border-crossIconBg rounded-5 w-large:w-150px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl1} alt="partner" className='px-2 py-1 border border-crossLightPurple rounded-5 w-large:w-150px small:w-100px h-70px'/>
                 </div>
 
                 <Link className='flex flex-row items-center justify-center w-auto gap-1 p-2 text-white h-30px rounded-10 bg-crossLightPurple text-15px'>Show All <GoArrowRight className='text-25px'/></Link>
