@@ -16,6 +16,7 @@ import { AboutDD, CoursesDD, SolutionsDD } from "./components/AllDropDowns/AllDr
 import { CrossContext } from "./Context/CrossContext";
 import HomePage from "./pages/HomePage/HomePage";
 import Footer from "./components/Footer/Footer";
+import IPGeolocation from "./components/IpGeolocation/IpGeolocation";
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
 // import { Protected } from "./Components/Protected/Protected";
@@ -45,7 +46,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* <Route path="/blog-posts" element={<HomePage />} /> */}
+          <Route path="/ip-geo" element={<IPGeolocation />} />
 
           {/* <Route path="/shop/product" element={<ProductDetailPage />}>
             <Route path=":productId" element={<ProductDetailPage />} />
