@@ -39,7 +39,7 @@ function MobileButtonSwiper() {
   ];
 
   return (
-    <div className="flex flex-col items-center h-auto gap-1 w-90vw">
+   
       <div className="border mobile-swiper-container">
         {/* <button className="nav-btn left" onClick={scrollLeft}>&#10094;</button> */}
 
@@ -51,7 +51,7 @@ function MobileButtonSwiper() {
             <NavLink
               to={`/${item.route}`}
               key={index}
-              className="flex items-center justify-center w-auto px-1 font-semibold mobile-swiper-button text-10px rounded-20 h-30px bg-crossLightPurple"
+              className="flex items-center justify-center w-auto px-2 font-semibold mobile-swiper-button text-10px rounded-20 h-30px bg-crossLightPurple"
             >
               {item.name}
             </NavLink>
@@ -61,12 +61,7 @@ function MobileButtonSwiper() {
         
       </div>
 
-        <div className="flex items-center justify-center h-auto gap-2 text-black w-100">
-            <RiArrowLeftSLine className="text-gray-600 text-30px"/>
-            <MdChevronRight className="text-gray-600 text-30px"/>
-        </div>
-      {/* <button className="nav-btn right">this is</button> */}
-    </div>
+
   );
 }
 
