@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import "./AboutUsPage.css";
 import { PHOTOS } from "../../assets/images";
-import AboutButtonsSwiper from "../../components/AboutButtonsSwiper/AboutButtonsSwiper";
+import MobileButtonSwiper from "../../components/MobileButtonSwiper/MobileButtonSwiper";
+// import ButtonSwiper from "../../components/ButtonSwiper/ButtonSwiper";
+
 
 
 
@@ -34,7 +36,8 @@ function AboutUsPage() {
 
 
       <div className="flex flex-col items-center h-auto w-100">
-        <AboutButtonsSwiper />
+        {/* <ButtonSwiper /> */}
+        <MobileButtonSwiper />
       </div>
     </div>
   );

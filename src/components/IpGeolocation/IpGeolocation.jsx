@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import ButtonSwiper from "../AboutButtonsSwiper/AboutButtonsSwiper";
+// import {ButtonSwiper} from "../AboutButtonsSwiper/AboutButtonsSwiper";
+
 
 const IPGeolocation = () => {
 
@@ -69,7 +70,7 @@ const IPGeolocation = () => {
       )}
       <p>You have spent {sessionTime} seconds on this page</p>
 
-      <ButtonSwiper />
+      {/* <ButtonSwiper /> */}
     </div>
   );
 };
