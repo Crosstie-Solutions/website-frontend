@@ -4,7 +4,7 @@ import { BsArrowRight } from "react-icons/bs";
 import "./AboutUsPage.css";
 import { PHOTOS } from "../../assets/images";
 import MobileButtonSwiper from "../../components/MobileButtonSwiper/MobileButtonSwiper";
-// import ButtonSwiper from "../../components/ButtonSwiper/ButtonSwiper";
+import ButtonSwiper from "../../components/ButtonSwiper/ButtonSwiper";
 
 
 
@@ -36,7 +36,7 @@ function AboutUsPage() {
 
 
       <div className="flex flex-col items-center h-auto w-100">
-        {/* <ButtonSwiper /> */}
+        <ButtonSwiper />
         <MobileButtonSwiper />
       </div>
     </div>
