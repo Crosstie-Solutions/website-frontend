@@ -17,6 +17,8 @@ const PHOTOS = {
     cl4: new URL("./client4.png", import.meta.url).href,
     cl5: new URL("./client5.jpg", import.meta.url).href,
     man: new URL("./man.jpg", import.meta.url).href,
+    mission: new URL("./mission.png", import.meta.url).href,
+    vision: new URL("./vision.png", import.meta.url).href,
     
 
    

@@ -66,6 +66,7 @@ function OurReach() {
         ref={counterRef}
       >
 
+
         {counters.map((counter, index) => {
           const [value, setValue] = useState(0);
 

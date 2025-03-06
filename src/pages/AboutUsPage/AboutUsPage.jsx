@@ -5,15 +5,18 @@ import "./AboutUsPage.css";
 import { PHOTOS } from "../../assets/images";
 import MobileButtonSwiper from "../../components/MobileButtonSwiper/MobileButtonSwiper";
 import ButtonSwiper from "../../components/ButtonSwiper/ButtonSwiper";
+import WhoWeAre from "../../components/WhoWeAre/WhoWeAre";
+import OurReach from "../../components/OurReach/OurReach";
+import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 
 
 
 
 function AboutUsPage() {
   return (
-    <div className="relative flex flex-col items-start justify-center gap-3 text-white large:w-100vw large:h-auto small:w-100vw small:h-auto">
+    <div className="relative flex flex-col items-center justify-center gap-5 mt-10 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto">
       
-      <div className="flex flex-col items-start justify-center border border-red-500 large:gap-1 large:w-100vw large:h-100vh small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
+      <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-100vh small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
 
         <img src={PHOTOS.about1} alt="photos" className="w-100 h-100"/>
 
@@ -39,6 +42,20 @@ function AboutUsPage() {
         <ButtonSwiper />
         <MobileButtonSwiper />
       </div>
+
+      <div className="flex items-center justify-center h-auto gap-20 mt-5 w-100">
+        <div className="w-40 h-auto bg-[#F9F9F9] p-2 rounded">
+         <p className="leading-loose">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius excepturi labore magnam odit, magni quo eos, ipsa quis cupiditate porro similique deserunt voluptatibus iure laudantium perspiciatis rerum ea eum autem!</p>
+        </div>
+
+        <img src={PHOTOS.logo} alt="logo"  className="-rotate-90 w-200px h-50px"/>
+      </div>
+
+      <WhoWeAre />
+
+      <OurReach />
+
+      <WhyChooseUs />
     </div>
   );
 }
