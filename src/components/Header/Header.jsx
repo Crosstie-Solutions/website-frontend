@@ -28,7 +28,7 @@ function Header() {
      </div>
 
       {/* desktop Nav */}
-      <ul className="flex-row items-center justify-between large:flex w-30 h-100 small:hidden">
+      <ul className="flex-row items-center justify-center w-40 gap-2 large:flex h-100 small:hidden">
         <li className="flex items-center list-none cursor-pointer h-100 hover:text-crossLightPurple"
         onMouseEnter={showAboutDD}
         onMouseLeave={hideAboutDD}
@@ -39,9 +39,9 @@ function Header() {
                 ? "flex items-center gap-0.5 text-crossLightPurple"
                 : "flex items-center gap-0.5"
             }
-            to="/"
+            to="/about-us"
           >
-            About Us <MdKeyboardArrowDown className="text-25px" />
+            About CrossTie <MdKeyboardArrowDown className="text-25px" />
           </NavLink>
         </li>
 
@@ -99,16 +99,12 @@ function Header() {
         onClick={toggleAboutDD}
         ref={dropdownRef}
         >
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "flex items-center gap-0.5 text-crossLightPurple"
-                : "flex items-center gap-0.5"
-            }
-            to="/"
+          <div
+            className="flex items-center gap-0.5"
+            to="/about-us"
           >
             About Us <MdKeyboardArrowDown className="text-25px" />
-          </NavLink>
+          </div>
         </li>
 
         <li className="flex items-center h-auto list-none cursor-pointer hover:text-crossLightPurple"
@@ -116,32 +112,24 @@ function Header() {
         onClick={toggleSolutionsDD}
         ref={dropdownRef}
         >
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "flex items-center gap-0.5 text-crossLightPurple"
-                : "flex items-center gap-0.5"
-            }
+          <div
+            className="flex items-center gap-0.5"
             to="/our-solutions"
           >
             Our Solutions <MdKeyboardArrowDown className="text-25px" />
-          </NavLink>
+          </div>
         </li>
 
         <li className="flex items-center h-auto list-none cursor-pointer hover:text-crossLightPurple"
         onClick={toggleCoursesDD}
         ref={dropdownRef}
         >
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "flex items-center gap-0.5 text-crossLightPurple"
-                : "flex items-center gap-0.5"
-            }
+          <div
+            className="flex items-center gap-0.5"
             to="/our-courses"
           >
             Our Courses <MdKeyboardArrowDown className="text-25px" />
-          </NavLink>
+          </div>
         </li>
       </ul>}
 

@@ -1,0 +1,12 @@
+:root{
+    --heroPurple: rgba(101, 45, 144, 0.6);
+    --heroBlack: rgba(26, 22, 28, 0.6);
+}
+
+
+
+
+
+.aboutOne{
+    background: linear-gradient(to right, var(--heroPurple), var(--heroBlack));
+}

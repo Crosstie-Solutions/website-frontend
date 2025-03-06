@@ -6,6 +6,9 @@ const PHOTOS = {
     hero_bg: new URL("./hero_bg.png", import.meta.url).href,
     hero_1: new URL("./hero_1.png", import.meta.url).href,
     about: new URL("./about.jpeg", import.meta.url).href,
+
+
+    about1: new URL("./about1.jpg", import.meta.url).href,
     
 
     cl1: new URL("./client1.png", import.meta.url).href,

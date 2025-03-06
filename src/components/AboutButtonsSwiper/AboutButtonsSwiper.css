@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     position: relative;
-    width: 100%;
-    max-width: 400px; /* Adjust based on your design */
+    /* width: 100%; */
+    /* max-width: 400px;  */ /* Adjust based on your design */
     overflow: hidden;
   }
   
@@ -12,8 +12,8 @@
     overflow-x: auto;
     scroll-behavior: smooth;
     white-space: nowrap;
-    gap: 10px;
-    padding: 10px;
+    /* gap: 10px; */
+    /* padding: 10px; */
     scrollbar-width: none; /* Hide scrollbar for Firefox */
   }
   
@@ -21,7 +21,9 @@
     display: none; /* Hide scrollbar for Chrome, Safari */
   }
   
-  .swiper-button {
+
+
+  /* .swiper-button {
     flex: 0 0 auto;
     padding: 10px 15px;
     border: none;
@@ -33,9 +35,9 @@
   
   .swiper-button:hover {
     background-color: #0056b3;
-  }
+  } */
   
-  .nav-btn {
+  /* .nav-btn {
     position: absolute;
     background: rgba(0, 0, 0, 0.5);
     color: white;
@@ -46,12 +48,12 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-  }
+  } */
   
-  .nav-btn.left {
+  /* .nav-btn.left {
     left: 5px;
   }
   
   .nav-btn.right {
     right: 5px;
-  }
+  } */

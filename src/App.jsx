@@ -17,6 +17,8 @@ import { CrossContext } from "./Context/CrossContext";
 import HomePage from "./pages/HomePage/HomePage";
 import Footer from "./components/Footer/Footer";
 import IPGeolocation from "./components/IpGeolocation/IpGeolocation";
+import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
 // import { Protected } from "./Components/Protected/Protected";
@@ -32,7 +34,7 @@ function App() {
 
       <Router>
       
-        {/* <ScrollToTop /> */}
+        <ScrollToTop />
         
         {/* <HeaderAndFooterWrapper>
           <HeaderWrapper />
@@ -47,6 +49,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/ip-geo" element={<IPGeolocation />} />
+          <Route path="/about-us" element={<AboutUsPage />} />
 
           {/* <Route path="/shop/product" element={<ProductDetailPage />}>
             <Route path=":productId" element={<ProductDetailPage />} />

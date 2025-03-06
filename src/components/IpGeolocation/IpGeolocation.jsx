@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ButtonSwiper from "../ButtonSwiper/ButtonSwiper";
+import ButtonSwiper from "../AboutButtonsSwiper/AboutButtonsSwiper";
 
 const IPGeolocation = () => {
 

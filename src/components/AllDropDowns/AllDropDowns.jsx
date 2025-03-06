@@ -18,7 +18,7 @@ function AboutDD() {
     >
       <Link to='/shop/lotion' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
       // onClick={toggleCategories}
-      >About Crosstie</Link>
+      >About Us</Link>
       
       <Link to='/shop/face' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
       // onClick={toggleCategories}
