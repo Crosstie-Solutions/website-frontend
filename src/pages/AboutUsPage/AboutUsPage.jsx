@@ -21,7 +21,7 @@ function AboutUsPage() {
           TRANSFORMING BUSINESS THROUGH PEOPLE DEVELOPMENT
           </h1>
 
-          <p className="font-extralight large:w-50 small:w-100 small:text-11px large:text-15px">
+          <p className="font-extralight large:w-50 small:w-90 small:text-13px large:text-15px">
             Discover new skills and interests with our extensive course collection
           </p>
         </div>
