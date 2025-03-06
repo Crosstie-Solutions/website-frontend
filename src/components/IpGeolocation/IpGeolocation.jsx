@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
+import ButtonSwiper from "../ButtonSwiper/ButtonSwiper";
 
 const IPGeolocation = () => {
+
+    //for location
+    
   const [location, setLocation] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -29,6 +33,28 @@ const IPGeolocation = () => {
     fetchLocation();
   }, []);
 
+  //for duration
+  const [sessionTime, setSessionTime] = useState(0);
+  const [startTime, setStartTime] = useState(performance.now());
+
+  useEffect(() => {
+    const handleUnload = () => {
+      const endTime = performance.now();
+      const totalTimeSpent = ((endTime - startTime) / 1000).toFixed(2); // Convert to seconds
+      setSessionTime(totalTimeSpent);
+      console.log(`User spent ${totalTimeSpent} seconds on this site.`);
+    };
+
+    // Track when the user leaves the site (tab close, reload, navigate away)
+    window.addEventListener("beforeunload", handleUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleUnload);
+    };
+  }, [startTime]);
+
+  console.log("Session duration:", sessionTime)
+
   return (
     <div className="mt-5 w-80vw">
         <p className="font-bold">Canny wants to know your location.</p>
@@ -41,6 +67,9 @@ const IPGeolocation = () => {
           Coordinates: {location.loc}
         </p>
       )}
+      <p>You have spent {sessionTime} seconds on this page</p>
+
+      <ButtonSwiper />
     </div>
   );
 };
