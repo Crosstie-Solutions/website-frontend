@@ -103,7 +103,7 @@ function Header() {
             className="flex items-center gap-0.5"
             to="/about-us"
           >
-            About Us <MdKeyboardArrowDown className="text-25px" />
+            About CrossTie <MdKeyboardArrowDown className="text-25px" />
           </div>
         </li>
 

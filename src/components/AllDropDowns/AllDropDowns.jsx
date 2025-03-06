@@ -8,40 +8,40 @@ import { CrossContext } from '../../Context/CrossContext';
 
 function AboutDD() {
 
-    const {hideAboutDD, showAboutDD} = useContext(CrossContext)
+    const {hideAboutDD, showAboutDD, dropdownRef, toggleNav} = useContext(CrossContext)
     
   return (
     <div className='absolute z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-25vw text-15px small:top-25 small:left-10vw'
-    // ref={categoriesRef}
+    ref={dropdownRef}
     onMouseEnter={showAboutDD}
     onMouseLeave={hideAboutDD}
     >
-      <Link to='/shop/lotion' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-      // onClick={toggleCategories}
+      <Link to="/about-us" className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
+       onClick={toggleNav}
       >About Us</Link>
       
-      <Link to='/shop/face' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-      // onClick={toggleCategories}
+      <Link to='/our-story' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
+       onClick={toggleNav}
       >Our Story</Link>
       
-      <Link to='/shop/soap' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-      // onClick={toggleCategories}
+      <Link to='/leadership' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
+       onClick={toggleNav}
       >Leadership</Link>
 
-      <Link to='/shop/scrub' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-      // onClick={toggleCategories}
+      <Link to='/our-clients' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
+       onClick={toggleNav}
       >Our Clients</Link>
       
-      <Link to='/shop/oil' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-      // onClick={toggleCategories}
+      <Link to='/feedbacks' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
+       onClick={toggleNav}
       >Participants Feedbacks</Link>
       
-      <Link to='/shop/serum' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-      // onClick={toggleCategories}
+      <Link to='/satisfaction' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
+       onClick={toggleNav}
       >Satisfaction Guaranteed</Link>
 
-        <Link to='/shop/serum' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-      // onClick={toggleCategories}
+        <Link to='/crosstie-photos' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
+       onClick={toggleNav}
       >Crosstie Photos</Link>
     </div>
   )
@@ -51,36 +51,36 @@ function AboutDD() {
 
 function SolutionsDD() {
 
-  const {showSolutionsDD, hideSolutionsDD} = useContext(CrossContext)
+  const {showSolutionsDD, hideSolutionsDD, dropdownRef, toggleNav} = useContext(CrossContext)
   
 return (
   <div className='absolute z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-35vw text-15px small:top-30 small:left-10vw'
-  // ref={categoriesRef}
+  ref={dropdownRef}
   onMouseEnter={showSolutionsDD}
   onMouseLeave={hideSolutionsDD}
   >
     <Link to='/shop/lotion' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-    // onClick={toggleCategories}
+    // onClick={toggleNav}
     >Corporate Training</Link>
     
     <Link to='/shop/face' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-    // onClick={toggleCategories}
+    // onClick={toggleNav}
     >Management Consulting</Link>
     
     <Link to='/shop/soap' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-    // onClick={toggleCategories}
+    // onClick={toggleNav}
     >Customized Training</Link>
 
     <Link to='/shop/scrub' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-    // onClick={toggleCategories}
+    // onClick={toggleNav}
     >Upcoming Webinars</Link>
     
     <Link to='/shop/oil' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-    // onClick={toggleCategories}
+    // onClick={toggleNav}
     >Soft Skills  Launchpad  Programme (SSLP)</Link>
     
     <Link to='/shop/serum' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-    // onClick={toggleCategories}
+    // onClick={toggleNav}
     >The Resource Vault</Link>
 
   </div>
@@ -90,11 +90,11 @@ return (
 
 function CoursesDD() {
 
-  const {showCoursesDD, hideCoursesDD, navCourses} = useContext(CrossContext)
+  const {showCoursesDD, hideCoursesDD, navCourses, dropdownRef} = useContext(CrossContext)
   
 return (
   <div className={`absolute z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-45vw text-15px ${navCourses ? "small:top-13 small:left-10vw" : "small:top-35 small:left-10vw"}`}
-  // ref={categoriesRef}
+  ref={dropdownRef}
   onMouseEnter={showCoursesDD}
   onMouseLeave={hideCoursesDD}
   >

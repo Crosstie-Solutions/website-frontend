@@ -53,10 +53,10 @@ const ButtonSwiper = () => {
   };
 
   return (
-    <div className="flex flex-row justify-center overflow-hidden swiper-container large:w-100 text-15px small:w-90vw">
+    <div className="flex flex-row justify-center overflow-hidden border border-red-500 swiper-container large:w-100 text-15px small:w-90">
       {/* <button className="nav-btn left" onClick={scrollLeft}>&#10094;</button> */}
       
-      <div className="flex flex-row justify-center w-auto gap-2 px-1 py-0.5 border border-crossFooterText buttons-wrapper rounded-20 overflow-x-auto" ref={scrollContainerRef}>
+      <div className="flex flex-row justify-center large:w-auto gap-2 px-1 py-0.5 border border-crossFooterText buttons-wrapper rounded-20 small:w-100" ref={scrollContainerRef}>
         {routes.map((item, index) => (
           <Link to={item.route} key={index} className="flex items-center justify-center w-auto px-2 swiper-button h-40px bg-crossLightPurple rounded-20">{item.name}</Link>
         ))}
