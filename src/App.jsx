@@ -21,6 +21,10 @@ import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import OurStoryPage from "./pages/OurStoryPage/OurStoryPage";
 import LeadershipPage from "./pages/LeadershipPage/LeadershipPage";
+import OurClientsPage from "./pages/OurClientsPage/OurClientsPage";
+import FeedbacksPage from "./pages/FeedbacksPage/FeedbacksPage";
+import SatisfactionPage from "./pages/SatisfactionPage/SatisfactionPage";
+import OurPhotosPage from "./pages/OurPhotosPage/OurPhotosPage";
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
 // import { Protected } from "./Components/Protected/Protected";
@@ -54,6 +58,10 @@ function App() {
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/our-story" element={<OurStoryPage />} />
           <Route path="/leadership" element={<LeadershipPage />} />
+          <Route path="/our-clients" element={<OurClientsPage />} />
+          <Route path="/feedbacks" element={<FeedbacksPage />} />
+          <Route path="/satisfaction" element={<SatisfactionPage />} />
+          <Route path="/crosstie-photos" element={<OurPhotosPage />} />
 
           {/* <Route path="/shop/product" element={<ProductDetailPage />}>
             <Route path=":productId" element={<ProductDetailPage />} />

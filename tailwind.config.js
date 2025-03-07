@@ -28,6 +28,8 @@ export default {
 
 
       width: {
+        '2px': '2px',
+        '5px': '5px',
         '10px': '10px',
         '20px': '20px',
         '30px': '30px',
@@ -168,6 +170,7 @@ export default {
         qxDarkerGreen: '#456A0A',
         qxLemon: '#A8CB17',
         qxGray: '#7F7F7F',
+        faintPink: 'rgba(204, 150, 245, 0.3)'
       },
 
       gap: {

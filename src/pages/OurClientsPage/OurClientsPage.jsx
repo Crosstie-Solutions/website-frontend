@@ -5,13 +5,13 @@ import MobileButtonSwiper from "../../components/MobileButtonSwiper/MobileButton
 import { Link } from "react-router-dom";
 import { PHOTOS } from "../../assets/images";
 import { HiArrowLongRight } from "react-icons/hi2";
+import OurClients from "../../components/OurClients/OurClients";
 
-function LeadershipPage() {
+function OurClientsPage() {
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-5 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
-        
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto">
       <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-100vh small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
-        <img src={PHOTOS.about8} alt="photos" className="w-100 h-100" />
+        <img src={PHOTOS.about4} alt="photos" className="w-100 h-100" />
 
         <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-100vh large:w-100vw aboutOne small:h-200px small:pl-3">
           <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-extrabold small:w-80 small:text-20px">
@@ -34,15 +34,7 @@ function LeadershipPage() {
         <MobileButtonSwiper />
       </div>
 
-      <div className="flex flex-row flex-wrap justify-center h-auto gap-5 w-100">
-        <Leader />
-        <Leader />
-        <Leader />
-        <Leader />
-        <Leader />
-        <Leader />
-        <Leader />
-      </div>
+      <OurClients />
 
       <div className="flex flex-col items-center h-auto gap-1 mt-3 w-100">
         <h4 className="font-bold large:text-20px small:text-17px">Ready To Get Started?</h4>
@@ -57,4 +49,4 @@ function LeadershipPage() {
   );
 }
 
-export default LeadershipPage;
+export default OurClientsPage;

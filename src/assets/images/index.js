@@ -15,6 +15,7 @@ const PHOTOS = {
     about5: new URL("./about5.jpg", import.meta.url).href,
     about6: new URL("./about6.jpg", import.meta.url).href,
     about7: new URL("./about7.jpg", import.meta.url).href,
+    about8: new URL("./about8.jpg", import.meta.url).href,
 
     story: new URL("./story.png", import.meta.url).href,
     journey: new URL("./journey.png", import.meta.url).href,
@@ -26,7 +27,7 @@ const PHOTOS = {
     cl3: new URL("./client3.jpg", import.meta.url).href,
     cl4: new URL("./client4.png", import.meta.url).href,
     cl5: new URL("./client5.jpg", import.meta.url).href,
-    man: new URL("./man.jpg", import.meta.url).href,
+    how: new URL("./how.png", import.meta.url).href,
     mission: new URL("./mission.png", import.meta.url).href,
     vision: new URL("./vision.png", import.meta.url).href,
     

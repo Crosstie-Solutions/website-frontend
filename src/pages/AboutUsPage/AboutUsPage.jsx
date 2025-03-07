@@ -14,7 +14,7 @@ import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 
 function AboutUsPage() {
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto">
+    <div className="relative flex flex-col items-center justify-start gap-5 mt-8 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto">
       
       <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-100vh small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
 

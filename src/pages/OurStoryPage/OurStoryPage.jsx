@@ -9,7 +9,8 @@ import { HiArrowLongRight } from "react-icons/hi2";
 
 function OurStoryPage() {
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto">
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-8 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
+      
       <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-100vh small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
         <img src={PHOTOS.about3} alt="photos" className="w-100 h-100" />
 
