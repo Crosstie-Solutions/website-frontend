@@ -5,7 +5,7 @@ import "./Hero.css";
 
 function Hero() {
   return (
-    <div className="flex flex-col items-start justify-center text-white large:pl-15 large:w-100vw large:h-78vh hero small:w-100vw small:h-65vh">
+    <div className="flex flex-col items-start justify-center text-white large:pl-15 large:w-100vw large:h-500px hero small:w-100vw small:h-65vh">
       
       <div className="z-10 flex flex-col items-start justify-center large:gap-1 w-100 h-100 small:px-2 large:p-0 small:gap-2">
         
