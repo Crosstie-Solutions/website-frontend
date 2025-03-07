@@ -104,7 +104,7 @@ function WhyChooseUs() {
 
                 <div className='flex flex-col items-center h-auto gap-1 mt-3 w-100'>
                     <h4 className='font-bold text-20px'>Ready To Get Started?</h4>
-                    <Link className='flex items-center w-auto gap-1 p-1 text-white rounded h-40px bg-crossLightPurple'>Explore Our Courses <HiArrowLongRight className='text-20px'/></Link>
+                    <Link to="/our-courses" className='flex items-center w-auto gap-1 p-1 text-white rounded h-40px bg-crossLightPurple'>Explore Our Courses <HiArrowLongRight className='text-20px'/></Link>
                 </div>
     </div>
     </div>

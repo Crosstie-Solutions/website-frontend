@@ -19,6 +19,8 @@ import Footer from "./components/Footer/Footer";
 import IPGeolocation from "./components/IpGeolocation/IpGeolocation";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import OurStoryPage from "./pages/OurStoryPage/OurStoryPage";
+import LeadershipPage from "./pages/LeadershipPage/LeadershipPage";
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
 // import { Protected } from "./Components/Protected/Protected";
@@ -50,6 +52,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/ip-geo" element={<IPGeolocation />} />
           <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/our-story" element={<OurStoryPage />} />
+          <Route path="/leadership" element={<LeadershipPage />} />
 
           {/* <Route path="/shop/product" element={<ProductDetailPage />}>
             <Route path=":productId" element={<ProductDetailPage />} />

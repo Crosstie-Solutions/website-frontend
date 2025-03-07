@@ -9,6 +9,16 @@ const PHOTOS = {
 
 
     about1: new URL("./about1.jpg", import.meta.url).href,
+    about2: new URL("./about2.jpg", import.meta.url).href,
+    about3: new URL("./about3.jpg", import.meta.url).href,
+    about4: new URL("./about4.jpg", import.meta.url).href,
+    about5: new URL("./about5.jpg", import.meta.url).href,
+    about6: new URL("./about6.jpg", import.meta.url).href,
+    about7: new URL("./about7.jpg", import.meta.url).href,
+
+    story: new URL("./story.png", import.meta.url).href,
+    journey: new URL("./journey.png", import.meta.url).href,
+    adebayo: new URL("./adebayo.jpeg", import.meta.url).href,
     
 
     cl1: new URL("./client1.png", import.meta.url).href,
