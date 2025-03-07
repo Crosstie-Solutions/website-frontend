@@ -44,7 +44,7 @@ function LeadershipPage() {
       </div>
 
       <div className="flex flex-col items-center h-auto gap-1 mt-3 w-100">
-        <h4 className="font-bold text-20px">Ready To Get Started?</h4>
+        <h4 className="font-bold large:text-20px small:text-17px">Ready To Get Started?</h4>
         <Link
           to="/our-courses"
           className="flex items-center w-auto gap-1 p-1 text-white rounded h-40px bg-crossLightPurple"
