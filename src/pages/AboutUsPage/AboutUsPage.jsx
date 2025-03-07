@@ -14,7 +14,7 @@ import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 
 function AboutUsPage() {
   return (
-    <div className="relative flex flex-col items-center justify-center gap-5 mt-10 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto">
+    <div className="relative flex flex-col items-center justify-start gap-5 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto">
       
       <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-100vh small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
 
@@ -43,12 +43,12 @@ function AboutUsPage() {
         <MobileButtonSwiper />
       </div>
 
-      <div className="flex items-center justify-center h-auto gap-20 mt-5 w-100">
-        <div className="w-40 h-auto bg-[#F9F9F9] p-2 rounded">
+      <div className="flex items-center justify-center h-auto large:mt-5 large:gap-20 small:flex-col-reverse large:flex-row w-100 small:gap-1">
+        <div className="large:w-40 h-auto bg-[#F9F9F9] p-2 rounded small:w-90vw">
          <p className="leading-loose">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius excepturi labore magnam odit, magni quo eos, ipsa quis cupiditate porro similique deserunt voluptatibus iure laudantium perspiciatis rerum ea eum autem!</p>
         </div>
 
-        <img src={PHOTOS.logo} alt="logo"  className="-rotate-90 w-200px h-50px"/>
+        <img src={PHOTOS.logo} alt="logo"  className="large:-rotate-90 large:w-200px large:h-50px small:h-40px small:w-150px"/>
       </div>
 
       <WhoWeAre />
