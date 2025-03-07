@@ -11,10 +11,10 @@ function OurStoryPage() {
   return (
     <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-8 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
       
-      <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-100vh small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
+      <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
         <img src={PHOTOS.about3} alt="photos" className="w-100 h-100" />
 
-        <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-100vh large:w-100vw aboutOne small:h-200px small:pl-3">
+        <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw aboutOne small:h-200px small:pl-3">
           <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-extrabold small:w-80 small:text-20px">
             TRANSFORMING BUSINESS THROUGH PEOPLE DEVELOPMENT
           </h1>
