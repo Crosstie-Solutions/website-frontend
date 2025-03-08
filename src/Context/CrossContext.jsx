@@ -4,6 +4,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { saveAs } from "file-saver";
 import { unparse } from "papaparse";
 import { toast } from 'react-toastify';
+import { courseData } from "../assets/data";
+
+
+
 
 export const CrossContext = createContext(null);
 
@@ -112,12 +116,21 @@ const toggleCoursesDD = ()=>{
 
   const [navCourses, setNavCourses] = useState(false);
 
-  console.log("navCourses:", navCourses)
+ 
+
+
+  const [mobileSearch, setMobileSearch] = useState(false);
+
+  const toggleMobileSearch = () =>{
+    setMobileSearch(!mobileSearch)
+  }
+
+  
 
 
   //value to export
   const contextValue = {
-    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses
+    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch
   };
 
 

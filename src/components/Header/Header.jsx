@@ -10,7 +10,9 @@ import { HiMenuAlt2 } from "react-icons/hi";
 
 function Header() {
 
-    const {hideAboutDD, showAboutDD, showSolutionsDD, hideSolutionsDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, navBarRef, setNavCourses, navCourses} = useContext(CrossContext);
+    const {hideAboutDD, showAboutDD, showSolutionsDD, hideSolutionsDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, aboutDD, solutionsDD, coursesDD, toggleMobileSearch} = useContext(CrossContext);
+
+    const [activeSearch, setActiveSearch] = useState(false)
 
     
   return (
@@ -28,6 +30,7 @@ function Header() {
      </div>
 
       {/* desktop Nav */}
+      {!activeSearch &&
       <ul className="flex-row items-center justify-center w-40 gap-2 large:flex h-100 small:hidden">
         <li className="flex items-center list-none cursor-pointer h-100 hover:text-crossLightPurple"
         onMouseEnter={showAboutDD}
@@ -41,7 +44,7 @@ function Header() {
             }
             to="/about-us"
           >
-            About CrossTie <MdKeyboardArrowDown className="text-25px" />
+            About CrossTie <MdKeyboardArrowDown className={`${aboutDD ? "rotate-180" : ""} text-25px`} />
           </NavLink>
         </li>
 
@@ -58,7 +61,7 @@ function Header() {
             }
             to="/our-solutions"
           >
-            Our Solutions <MdKeyboardArrowDown className="text-25px" />
+            Our Solutions <MdKeyboardArrowDown className={`${solutionsDD ? "rotate-180" : ""} text-25px`} />
           </NavLink>
         </li>
 
@@ -74,10 +77,10 @@ function Header() {
             }
             to="/our-courses"
           >
-            Our Courses <MdKeyboardArrowDown className="text-25px" />
+            Our Courses <MdKeyboardArrowDown className={`${coursesDD ? "rotate-180" : ""} text-25px`} />
           </NavLink>
         </li>
-      </ul>
+      </ul>}
 
       
       {/* Mobile nav */}
@@ -105,7 +108,7 @@ function Header() {
             className="flex items-center gap-0.5"
             to="/about-us"
           >
-            About CrossTie <MdKeyboardArrowDown className="text-25px" />
+            About CrossTie <MdKeyboardArrowDown className={`${aboutDD ? "rotate-180" : ""} text-25px`} />
           </div>
         </li>
 
@@ -118,7 +121,7 @@ function Header() {
             className="flex items-center gap-0.5"
             to="/our-solutions"
           >
-            Our Solutions <MdKeyboardArrowDown className="text-25px" />
+            Our Solutions <MdKeyboardArrowDown className={`${solutionsDD ? "rotate-180" : ""} text-25px`} />
           </div>
         </li>
 
@@ -130,7 +133,7 @@ function Header() {
             className="flex items-center gap-0.5"
             to="/our-courses"
           >
-            Our Courses <MdKeyboardArrowDown className="text-25px" />
+            Our Courses <MdKeyboardArrowDown className={`${coursesDD ? "rotate-180" : ""} text-25px`} />
           </div>
         </li>
 
@@ -143,13 +146,26 @@ function Header() {
         {/* desktop search and all login */}
         
       <div className="flex-row items-center w-auto gap-3 large:flex h-100 small:hidden">
-        <div className="flex flex-row items-center justify-between gap-1 pl-1 text-gray-400 border cursor-pointer pr-0.5 w-260px text-13px h-40px rounded-20 border-crossLightPurple">
-          <input className="h-90 w-90 text-11px focus:border-none focus:outline-none"  placeholder="What would you love to learn today?"/>
+        
+        <div className="flex flex-row items-center justify-between gap-1 pl-1 text-gray-400 border cursor-pointer pr-0.5 w-auto text-13px h-40px rounded-20 border-crossLightPurple">
+          
+          <input type="search" name="" id="" placeholder="What would you love to learn today?"
+          className="text-black h-90 w-90 text-11px focus:w-500px focus:border-none focus:outline-none focus:text-20px focus:pl-1"
+          onFocus={()=>{
+            setActiveSearch(true);
+          }}
+
+          onBlur={()=>{
+            setActiveSearch(false);
+          }}
+          />
           <CiSearch className="rounded-full text-30px bg-crossLightPurple text-vogueWhite p-0.5"/>
         </div>
 
         <Link className="flex items-center justify-center w-auto px-2 border h-40px border-crossLightPurple text-crossLightPurple rounded-20 hover:bg-crossLightPurple hover:text-vogueWhite">Log In</Link>
       </div>
+
+
 
           {/* mobile all courses and search */}
           
@@ -161,7 +177,9 @@ function Header() {
         }}
         >Our Courses <MdKeyboardArrowDown className="text-25px" /></div>
 
-        <CiSearch className="cursor-pointer text-30px text-crossLightPurple"/>
+        <CiSearch className="cursor-pointer text-30px text-crossLightPurple"
+        onClick={toggleMobileSearch}
+        />
       </div>
     </nav>
   );

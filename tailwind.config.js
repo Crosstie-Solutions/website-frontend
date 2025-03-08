@@ -162,6 +162,7 @@ export default {
         crossYellow: '#F9AC15',
         paleYellow: '#A49C5A',
         overlay: 'rgb(23, 23, 23, 0.7)',
+        overlaySecond: 'rgb(23, 23, 23, 0.9)',
         buttonOverlay: 'rgba(223, 221, 223, 0.3)',
         appBg: '#f1f1f2',
         qxLightGreen: '#99CB50',

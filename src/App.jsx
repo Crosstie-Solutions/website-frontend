@@ -25,6 +25,9 @@ import OurClientsPage from "./pages/OurClientsPage/OurClientsPage";
 import FeedbacksPage from "./pages/FeedbacksPage/FeedbacksPage";
 import SatisfactionPage from "./pages/SatisfactionPage/SatisfactionPage";
 import OurPhotosPage from "./pages/OurPhotosPage/OurPhotosPage";
+import MobileSearchBar from "./components/MobileSearchBar/MobileSearchBar";
+import {CourseSuggestion} from "./components/CourseSuggestion/CourseSuggestion";
+import { courseData } from "./assets/data";
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
 // import { Protected } from "./Components/Protected/Protected";
@@ -33,7 +36,7 @@ import OurPhotosPage from "./pages/OurPhotosPage/OurPhotosPage";
 
 function App() {  
 
-  const {aboutDD, solutionsDD, coursesDD} = useContext(CrossContext);
+  const {aboutDD, solutionsDD, coursesDD, mobileSearch, courseSug} = useContext(CrossContext);
 
   return (
     <div className="App bg-appBg">
@@ -50,6 +53,8 @@ function App() {
         {aboutDD && <AboutDD />}
         {solutionsDD && <SolutionsDD />}
         {coursesDD && <CoursesDD />}
+        {mobileSearch && <MobileSearchBar />}
+        {/* {courseData.length >  0 && <CourseSuggestion />} */}
         
 
         <Routes>
