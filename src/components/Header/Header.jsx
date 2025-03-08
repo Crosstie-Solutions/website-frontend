@@ -131,6 +131,8 @@ function Header() {
             Our Courses <MdKeyboardArrowDown className="text-25px" />
           </div>
         </li>
+
+        <Link className="flex items-center justify-center w-auto px-2 mt-5 border h-30px bg-crossLightPurple rounded-10 text-white">Log In</Link>
       </ul>}
 
       
