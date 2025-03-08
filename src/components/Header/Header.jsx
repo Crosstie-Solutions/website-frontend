@@ -87,7 +87,9 @@ function Header() {
       >
 
         <div className="absolute left-0 flex items-center justify-between h-auto px-2 top-2 w-100">
-          <Link to="/"><img src={PHOTOS.logo} alt="logo" className="h-30px w-100px"/></Link>
+          <Link to="/"
+          onClick={toggleNav}
+          ><img src={PHOTOS.logo} alt="logo" className="h-30px w-100px"/></Link>
 
           <IoCloseOutline className="cursor-pointer text-25px text-crossLightPurple"
           onClick={toggleNav}
@@ -132,7 +134,7 @@ function Header() {
           </div>
         </li>
 
-        <Link className="flex items-center justify-center w-auto px-2 mt-5 border h-30px bg-crossLightPurple rounded-10 text-white">Log In</Link>
+        <Link className="flex items-center justify-center w-auto px-2 mt-5 text-white border h-40px bg-crossLightPurple rounded-10">Log In</Link>
       </ul>}
 
       

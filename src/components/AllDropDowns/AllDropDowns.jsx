@@ -15,31 +15,52 @@ function AboutDD() {
     onMouseLeave={hideAboutDD}
     >
       <Link to="/about-us" className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-       onClick={toggleNav}
+       onClick={()=>{
+        toggleNav();
+        hideAboutDD()
+       }}
       >About Us</Link>
       
       <Link to='/our-story' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-       onClick={toggleNav}
+       onClick={()=>{
+        toggleNav();
+        hideAboutDD()
+       }}
       >Our Story</Link>
       
       <Link to='/leadership' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-       onClick={toggleNav}
+       onClick={()=>{
+        toggleNav();
+        hideAboutDD()
+       }}
       >Leadership</Link>
 
       <Link to='/our-clients' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-       onClick={toggleNav}
+       onClick={()=>{
+        toggleNav();
+        hideAboutDD()
+       }}
       >Our Clients</Link>
       
       <Link to='/feedbacks' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-       onClick={toggleNav}
+       onClick={()=>{
+        toggleNav();
+        hideAboutDD()
+       }}
       >Participants Feedbacks</Link>
       
       <Link to='/satisfaction' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-       onClick={toggleNav}
+       onClick={()=>{
+        toggleNav();
+        hideAboutDD()
+       }}
       >Satisfaction Guaranteed</Link>
 
         <Link to='/crosstie-photos' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
-       onClick={toggleNav}
+       onClick={()=>{
+        toggleNav();
+        hideAboutDD()
+       }}
       >Crosstie Photos</Link>
     </div>
   )
