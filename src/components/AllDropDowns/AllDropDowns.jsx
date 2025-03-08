@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { MdChevronRight } from "react-icons/md";
 import { CrossContext } from '../../Context/CrossContext';
 
 
@@ -10,7 +9,7 @@ function AboutDD() {
     const {hideAboutDD, showAboutDD, dropdownRef, toggleNav} = useContext(CrossContext)
     
   return (
-    <div className='fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-25vw text-15px small:top-28 small:left-10vw'
+    <div className='fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-25vw text-15px small:top-30 small:left-10vw'
     ref={dropdownRef}
     onMouseEnter={showAboutDD}
     onMouseLeave={hideAboutDD}
@@ -53,7 +52,7 @@ function SolutionsDD() {
   const {showSolutionsDD, hideSolutionsDD, dropdownRef, toggleNav} = useContext(CrossContext)
   
 return (
-  <div className='fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-35vw text-15px small:top-30 small:left-10vw'
+  <div className='fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-35vw text-15px small:top-35 small:left-10vw'
   ref={dropdownRef}
   onMouseEnter={showSolutionsDD}
   onMouseLeave={hideSolutionsDD}
@@ -92,7 +91,7 @@ function CoursesDD() {
   const {showCoursesDD, hideCoursesDD, navCourses, dropdownRef} = useContext(CrossContext)
   
 return (
-  <div className={`fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-45vw text-15px ${navCourses ? "small:top-13 small:left-10vw" : "small:top-35 small:left-10vw"}`}
+  <div className={`fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-45vw text-15px ${navCourses ? "small:top-13 small:left-10vw" : "small:top-40 small:left-10vw"}`}
   ref={dropdownRef}
   onMouseEnter={showCoursesDD}
   onMouseLeave={hideCoursesDD}
