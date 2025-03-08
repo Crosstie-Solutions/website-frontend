@@ -12,7 +12,7 @@ function MobileSearchBar() {
     <div className='fixed top-0 left-0 z-20 flex flex-col items-center justify-center gap-1 h-100vh w-100vw bg-overlaySecond small:flex large:hidden'>
         <IoCloseOutline 
         onClick={toggleMobileSearch}
-        className='absolute text-white cursor-pointer top-5 right-5 text-30px'
+        className='absolute text-white cursor-pointer top-8 right-5 text-35px'
         />
       
       <div className='flex items-center justify-center w-100 h-40px text-13px'>
