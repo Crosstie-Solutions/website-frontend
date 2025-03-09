@@ -104,7 +104,7 @@ function Header() {
         </div>
         
         
-        <div>
+        <div className="flex flex-col h-auto gap-1 w-100">
           <li className="flex items-center h-auto list-none cursor-pointer hover:text-crossLightPurple"
         onClick={toggleAboutDD}
         ref={dropdownRef}
@@ -151,18 +151,18 @@ function Header() {
 
           <div className='flex flex-col items-start h-auto gap-1 text-crossLightPurple w-100 text-13px'>
                 
-                <a href={`tel:08138957283`} className="flex items-center justify-center gap-1 small:gap-1"><FaPhone /> +234 708 560 4023</a>
+                <a href={`tel:08138957283`} className="flex items-center justify-center gap-1 small:gap-1 text-15px"><FaPhone /> +234 708 560 4023</a>
                 
                 
                 <a
                 href="https://wa.me/2348138957283"
-                className='flex items-center justify-center gap-1 small:gap-1'
+                className='flex items-center justify-center gap-1 small:gap-1 text-15px'
                 ><FaWhatsapp className='text-whatsAppGreen'/> +234 708 560 4023</a>
                 
                 
                 <a 
                 href="mailto:info@crosstie.com"
-                className='flex items-center justify-center gap-1'><MdOutlineMail /> info@crosstie.com</a>
+                className='flex items-center justify-center gap-1 text-15px'><MdOutlineMail /> info@crosstie.com</a>
               </div>
         </div>
 
