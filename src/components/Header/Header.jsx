@@ -88,11 +88,12 @@ function Header() {
       
       {/* Mobile nav */}
       {navBar &&
-      <ul className="fixed top-0 left-0 z-20 flex-col items-start justify-center gap-1 pl-2 bg-white small:flex w-70vw h-100vh large:hidden"
+      <ul className="fixed top-0 left-0 z-20 flex-col items-start justify-center gap-3 pl-2 bg-white small:flex w-70vw h-100vh large:hidden"
       // ref={navBarRef}
       >
 
         <div className="absolute left-0 flex items-center justify-between h-auto px-2 top-2 w-100">
+          
           <Link to="/"
           onClick={toggleNav}
           ><img src={PHOTOS.logo} alt="logo" className="h-30px w-100px"/></Link>
@@ -103,7 +104,8 @@ function Header() {
         </div>
         
         
-        <li className="flex items-center h-auto list-none cursor-pointer hover:text-crossLightPurple"
+        <div>
+          <li className="flex items-center h-auto list-none cursor-pointer hover:text-crossLightPurple"
         onClick={toggleAboutDD}
         ref={dropdownRef}
         >
@@ -113,32 +115,34 @@ function Header() {
           >
             About CrossTie <MdKeyboardArrowDown className={`${aboutDD ? "rotate-180" : ""} text-25px`} />
           </div>
-        </li>
+          </li>
 
-        <li className="flex items-center h-auto list-none cursor-pointer hover:text-crossLightPurple"
-        
-        onClick={toggleSolutionsDD}
-        ref={dropdownRef}
-        >
-          <div
-            className="flex items-center gap-0.5"
-            to="/our-solutions"
+          <li className="flex items-center h-auto list-none cursor-pointer hover:text-crossLightPurple"
+          
+          onClick={toggleSolutionsDD}
+          ref={dropdownRef}
           >
-            Our Solutions <MdKeyboardArrowDown className={`${solutionsDD ? "rotate-180" : ""} text-25px`} />
-          </div>
-        </li>
+            <div
+              className="flex items-center gap-0.5"
+              to="/our-solutions"
+            >
+              Our Solutions <MdKeyboardArrowDown className={`${solutionsDD ? "rotate-180" : ""} text-25px`} />
+            </div>
+          </li>
 
-        <li className="flex items-center h-auto list-none cursor-pointer hover:text-crossLightPurple"
-        onClick={toggleCoursesDD}
-        ref={dropdownRef}
-        >
-          <div
-            className="flex items-center gap-0.5"
-            to="/our-courses"
+          <li className="flex items-center h-auto list-none cursor-pointer hover:text-crossLightPurple"
+          onClick={toggleCoursesDD}
+          ref={dropdownRef}
           >
-            Our Courses <MdKeyboardArrowDown className={`${coursesDD ? "rotate-180" : ""} text-25px`} />
-          </div>
-        </li>
+            <div
+              className="flex items-center gap-0.5"
+              to="/our-courses"
+            >
+              Our Courses <MdKeyboardArrowDown className={`${coursesDD ? "rotate-180" : ""} text-25px`} />
+            </div>
+          </li>
+        </div>
+
 
         <div className="flex flex-col items-start gap-1 mt-2 text-13px">
           <div className="text-left">Can't find what you're searching for?</div>
