@@ -24,7 +24,7 @@ function Header() {
         <HiMenuAlt2 className="cursor-pointer text-30px text-crossLightPurple small:flex large:hidden"
         onClick={toggleNav}
         />
-        <a href="/" className="flex items-center justify-center large:w-150px large:h-50 small:h-30px small:w-70px">
+        <a href="/" className="flex items-center justify-center large:w-150px large:h-50 small:h-20px small:w-70px">
             <img src={PHOTOS.logo} alt="logo" className="w-100 h-100" />
           </a>
      </div>

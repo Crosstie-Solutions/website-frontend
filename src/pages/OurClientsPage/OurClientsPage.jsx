@@ -1,7 +1,6 @@
 import React from "react";
-import Leader from "../../components/Leader/Leader";
-import ButtonSwiper from "../../components/ButtonSwiper/ButtonSwiper";
-import MobileButtonSwiper from "../../components/MobileButtonSwiper/MobileButtonSwiper";
+import { MobileAboutButtonSwiper } from "../../components/MobileButtonSwiper/MobileButtonSwiper";
+import { AboutButtonSwiper } from "../../components/ButtonSwiper/ButtonSwiper";
 import { Link } from "react-router-dom";
 import { PHOTOS } from "../../assets/images";
 import { HiArrowLongRight } from "react-icons/hi2";
@@ -31,8 +30,8 @@ function OurClientsPage() {
       </div>
 
       <div className="flex flex-col items-center h-auto w-100">
-        <ButtonSwiper />
-        <MobileButtonSwiper />
+        <AboutButtonSwiper />
+        <MobileAboutButtonSwiper />
       </div>
 
       <OurClients />

@@ -28,6 +28,7 @@ import OurPhotosPage from "./pages/OurPhotosPage/OurPhotosPage";
 import MobileSearchBar from "./components/MobileSearchBar/MobileSearchBar";
 import {CourseSuggestion} from "./components/CourseSuggestion/CourseSuggestion";
 import { courseData } from "./assets/data";
+import OpenExecutivePage from "./pages/OpenExecutivePage/OpenExecutivePage";
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
 // import { Protected } from "./Components/Protected/Protected";
@@ -36,7 +37,12 @@ import { courseData } from "./assets/data";
 
 function App() {  
 
-  const {aboutDD, solutionsDD, coursesDD, mobileSearch, courseSug} = useContext(CrossContext);
+  const {aboutDD, solutionsDD, coursesDD, mobileSearch, viewAllPrograms} = useContext(CrossContext);
+
+
+  useEffect(()=>{
+    viewAllPrograms();
+  },[])
 
   return (
     <div className="App bg-appBg">
@@ -67,6 +73,9 @@ function App() {
           <Route path="/feedbacks" element={<FeedbacksPage />} />
           <Route path="/satisfaction" element={<SatisfactionPage />} />
           <Route path="/crosstie-photos" element={<OurPhotosPage />} />
+
+          
+          <Route path="/our-courses" element={<OpenExecutivePage />} />
 
           {/* <Route path="/shop/product" element={<ProductDetailPage />}>
             <Route path=":productId" element={<ProductDetailPage />} />

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 //desktop
-const ButtonSwiper = () => {
+const AboutButtonSwiper = () => {
 
   const routes = [{
     name: "Overview",
@@ -36,7 +36,6 @@ const ButtonSwiper = () => {
 ]
 
 
-
     const location = useLocation()
 
   
@@ -62,4 +61,50 @@ const ButtonSwiper = () => {
 };
 
 
-export default ButtonSwiper;
+const CoursesButtonSwiper = () => {
+
+  const routes = [{
+    name: "Open executive programmes (OEP)",
+    route: "our-courses"
+  },
+  {
+    name: "Executive Leadership programmes (ELP)",
+    route: "executive-leadership"
+  },
+  {
+    name: "Sales excellence series (SES)",
+    route: "sales-excellence"
+  },
+  {
+    name: "Complete employee series (CES)",
+    route: "complete-employee"
+  }
+]
+
+
+    const location = useLocation()
+
+  
+
+  return (
+    <div className="flex-row justify-center mt-5 overflow-hidden large:flex large:w-100 large:text-13px small:w-90 small:text-10px small:hidden">
+   
+      
+      <div className="flex flex-row justify-center large:w-auto gap-2 px-1 py-0.5 border border-crossFooterText  rounded-20 small:w-100" 
+     
+      >
+        {routes.map((item, index) => (
+          <NavLink to={`/${item.route}`} key={index} 
+          className={`${location.pathname===`/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
+          } flex items-center justify-center w-auto large:px-2 large:h-40px rounded-20 small:px-1 small:h-30px`}
+          >{item.name}</NavLink>
+        ))}
+      </div>
+
+     
+    </div>
+  );
+};
+
+
+export {AboutButtonSwiper, CoursesButtonSwiper};

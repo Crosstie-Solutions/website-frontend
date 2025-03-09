@@ -62,7 +62,7 @@ function OurReach() {
       </div>
 
       <div
-        className="flex items-center justify-center gap-3 border border-gray-300 large:flex-row large:h-150px w-100 bg-crossIconBg rounded-10 small:flex-col small:h-auto small:py-2 large:py-0"
+        className="flex items-center justify-center gap-3 border border-gray-300 large:flex-row large:h-150px w-100 bg-crossIconBg rounded-10 small:flex-wrap small:h-auto small:py-2 large:py-0"
         ref={counterRef}
       >
 
@@ -77,7 +77,7 @@ function OurReach() {
           return (
 
             <div
-              className={`flex flex-col justify-start h-70 border-crossLightPurple w-150px  border-r`}
+              className={`flex flex-col justify-start large:h-70 border-crossLightPurple large:w-150px  border-r small:w-100px small:h-100px`}
               key={index}
             >
               <h3 className="font-bold text-center text-30px text-crossLightPurple w-80">

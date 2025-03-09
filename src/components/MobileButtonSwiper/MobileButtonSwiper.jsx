@@ -4,7 +4,7 @@ import "./MobileButtonSwiper.css";
 
 
 
-function MobileButtonSwiper() {
+function MobileAboutButtonSwiper() {
   const routes = [
     {
       name: "Overview",
@@ -61,4 +61,50 @@ function MobileButtonSwiper() {
   );
 }
 
-export default MobileButtonSwiper;
+function MobileCoursesButtonSwiper() {
+  
+  const routes = [
+    {
+    name: "Open executive programmes (OEP)",
+    route: "our-courses"
+  },
+  {
+    name: "Executive Leadership programmes (ELP)",
+    route: "executive-leadership"
+  },
+  {
+    name: "Sales excellence series (SES)",
+    route: "sales-excellence"
+  },
+  {
+    name: "Complete employee series (CES)",
+    route: "complete-employee"
+  }
+]
+
+  return (
+   
+      <div className="border mobile-swiper-container">
+
+        <div
+          className="mobile-buttons-wrapper"
+        >
+
+          {routes.map((item, index) => (
+                    <NavLink 
+                    to={`/${item.route}`} 
+                    key={index} 
+                    className={`${location.pathname===`/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
+                    } flex items-center justify-center w-auto px-2 font-semibold mobile-swiper-button text-10px rounded-20 h-30px`}
+                    >{item.name}</NavLink>
+        ))}
+        </div>
+
+        
+      </div>
+
+
+  );
+}
+
+export {MobileAboutButtonSwiper, MobileCoursesButtonSwiper};

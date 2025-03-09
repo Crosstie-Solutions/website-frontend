@@ -1,6 +1,6 @@
 import React from "react";
-import ButtonSwiper from "../../components/ButtonSwiper/ButtonSwiper";
-import MobileButtonSwiper from "../../components/MobileButtonSwiper/MobileButtonSwiper";
+import { MobileAboutButtonSwiper } from "../../components/MobileButtonSwiper/MobileButtonSwiper";
+import { AboutButtonSwiper } from "../../components/ButtonSwiper/ButtonSwiper";
 import { Link } from "react-router-dom";
 import { PHOTOS } from "../../assets/images";
 import { HiArrowLongRight } from "react-icons/hi2";
@@ -31,8 +31,8 @@ function SatisfactionPage() {
       </div>
 
       <div className="flex flex-col items-center h-auto w-100">
-        <ButtonSwiper />
-        <MobileButtonSwiper />
+        <AboutButtonSwiper />
+        <MobileAboutButtonSwiper />
       </div>
 
       <div className="flex h-auto large:flex-row large:pr-2 large:gap-5 large:justify-start large:items-center large:w-70 bg-faintPink rounded-10 small:flex-col small:items-center small:w-90vw small:p-1 small:gap-2">

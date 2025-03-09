@@ -8,6 +8,7 @@ function AboutDD() {
 
     const {hideAboutDD, showAboutDD, dropdownRef, toggleNav} = useContext(CrossContext)
     
+    
   return (
     <div className='fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-25vw text-15px small:top-30 small:left-2'
     ref={dropdownRef}
@@ -117,19 +118,22 @@ return (
   onMouseEnter={showCoursesDD}
   onMouseLeave={hideCoursesDD}
   >
-    <Link to='/shop/lotion' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
+    <Link to='/our-courses' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
     // onClick={toggleCategories}
     >Open Executive  Programmes (OEP)</Link>
     
-    <Link to='/shop/face' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
+    
+    <Link to='/executive-leadership' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
     // onClick={toggleCategories}
     >Executive  Leadership  Programme (ELP)</Link>
     
-    <Link to='/shop/soap' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
+    
+    <Link to='/sales-excellence' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
     // onClick={toggleCategories}
     >Sales Excellence  Series (SES)</Link>
 
-    <Link to='/shop/scrub' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
+
+    <Link to='/complete-employee' className='flex items-center justify-between pl-1 text-black hover:text-white hover:bg-crossLightPurple'
     // onClick={toggleCategories}
     >Complete  Employee Series  (CES)</Link>
 

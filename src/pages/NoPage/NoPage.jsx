@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function NoPage(){
     return(
-        <div className="flex flex-col items-center h-auto gap-2 pb-5 large:mt-5 large:w-70vw text-15px small:w-90vw small:mt-13">
+        <div className="flex flex-col items-center h-auto gap-2 pb-5 large:mt-15 large:w-70vw text-15px small:w-90vw small:mt-15">
             <h1 className="font-bold">Hmmm!</h1>
             <h3 className="font-bold">I can't find what you are looking for.</h3>
             <p>We're sorry, but the page you are looking for could not be found. 

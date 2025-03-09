@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import "./AboutUsPage.css";
 import { PHOTOS } from "../../assets/images";
-import MobileButtonSwiper from "../../components/MobileButtonSwiper/MobileButtonSwiper";
-import ButtonSwiper from "../../components/ButtonSwiper/ButtonSwiper";
+import { MobileAboutButtonSwiper } from "../../components/MobileButtonSwiper/MobileButtonSwiper";
+import { AboutButtonSwiper } from "../../components/ButtonSwiper/ButtonSwiper";
 import WhoWeAre from "../../components/WhoWeAre/WhoWeAre";
 import OurReach from "../../components/OurReach/OurReach";
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
+
 
 
 
@@ -39,8 +40,8 @@ function AboutUsPage() {
 
 
       <div className="flex flex-col items-center h-auto w-100">
-        <ButtonSwiper />
-        <MobileButtonSwiper />
+        <AboutButtonSwiper />
+        <MobileAboutButtonSwiper />
       </div>
 
       <div className="flex items-center justify-center h-auto large:mt-5 large:gap-20 small:flex-col-reverse large:flex-row w-100 small:gap-1">

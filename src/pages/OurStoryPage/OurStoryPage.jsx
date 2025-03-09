@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { PHOTOS } from "../../assets/images";
-import MobileButtonSwiper from "../../components/MobileButtonSwiper/MobileButtonSwiper";
-import ButtonSwiper from "../../components/ButtonSwiper/ButtonSwiper";
+import { MobileAboutButtonSwiper } from "../../components/MobileButtonSwiper/MobileButtonSwiper";
+import { AboutButtonSwiper } from "../../components/ButtonSwiper/ButtonSwiper";
 import { HiArrowLongRight } from "react-icons/hi2";
 
 
@@ -31,8 +31,8 @@ function OurStoryPage() {
       </div>
 
       <div className="flex flex-col items-center h-auto w-100">
-        <ButtonSwiper />
-        <MobileButtonSwiper />
+        <AboutButtonSwiper />
+        <MobileAboutButtonSwiper />
       </div>
 
       <div className="flex items-center justify-center h-auto large:mt-5 large:gap-5 small:flex-col-reverse large:flex-row w-100 small:gap-1">

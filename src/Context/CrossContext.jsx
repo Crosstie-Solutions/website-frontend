@@ -125,12 +125,67 @@ const toggleCoursesDD = ()=>{
     setMobileSearch(!mobileSearch)
   }
 
+  //to format date
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { day: '2-digit', month: 'short' };
+    return date.toLocaleDateString('en-GB', options);
+}
+
+
+  const [allPrograms, setAllPrograms] = useState();
+  const [loadingAllPrograms, setLoadingAllPrograms] = useState(false);
+
+  console.log("allPrograms:", allPrograms);
+
+
+
+  const viewAllPrograms = async () => {
+    try {
+      setLoadingAllPrograms(true)
+      const response = await axios.get(`${baseUrl}/api/program`);
+
+      setAllPrograms(response.data.data.data);
+    } catch (dupError) {
+      console.log("error fetching all programs:", dupError);
+    }finally{
+      setLoadingAllPrograms(false)
+    }
+  };
+
+
+  // //for admin to filter product
+  // const [currentProductsPage, setCurrentProductsPage] = useState(1);
+  // const [productsSearchTerm, setProductsSearchTerm] = useState("");
+  // const productsPerPage = 10;
+
+  // // Filter products based on search term
+  // const filteredProducts = allProducts && allProducts.filter((product) =>
+  //   `${product.title} ${product.category}`
+  //     .toLowerCase()
+  //     .includes(productsSearchTerm.toLowerCase())
+  // );
+
+  // // Calculate total pages
+  // const totalProductsPages = filteredProducts && Math.ceil(filteredProducts.length / productsPerPage);
+
+  // // Get requests for the current page
+  // const productsStartIndex = (currentProductsPage - 1) * productsPerPage;
+  // const productsEndIndex = productsStartIndex + productsPerPage;
+  // const currentProducts = filteredProducts && filteredProducts.slice(productsStartIndex, productsEndIndex).reverse();
+
+  // // Handle page change
+  // const handleProductsPageChange = (page) => {
+  //   if (page > 0 && page <= totalProductsPages) {
+  //     setCurrentProductsPage(page);
+  //   }
+  // };
   
 
 
   //value to export
   const contextValue = {
-    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch
+    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate
   };
 
 
