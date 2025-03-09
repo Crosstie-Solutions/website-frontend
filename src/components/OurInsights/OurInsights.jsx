@@ -25,7 +25,7 @@ function OurInsights() {
           <div className="flex justify-center h-auto gap-3 small:flex-col large:flex-wrap large:flex-row w-100">
             
             <div className="flex flex-col items-start h-auto gap-1 px-1 py-2 border large:w-30 border-crossIconBg rounded-10 small:w-100">
-              <img src={PHOTOS.man} alt="blog image" className="w-100 h-150px rounded-5"/>
+              <img src={PHOTOS.about8} alt="blog image" className="w-100 h-150px rounded-5"/>
 
               <div className="flex flex-row justify-between h-auto w-100 text-crossTextGray">
                 <div>Article</div>
@@ -42,7 +42,7 @@ function OurInsights() {
             </div>
 
             <div className="flex flex-col items-start h-auto gap-1 px-1 py-2 border large:w-30 border-crossIconBg rounded-10 small:w-100">
-              <img src={PHOTOS.man} alt="blog image" className="w-100 h-150px rounded-5"/>
+              <img src={PHOTOS.about8} alt="blog image" className="w-100 h-150px rounded-5"/>
 
               <div className="flex flex-row justify-between h-auto w-100 text-crossTextGray">
                 <div>Article</div>
@@ -59,7 +59,7 @@ function OurInsights() {
             </div>
 
             <div className="flex flex-col items-start h-auto gap-1 px-1 py-2 border large:w-30 border-crossIconBg rounded-10 small:w-100">
-              <img src={PHOTOS.man} alt="blog image" className="w-100 h-150px rounded-5"/>
+              <img src={PHOTOS.about8} alt="blog image" className="w-100 h-150px rounded-5"/>
 
               <div className="flex flex-row justify-between h-auto w-100 text-crossTextGray">
                 <div>Article</div>
