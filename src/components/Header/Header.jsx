@@ -92,7 +92,7 @@ function Header() {
       // ref={navBarRef}
       >
 
-        <div className="absolute left-0 flex items-center justify-between h-auto px-2 border border-red-500 top-2 w-100">
+        <div className="absolute left-0 flex items-center justify-between h-auto px-2 top-2 w-100">
           
           <Link to="/"
           onClick={toggleNav}
@@ -166,7 +166,7 @@ function Header() {
               </div>
         </div>
 
-        <Link className="flex items-center justify-center w-auto px-2 mt-5 text-white border h-40px bg-crossLightPurple rounded-10">Log In</Link>
+        <Link className="flex items-center justify-center px-2 mt-5 text-white border w-80 h-40px bg-crossLightPurple rounded-10">Log In</Link>
       </ul>}
 
       
