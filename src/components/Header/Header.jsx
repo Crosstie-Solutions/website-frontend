@@ -6,6 +6,9 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { CrossContext } from "../../Context/CrossContext";
 import { IoCloseOutline } from "react-icons/io5";
 import { HiMenuAlt2 } from "react-icons/hi";
+import { FaPhone } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { MdOutlineMail } from "react-icons/md";
 
 
 function Header() {
@@ -85,7 +88,7 @@ function Header() {
       
       {/* Mobile nav */}
       {navBar &&
-      <ul className="fixed top-0 left-0 z-20 flex-col items-start justify-center gap-2 pl-2 bg-white small:flex w-70vw h-100vh large:hidden"
+      <ul className="fixed top-0 left-0 z-20 flex-col items-start justify-center gap-1 pl-2 bg-white small:flex w-70vw h-100vh large:hidden"
       // ref={navBarRef}
       >
 
@@ -136,6 +139,28 @@ function Header() {
             Our Courses <MdKeyboardArrowDown className={`${coursesDD ? "rotate-180" : ""} text-25px`} />
           </div>
         </li>
+
+        <div className="flex flex-col items-start gap-1 mt-2 text-13px">
+          <div className="text-left">Can't find what you're searching for?</div>
+
+          <div className="text-left text-crossTextGray">We're here to help.</div>
+
+          <div className='flex flex-col items-start h-auto gap-1 text-crossLightPurple w-100 text-13px'>
+                
+                <a href={`tel:08138957283`} className="flex items-center justify-center gap-1 small:gap-1"><FaPhone /> +234 708 560 4023</a>
+                
+                
+                <a
+                href="https://wa.me/2348138957283"
+                className='flex items-center justify-center gap-1 small:gap-1'
+                ><FaWhatsapp className='text-whatsAppGreen'/> +234 708 560 4023</a>
+                
+                
+                <a 
+                href="mailto:info@crosstie.com"
+                className='flex items-center justify-center gap-1'><MdOutlineMail /> info@crosstie.com</a>
+              </div>
+        </div>
 
         <Link className="flex items-center justify-center w-auto px-2 mt-5 text-white border h-40px bg-crossLightPurple rounded-10">Log In</Link>
       </ul>}
