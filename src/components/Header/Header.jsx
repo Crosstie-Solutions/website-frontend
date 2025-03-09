@@ -88,11 +88,11 @@ function Header() {
       
       {/* Mobile nav */}
       {navBar &&
-      <ul className="fixed top-0 left-0 z-20 flex-col items-start justify-center gap-3 pl-2 bg-white small:flex w-70vw h-100vh large:hidden"
+      <ul className="fixed top-0 left-0 z-20 flex-col items-start justify-center gap-5 pl-2 bg-white small:flex w-70vw h-100vh large:hidden"
       // ref={navBarRef}
       >
 
-        <div className="absolute left-0 flex items-center justify-between h-auto px-2 top-2 w-100">
+        <div className="absolute left-0 flex items-center justify-between h-auto px-2 border border-red-500 top-2 w-100">
           
           <Link to="/"
           onClick={toggleNav}
