@@ -74,7 +74,7 @@ function SolutionsDD() {
   const {showSolutionsDD, hideSolutionsDD, dropdownRef, toggleNav} = useContext(CrossContext)
   
 return (
-  <div className='fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border border-green-500 rounded shadow-lg w-250px large:top-13 large:left-35vw text-15px small:top-15 small:left-2'
+  <div className='fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border border-red-500 rounded shadow-lg w-250px large:top-13 large:left-35vw text-15px small:top-18 small:left-2'
   ref={dropdownRef}
   onMouseEnter={showSolutionsDD}
   onMouseLeave={hideSolutionsDD}
