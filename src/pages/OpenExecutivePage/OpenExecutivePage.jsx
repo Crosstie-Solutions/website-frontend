@@ -13,13 +13,14 @@ import ProgramsFilter from "../../components/ProgramsFilter/ProgramsFilter";
 
 
 
+
 function OpenExecutivePage() {
 
     const {allPrograms} = useContext(CrossContext);
 
     
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 large:mt-8 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
+    <div className="relative flex flex-col items-center justify-start gap-5 large:mt-8 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13">
       
       <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
 
@@ -74,6 +75,8 @@ function OpenExecutivePage() {
         </div>
         
         
+
+          
     </div>
   );
 }
