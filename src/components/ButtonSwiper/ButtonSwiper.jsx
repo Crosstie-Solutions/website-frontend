@@ -6,7 +6,7 @@ const AboutButtonSwiper = () => {
 
   const routes = [{
     name: "Overview",
-    route: "about-us"
+    route: ""
   },
   {
     name: "Our story",
@@ -48,8 +48,8 @@ const AboutButtonSwiper = () => {
      
       >
         {routes.map((item, index) => (
-          <NavLink to={`/${item.route}`} key={index} 
-          className={`${location.pathname===`/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
+          <NavLink to={`/about-us/${item.route}`} key={index} 
+          className={`${location.pathname===`/about-us/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
           } flex items-center justify-center w-auto large:px-2 large:h-40px rounded-20 small:px-1 small:h-30px`}
           >{item.name}</NavLink>
         ))}
@@ -65,7 +65,7 @@ const CoursesButtonSwiper = () => {
 
   const routes = [{
     name: "Open executive programmes (OEP)",
-    route: "our-courses"
+    route: ""
   },
   {
     name: "Executive Leadership programmes (ELP)",
@@ -94,8 +94,8 @@ const CoursesButtonSwiper = () => {
      
       >
         {routes.map((item, index) => (
-          <NavLink to={`/${item.route}`} key={index} 
-          className={`${location.pathname===`/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
+          <NavLink to={`/our-courses/${item.route}`} key={index} 
+          className={`${location.pathname===`/our-courses/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
           } flex items-center justify-center w-auto large:px-2 large:h-40px rounded-20 small:px-1 small:h-30px`}
           >{item.name}</NavLink>
         ))}

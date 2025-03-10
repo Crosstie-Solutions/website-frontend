@@ -7,30 +7,37 @@ import { CrossContext } from '../../Context/CrossContext';
 
 function ProgramsFilter() {
 
-    const {setProductsSearchTerm, productsSearchTerm, setCurrentProductsPage } = useContext(CrossContext);
+    const {setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage } = useContext(CrossContext);
     
     
   return (
-    <div className="flex flex-row items-center justify-center gap-1 p-1 border border-black rounded-10 h-100 w-100 text-15px">
+    <div className="flex flex-row items-center border border-red-500 large:p-1 large:gap-5 large:justify-center rounded-10 h-100 large:w-100 text-15px small:w-90vw small:justify-between">
       
-        <div className='flex items-center justify-center w-40 h-40px'>
-          <IoIosSearch className='text-20px text-cribGray'/>
+        <div className='flex items-center bg-white border rounded large:justify-center large:w-30 h-40px border-crossTextGray small:w-60 small:justify-between'>
+          
           
           <input
             type="text"
             placeholder="search Courses"
-            value={productsSearchTerm}
+            value={programsSearchTerm}
             onChange={(e) => {
-              setProductsSearchTerm(e.target.value);
-              setCurrentProductsPage(1); // Reset to first page on search
+              setProgramsSearchTerm(e.target.value);
+              setCurrentProgramsPage(1); // Reset to first page on search
             }}
-            className="px-1 py-2 bg-transparent rounded large:w-90 focus:outline-none h-100 small:w-95"
+            className="px-1 py-2 bg-transparent rounded large:w-90 focus:outline-none h-100 small:w-80"
           />
+
+          <IoIosSearch className='text-20px text-cribGray text-crossTextGray'/>
         </div>
 
 
-        <div className='flex items-center justify-center w-40 border border-red-500 h-40px'>
-          <select className='px-1 rounded cursor-pointer h-100 focus:border-none focus:outline-none'>
+        <div className='flex items-center justify-center border rounded border-crossTextGray w-30 h-40px small:text-11px large:text-15px'>
+          <select className='px-1 rounded cursor-pointer h-100 focus:border-none focus:outline-none w-100'
+           onChange={(e) => {
+            setProgramsSearchTerm(e.target.value);
+            setCurrentProgramsPage(1); // Reset to first page on search
+          }}
+          >
             <option value="" className='text-crossTextGray'>Filter by cateory</option>
             <option value="Open executive programmes (OEP)">Open executive programmes (OEP)</option>
             <option value="Executive Leadership programmes (ELP)">Executive Leadership programmes (ELP)</option>

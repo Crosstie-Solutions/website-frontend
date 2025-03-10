@@ -8,7 +8,7 @@ function MobileAboutButtonSwiper() {
   const routes = [
     {
       name: "Overview",
-      route: "about-us",
+      route: "",
     },
     {
       name: "Our story",
@@ -46,9 +46,9 @@ function MobileAboutButtonSwiper() {
 
           {routes.map((item, index) => (
                     <NavLink 
-                    to={`/${item.route}`} 
+                    to={`/about-us/${item.route}`} 
                     key={index} 
-                    className={`${location.pathname===`/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
+                    className={`${location.pathname===`/about-us/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
                     } flex items-center justify-center w-auto px-2 font-semibold mobile-swiper-button text-10px rounded-20 h-30px`}
                     >{item.name}</NavLink>
         ))}
@@ -66,7 +66,7 @@ function MobileCoursesButtonSwiper() {
   const routes = [
     {
     name: "Open executive programmes (OEP)",
-    route: "our-courses"
+    route: ""
   },
   {
     name: "Executive Leadership programmes (ELP)",
@@ -92,9 +92,9 @@ function MobileCoursesButtonSwiper() {
 
           {routes.map((item, index) => (
                     <NavLink 
-                    to={`/${item.route}`} 
+                    to={`/our-courses/${item.route}`} 
                     key={index} 
-                    className={`${location.pathname===`/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
+                    className={`${location.pathname===`/our-courses/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
                     } flex items-center justify-center w-auto px-2 font-semibold mobile-swiper-button text-10px rounded-20 h-30px`}
                     >{item.name}</NavLink>
         ))}

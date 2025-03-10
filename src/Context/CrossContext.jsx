@@ -155,37 +155,45 @@ const toggleCoursesDD = ()=>{
 
 
   // //for admin to filter product
-  // const [currentProductsPage, setCurrentProductsPage] = useState(1);
-  // const [productsSearchTerm, setProductsSearchTerm] = useState("");
-  // const productsPerPage = 10;
+  const [currentProgramsPage, setCurrentProgramsPage] = useState(1);
+  const [programsSearchTerm, setProgramsSearchTerm] = useState("");
+  const programsPerPage = 10;
+
+  console.log("currentProgramsPage:", currentProgramsPage);
 
   // // Filter products based on search term
-  // const filteredProducts = allProducts && allProducts.filter((product) =>
-  //   `${product.title} ${product.category}`
-  //     .toLowerCase()
-  //     .includes(productsSearchTerm.toLowerCase())
-  // );
+  const filteredPrograms = allPrograms && allPrograms.filter((program) =>
+    `${program.title} ${program.category}`
+      .toLowerCase()
+      .includes(programsSearchTerm.toLowerCase())
+  );
+
 
   // // Calculate total pages
-  // const totalProductsPages = filteredProducts && Math.ceil(filteredProducts.length / productsPerPage);
+  const totalProgramsPages = filteredPrograms && Math.ceil(filteredPrograms.length / programsPerPage);
 
-  // // Get requests for the current page
-  // const productsStartIndex = (currentProductsPage - 1) * productsPerPage;
-  // const productsEndIndex = productsStartIndex + productsPerPage;
-  // const currentProducts = filteredProducts && filteredProducts.slice(productsStartIndex, productsEndIndex).reverse();
+  // Get requests for the current page
+  const programsStartIndex = (currentProgramsPage - 1) * programsPerPage;
+  const programsEndIndex = programsStartIndex + programsPerPage;
+  const currentPrograms = filteredPrograms && filteredPrograms.slice(programsStartIndex, programsEndIndex).reverse();
 
-  // // Handle page change
-  // const handleProductsPageChange = (page) => {
-  //   if (page > 0 && page <= totalProductsPages) {
-  //     setCurrentProductsPage(page);
-  //   }
-  // };
+  
+  // Handle page change
+  const handleProgramsPageChange = (page) => {
+    if (page > 0 && page <= totalProgramsPages) {
+      setCurrentProgramsPage(page);
+    }
+  };
   
 
 
+
+ 
+  
+
   //value to export
   const contextValue = {
-    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate
+    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange
   };
 
 

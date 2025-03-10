@@ -10,7 +10,7 @@ function AboutDD() {
     
     
   return (
-    <div className='fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-25vw text-15px small:top-15 small:left-2'
+    <div className='fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white shadow-lg w-250px large:top-13 large:left-25vw text-15px small:top-15 small:left-2'
     ref={dropdownRef}
     onMouseEnter={showAboutDD}
     onMouseLeave={hideAboutDD}
@@ -22,42 +22,42 @@ function AboutDD() {
        }}
       >About Us</Link>
       
-      <Link to='/our-story' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+      <Link to='/about-us/our-story' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
        onClick={()=>{
         toggleNav();
         hideAboutDD()
        }}
       >Our Story</Link>
       
-      <Link to='/leadership' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+      <Link to='/about-us/leadership' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
        onClick={()=>{
         toggleNav();
         hideAboutDD()
        }}
       >Leadership</Link>
 
-      <Link to='/our-clients' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+      <Link to='/about-us/our-clients' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
        onClick={()=>{
         toggleNav();
         hideAboutDD()
        }}
       >Our Clients</Link>
       
-      <Link to='/feedbacks' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+      <Link to='/about-us/feedbacks' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
        onClick={()=>{
         toggleNav();
         hideAboutDD()
        }}
       >Participants Feedbacks</Link>
       
-      <Link to='/satisfaction' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+      <Link to='/about-us/satisfaction' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
        onClick={()=>{
         toggleNav();
         hideAboutDD()
        }}
       >Satisfaction Guaranteed</Link>
 
-        <Link to='/crosstie-photos' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+        <Link to='/about-us/crosstie-photos' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
        onClick={()=>{
         toggleNav();
         hideAboutDD()
@@ -74,7 +74,7 @@ function SolutionsDD() {
   const {showSolutionsDD, hideSolutionsDD, dropdownRef, toggleNav} = useContext(CrossContext)
   
 return (
-  <div className='fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border border-red-500 rounded shadow-lg w-250px large:top-13 large:left-35vw text-15px small:top-19 small:left-2'
+  <div className='fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white rounded shadow-lg w-250px large:top-13 large:left-35vw text-15px small:top-19 small:left-2'
   ref={dropdownRef}
   onMouseEnter={showSolutionsDD}
   onMouseLeave={hideSolutionsDD}
@@ -113,7 +113,7 @@ function CoursesDD() {
   const {showCoursesDD, hideCoursesDD, navCourses, dropdownRef} = useContext(CrossContext)
   
 return (
-  <div className={`fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-45vw text-15px ${navCourses ? "small:top-13 small:left-10vw" : "small:top-24 small:left-2"} border border-blue-500`}
+  <div className={`fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-45vw text-15px ${navCourses ? "small:top-13 small:left-10vw" : "small:top-24 small:left-2"}`}
   ref={dropdownRef}
   onMouseEnter={showCoursesDD}
   onMouseLeave={hideCoursesDD}
@@ -123,17 +123,17 @@ return (
     >Open Executive  Programmes (OEP)</Link>
     
     
-    <Link to='/executive-leadership' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+    <Link to='/our-courses/executive-leadership' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
     // onClick={toggleCategories}
     >Executive  Leadership  Programme (ELP)</Link>
     
     
-    <Link to='/sales-excellence' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+    <Link to='/our-courses/sales-excellence' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
     // onClick={toggleCategories}
     >Sales Excellence  Series (SES)</Link>
 
 
-    <Link to='/complete-employee' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+    <Link to='/our-courses/complete-employee' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
     // onClick={toggleCategories}
     >Complete  Employee Series  (CES)</Link>
 

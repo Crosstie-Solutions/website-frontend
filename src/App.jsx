@@ -29,6 +29,9 @@ import MobileSearchBar from "./components/MobileSearchBar/MobileSearchBar";
 import {CourseSuggestion} from "./components/CourseSuggestion/CourseSuggestion";
 import { courseData } from "./assets/data";
 import OpenExecutivePage from "./pages/OpenExecutivePage/OpenExecutivePage";
+import ExecutiveLeadership from "./pages/ExecutiveLeadership/ExecutiveLeadership";
+import SalesExcellencePage from "./pages/SalesExcellencePage/SalesExcellencePage";
+import CompleteEmployee from "./pages/CompleteEmployee/CompleteEmployee";
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
 // import { Protected } from "./Components/Protected/Protected";
@@ -67,15 +70,19 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/ip-geo" element={<IPGeolocation />} />
           <Route path="/about-us" element={<AboutUsPage />} />
-          <Route path="/our-story" element={<OurStoryPage />} />
-          <Route path="/leadership" element={<LeadershipPage />} />
-          <Route path="/our-clients" element={<OurClientsPage />} />
-          <Route path="/feedbacks" element={<FeedbacksPage />} />
-          <Route path="/satisfaction" element={<SatisfactionPage />} />
-          <Route path="/crosstie-photos" element={<OurPhotosPage />} />
+          <Route path="/about-us/our-story" element={<OurStoryPage />} />
+          <Route path="/about-us/leadership" element={<LeadershipPage />} />
+          <Route path="/about-us/our-clients" element={<OurClientsPage />} />
+          <Route path="/about-us/feedbacks" element={<FeedbacksPage />} />
+          <Route path="/about-us/satisfaction" element={<SatisfactionPage />} />
+          <Route path="/about-us/crosstie-photos" element={<OurPhotosPage />} />
 
           
           <Route path="/our-courses" element={<OpenExecutivePage />} />
+          <Route path="/our-courses/executive-leadership" element={<ExecutiveLeadership />} />
+          
+          <Route path="/our-courses/sales-excellence" element={<SalesExcellencePage />} />
+          <Route path="/our-courses/complete-employee" element={<CompleteEmployee />} />
 
           {/* <Route path="/shop/product" element={<ProductDetailPage />}>
             <Route path=":productId" element={<ProductDetailPage />} />
