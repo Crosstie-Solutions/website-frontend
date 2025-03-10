@@ -11,7 +11,7 @@ function ProgramsFilter() {
     
     
   return (
-    <div className="flex flex-row items-center border border-red-500 large:p-1 large:gap-5 large:justify-center rounded-10 h-100 large:w-100 text-15px small:w-90vw small:justify-between">
+    <div className="flex flex-row items-center large:p-1 large:gap-5 large:justify-center rounded-10 h-100 large:w-100 text-15px small:w-90vw small:justify-between">
       
         <div className='flex items-center bg-white border rounded large:justify-center large:w-30 h-40px border-crossTextGray small:w-60 small:justify-between'>
           

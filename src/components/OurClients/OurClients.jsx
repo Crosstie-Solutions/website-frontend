@@ -40,21 +40,21 @@ function OurClients() {
             <div className='flex flex-col items-center h-auto gap-3 large:w-80 small:w-100'>
                 <div className='flex flex-row flex-wrap h-auto large:justify-center large:gap-7 w-100 small:gap-1 small:justify-around'>
                     
-                    <img src={PHOTOS.cl1} alt="partner" className='px-2 py-1 border shadow-xl border-crossFooterText rounded-5 large:w-100px h-70px small:w-100px'/>
+                    <img src={PHOTOS.cl1} alt="partner" className='px-2 py-1 bg-white border border-crossFooterText rounded-5 large:w-100px h-70px small:w-100px'/>
                     
-                    <img src={PHOTOS.cl2} alt="partner" className='px-2 py-1 border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl2} alt="partner" className='px-2 py-1 bg-white border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
 
-                    <img src={PHOTOS.cl3} alt="partner" className='px-2 py-1 border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl3} alt="partner" className='px-2 py-1 bg-white border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
 
-                    <img src={PHOTOS.cl4} alt="partner" className='px-2 py-1 border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl4} alt="partner" className='px-2 py-1 bg-white border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
 
-                    <img src={PHOTOS.cl5} alt="partner" className='px-2 py-1 border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl5} alt="partner" className='px-2 py-1 bg-white border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
 
-                    <img src={PHOTOS.cl2} alt="partner" className='px-2 py-1 border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl2} alt="partner" className='px-2 py-1 bg-white border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
 
-                    <img src={PHOTOS.cl4} alt="partner" className='px-2 py-1 border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl4} alt="partner" className='px-2 py-1 bg-white border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
 
-                    <img src={PHOTOS.cl1} alt="partner" className='px-2 py-1 border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
+                    <img src={PHOTOS.cl1} alt="partner" className='px-2 py-1 bg-white border border-crossFooterText rounded-5 large:w-100px small:w-100px h-70px'/>
                 </div>
 
                 
