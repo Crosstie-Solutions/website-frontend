@@ -31,14 +31,14 @@ function ProgramsFilter() {
         </div>
 
 
-        <div className='flex items-center justify-center border rounded border-crossTextGray w-30 h-40px small:text-11px large:text-15px'>
+        <div className='flex items-center justify-center border rounded border-crossTextGray w-30 h-40px small:text-15px large:text-15px'>
           <select className='px-1 rounded cursor-pointer h-100 focus:border-none focus:outline-none w-100'
            onChange={(e) => {
             setProgramsSearchTerm(e.target.value);
             setCurrentProgramsPage(1); // Reset to first page on search
           }}
           >
-            <option value="" className='text-crossTextGray'>Filter by cateory</option>
+            <option value="" className='text-crossTextGray'>Filter</option>
             <option value="Open executive programmes (OEP)">Open executive programmes (OEP)</option>
             <option value="Executive Leadership programmes (ELP)">Executive Leadership programmes (ELP)</option>
             <option value="Sales excellence series (SES)">Sales excellence series (SES)</option>
