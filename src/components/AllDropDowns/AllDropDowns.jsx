@@ -74,7 +74,7 @@ function SolutionsDD() {
   const {showSolutionsDD, hideSolutionsDD, dropdownRef, toggleNav} = useContext(CrossContext)
   
 return (
-  <div className='fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border border-red-500 rounded shadow-lg w-250px large:top-13 large:left-35vw text-15px small:top-18 small:left-2'
+  <div className='fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border border-red-500 rounded shadow-lg w-250px large:top-13 large:left-35vw text-15px small:top-19 small:left-2'
   ref={dropdownRef}
   onMouseEnter={showSolutionsDD}
   onMouseLeave={hideSolutionsDD}
@@ -113,7 +113,7 @@ function CoursesDD() {
   const {showCoursesDD, hideCoursesDD, navCourses, dropdownRef} = useContext(CrossContext)
   
 return (
-  <div className={`fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-45vw text-15px ${navCourses ? "small:top-13 small:left-10vw" : "small:top-15 small:left-2"}`}
+  <div className={`fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-45vw text-15px ${navCourses ? "small:top-13 small:left-10vw" : "small:top-20 small:left-2"} border border-green-500`}
   ref={dropdownRef}
   onMouseEnter={showCoursesDD}
   onMouseLeave={hideCoursesDD}
