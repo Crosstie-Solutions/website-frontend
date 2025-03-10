@@ -118,7 +118,7 @@ return (
   onMouseEnter={showCoursesDD}
   onMouseLeave={hideCoursesDD}
   >
-    <Link to='/our-courses' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+    <Link to='/our-courses/' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
     // onClick={toggleCategories}
     >Open Executive  Programmes (OEP)</Link>
     

@@ -78,7 +78,7 @@ function Header() {
                 ? "flex items-center gap-0.5 text-crossLightPurple"
                 : "flex items-center gap-0.5"
             }
-            to="/our-courses"
+            to="/our-courses/"
           >
             Our Courses <MdKeyboardArrowDown className={`${coursesDD ? "rotate-180" : ""} text-25px`} />
           </NavLink>
