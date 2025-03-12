@@ -19,12 +19,6 @@ function CrossContextProvider(props) {
 
 
 
-//scroll to top effect
-// useEffect(() => {
-//   if (gdgdg) {
-//     window.scrollTo({ top: 0, behavior: "auto" });
-//   }
-// }, []);
 
 
 const [aboutDD, setAboutDD] = useState(false);
@@ -187,13 +181,32 @@ const toggleCoursesDD = ()=>{
   
 
 
+  //enrollment form
+  const [enrollmentForm, setEnrollmentForm] = useState(false);
 
+  const toggleEnrollment = ()=> {
+    setEnrollmentForm(!enrollmentForm);
+  }
+  
  
   
 
+  //scroll to top effect
+useEffect(() => {
+  if (currentProgramsPage > 0) {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+}, [currentProgramsPage]);
+
+
+
+
+
+
+
   //value to export
   const contextValue = {
-    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange
+    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm
   };
 
 

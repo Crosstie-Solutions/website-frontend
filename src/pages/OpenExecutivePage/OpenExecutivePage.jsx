@@ -57,17 +57,24 @@ function OpenExecutivePage() {
 
       <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
         {currentPrograms &&
-          currentPrograms.map((program) => (
-            <Program
-              title={program.title}
-              duration={program.duration}
-              startDate={program.startDate}
-              endDate={program.endDate}
-              startTime={program.startTime}
-              endTime={program.endTime}
-              mode={program.mode}
-            />
-          ))}
+          currentPrograms.map((program) => {
+
+            const slug = program.category.split(" ").slice(0, 2).join("-").toLowerCase();
+            
+            return (
+              <Program
+                title={program.title}
+                duration={program.duration}
+                startDate={program.startDate}
+                endDate={program.endDate}
+                startTime={program.startTime}
+                endTime={program.endTime}
+                mode={program.mode}
+                id={program._id}
+                slug={slug}
+              />
+            )
+          })}
       </div>
 
       {/* Pagination */}

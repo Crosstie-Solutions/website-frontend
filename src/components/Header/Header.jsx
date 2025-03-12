@@ -151,22 +151,29 @@ function Header() {
 
           <div className='flex flex-col items-start h-auto gap-1 text-crossLightPurple w-100 text-13px'>
                 
-                <a href={`tel:08138957283`} className="flex items-center justify-center gap-1 small:gap-1 text-15px"><FaPhone /> +234 708 560 4023</a>
+                <a href={`tel:08138957283`} className="flex items-center justify-center gap-1 small:gap-1 text-15px"
+                onClick={toggleNav}
+                ><FaPhone /> +234 708 560 4023</a>
                 
                 
                 <a
                 href="https://wa.me/2348138957283"
                 className='flex items-center justify-center gap-1 small:gap-1 text-15px'
+                onClick={toggleNav}
                 ><FaWhatsapp className='text-whatsAppGreen'/> +234 708 560 4023</a>
                 
                 
                 <a 
                 href="mailto:info@crosstie.com"
-                className='flex items-center justify-center gap-1 text-15px'><MdOutlineMail /> info@crosstie.com</a>
+                className='flex items-center justify-center gap-1 text-15px'
+                onClick={toggleNav}
+                ><MdOutlineMail /> info@crosstie.com</a>
               </div>
         </div>
 
-        <Link className="flex items-center justify-center px-2 mt-5 text-white border w-80 h-40px bg-crossLightPurple rounded-10">Log In</Link>
+        <Link to='/login' className="flex items-center justify-center px-2 mt-5 text-white border w-80 h-40px bg-crossLightPurple rounded-10"
+        onClick={toggleNav}
+        >Log In</Link>
       </ul>}
 
       
@@ -191,7 +198,7 @@ function Header() {
           <CiSearch className="rounded-full text-30px bg-crossLightPurple text-vogueWhite p-0.5"/>
         </div>
 
-        <Link className="flex items-center justify-center w-auto px-2 border h-40px border-crossLightPurple text-crossLightPurple rounded-20 hover:bg-crossLightPurple hover:text-vogueWhite">Log In</Link>
+        <NavLink to='/login' className="flex items-center justify-center w-auto px-2 border h-40px border-crossLightPurple text-crossLightPurple rounded-20 hover:bg-crossLightPurple hover:text-vogueWhite">Log In</NavLink>
       </div>
 
 

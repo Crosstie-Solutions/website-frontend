@@ -159,7 +159,7 @@ export default {
         vogueBlack: "#1F1F1F",
         fadedGray: '#D5D5D5',
         fabricGray: '#a4a1a1',
-        crossYellow: '#F9AC15',
+        crossYellow: '#f6bc19',
         paleYellow: '#A49C5A',
         overlay: 'rgb(23, 23, 23, 0.7)',
         overlaySecond: 'rgb(23, 23, 23, 0.9)',

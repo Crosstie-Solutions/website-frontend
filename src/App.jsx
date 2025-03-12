@@ -32,6 +32,9 @@ import OpenExecutivePage from "./pages/OpenExecutivePage/OpenExecutivePage";
 import ExecutiveLeadership from "./pages/ExecutiveLeadership/ExecutiveLeadership";
 import SalesExcellencePage from "./pages/SalesExcellencePage/SalesExcellencePage";
 import CompleteEmployee from "./pages/CompleteEmployee/CompleteEmployee";
+import ProgramDetailsPage from "./pages/ProgramDetailsPage/ProgramDetailsPage";
+import CourseEnrollmentForm from "./pages/CourseEnrollmentForm/CourseEnrollmentForm";
+import LoginSignupPage from "./pages/LoginSignupPage/LoginSignupPage";
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
 // import { Protected } from "./Components/Protected/Protected";
@@ -40,7 +43,7 @@ import CompleteEmployee from "./pages/CompleteEmployee/CompleteEmployee";
 
 function App() {  
 
-  const {aboutDD, solutionsDD, coursesDD, mobileSearch, viewAllPrograms} = useContext(CrossContext);
+  const {aboutDD, solutionsDD, coursesDD, mobileSearch, viewAllPrograms, enrollmentForm} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -64,6 +67,7 @@ function App() {
         {coursesDD && <CoursesDD />}
         {mobileSearch && <MobileSearchBar />}
         {/* {courseData.length >  0 && <CourseSuggestion />} */}
+        {enrollmentForm && <CourseEnrollmentForm />}
         
 
         <Routes>
@@ -83,6 +87,8 @@ function App() {
           
           <Route path="/our-courses/sales-excellence" element={<SalesExcellencePage />} />
           <Route path="/our-courses/complete-employee" element={<CompleteEmployee />} />
+          <Route path="/our-courses/:courseId" element={<ProgramDetailsPage />} />
+          <Route path="/login" element={<LoginSignupPage />} />
 
           {/* <Route path="/shop/product" element={<ProductDetailPage />}>
             <Route path=":productId" element={<ProductDetailPage />} />

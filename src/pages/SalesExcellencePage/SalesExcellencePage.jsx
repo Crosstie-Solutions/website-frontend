@@ -65,6 +65,7 @@ function SalesExcellencePage() {
                     startTime={program.startTime}
                     endTime={program.endTime}
                     mode={program.mode}
+                    id={program._id}
                     />
                 )
             }
