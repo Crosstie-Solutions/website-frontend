@@ -14,7 +14,7 @@ function CourseEnrollmentForm() {
     const {toggleEnrollment} = useContext(CrossContext);
     
   return (
-    <div className="fixed top-0 left-0 z-20 flex flex-col items-center justify-center h-auto py-3 w-100 bg-overlaySecond text-13px">
+    <div className="fixed top-0 left-0 z-20 flex flex-col items-center justify-center py-3 large:h-auto w-100 bg-overlaySecond text-13px small:h-100vh">
         
         
       <div className="relative flex flex-col items-center h-auto gap-3 py-2 bg-white large:px-3 large:w-80 rounded-10 small:w-90vw small:px-1">
