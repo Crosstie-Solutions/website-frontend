@@ -11,6 +11,9 @@ import { FaWhatsapp } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 
 
+
+
+
 function Header() {
 
     const {hideAboutDD, showAboutDD, showSolutionsDD, hideSolutionsDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, aboutDD, solutionsDD, coursesDD, toggleMobileSearch} = useContext(CrossContext);
@@ -45,7 +48,7 @@ function Header() {
                 ? "flex items-center gap-0.5 text-crossLightPurple"
                 : "flex items-center gap-0.5"
             }
-            to="/about-us"
+            to="/about-us/"
           >
             About CrossTie <MdKeyboardArrowDown className={`${aboutDD ? "rotate-180" : ""} text-25px`} />
           </NavLink>
@@ -62,7 +65,7 @@ function Header() {
                 ? "flex items-center gap-0.5 text-crossLightPurple"
                 : "flex items-center gap-0.5"
             }
-            to="/our-solutions"
+            to="/our-solutions/"
           >
             Our Solutions <MdKeyboardArrowDown className={`${solutionsDD ? "rotate-180" : ""} text-25px`} />
           </NavLink>
@@ -111,7 +114,7 @@ function Header() {
         >
           <div
             className="flex items-center gap-0.5"
-            to="/about-us"
+            to="/about-us/"
           >
             About CrossTie <MdKeyboardArrowDown className={`${aboutDD ? "rotate-180" : ""} text-25px`} />
           </div>
@@ -136,7 +139,7 @@ function Header() {
           >
             <div
               className="flex items-center gap-0.5"
-              to="/our-courses"
+              to="/our-courses/"
             >
               Our Courses <MdKeyboardArrowDown className={`${coursesDD ? "rotate-180" : ""} text-25px`} />
             </div>

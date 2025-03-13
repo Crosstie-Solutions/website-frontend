@@ -16,6 +16,7 @@ const PHOTOS = {
     about6: new URL("./about6.jpg", import.meta.url).href,
     about7: new URL("./about7.jpg", import.meta.url).href,
     about8: new URL("./about8.jpg", import.meta.url).href,
+    case: new URL("./case.png", import.meta.url).href,
 
     story: new URL("./story.png", import.meta.url).href,
     journey: new URL("./journey.png", import.meta.url).href,

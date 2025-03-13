@@ -17,8 +17,6 @@ function OpenExecutivePage() {
     currentProgramsPage,
     totalProgramsPages,
     programsSearchTerm,
-    programsStartIndex,
-    programsEndIndex,
     allPrograms,
   } = useContext(CrossContext);
 

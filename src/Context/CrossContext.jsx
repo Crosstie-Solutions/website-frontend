@@ -21,6 +21,7 @@ function CrossContextProvider(props) {
 
 
 
+
 const [aboutDD, setAboutDD] = useState(false);
 
 const showAboutDD = ()=>{
@@ -187,6 +188,66 @@ const toggleCoursesDD = ()=>{
   const toggleEnrollment = ()=> {
     setEnrollmentForm(!enrollmentForm);
   }
+
+
+
+  // to get webinars
+  const [allWebinars, setAllWebinars] = useState();
+  const [loadingAllWebinars, setLoadingAllWebinars] = useState(false);
+
+  const upcomingWebinars = allWebinars && allWebinars.filter((webinar)=>webinar.past===false);
+
+  const pastWebinars = allWebinars && allWebinars.filter((webinar)=>webinar.past===true);
+
+  console.log("allWebinars:", allWebinars);
+  console.log("upcomingWebinars:", upcomingWebinars);
+  console.log("pastWebinars:", pastWebinars);
+
+  
+
+
+  const viewAllWebinars = async () => {
+    try {
+      setLoadingAllWebinars(true)
+      const response = await axios.get(`${baseUrl}/api/webinar`);
+
+      setAllWebinars(response.data.data.data);
+    } catch (dupError) {
+      console.log("error fetching all Webinars:", dupError);
+    }finally{
+      setLoadingAllWebinars(false)
+    }
+  };
+
+
+  //to toggle webinar types
+  const [webinarType, setWebinarType] = useState('upcoming');
+
+
+
+
+  //for user to filter webinar
+  const [upcomingSearchTerm, setUpcomingSearchTerm] = useState("");
+
+
+  // Filter Upcoming webinar based on search term
+  const filteredUpcoming = upcomingWebinars && upcomingWebinars.filter((webinar) =>
+    `${webinar.topic} ${webinar.presenter}`
+      .toLowerCase()
+      .includes(upcomingSearchTerm.toLowerCase())
+  );
+
+
+  //for user to filter past webinar
+  const [pastSearchTerm, setPastSearchTerm] = useState("");
+
+  
+  // Filter Past webinar based on search term
+  const filteredPast = pastWebinars && pastWebinars.filter((webinar) =>
+    `${webinar.topic} ${webinar.presenter}`
+      .toLowerCase()
+      .includes(pastSearchTerm.toLowerCase())
+  );
   
  
   
@@ -206,7 +267,7 @@ useEffect(() => {
 
   //value to export
   const contextValue = {
-    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm
+    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast
   };
 
 

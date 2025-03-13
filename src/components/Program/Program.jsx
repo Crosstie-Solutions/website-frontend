@@ -17,7 +17,7 @@ function Program(program) {
     
     
   return (
-    <div className='flex flex-col items-center gap-1 px-1 py-2 border border-crossLightPurple w-250px rounded-10 text-13px hover:shadow-lg'>
+    <div className='flex flex-col items-center gap-1 px-1 py-2 bg-white border border-crossLightPurple w-250px rounded-10 text-13px hover:shadow-lg'>
       
       <Link to={`/our-courses/${id}`} className='font-semibold text-center hover:underline large:text-17px small:text-15px'>{title}</Link>
 

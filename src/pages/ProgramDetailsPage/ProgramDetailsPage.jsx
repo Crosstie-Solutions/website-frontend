@@ -86,9 +86,12 @@ function ProgramDetailsPage() {
           <div className="text-crossTextGray">Training mode:</div>
           <div className="flex w-auto h-auto gap-2">
             <button className={`flex items-center justify-center w-auto px-2  h-40px rounded-20 ${trainingMode==="Online" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray"}`}
+            
             onClick={()=>setTrainingMode('Online')}
             >Online</button>
-            <button className={`flex items-center justify-center w-auto px-2  h-40px rounded-20 ${trainingMode==="Physical" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray"}`}
+            <button 
+            className={`flex items-center justify-center w-auto px-2  h-40px rounded-20 ${trainingMode==="Physical" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray"}`}
+            
              onClick={()=>setTrainingMode('Physical')}
             >Physical</button>
           </div>

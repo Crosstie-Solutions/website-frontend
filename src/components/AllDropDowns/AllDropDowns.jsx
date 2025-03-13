@@ -79,27 +79,27 @@ return (
   onMouseEnter={showSolutionsDD}
   onMouseLeave={hideSolutionsDD}
   >
-    <Link to='/shop/lotion' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+    <Link to='/our-solutions/' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
     // onClick={toggleNav}
     >Corporate Training</Link>
     
-    <Link to='/shop/face' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+    <Link to='/our-solutions/management-consulting' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
     // onClick={toggleNav}
     >Management Consulting</Link>
     
-    <Link to='/shop/soap' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+    <Link to='/our-solutions/customized-training' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
     // onClick={toggleNav}
     >Customized Training</Link>
 
-    <Link to='/shop/scrub' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+    <Link to='/our-solutions/webinars' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
     // onClick={toggleNav}
     >Upcoming Webinars</Link>
     
-    <Link to='/shop/oil' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+    <Link to='/our-solutions/soft-skills-launchpad' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
     // onClick={toggleNav}
     >Soft Skills  Launchpad  Programme (SSLP)</Link>
     
-    <Link to='/shop/serum' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+    <Link to='/our-solutions/resource/vault' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
     // onClick={toggleNav}
     >The Resource Vault</Link>
 

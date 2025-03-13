@@ -35,6 +35,10 @@ import CompleteEmployee from "./pages/CompleteEmployee/CompleteEmployee";
 import ProgramDetailsPage from "./pages/ProgramDetailsPage/ProgramDetailsPage";
 import CourseEnrollmentForm from "./pages/CourseEnrollmentForm/CourseEnrollmentForm";
 import LoginSignupPage from "./pages/LoginSignupPage/LoginSignupPage";
+import CorporateTrainingPage from "./pages/CorporateTrainingPage/CorporateTrainingPage";
+import ManagementConsultingPage from "./pages/ManagementConsultingPage/ManagementConsultingPage";
+import CustomizedTrainingPage from "./pages/CustomizedTrainingPage/CustomizedTrainingPage";
+import WebinarPage from "./pages/WebinarPage/WebinarPage";
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
 // import { Protected } from "./Components/Protected/Protected";
@@ -43,13 +47,21 @@ import LoginSignupPage from "./pages/LoginSignupPage/LoginSignupPage";
 
 function App() {  
 
-  const {aboutDD, solutionsDD, coursesDD, mobileSearch, viewAllPrograms, enrollmentForm} = useContext(CrossContext);
+  const {aboutDD, solutionsDD, coursesDD, mobileSearch, viewAllPrograms, enrollmentForm, viewAllWebinars} = useContext(CrossContext);
 
 
   useEffect(()=>{
     viewAllPrograms();
-  },[])
+  },[]);
 
+  
+
+  useEffect(()=>{
+    viewAllWebinars();
+  },[]);
+
+
+  
   return (
     <div className="App bg-appBg">
 
@@ -89,6 +101,12 @@ function App() {
           <Route path="/our-courses/complete-employee" element={<CompleteEmployee />} />
           <Route path="/our-courses/:courseId" element={<ProgramDetailsPage />} />
           <Route path="/login" element={<LoginSignupPage />} />
+
+          
+          <Route path="/our-solutions/" element={<CorporateTrainingPage />} />
+          <Route path="/our-solutions/management-consulting" element={<ManagementConsultingPage />} />
+          <Route path="/our-solutions/customized-training" element={<CustomizedTrainingPage />} />
+          <Route path="/our-solutions/webinars" element={<WebinarPage />} />
 
           {/* <Route path="/shop/product" element={<ProductDetailPage />}>
             <Route path=":productId" element={<ProductDetailPage />} />
