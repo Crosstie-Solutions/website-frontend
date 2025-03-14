@@ -1,11 +1,193 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { HiArrowLongRight } from "react-icons/hi2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import axios from 'axios';
+import { CrossContext } from "../../Context/CrossContext";
 
 
 
 function LoginSignupPage() {
+
+  //to navigate to different page
+  const navigate = useNavigate();
+
+  const {baseUrl, setLoading} = useContext(CrossContext);
+  
   const [activeForm, setActiveForm] = useState("login");
+
+  // states for signup
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+ // const [role, setRole] = useState("");
+
+  
+      //signUp request
+const [signupErrors, setSignupErrors] = useState({});
+ 
+ //form data for sign up
+ const formData = {
+     firstName: firstName,
+     lastName: lastName,
+     email: email,
+     phone: phone,
+     password: password,
+ };
+
+
+ //funtion for signup
+const handleSignup = async (event) => {
+ event.preventDefault();
+
+ const validationErrors = {};
+
+ //To ensure valid inputs
+ if (!firstName.trim()) {
+   validationErrors.firstName = "first name is required";
+ }
+
+ if (!lastName.trim()) {
+   validationErrors.lastName = "last name is required";
+ }
+
+ if (!email.trim()) {
+   validationErrors.email = "email is required";
+ }
+
+ if (!phone.trim()) {
+   validationErrors.phone = "phone number is required";
+ }
+ if (!password.trim()) {
+   validationErrors.password = "password is required";
+ } else if (password.length < 6) {
+   validationErrors.password = "password must be atleast 6 characters";
+ }
+
+ setSignupErrors(validationErrors);
+
+ const noError = Object.keys(validationErrors).length === 0;
+
+ if (noError) {
+   try {
+     // setLastErrors("");
+     setLoading(true);
+     const response = await axios.post(
+       `${baseUrl}/api/users/signup`,
+       formData,
+       {
+         headers: {
+           "Content-Type": "application/json",
+         },
+       }
+     );
+
+     if (response.status === 201) {
+       // setNewUser(response.data.data.user);
+       toast.success('Registration successfully. Check your email for verification link.');
+       setActiveForm('login')
+     }
+   } catch (error) {
+     // setLastErrors(error.response.data.message);
+     // console.log("signupError:", error.response.data.message);
+     console.log("signupError:", error);
+     
+     if(error.response.data.message.includes('Duplicate') || error.response.data.message.includes('duplicate')){
+       validationErrors.email = "Email already exist."
+     }
+   } finally {
+     setLoading(false);
+   }
+ }
+};
+
+  
+  
+
+
+  // states for login
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+
+  //Login request
+const [loginErrors, setLoginErrors] = useState({});
+
+//last error
+const [lastError, setLastErrors] = useState('');
+    
+//form data for sign up
+const loginFormData = {
+    email: loginEmail,
+    password: loginPassword,
+  };
+
+  //funtion for form submit
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
+    const validationErrors = {};
+
+    //To ensure valid inputs
+
+    if (!loginEmail.trim()) {
+      validationErrors.loginEmail = "email is required";
+    }
+
+    if (!loginPassword.trim()) {
+      validationErrors.loginPassword = "password is required";
+    } 
+
+    setLoginErrors(validationErrors);
+
+    const noError = Object.keys(validationErrors).length === 0;
+
+    if (noError) {
+      try {
+        // setLastErrors("");
+        setLoading(true);
+        const response = await axios.post(
+          `${baseUrl}/api/users/login`,
+          loginFormData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.status === 200) {
+          // setLoggedInUser(response.data);
+         
+          toast.success(`You are logged in as ${response.data.data.user.firstName} ${response.data.data.user.lastName}`);
+          
+          localStorage.setItem('loginToken', JSON.stringify(response.data.token));
+          localStorage.setItem('role', JSON.stringify(response.data.data.user.role));
+          
+        }
+        if(response.data.data.user.role==='admin'){
+          navigate("/admin-dashboard")
+        }
+        else{
+          navigate("/user-profile")
+        }
+      } catch (error) {
+       if(error){
+        setLastErrors(error.response.data.message);
+       }
+        // console.log("signupError:", error.response.data.message);
+        console.log("loginError:", error.response.data.message);
+        
+        validationErrors.email = error.response.data.message;
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+  
+  
 
   return (
     <div className="flex flex-col items-center large:w-80vw mt-17 text-15px small:w-90vw">
@@ -47,39 +229,62 @@ function LoginSignupPage() {
 
           <div className="flex flex-col items-center gap-2 large:px-0 small:px-1 large:w-60 small:w-100">
             <div className="flex flex-col h-auto w-100">
-              <label htmlFor="">Full Name*</label>
+              <label htmlFor="">First Name*</label>
 
-              <input type="text" className="p-1 border rounded h-40px w-100" />
+              <input type="text" className="p-1 border rounded h-40px w-100" 
+              onChange={(e)=>setFirstName(e.target.value)}
+              />
+              <p className="text-vogueRed">{signupErrors.firstName}</p>
+            </div>
+
+            <div className="flex flex-col h-auto w-100">
+              <label htmlFor="">Last Name*</label>
+
+              <input type="text" className="p-1 border rounded h-40px w-100" 
+              onChange={(e)=>setLastName(e.target.value)}
+              />
+              <p className="text-vogueRed">{signupErrors.lastName}</p>
             </div>
 
 
             <div className="flex flex-col h-auto w-100">
               <label htmlFor="">Email*</label>
 
-              <input type="email" className="p-1 border rounded h-40px w-100" />
+              <input type="email" name="email" className="p-1 border rounded h-40px w-100" 
+              onChange={(e)=>setEmail(e.target.value)}
+              />
+              <p className="text-vogueRed">{signupErrors.email}</p>
             </div>
 
             <div className="flex flex-col h-auto w-100">
               <label htmlFor="">Phone*</label>
 
-              <input type="text" className="p-1 border rounded h-40px w-100" />
+              <input type="text" name="phone" className="p-1 border rounded h-40px w-100" 
+              onChange={(e)=>setPhone(e.target.value)}
+              />
+              <p className="text-vogueRed">{signupErrors.phone}</p>
             </div>
 
             <div className="flex flex-col h-auto w-100">
               <label htmlFor="">Password*</label>
 
-              <input type="text" className="p-1 border rounded h-40px w-100" />
+              <input type="text" className="p-1 border rounded h-40px w-100" 
+              onChange={(e)=>setPassword(e.target.value)}
+              />
+              <p className="text-vogueRed">{signupErrors.password}</p>
             </div>
 
             <button
               className="flex items-center justify-center text-white rounded w-100 h-40px bg-crossLightPurple text-17px"
-              // onClick={()=>setDetails("personal")}
+              onClick={handleSignup}
             >
               Sign up
             </button>
           </div>
         </div>
       )}
+
+
 
       {/* login */}
       
@@ -95,23 +300,30 @@ function LoginSignupPage() {
             <div className="flex flex-col h-auto w-100">
               <label htmlFor="">Email*</label>
 
-              <input type="email" className="p-1 border rounded h-40px w-100" />
+              <input type="email" name="email" className="p-1 border rounded h-40px w-100" 
+              onChange={(e)=>setLoginEmail(e.target.value)}
+              />
 
               <p className="text-crossTextGray text-10px">
                 If you are already registered for the class by your employer,
                 use your official Email ID to login.
               </p>
+              <p className="text-vogueRed">{loginErrors.loginEmail}</p>
             </div>
 
             <div className="flex flex-col h-auto w-100">
               <label htmlFor="">Password*</label>
 
-              <input type="text" className="p-1 border rounded h-40px w-100" />
+              <input type="text" className="p-1 border rounded h-40px w-100" 
+              onChange={(e)=>setLoginPassword(e.target.value)}
+              />
+              <p className="text-vogueRed">{loginErrors.loginPassword}</p>
+              <p className="text-vogueRed">{lastError}</p>
             </div>
 
             <button
               className="flex items-center justify-center text-white rounded w-100 h-40px bg-crossLightPurple text-17px"
-              // onClick={()=>setDetails("personal")}
+              onClick={handleLogin}
             >
               Login
             </button>

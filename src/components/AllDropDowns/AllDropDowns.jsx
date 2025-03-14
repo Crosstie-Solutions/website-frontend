@@ -80,27 +80,27 @@ return (
   onMouseLeave={hideSolutionsDD}
   >
     <Link to='/our-solutions/' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
-    // onClick={toggleNav}
+    onClick={toggleNav}
     >Corporate Training</Link>
     
     <Link to='/our-solutions/management-consulting' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
-    // onClick={toggleNav}
+    onClick={toggleNav}
     >Management Consulting</Link>
     
     <Link to='/our-solutions/customized-training' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
-    // onClick={toggleNav}
+    onClick={toggleNav}
     >Customized Training</Link>
 
     <Link to='/our-solutions/webinars' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
-    // onClick={toggleNav}
+    onClick={toggleNav}
     >Upcoming Webinars</Link>
     
     <Link to='/our-solutions/soft-skills-launchpad' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
-    // onClick={toggleNav}
+    onClick={toggleNav}
     >Soft Skills  Launchpad  Programme (SSLP)</Link>
     
     <Link to='/our-solutions/resource/vault' className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
-    // onClick={toggleNav}
+    onClick={toggleNav}
     >The Resource Vault</Link>
 
   </div>
@@ -110,7 +110,7 @@ return (
 
 function CoursesDD() {
 
-  const {showCoursesDD, hideCoursesDD, navCourses, dropdownRef} = useContext(CrossContext)
+  const {showCoursesDD, hideCoursesDD, navCourses, dropdownRef, toggleNav} = useContext(CrossContext)
   
 return (
   <div className={`fixed z-20 flex flex-col h-auto gap-1 px-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-45vw text-15px ${navCourses ? "small:top-13 small:left-10vw" : "small:top-24 small:left-2"}`}

@@ -57,7 +57,7 @@ function WebinarPage() {
         {/* Upcoming webinar */}
       <div className="flex flex-col items-center gap-4 large:mt-3 large:w-90 small:w-90vw">
         
-        <div className="flex items-center w-auto h-auto gap-2 border border-crossLightPurple py-0.5 px-1 rounded large:w-auto small:w-100 justify-center">
+        <div className="flex items-center w-auto h-auto gap-2 border border-crossLightPurple py-0.5 px-1 rounded large:w-auto small:w-auto justify-center">
           
             <button
             className={`flex items-center justify-center large:w-200px small:w-auto large:px-2 small:px-1  h-40px rounded ${webinarType==="upcoming" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray bg-gray-200"} small:text-11px large:text-15px`}

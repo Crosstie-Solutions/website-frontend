@@ -112,6 +112,8 @@ const toggleCoursesDD = ()=>{
   const [navCourses, setNavCourses] = useState(false);
 
  
+  //to set loading
+const[loading, setLoading] = useState(false);
 
 
   const [mobileSearch, setMobileSearch] = useState(false);
@@ -250,7 +252,84 @@ const toggleCoursesDD = ()=>{
   );
   
  
+
+  //to get login Token from local storage
+const[loginToken, setLoginToken] = useState('');
+
+
+const getLoginToken = () =>{
+  const savedToken = localStorage.getItem('loginToken');
+  const token = savedToken ? JSON.parse(savedToken) : "";
+  setLoginToken(token);
+};
+
+
+  //fetch logged in user
+const[me, setMe] = useState(null);
+
+console.log("me:", me);
+
+
+// Function to fetch logged in user details
+const fetchMe = async () => {
   
+  try {
+    const response = await axios.get(`${baseUrl}/api/users/owner/me`, {
+      headers: {
+        Authorization: `Bearer ${loginToken ? loginToken : ""}`,
+        withCredentials: true,
+      }
+    });
+
+    // console.log('fetchedUser:', response.data.data.data);
+    setMe(response.data.data.data)
+  } catch (error) {
+    console.error('Error fetching user data:', error.response.data.message);
+
+    
+    // if(error.response.data.message === 'jwt expired'){
+    //   localStorage.clear();
+    //  }
+    //  if(error.response.data.message === 'Your token has expired, please log in again.'){
+    //   localStorage.clear();
+    //  }  
+    //  if(error.response.data.message === 'User recently changed password! Please log in again.'){
+    //   localStorage.clear();
+    //  }   
+
+  }
+};
+
+
+
+
+
+
+
+
+  //fetch my webinars
+const[myWebinars, setMyWebinars] = useState(null);
+
+console.log("myWebinars:", myWebinars);
+
+
+// Function to fetch logged in user details
+const fetchMyWebinars = async () => {
+  
+  try {
+    const response = await axios.get(`${baseUrl}/api/webinar/my-webinars/${me && me._id}`);
+
+    // console.log('fetchedUser:', response.data.data.data);
+    setMyWebinars(response.data.data.webinars)
+  } catch (error) {
+    console.error('Error fetching my webinars:', error.response.data.message);
+
+  }
+};
+  
+
+
+
 
   //scroll to top effect
 useEffect(() => {
@@ -267,7 +346,7 @@ useEffect(() => {
 
   //value to export
   const contextValue = {
-    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast
+    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars
   };
 
 

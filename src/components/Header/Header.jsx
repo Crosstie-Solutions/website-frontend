@@ -16,7 +16,7 @@ import { MdOutlineMail } from "react-icons/md";
 
 function Header() {
 
-    const {hideAboutDD, showAboutDD, showSolutionsDD, hideSolutionsDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, aboutDD, solutionsDD, coursesDD, toggleMobileSearch} = useContext(CrossContext);
+    const {hideAboutDD, showAboutDD, showSolutionsDD, hideSolutionsDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, aboutDD, solutionsDD, coursesDD, toggleMobileSearch, me} = useContext(CrossContext);
 
     const [activeSearch, setActiveSearch] = useState(false)
 
@@ -174,9 +174,24 @@ function Header() {
               </div>
         </div>
 
+        
+        {me &&
+        <Link to='/user-profile' className="flex items-center justify-center px-2 mt-1 bg-white border w-80 h-40px border-crossLightPurple rounded-10 text-crossLightPurple"
+        onClick={toggleNav}
+        >My Profile</Link>}
+
+        {!me &&
         <Link to='/login' className="flex items-center justify-center px-2 mt-5 text-white border w-80 h-40px bg-crossLightPurple rounded-10"
         onClick={toggleNav}
-        >Log In</Link>
+        >Log In</Link>}
+
+          {me &&
+          <button className="flex items-center justify-center px-2 text-white border w-80 h-40px bg-vogueRed rounded-10"
+                  onClick={()=>{
+                    toggleNav();
+                    localStorage.clear();
+                  }}
+                  >Log Out</button>}
       </ul>}
 
       
@@ -201,7 +216,20 @@ function Header() {
           <CiSearch className="rounded-full text-30px bg-crossLightPurple text-vogueWhite p-0.5"/>
         </div>
 
-        <NavLink to='/login' className="flex items-center justify-center w-auto px-2 border h-40px border-crossLightPurple text-crossLightPurple rounded-20 hover:bg-crossLightPurple hover:text-vogueWhite">Log In</NavLink>
+          {
+            me ? 
+
+            <Link to='/user-profile' className="flex items-center justify-center text-white bg-black border rounded-full w-40px h-40px text-13px">
+              {/* <img src={me & me.displayPhoto} alt="user photo" className="border rounded-full w-30px h-30px border-crossLightPurple"/> */}
+              {me && me.firstName.charAt(0).toUpperCase()}  {me && me.lastName.charAt(0).toUpperCase()}
+              </Link>
+            
+            
+            : <NavLink to='/login' className="flex items-center justify-center w-auto px-2 border h-40px border-crossLightPurple text-crossLightPurple rounded-20 hover:bg-crossLightPurple hover:text-vogueWhite">Log In</NavLink>
+          }
+        
+
+        
       </div>
 
 

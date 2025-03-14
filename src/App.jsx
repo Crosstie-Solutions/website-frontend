@@ -39,6 +39,9 @@ import CorporateTrainingPage from "./pages/CorporateTrainingPage/CorporateTraini
 import ManagementConsultingPage from "./pages/ManagementConsultingPage/ManagementConsultingPage";
 import CustomizedTrainingPage from "./pages/CustomizedTrainingPage/CustomizedTrainingPage";
 import WebinarPage from "./pages/WebinarPage/WebinarPage";
+import UserProfile from "./components/UserProfile/UserProfile";
+import { LoadingBtn } from "./components/LoadingBtn/LoadingBtn";
+import Loading from "./components/Loading/Loading";
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
 // import { Protected } from "./Components/Protected/Protected";
@@ -47,7 +50,7 @@ import WebinarPage from "./pages/WebinarPage/WebinarPage";
 
 function App() {  
 
-  const {aboutDD, solutionsDD, coursesDD, mobileSearch, viewAllPrograms, enrollmentForm, viewAllWebinars} = useContext(CrossContext);
+  const {aboutDD, solutionsDD, coursesDD, mobileSearch, viewAllPrograms, enrollmentForm, viewAllWebinars, loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -60,6 +63,23 @@ function App() {
     viewAllWebinars();
   },[]);
 
+
+  
+  useEffect(()=>{
+    fetchMe();
+  },[loginToken]);
+
+  useEffect(()=>{
+    getLoginToken();
+  });
+
+
+  useEffect(()=>{
+    fetchMyWebinars();
+  }, [me]);
+
+  
+  
 
   
   return (
@@ -80,6 +100,7 @@ function App() {
         {mobileSearch && <MobileSearchBar />}
         {/* {courseData.length >  0 && <CourseSuggestion />} */}
         {enrollmentForm && <CourseEnrollmentForm />}
+        {loading && <Loading />}
         
 
         <Routes>
@@ -106,7 +127,10 @@ function App() {
           <Route path="/our-solutions/" element={<CorporateTrainingPage />} />
           <Route path="/our-solutions/management-consulting" element={<ManagementConsultingPage />} />
           <Route path="/our-solutions/customized-training" element={<CustomizedTrainingPage />} />
+          
           <Route path="/our-solutions/webinars" element={<WebinarPage />} />
+          
+          <Route path="/user-profile" element={<UserProfile />} />
 
           {/* <Route path="/shop/product" element={<ProductDetailPage />}>
             <Route path=":productId" element={<ProductDetailPage />} />
