@@ -29,7 +29,7 @@ function Hero() {
           Discover new skills and interests with our extensive course collection
         </p>
 
-        <Link className="flex items-center justify-center w-auto gap-1 px-1 mt-2 font-bold rounded-10 h-40px bg-buttonOverlay text-15px">
+        <Link to='/about-us/' className="flex items-center justify-center w-auto gap-1 px-1 mt-2 font-bold rounded-10 h-40px bg-buttonOverlay text-15px">
           More about us <BsArrowRight />
         </Link>
 
