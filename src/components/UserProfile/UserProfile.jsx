@@ -947,7 +947,7 @@ function UserProfile() {
 
 
       {me &&
-    <button className="relative flex items-center justify-center px-2 mt-5 text-white border w-150px h-40px bg-vogueRed rounded-10 left-10"
+    <button className="relative items-center justify-center px-2 mt-5 text-white border large:flex w-150px h-40px bg-vogueRed rounded-10 left-10 small:hidden"
             onClick={()=>{
               localStorage.clear();
             }}
