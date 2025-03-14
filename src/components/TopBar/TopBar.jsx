@@ -7,7 +7,7 @@ import { MdOutlineMail } from "react-icons/md";
 
 function TopBar() {
   return (
-    <div className='flex justify-center large:gap-10 small:gap-2 text-vogueWhite h-50px w-100 bg-crossDarkPurple large:text-15px small:text-13px'>
+    <div className='flex justify-center large:gap-5 small:gap-2 text-vogueWhite h-50px w-100 bg-crossDarkPurple large:text-20px small:text-13px large:pr-10'>
       
       <a href={`tel:08138957283`} className="flex items-center justify-center large:gap-1"><FaPhone className='text-20px'/> +234 708 560 4023</a>
       
@@ -20,7 +20,7 @@ function TopBar() {
       
       <a 
       href="mailto:info@crosstie.com"
-      className='items-center justify-center large:flex large:gap-1 small:hidden'><MdOutlineMail className='text-15px'/> info@crosstie.com</a>
+      className='items-center justify-center large:flex large:gap-1 small:hidden'><MdOutlineMail className='text-20px'/> info@crosstie.com</a>
     </div>
   )
 }
