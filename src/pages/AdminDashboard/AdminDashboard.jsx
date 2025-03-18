@@ -558,7 +558,7 @@ function AdminDashboard() {
               {usersDD &&
               <div className="flex flex-col items-center gap-1 w-100">
                 {/* onClick={toggleSideBar} */}
-                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                {/* <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
                 onClick={
                   () => {
                     setActiveScreen("all Programs");
@@ -567,7 +567,7 @@ function AdminDashboard() {
                   }
                   
                 }
-                >All Programs</div>
+                >All Programs</div> */}
                 
                 <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
                 onClick={() => {
