@@ -182,7 +182,7 @@ function Header() {
         {me &&
         <Link to={`/${me && me.role==="user" ? "user-profile" : "admin-dashboard"}`} className="flex items-center justify-center px-2 mt-1 bg-white border w-80 h-40px border-crossLightPurple rounded-10 text-crossLightPurple"
         onClick={toggleNav}
-        >My Profile</Link>}
+        >{me && me.role==="user" ? "My Profile" : "Admin dashboard"}</Link>}
 
         {!me &&
         <Link to='/login' className="flex items-center justify-center px-2 mt-5 text-white border w-80 h-40px bg-crossLightPurple rounded-10"
