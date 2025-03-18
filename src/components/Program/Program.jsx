@@ -9,9 +9,10 @@ import { Link } from 'react-router-dom';
 import { CrossContext } from '../../Context/CrossContext';
 
 
+
 function Program(program) {
 
-    const {formatDate} = useContext(CrossContext);
+    const {formatDate, toggleEnrollment} = useContext(CrossContext);
 
     const {title, duration, startDate, endDate, startTime, endTime, mode, id} = program;
     
@@ -39,8 +40,11 @@ function Program(program) {
             <div className='flex items-center justify-center w-auto gap-1 px-1 cursor-pointer text-crossLightPurple h-30px rounded-10'>Show More Dates <MdKeyboardArrowDown className='text-20px'/></div>
 
 
-            <Link className='flex items-center justify-center gap-1 text-white w-200px h-30px rounded-10 bg-crossLightPurple'>Enroll Now</Link>
-            <Link className='flex items-center justify-center gap-1 text-black border w-200px border-crossLightPurple h-30px rounded-10'>More details</Link>
+            <div className='flex items-center justify-center gap-1 text-white w-200px h-30px rounded-10 bg-crossLightPurple'
+            onClick={toggleEnrollment}
+            >Enroll Now</div>
+            
+            <Link to={`/our-courses/${id}`} className='flex items-center justify-center gap-1 text-black border w-200px border-crossLightPurple h-30px rounded-10'>More details</Link>
         </div>
     </div>
   )

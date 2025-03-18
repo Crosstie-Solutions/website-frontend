@@ -39,9 +39,10 @@ import CorporateTrainingPage from "./pages/CorporateTrainingPage/CorporateTraini
 import ManagementConsultingPage from "./pages/ManagementConsultingPage/ManagementConsultingPage";
 import CustomizedTrainingPage from "./pages/CustomizedTrainingPage/CustomizedTrainingPage";
 import WebinarPage from "./pages/WebinarPage/WebinarPage";
-import UserProfile from "./components/UserProfile/UserProfile";
+import UserProfile from "./pages/UserProfile/UserProfile";
 import { LoadingBtn } from "./components/LoadingBtn/LoadingBtn";
 import Loading from "./components/Loading/Loading";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
 // import { Protected } from "./Components/Protected/Protected";
@@ -50,7 +51,9 @@ import Loading from "./components/Loading/Loading";
 
 function App() {  
 
-  const {aboutDD, solutionsDD, coursesDD, mobileSearch, viewAllPrograms, enrollmentForm, viewAllWebinars, loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me} = useContext(CrossContext);
+  const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
+    viewAllPrograms, enrollmentForm, viewAllWebinars, 
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -69,6 +72,8 @@ function App() {
     fetchMe();
   },[loginToken]);
 
+  
+
   useEffect(()=>{
     getLoginToken();
   });
@@ -77,9 +82,12 @@ function App() {
   useEffect(()=>{
     fetchMyWebinars();
   }, [me]);
+  
 
   
-  
+  useEffect(()=>{
+    viewAllCourses();
+  }, []);
 
   
   return (
@@ -131,6 +139,8 @@ function App() {
           <Route path="/our-solutions/webinars" element={<WebinarPage />} />
           
           <Route path="/user-profile" element={<UserProfile />} />
+          
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
 
           {/* <Route path="/shop/product" element={<ProductDetailPage />}>
             <Route path=":productId" element={<ProductDetailPage />} />

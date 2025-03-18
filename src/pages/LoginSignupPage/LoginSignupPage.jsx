@@ -106,7 +106,6 @@ const handleSignup = async (event) => {
   
   
 
-
   // states for login
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");

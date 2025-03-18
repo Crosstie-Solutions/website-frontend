@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import CreateBlog from "../CreateBlog/CreateBlog";
+import BlogPost from "../BlogPost/BlogPost";
+import BlogList from "../BlogList/BlogList";
 // import {ButtonSwiper} from "../AboutButtonsSwiper/AboutButtonsSwiper";
 
 
@@ -71,6 +74,10 @@ const IPGeolocation = () => {
       <p>You have spent {sessionTime} seconds on this page</p>
 
       {/* <ButtonSwiper /> */}
+
+      <CreateBlog />
+      
+      {/* <BlogList /> */}
     </div>
   );
 };

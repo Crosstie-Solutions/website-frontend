@@ -122,6 +122,34 @@ const[loading, setLoading] = useState(false);
     setMobileSearch(!mobileSearch)
   }
 
+
+
+  const [allCourses, setAllCourses] = useState();
+  const [loadingAllCourses, setLoadingAllCourses] = useState(false);
+
+  console.log("allCourses:", allCourses);
+
+
+  const viewAllCourses = async () => {
+
+
+    try {
+      setLoadingAllCourses(true)
+      const response = await axios.get(`${baseUrl}/api/course`);
+
+      setAllCourses(response.data.data.data);
+    } catch (dupError) {
+      console.log("error fetching all courses:", dupError);
+    }finally{
+      setLoadingAllCourses(false)
+    }
+
+
+  };
+
+
+
+
   //to format date
   function formatDate(dateString) {
     const date = new Date(dateString);
@@ -134,7 +162,6 @@ const[loading, setLoading] = useState(false);
   const [loadingAllPrograms, setLoadingAllPrograms] = useState(false);
 
   console.log("allPrograms:", allPrograms);
-
 
 
   const viewAllPrograms = async () => {
@@ -302,11 +329,6 @@ const fetchMe = async () => {
 
 
 
-
-
-
-
-
   //fetch my webinars
 const[myWebinars, setMyWebinars] = useState(null);
 
@@ -326,9 +348,16 @@ const fetchMyWebinars = async () => {
 
   }
 };
-  
 
 
+
+//admin dashboard active screen
+const [activeScreen, setActiveScreen] = useState("overview");
+const [current, setCurrent] = useState(false);
+
+const toggleSideBar = () => {
+  setCurrent(!current);
+};
 
 
   //scroll to top effect
@@ -346,7 +375,7 @@ useEffect(() => {
 
   //value to export
   const contextValue = {
-    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars
+    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses
   };
 
 

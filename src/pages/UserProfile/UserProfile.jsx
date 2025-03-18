@@ -1,21 +1,21 @@
 import React, { useContext, useState } from "react";
 import { CiEdit } from "react-icons/ci";
-import { UpdatingBtn } from "../LoadingBtn/LoadingBtn";
+import { UpdatingBtn } from "../../components/LoadingBtn/LoadingBtn";
 import { HiOutlineEye } from "react-icons/hi";
 import { HiOutlineEyeOff } from "react-icons/hi";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { CrossContext } from "../../Context/CrossContext";
-import MyWebinars from "../MyWebinars/MyWebinars";
+import MyWebinars from "../../components/MyWebinars/MyWebinars";
+import { useNavigate } from "react-router-dom";
+
 
 
 
 function UserProfile() {
   const { me, baseUrl, loginToken } = useContext(CrossContext);
 
-  const exchangeRate = 3;
-  const usdtAddress = "fsfdfsdsf";
-  const apr = 0.5;
+  const navigate = useNavigate();
 
   const [editErrors, setEditErrors] = useState({});
 
@@ -547,6 +547,8 @@ function UserProfile() {
           }
         );
 
+
+        
         console.log("exchange rate update response:", response.data);
         if ((response.data.status = "success")) {
           toast.success(
@@ -950,6 +952,8 @@ function UserProfile() {
     <button className="relative items-center justify-center px-2 mt-5 text-white border large:flex w-150px h-40px bg-vogueRed rounded-10 left-10 small:hidden"
             onClick={()=>{
               localStorage.clear();
+              window.location.reload();
+              navigate("/")
             }}
             >Log Out</button>}
     </div>

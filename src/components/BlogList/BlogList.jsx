@@ -59,25 +59,25 @@ export default BlogList;
 
 
 
-const blogSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: [true, "A blog post must have a title"],
-  },
-  subHeadings: [
-    {
-      heading: { type: String, required: true },
-      content: { type: String, required: true },
-    },
-  ],
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+// const blogSchema = new mongoose.Schema({
+//   title: {
+//     type: String,
+//     required: [true, "A blog post must have a title"],
+//   },
+//   subHeadings: [
+//     {
+//       heading: { type: String, required: true },
+//       content: { type: String, required: true },
+//     },
+//   ],
+//   createdAt: {
+//     type: Date,
+//     default: Date.now,
+//   },
+// });
 
-const Blog = mongoose.model("Blog", blogSchema);
-module.exports = Blog;
+// const Blog = mongoose.model("Blog", blogSchema);
+// module.exports = Blog;
 
 
 
@@ -85,40 +85,40 @@ module.exports = Blog;
 
 
 // Create a new blog post
-exports.createBlogPost = async (req, res) => {
-  try {
-    const { title, subHeadings } = req.body;
+// exports.createBlogPost = async (req, res) => {
+//   try {
+//     const { title, subHeadings } = req.body;
 
-    const newBlog = await Blog.create({ title, subHeadings });
+//     const newBlog = await Blog.create({ title, subHeadings });
 
-    res.status(201).json({
-      status: "success",
-      data: newBlog,
-    });
-  } catch (error) {
-    res.status(400).json({
-      status: "fail",
-      message: error.message,
-    });
-  }
-};
+//     res.status(201).json({
+//       status: "success",
+//       data: newBlog,
+//     });
+//   } catch (error) {
+//     res.status(400).json({
+//       status: "fail",
+//       message: error.message,
+//     });
+//   }
+// };
 
 
 //i just created this variable; it was not in the original code
-  const post = {
-    "title": "How to Learn JavaScript",
-    "subTitles": [
-      {
-        "subHeading": "Introduction",
-        "subContent": "JavaScript is a versatile programming language..."
-      },
-      {
-        "subHeading": "Variables and Data Types",
-        "subContent": "In JavaScript, variables can be declared using var, let, or const..."
-      },
-      {
-        "subHeading": "Functions and Scope",
-        "subContent": "Functions allow code reuse and improve maintainability..."
-      }
-    ]
-  }
+  // const post = {
+  //   "title": "How to Learn JavaScript",
+  //   "subTitles": [
+  //     {
+  //       "subHeading": "Introduction",
+  //       "subContent": "JavaScript is a versatile programming language..."
+  //     },
+  //     {
+  //       "subHeading": "Variables and Data Types",
+  //       "subContent": "In JavaScript, variables can be declared using var, let, or const..."
+  //     },
+  //     {
+  //       "subHeading": "Functions and Scope",
+  //       "subContent": "Functions allow code reuse and improve maintainability..."
+  //     }
+  //   ]
+  // }

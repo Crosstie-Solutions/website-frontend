@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { PHOTOS } from "../../assets/images";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { CrossContext } from "../../Context/CrossContext";
@@ -16,10 +16,13 @@ import { MdOutlineMail } from "react-icons/md";
 
 function Header() {
 
+  const navigate = useNavigate();
+
     const {hideAboutDD, showAboutDD, showSolutionsDD, hideSolutionsDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, aboutDD, solutionsDD, coursesDD, toggleMobileSearch, me} = useContext(CrossContext);
 
     const [activeSearch, setActiveSearch] = useState(false)
 
+    
     
   return (
     <nav className="flex flex-row items-center justify-around w-100 h-80px bg-vogueWhite">
@@ -34,6 +37,7 @@ function Header() {
             <img src={PHOTOS.logo} alt="logo" className="w-100 h-100" />
           </a>
      </div>
+
 
       {/* desktop Nav */}
       {!activeSearch &&
@@ -176,7 +180,7 @@ function Header() {
 
         
         {me &&
-        <Link to='/user-profile' className="flex items-center justify-center px-2 mt-1 bg-white border w-80 h-40px border-crossLightPurple rounded-10 text-crossLightPurple"
+        <Link to={`/${me && me.role==="user" ? "user-profile" : "admin-dashboard"}`} className="flex items-center justify-center px-2 mt-1 bg-white border w-80 h-40px border-crossLightPurple rounded-10 text-crossLightPurple"
         onClick={toggleNav}
         >My Profile</Link>}
 
@@ -190,6 +194,8 @@ function Header() {
                   onClick={()=>{
                     toggleNav();
                     localStorage.clear();
+                    window.location.reload();
+                    navigate("/");
                   }}
                   >Log Out</button>}
       </ul>}
@@ -219,7 +225,7 @@ function Header() {
           {
             me ? 
 
-            <Link to='/user-profile' className="flex items-center justify-center text-white bg-black border rounded-full w-40px h-40px text-13px">
+            <Link to={`/${me && me.role==="user" ? "user-profile" : "admin-dashboard"}`} className="flex items-center justify-center text-white bg-black border rounded-full w-40px h-40px text-13px">
               {/* <img src={me & me.displayPhoto} alt="user photo" className="border rounded-full w-30px h-30px border-crossLightPurple"/> */}
               {me && me.firstName.charAt(0).toUpperCase()}  {me && me.lastName.charAt(0).toUpperCase()}
               </Link>

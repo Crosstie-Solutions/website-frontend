@@ -76,7 +76,7 @@ const CreateBlog = () => {
           </div>
         ))}
 
-        <button type="button" onClick={addSubHeading}>
+        <button type="button" onClick={addSubHeading} className="bg-red-500">
           + Add Subheading
         </button>
 
