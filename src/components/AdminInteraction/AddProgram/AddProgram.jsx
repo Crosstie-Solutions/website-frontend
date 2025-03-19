@@ -200,8 +200,10 @@ function AddProgram() {
           formData.append("category", category);
           formData.append("course", course);
           formData.append("courseContent", productData.courseContent);
-          formData.append("date", JSON.stringify(date));
-          formData.append("objectives", JSON.stringify(objectives));
+          // formData.append("date", JSON.stringify(date));
+          date.forEach(item => formData.append("date[]", item));
+          objectives.forEach(item => formData.append("objectives[]", item));
+          // formData.append("objectives", JSON.stringify(objectives));
       
           // Append each pdf file to the formData
           // for (let i = 0; i < productData.courseContent.length; i++) {
@@ -528,5 +530,6 @@ function AddProgram() {
           </div>
   )
 }
+
 
 export default AddProgram;

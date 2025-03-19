@@ -11,7 +11,9 @@ import { CrossContext } from "../../Context/CrossContext";
 
 function CourseEnrollmentForm() {
 
-    const {toggleEnrollment} = useContext(CrossContext);
+  
+
+    const {toggleEnrollment, program} = useContext(CrossContext);
     
   return (
     <div className="fixed top-0 left-0 z-20 flex flex-col items-center justify-center py-3 large:h-auto w-100 bg-overlaySecond text-13px small:h-100vh">
@@ -20,29 +22,31 @@ function CourseEnrollmentForm() {
       <div className="relative flex flex-col items-center h-auto gap-3 py-2 bg-white large:px-3 large:w-80 rounded-10 small:w-90vw small:px-1">
         
         <h3 className="font-semibold large:text-17px small:text-13px">
-          Purchase Course - <span className="text-crossLightPurple">Mastering Presentation skills and...</span>
+          Purchase Course - <span className="text-crossLightPurple">{program && program.title.slice(0, 50)}...</span>
         </h3>
 
         <div className="flex gap-2 font-semibold large:px-2 w-100 large:flex-row small:flex-col">
           <div className="flex items-center justify-start gap-1 border rounded h-30px px-0.5">
             <FaRegCalendarAlt className="text-15px text-crossLightPurple" />
-            06-08 Dec
+            {program && program.date[0]} Dec
           </div>
           
           <div className="flex items-center justify-start gap-1 border rounded h-30px px-0.5">
             <TbTimeDuration30 className="text-20px text-crossLightPurple" />
-            9:00 AM - 4:00 PM
+            {program && program.time}
           </div>
 
           <div className="flex items-center justify-start gap-1 border rounded h-30px px-0.5">
             <TbMoneybag className="text-20px text-crossLightPurple" />
-            &#8358;100,000
+            &#8358;{program && program.cost.toLocaleString()}
           </div>
         </div>
 
 
         <IoIosCloseCircleOutline className="absolute cursor-pointer large:top-5 large:right-5 small:top-4 small:right-2 text-30px text-crossLightPurple"
-        onClick={toggleEnrollment}
+        onClick={()=>{
+          toggleEnrollment()
+        }}
         />
 
         

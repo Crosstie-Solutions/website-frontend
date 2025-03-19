@@ -55,21 +55,20 @@ function OpenExecutivePage() {
 
       <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
         {currentPrograms &&
-          currentPrograms.map((program) => {
+          currentPrograms.map((program, i) => {
 
             const slug = program.category.split(" ").slice(0, 2).join("-").toLowerCase();
             
             return (
               <Program
+                key={i}
                 title={program.title}
                 duration={program.duration}
-                startDate={program.startDate}
-                endDate={program.endDate}
-                startTime={program.startTime}
-                endTime={program.endTime}
+                date={program.date}
+                time={program.time}
                 mode={program.mode}
                 id={program._id}
-                slug={slug}
+                // slug={slug}
               />
             )
           })}
@@ -103,7 +102,7 @@ function OpenExecutivePage() {
 
       {currentPrograms && currentPrograms.length < 1 && (
         <p className="mt-5 text-center w-100 text-15px">
-          No result for <span className="font-bold">{programsSearchTerm}</span>.
+          No result for found.
         </p>
       )}
     </div>

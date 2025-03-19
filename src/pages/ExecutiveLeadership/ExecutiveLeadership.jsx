@@ -55,14 +55,12 @@ function ExecutiveLeadership() {
             {
                 currentPrograms && currentPrograms.map((program)=>
                     <Program 
-                    title={program.title}
-                    duration={program.duration}
-                    startDate={program.startDate}
-                    endDate={program.endDate}
-                    startTime={program.startTime}
-                    endTime={program.endTime}
-                    mode={program.mode}
-                    id={program._id}
+                      title={program.title}
+                      duration={program.duration}
+                      date={program.date}
+                      time={program.time}
+                      mode={program.mode}
+                      id={program._id}
                     />
                 )
             }
@@ -101,7 +99,7 @@ function ExecutiveLeadership() {
             
             
             {currentPrograms && currentPrograms.length < 1 && (
-              <p className="mt-5 text-center w-100 text-15px">No result for <span className="font-bold">{programsSearchTerm}</span>.</p>
+              <p className="mt-5 text-center w-100 text-15px">No result for found.</p>
             )}
     </div>
   );

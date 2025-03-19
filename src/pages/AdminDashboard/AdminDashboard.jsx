@@ -264,6 +264,9 @@ function AdminDashboard() {
       
       {/*desktop side menu */}
       <div className="flex-col items-start h-auto gap-2 border large:flex w-25 bg-vogueWhite rounded-10 small:hidden">
+        
+        {/* overview */}
+        
         <div
           className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
             activeScreen === "overview" ? "bg-gray-300" : ""
@@ -274,67 +277,11 @@ function AdminDashboard() {
           Crosstie Admin
         </div>
 
-        <div
-          className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
-            activeScreen === "orders" ? "bg-gray-300" : ""
-          } hover:bg-gray-300`}
-          onClick={() => setActiveScreen("orders")}
-        >
-          <TbTruckDelivery className="text-20px" />
-          My Orders
-        </div>
-
-        {/* <div
-          className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
-            activeScreen === "inbox" ? "bg-gray-300" : ""
-          } hover:bg-gray-300`}
-          onClick={() => setActiveScreen("inbox")}
-        >
-          <MdMailOutline className="text-20px" />
-          inbox
-        </div> */}
-
-        {me && me.role==="user" ? "" :
-          <div
-            className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
-              activeScreen === "allProducts" ? "bg-gray-300" : ""
-            } hover:bg-gray-300`}
-            onClick={() => setActiveScreen("allProducts")}
-          >
-            <MdOutlineProductionQuantityLimits className="text-20px" />
-            All Products
-          </div>}
-
-
-          {me && me.role==="user" ? "" :
-          <div
-            className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
-              activeScreen === "addProduct" ? "bg-gray-300" : ""
-            } hover:bg-gray-300`}
-            onClick={() => setActiveScreen("addProduct")}
-          >
-            <MdDriveFolderUpload className="text-20px" />
-            Add Product
-          </div>}
-
-
-
-          {me && me.role==="user" ? "" :
-          <div
-            className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
-              activeScreen === "manageOrders" ? "bg-gray-300" : ""
-            } hover:bg-gray-300`}
-            onClick={() => setActiveScreen("manageOrders")}
-          >
-            <MdManageHistory className="text-20px" />
-            Manage Orders
-          </div>}
-
           
           
 
 
-        
+        {/* manage programs */}
         <div
           className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
         >
@@ -347,7 +294,7 @@ function AdminDashboard() {
               Manage Programs
             </div>
 
-            <IoChevronDown className="text-20px"/>
+            <IoChevronDown className={`text-20px ${usersDD ? "rotate-180" : ""}`}/>
           </div>
 
           {usersDD &&
@@ -363,79 +310,16 @@ function AdminDashboard() {
         </div>
        
 
-        {me && me.role==="user" ? "" :
-          <div
-            className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
-              activeScreen === "newsletter" ? "bg-gray-300" : ""
-            } hover:bg-gray-300`}
-            onClick={() => setActiveScreen("newsletter")}
-          >
-            <FaRegNewspaper className="text-20px" />
-            Newsletter
-          </div>}
-
-
-          {me && me.role==="user" ? "" :
-          <div
-            className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
-              activeScreen === "enquiries" ? "bg-gray-300" : ""
-            } hover:bg-gray-300`}
-            onClick={() => setActiveScreen("enquiries")}
-          >
-            <BiMessageDetail className="text-20px" />
-            Enquiries
-          </div>}
-          
-           
-        {/* <div
-          className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
-            activeScreen === "pendingReviews" ? "bg-gray-300" : ""
-          } hover:bg-gray-300`}
-          onClick={() => setActiveScreen("pendingReviews")}
-        >
-          <MdOutlineRateReview className="text-20px" />
-          Pending Reviews
-        </div> */}
-
-        {/* <div
-          className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
-            activeScreen === "voucher" ? "bg-gray-300" : ""
-          } hover:bg-gray-300`}
-          onClick={() => setActiveScreen("voucher")}
-        >
-          <RiCoupon5Line className="text-20px" />
-          Voucher
-        </div> */}
-
-        {/* <div
-          className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
-            activeScreen === "savedItems" ? "bg-gray-300" : ""
-          } hover:bg-gray-300`}
-          onClick={() => setActiveScreen("savedItems")}
-        >
-          <FaRegHeart className="text-20px" />
-          Saved Items
-        </div> */}
-
-        {/* <div
-          className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
-            activeScreen === "recentlyViewed" ? "bg-gray-300" : ""
-          } hover:bg-gray-300`}
-          onClick={() => setActiveScreen("recentlyViewed")}
-        >
-          <GoHistory className="text-20px" />
-          Recently Viewed
-        </div> */}
-
         <Link
           className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
             activeScreen === "accountManagement" ? "bg-gray-300" : ""
           } hover:bg-gray-300`}
-          to={`/user/edit/${me && me.id}`}
+          // to={`/user/edit/${me && me.id}`}
         >
           <LuSettings className="text-20px" />
           Settings
         </Link>
+
 
         <div
           className="flex items-center justify-start gap-1 pl-3 border cursor-pointer h-40px w-100 text-15px bg-vogueRed text-vogueWhite hover:bg-transparent hover:text-vogueRed hover:border-vogueRed hover:border"
@@ -445,11 +329,9 @@ function AdminDashboard() {
           Logout
         </div>
 
-        {/* <div className="flex items-center justify-start gap-1 pl-3 border cursor-pointer text-vogueRed h-40px w-100 text-15px hover:text-vogueBlack">
-          <BsTrash3 className="text-20px" />
-          Delete Account
-        </div> */}
+       
       </div>
+
 
       {/*desktop active screen*/}
       <div className="flex-col items-center h-auto px-2 py-5 border large:flex w-70 bg-vogueWhite rounded-10 small:hidden">

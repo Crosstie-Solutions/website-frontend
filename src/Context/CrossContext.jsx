@@ -212,11 +212,41 @@ const[loading, setLoading] = useState(false);
 
 
   //enrollment form
-  const [enrollmentForm, setEnrollmentForm] = useState(false);
+  const [enrollmentForm, setEnrollmentForm] = useState(null);
 
-  const toggleEnrollment = ()=> {
-    setEnrollmentForm(!enrollmentForm);
+  const [program, setProgram] = useState(null);
+
+
+  const toggleEnrollment = async (index)=> {
+    // setEnrollmentForm(!enrollmentForm);
+    setEnrollmentForm((prev) => (prev === index ? null : index));
+
+    try {
+      const response = await axios.get(`${baseUrl}/api/program/${index}`);
+      setProgram(response.data.data.data);
+
+    } catch (error) {
+      console.error('Error fetching program:', error);
+    }
+
   }
+
+  //to fetch a single program
+    // const fetchProgram = async () => {
+    //   try {
+    //     const response = await axios.get("http://127.0.0.1:8000/api/program/67da300fe4998e2f8c30a75b");
+    //     console.log(response.data);
+    //   } catch (error) {
+    //     console.error('Error fetching program:', error);
+    //   }
+    // };
+
+
+  // const [moreDates, setMoreDates] = useState(null);
+  
+  //     const toggleMoreDates = (index)=>{
+  //       setMoreDates((prev) => (prev === index ? null : index));
+  //     }
 
 
 
@@ -371,11 +401,9 @@ useEffect(() => {
 
 
 
-
-
   //value to export
   const contextValue = {
-    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses
+    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program
   };
 
 

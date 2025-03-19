@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { RiFolderDownloadLine } from "react-icons/ri";
 import { CrossContext } from "../../Context/CrossContext";
 import { FaRegCalendarAlt } from "react-icons/fa";
@@ -11,6 +11,7 @@ import { MdOutlineMail } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { HiArrowLongRight } from "react-icons/hi2";
+import axios from "axios";
 
 
 
@@ -18,8 +19,37 @@ import { HiArrowLongRight } from "react-icons/hi2";
 function ProgramDetailsPage() {
   const {
     programsEndIndex,
-    allPrograms, toggleEnrollment
+    allPrograms, toggleEnrollment, baseUrl
   } = useContext(CrossContext);
+
+  const programId = useParams().programId;
+ 
+
+  const [program, setProgram] = useState(null);
+  const [loadingProgram, setLoadingProgram] = useState(false);
+
+  console.log("program:", program);
+
+
+  useEffect(()=>{
+    const viewProgram = async ()=> {
+
+      try {
+        setLoadingProgram(true)
+        const response = await axios.get(`${baseUrl}/api/program/${programId}`);
+        setProgram(response.data.data.data);
+  
+      } catch (error) {
+        console.error('Error fetching program:', error);
+      }finally{
+        setLoadingProgram(false);
+      }
+  
+    }
+
+    viewProgram();
+  }, [programId])
+  
   
 
   const [details, setDetails] = useState("course");
@@ -38,38 +68,46 @@ function ProgramDetailsPage() {
       <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
         <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw small:h-200px small:pl-2 bg-crossLightPurple">
           <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-extrabold small:w-80 small:text-17px">
-            ELEVATE YOUR LEADERSHIP SKILL, EXPAND YOUR IMPACT!
+            {program && program.title.toUpperCase()}
+            {loadingProgram && "Loading Course Details..."}
           </h1>
 
           <p className="font-extralight large:w-50 small:w-90 small:text-11px large:text-15px">
-            Discover new skills and interests with our extensive course
-            collection
+          {program && program.description[0].toUpperCase()}
+          {program && program.description.slice(1)}
           </p>
 
+          {loadingProgram &&
+          <p className="font-bold large:w-50 small:w-90 small:text-11px large:text-20px">
+            Please wait
+          </p>}
+
+          {
+            !loadingProgram &&
           <Link className="flex items-center justify-center gap-1 px-1 font-semibold large:w-300px rounded-10 h-40px bg-buttonOverlay large:text-15px small:w-250px small:text-11px">
             Download course content{" "}
             <RiFolderDownloadLine className="large:text-25px small:text-20px" />
-          </Link>
+          </Link>}
+          
         </div>
       </div>
 
       <div className="flex flex-col items-center pb-5 bg-white border large:gap-5 rounded-tl-20 large:w-80 rounded-tr-20 small:w-90vw small:gap-3">
         
         <div className="flex items-center justify-center text-white rounded-tl-20 rounded-tr-20 large:h-50px w-100 bg-crossLightPurple small:h-auto large:text-20px small:text-13px large:flex-row small:flex-col small:text-center small:py-1">
-          Purchase this course -  <span className="font-bold"> Mastering Presentation skills and advanced
-          powerpoint and canva</span>
+          Purchase this course -  <span className="font-bold">  {program && program.title}</span>
         </div>
 
        
-        <div className="flex flex-col items-start h-auto border small:gap-1 large:gap-2 small:pl-1 large:pl-5 w-100 text-crossTextGray small:py-1 large:py-0">
+        <div className="flex flex-col items-start h-auto small:gap-1 large:gap-2 small:pl-1 large:pl-5 w-100 text-crossTextGray small:py-1 large:py-0">
           <div className="flex items-center justify-center w-auto h-auto gap-2">
             <hr className="rotate-45 large:h-20px large:w-20px small:w-10px small:h-10px bg-crossLightPurple"/>
-            <div>Duration : 2 Days</div>
+            <div>Duration :  {program && program.duration}</div>
           </div>
 
           <div className="flex items-center justify-center w-auto h-auto gap-2">
             <hr className="rotate-45 large:h-20px large:w-20px small:w-10px small:h-10px bg-crossLightPurple"/>
-            <div>Time : 9:00PM</div>
+            <div>Time : {program && program.time}</div>
           </div>
 
           <div className="flex items-center justify-center w-auto h-auto gap-2">
@@ -99,100 +137,30 @@ function ProgramDetailsPage() {
           
           <div className="flex flex-col gap-2 overflow-y-scroll bg-white h-200px w-100">
             
-            <div className="flex items-center justify-between large:px-2 py-1 bg-[#F9F9F9]">
-              <div className="flex flex-col w-auto gap-1">
-                <div className="flex items-center justify-start gap-1">
-                  <FaRegCalendarAlt className="text-15px"/>
-                  06-08 Dec
-                </div>
+            {program && program.date.map((day, i)=>
+             <div className="flex items-center justify-between large:px-2 py-1 bg-[#F9F9F9]"
+             key={i}
+             >
+              
+             <div className="flex flex-col w-auto gap-1">
+               <div className="flex items-center justify-start gap-1">
+                 <FaRegCalendarAlt className="text-15px"/>
+                 {day}
+               </div>
 
-                <div className="flex items-center justify-start gap-1">
-                  <IoMdLaptop className="text-15px"/>
-                  Online/Physical
-                </div>
-              </div>
+               <div className="flex items-center justify-start gap-1">
+                 <IoMdLaptop className="text-15px"/>
+                 Online/Physical
+               </div>
+             </div>
 
-              <div className="flex items-center justify-center w-auto border large:gap-1">
-                <TbTimeDuration30 className="text-20px"/>
-                9:00 AM - 4:00 PM
-              </div>
-            </div>
+             <div className="flex items-center justify-center w-auto border large:gap-1">
+               <TbTimeDuration30 className="text-20px"/>
+               {program && program.time}
+             </div>
+           </div>
+          )}
 
-            <div className="flex items-center justify-between large:px-2 py-1 bg-[#F9F9F9]">
-              <div className="flex flex-col w-auto gap-1">
-                <div className="flex items-center justify-start gap-1">
-                  <FaRegCalendarAlt className="text-15px"/>
-                  06-08 Dec
-                </div>
-
-                <div className="flex items-center justify-start gap-1">
-                  <IoMdLaptop className="text-15px"/>
-                  Online/Physical
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center w-auto large:gap-1">
-                <TbTimeDuration30 className="text-20px"/>
-                9:00 AM - 4:00 PM
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between large:px-2 py-1 bg-[#F9F9F9]">
-              <div className="flex flex-col w-auto gap-1">
-                <div className="flex items-center justify-start gap-1">
-                  <FaRegCalendarAlt className="text-15px"/>
-                  06-08 Dec
-                </div>
-
-                <div className="flex items-center justify-start gap-1">
-                  <IoMdLaptop className="text-15px"/>
-                  Online/Physical
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center w-auto large:gap-1">
-                <TbTimeDuration30 className="text-20px"/>
-                9:00 AM - 4:00 PM
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between large:px-2 py-1 bg-[#F9F9F9]">
-              <div className="flex flex-col w-auto gap-1">
-                <div className="flex items-center justify-start gap-1">
-                  <FaRegCalendarAlt className="text-15px"/>
-                  06-08 Dec
-                </div>
-
-                <div className="flex items-center justify-start gap-1">
-                  <IoMdLaptop className="text-15px"/>
-                  Online/Physical
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center w-auto large:gap-1">
-                <TbTimeDuration30 className="text-20px"/>
-                9:00 AM - 4:00 PM
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between large:px-2 py-1 bg-[#F9F9F9]">
-              <div className="flex flex-col w-auto gap-1">
-                <div className="flex items-center justify-start gap-1">
-                  <FaRegCalendarAlt className="text-15px"/>
-                  06-08 Dec
-                </div>
-
-                <div className="flex items-center justify-start gap-1">
-                  <IoMdLaptop className="text-15px"/>
-                  Online/Physical
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center w-auto large:gap-1">
-                <TbTimeDuration30 className="text-20px"/>
-                9:00 AM - 4:00 PM
-              </div>
-            </div>
           </div>
 
           <div className="flex items-center justify-between large:pr-10 w-100 large:flex-row small:flex-col small:gap-2 large:gap-0">
@@ -202,7 +170,9 @@ function ProgramDetailsPage() {
             </div>
 
             <button className="flex items-center justify-center w-auto px-2 text-white h-40px bg-crossLightPurple rounded-20"
-            onClick={toggleEnrollment}
+            onClick={()=>{
+              toggleEnrollment(programId)
+            }}
             >Enroll Now</button>
           </div>
         </div>
@@ -214,29 +184,33 @@ function ProgramDetailsPage() {
       <div className="flex justify-between large:items-start large:w-80 small:flex-col large:flex-row small:w-90vw small:items-center small:gap-3 large:gap-0">
         <div className="flex flex-col gap-3 bg-white large:w-40 small:w-100 small:px-1 large:px-0 small:py-3 large:py-0">
             
-          <ul className="flex flex-col gap-0.5 list-disc w-100 items-center">
-            <h4 className="p-1 text-white bg-crossLightPurple w-100">Modules</h4>
-            <li>Strategic Thinking, Organization and Planning</li>
-            <li>Strategic Thinking, Organization and Planning</li>
-            <li>Strategic Thinking, Organization and Planning</li>
-            <li>Strategic Thinking, Organization and Planning</li>
-          </ul>
+          <div className="flex flex-col items-center justify-center h-auto w-100">
+          <h4 className="p-1 text-white bg-crossLightPurple w-100">Training Objectives</h4>
+            <ul className="flex flex-col gap-0.5 list-disc w-100 items-start pl-3 py-1">
+              
+              {
+                program && program.objectives.map((objective, i)=>
+                  <li key={i} className="">{objective}</li>
+                )
+              }            
+            </ul>
+          </div>
 
-          <ul className="flex flex-col gap-0.5 list-disc w-100 items-center">
+          {/* <ul className="flex flex-col gap-0.5 list-disc w-100 items-center">
             <h4 className="p-1 text-white bg-crossLightPurple w-100">Optional Modules</h4>
             <li>Strategic Thinking, Organization and Planning</li>
             <li>Strategic Thinking, Organization and Planning</li>
             <li>Strategic Thinking, Organization and Planning</li>
             <li>Strategic Thinking, Organization and Planning</li>
-          </ul>
+          </ul> */}
 
-          <ul className="flex flex-col list-disc gap-0.5 w-100 items-center pb-3">
+          {/* <ul className="flex flex-col list-disc gap-0.5 w-100 items-center pb-3">
             <h4 className="p-1 text-white bg-crossLightPurple w-100">NOTES</h4>
             <li>Strategic Thinking, Organization and Planning</li>
             <li>Strategic Thinking, Organization and Planning</li>
             <li>Strategic Thinking, Organization and Planning</li>
             <li>Strategic Thinking, Organization and Planning</li>
-          </ul>
+          </ul> */}
           
           
         </div>
@@ -247,15 +221,15 @@ function ProgramDetailsPage() {
         <div className="flex flex-col gap-1 bg-white w-100">
           <h4 className="p-1 text-white bg-crossLightPurple">About the course</h4>
           <p className="leading-loose small:p-1">
-            Whether it is for an in-house project or your company’s clients,
-            let’s train your project managers on how to coordinate resources and
-            deliver to specifications.
+          {program && program.description[0].toUpperCase()}
+          {program && program.description.slice(1)}.
           </p>
         </div>
 
         <div className="flex flex-col gap-1 bg-white w-100">
           <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple"><FaRegUser className="text-20px"/> Who should attend?</h4>
-          <p className="leading-loose small:p-1">Project Officer, Project Manager, Project Head</p>
+          <p className="leading-loose small:p-1">{program && program.targetAudience[0].toUpperCase()}
+          {program && program.targetAudience.slice(1)}</p>
         </div>
         </div>
       </div>
