@@ -10,7 +10,7 @@ function MyWebinars() {
   const {myWebinars, baseUrl, me, loginToken} = useContext(CrossContext);
 
   
-  const [webinarId, setWebinarId] = useState(myWebinars && myWebinars[0].id);
+  const [webinarId, setWebinarId] = useState(myWebinars && myWebinars.length > 0 ? myWebinars[0].id : "");
   console.log("webinarId:", webinarId);
   
   
@@ -44,7 +44,7 @@ useEffect(()=>{
 
 
   return (
-    <div className='flex flex-col items-start h-auto gap-3 w-100 large:text-15px small:text-13px'>
+    <div className={`${myWebinars && myWebinars.length > 0 ? "flex" : "hidden"}  flex-col items-start h-auto gap-3 w-100 large:text-15px small:text-13px`}>
 
       <h3 className='font-bold text-20px'>My Webinars</h3>
 
