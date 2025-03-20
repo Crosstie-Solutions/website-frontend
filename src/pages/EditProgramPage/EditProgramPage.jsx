@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { CrossContext } from '../../Context/CrossContext';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { CiEdit } from "react-icons/ci";
 import { UpdatingBtn } from '../../components/LoadingBtn/LoadingBtn';
-
+import { LuMoveLeft } from "react-icons/lu";
 
 
 function EditProgramPage() {
@@ -856,7 +856,10 @@ function EditProgramPage() {
   
   return (
     <div className="flex flex-col items-start h-auto gap-2 mt-17 w-90vw">
-            <h4 className="font-semibold pl-9 text-crossLightPurple">Edit Program</h4>
+            <div className='flex'>
+               <Link to='/admin-dashboard' className="flex items-center text-crossLightPurple"> <LuMoveLeft className="flex text-25px"/></Link>
+              <h4 className="font-semibold pl-9 text-crossLightPurple">Edit Program</h4>
+            </div>
 
             <div
               className="flex flex-col items-center h-auto gap-2 w-100 large:text-15px small:text-13px"
