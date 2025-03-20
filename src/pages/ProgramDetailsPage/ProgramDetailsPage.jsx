@@ -12,6 +12,8 @@ import { FaRegUser } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { HiArrowLongRight } from "react-icons/hi2";
 import axios from "axios";
+import { LuMoveLeft } from "react-icons/lu";
+import { CiEdit } from "react-icons/ci";
 
 
 
@@ -19,7 +21,7 @@ import axios from "axios";
 function ProgramDetailsPage() {
   const {
     programsEndIndex,
-    allPrograms, toggleEnrollment, baseUrl
+    allPrograms, toggleEnrollment, baseUrl, me
   } = useContext(CrossContext);
 
   const programId = useParams().programId;
@@ -27,8 +29,6 @@ function ProgramDetailsPage() {
 
   const [program, setProgram] = useState(null);
   const [loadingProgram, setLoadingProgram] = useState(false);
-
-  console.log("program:", program);
 
 
   useEffect(()=>{
@@ -48,7 +48,7 @@ function ProgramDetailsPage() {
     }
 
     viewProgram();
-  }, [programId])
+  }, [programId]);
   
   
 
@@ -66,7 +66,8 @@ function ProgramDetailsPage() {
     <div className="relative flex flex-col items-center justify-start gap-5 large:mt-8 large:text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13 small:text-13px">
       
       <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
-        <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw small:h-200px small:pl-2 bg-crossLightPurple">
+        <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw small:w-100vw small:h-200px small:pl-2 bg-crossLightPurple">         
+          
           <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-extrabold small:w-80 small:text-17px">
             {program && program.title.toUpperCase()}
             {loadingProgram && "Loading Course Details..."}
@@ -88,7 +89,15 @@ function ProgramDetailsPage() {
             Download course content{" "}
             <RiFolderDownloadLine className="large:text-25px small:text-20px" />
           </Link>}
+
+            {me && me.role !=="user" &&
           
+          <div className="flex items-center w-auto h-auto gap-2">
+            <Link to='/admin-dashboard' className="flex items-center justify-center w-auto gap-1 px-1 border rounded large:mt-3 small:mt-0 h-30px"> <LuMoveLeft className="flex text-25px"/> Admin dashboard</Link>
+
+
+            <Link to={`/our-courses/edit/${programId}`} className="flex items-center justify-center w-auto gap-1 px-1 border rounded large:mt-3 small:mt-0 h-30px"> <CiEdit className="flex text-25px"/> Edit Course</Link>
+          </div>}
         </div>
       </div>
 

@@ -258,7 +258,7 @@ function AddProgram() {
                   <label htmlFor="title">title</label>
                   <input
                     type="text"
-                    placeholder="Enter product title"
+                    placeholder="Enter program title"
                     name="title"
                     className="p-0.5 border rounded-4"
                     onChange={handleChange}
@@ -289,8 +289,8 @@ function AddProgram() {
 
               <div className="flex items-center justify-start h-auto gap-5 w-100">
                 <div className="flex flex-col w-40 h-auto">
-                  <label htmlFor="description">description</label>
-                  <input
+                  <label htmlFor="description">About</label>
+                  <textarea
                     type="text"
                     name="description"
                     className="p-0.5 border rounded-4"
@@ -348,7 +348,7 @@ function AddProgram() {
                   </label>
                   <input
                     type="text"
-                    placeholder="specify product color"
+                    placeholder="enter program duration"
                     name="duration"
                     className="p-0.5 border rounded-4"
                     onChange={handleChange}

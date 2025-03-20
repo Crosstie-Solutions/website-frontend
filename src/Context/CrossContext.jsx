@@ -19,9 +19,6 @@ function CrossContextProvider(props) {
 
 
 
-
-
-
 const [aboutDD, setAboutDD] = useState(false);
 
 const showAboutDD = ()=>{
@@ -231,6 +228,19 @@ const[loading, setLoading] = useState(false);
 
   }
 
+
+  //active program
+  const [activeProgram, setActiveProgram] = useState(null);
+
+  const toggleAdminProgramAction = async (index)=> {
+
+    setActiveProgram((prev) => (prev === index ? null : index));
+  }
+
+  
+
+
+
   //to fetch a single program
     // const fetchProgram = async () => {
     //   try {
@@ -390,20 +400,49 @@ const toggleSideBar = () => {
 };
 
 
-  //scroll to top effect
-useEffect(() => {
-  if (currentProgramsPage > 0) {
-    window.scrollTo({ top: 0, behavior: "auto" });
+
+
+  //for admin to delete product
+const [deletingProduct, setDeletingProduct] = useState(false);
+
+const deleteProduct = async (productId) => {
+  
+  try {
+    setDeletingProduct(true);
+
+    const response = await axios.delete(`${baseUrl}/api/products/delete/${productId && productId}`);
+
+    console.error('product delete response:', response.data);
+    if(response.data.status ==='success'){
+      toast.success('Product deleted successfully.');
+      toggleAdminProgramAction("exit")
+    }
+    
+  } catch (error) {
+    console.error('Error deleting product:', error);
+  }finally{
+    setDeletingProduct(false);
   }
-}, [currentProgramsPage]);
+};
 
 
 
+
+
+
+
+
+  //scroll to top effect
+  useEffect(() => {
+    if (currentProgramsPage > 0) {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, [currentProgramsPage, activeProgram]);
 
 
   //value to export
   const contextValue = {
-    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program
+    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program, toggleAdminProgramAction, activeProgram
   };
 
 

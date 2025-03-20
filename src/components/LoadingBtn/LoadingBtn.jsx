@@ -7,6 +7,8 @@ const LoadingBtn = () => {
   );
 };
 
+
+
 const UpdatingBtn = () => {
   return (
     <button className='flex items-center justify-center w-auto px-1 bg-blue-400 rounded cursor-default h-40px text-vogueWhite'>Updating...</button>
@@ -14,4 +16,11 @@ const UpdatingBtn = () => {
 };
 
 
-export  {LoadingBtn, UpdatingBtn};
+const DeletingBtn = () => {
+  return (
+    <button className='flex items-center justify-center w-auto px-1 bg-red-300 rounded cursor-default h-40px text-vogueWhite'>Deleting...</button>
+  );
+};
+
+
+export  {LoadingBtn, UpdatingBtn, DeletingBtn};

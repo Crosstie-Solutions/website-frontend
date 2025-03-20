@@ -36,6 +36,8 @@ import { BiMessageDetail } from "react-icons/bi";
 import { CrossContext } from "../../Context/CrossContext";
 import AddProgram from "../../components/AdminInteraction/AddProgram/AddProgram";
 import { FaBookBookmark } from "react-icons/fa6";
+import AllProgramsTable from "../../components/AdminInteraction/AllProgramsTable/AllProgramsTable";
+
 
 
 
@@ -387,7 +389,7 @@ function AdminDashboard() {
         {/* add product */}
         {activeScreen === "addProgram" ? <AddProgram /> : ""}
 
-        {/* {activeScreen === "allUsers" && <AdminUsersTable />} */}
+        {activeScreen === "allPrograms" && <AllProgramsTable />}
         
         {/* {activeScreen === "addUser" && <AddNewUser />} */}
         

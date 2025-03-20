@@ -10,14 +10,20 @@ function MyWebinars() {
   const {myWebinars, baseUrl, me, loginToken} = useContext(CrossContext);
 
   
-  const [webinarId, setWebinarId] = useState(myWebinars && myWebinars.length > 0 ? myWebinars[0].id : "");
+  const firstWebinarId = myWebinars && myWebinars.length > 0 ? myWebinars[0].id : "";
+  
+  console.log("first webinar Id:", firstWebinarId);
+
+
+  const [webinarId, setWebinarId] = useState(firstWebinarId);
+  
   console.log("webinarId:", webinarId);
   
   
   //to get one webinar details
   const[activeWebinar, setActiveWebinar] = useState(null);
 
-console.log("activeWebinar:", activeWebinar);
+  console.log("activeWebinar:", activeWebinar);
 
 
 // Function to fetch logged in user details
@@ -38,7 +44,8 @@ useEffect(()=>{
   };
 
   fetchWebinar();
-}, [webinarId, me, loginToken]);
+  
+}, [myWebinars, webinarId]);
 
 
 

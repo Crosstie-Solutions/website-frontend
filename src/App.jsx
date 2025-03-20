@@ -44,6 +44,7 @@ import { LoadingBtn } from "./components/LoadingBtn/LoadingBtn";
 import Loading from "./components/Loading/Loading";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import VerifyEmail from "./pages/VerifyEmail/VerifyEmail";
+import EditProgramPage from "./pages/EditProgramPage/EditProgramPage";
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
 // import { Protected } from "./Components/Protected/Protected";
@@ -130,6 +131,7 @@ function App() {
           <Route path="/our-courses/sales-excellence" element={<SalesExcellencePage />} />
           <Route path="/our-courses/complete-employee" element={<CompleteEmployee />} />
           <Route path="/our-courses/:programId" element={<ProgramDetailsPage />} />
+          <Route path="/our-courses/edit/:programId" element={<EditProgramPage />} />
           <Route path="/login" element={<LoginSignupPage />} />
 
           
