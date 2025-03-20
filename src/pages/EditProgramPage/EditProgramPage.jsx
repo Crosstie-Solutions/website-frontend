@@ -866,7 +866,7 @@ function EditProgramPage() {
               <div className="flex items-center justify-center h-auto lareg:gap-5 large:flex-row small:flex-col w-100 small:gap-2">
                 {/* title */}
                 <div className="flex flex-col h-auto w-100">
-                  <label htmlFor="title">title</label>
+                  <label htmlFor="title">Title</label>
                   
                   <div className='flex flex-col h-auto gap-1 w-100'>
                     

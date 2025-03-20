@@ -47,14 +47,14 @@ function AdminProgramAction(program) {
         
         
         <Link 
-        to={`/shop/product/edit/${programId}`}
+        to={`/our-courses/edit/${programId}`}
         className='flex items-center justify-center font-bold text-[#662d91] rounded w-70 h-40px'
         onClick={()=> toggleAdminProgramAction(progEnd)}
         >Edit program</Link>
 
        
         <button className='flex items-center justify-center font-bold rounded w-70 h-40px text-vogueRed'
-        onClick={toggleDeleteProductMode}
+        // onClick={toggleDeleteProductMode}
         >Delete program</button>
         
       </div>}
