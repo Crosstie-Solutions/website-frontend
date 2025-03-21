@@ -58,7 +58,7 @@ function AdminDashboard() {
     loginToken,
     setLoading,
     activeScreen,
-    setActiveScreen, toggleSideBar, current
+    setActiveScreen, toggleSideBar, current, allPrograms
   } = useContext(CrossContext);
 
   useEffect(() => {
@@ -517,6 +517,8 @@ function AdminDashboard() {
         className="cursor-pointer text-30px"
         onClick={toggleSideBar}
         /> {activeScreen[0].toUpperCase() + activeScreen.slice(1)}
+        
+       ({allPrograms && activeScreen==="all Programs" && allPrograms.length})
       </div> : ""}
 
       
