@@ -62,7 +62,7 @@ function AllProgramsTable() {
                         <div  
                         className='flex items-center justify-center h-auto text-white rounded cursor-pointer w-60px bg-crossLightPurple'
                         onClick={()=>toggleAdminProgramAction(i)}
-                        >Edit</div>
+                        >Action</div>
                     </div>
                     
                     <div className='relative large:right-5 small:right-2'>{program.mode}</div>

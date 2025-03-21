@@ -255,7 +255,7 @@ function AddProgram() {
             >
               <div className="flex items-center justify-start h-auto gap-5 w-100">
                 <div className="flex flex-col w-40 h-auto">
-                  <label htmlFor="title">title</label>
+                  <label htmlFor="title">Title</label>
                   <input
                     type="text"
                     placeholder="Enter program title"

@@ -53,11 +53,12 @@ function Program(program) {
         <div className='flex-col items-center h-auto gap-1 large:flex small:hidden w-100'>
               
           
+          {date && date.length > 1 &&
             <div className='flex items-center justify-center w-auto gap-1 px-1 cursor-pointer text-crossLightPurple h-30px rounded-10'
             onClick={()=>{
               toggleMoreDates(id)
             }}
-            >Show {moreDates ? "less" : "more"} dates <MdKeyboardArrowDown className={`text-20px ${moreDates ? "rotate-180" : ""}`}/></div>
+            >Show {moreDates ? "less" : "more"} dates <MdKeyboardArrowDown className={`text-20px ${moreDates ? "rotate-180" : ""}`}/></div>}
 
 
             <div className='flex items-center justify-center gap-1 text-white cursor-pointer w-200px h-30px rounded-10 bg-crossLightPurple'

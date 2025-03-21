@@ -401,27 +401,26 @@ const toggleSideBar = () => {
 
 
 
+  //for admin to delete program
+const [deletingProgram, setDeletingProgram] = useState(false);
 
-  //for admin to delete product
-const [deletingProduct, setDeletingProduct] = useState(false);
-
-const deleteProduct = async (productId) => {
+const deleteProgram = async (programId) => {
   
   try {
-    setDeletingProduct(true);
+    setDeletingProgram(true);
 
-    const response = await axios.delete(`${baseUrl}/api/products/delete/${productId && productId}`);
+    const response = await axios.delete(`${baseUrl}/api/program/${programId && programId}`);
 
-    console.error('product delete response:', response.data);
+    console.log('program delete response:', response.data);
     if(response.data.status ==='success'){
-      toast.success('Product deleted successfully.');
+      toast.success('Program deleted successfully.');
       toggleAdminProgramAction("exit")
     }
     
   } catch (error) {
-    console.error('Error deleting product:', error);
+    console.error('Error deleting program:', error);
   }finally{
-    setDeletingProduct(false);
+    setDeletingProgram(false);
   }
 };
 
@@ -442,7 +441,7 @@ const deleteProduct = async (productId) => {
 
   //value to export
   const contextValue = {
-    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program, toggleAdminProgramAction, activeProgram
+    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program, toggleAdminProgramAction, activeProgram, deletingProgram, deleteProgram
   };
 
 

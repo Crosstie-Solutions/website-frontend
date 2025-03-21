@@ -68,7 +68,7 @@ function ProgramDetailsPage() {
       <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
         <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw small:w-100vw small:h-200px small:pl-2 bg-crossLightPurple">         
           
-          <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-extrabold small:w-80 small:text-17px">
+          <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-semibold small:w-80 small:text-17px">
             {program && program.title.toUpperCase()}
             {loadingProgram && "Loading Course Details..."}
           </h1>
@@ -85,7 +85,7 @@ function ProgramDetailsPage() {
 
           {
             !loadingProgram &&
-          <Link className="flex items-center justify-center gap-1 px-1 font-semibold large:w-300px rounded-10 h-40px bg-buttonOverlay large:text-15px small:w-250px small:text-11px">
+          <Link className="flex items-center justify-center gap-1 px-1 large:w-300px rounded-10 h-40px bg-buttonOverlay large:text-15px small:w-250px small:text-11px">
             Download course content{" "}
             <RiFolderDownloadLine className="large:text-25px small:text-20px" />
           </Link>}
