@@ -33,7 +33,6 @@ import ExecutiveLeadership from "./pages/ExecutiveLeadership/ExecutiveLeadership
 import SalesExcellencePage from "./pages/SalesExcellencePage/SalesExcellencePage";
 import CompleteEmployee from "./pages/CompleteEmployee/CompleteEmployee";
 import ProgramDetailsPage from "./pages/ProgramDetailsPage/ProgramDetailsPage";
-import CourseEnrollmentForm from "./pages/CourseEnrollmentForm/CourseEnrollmentForm";
 import LoginSignupPage from "./pages/LoginSignupPage/LoginSignupPage";
 import CorporateTrainingPage from "./pages/CorporateTrainingPage/CorporateTrainingPage";
 import ManagementConsultingPage from "./pages/ManagementConsultingPage/ManagementConsultingPage";
@@ -45,6 +44,9 @@ import Loading from "./components/Loading/Loading";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import VerifyEmail from "./pages/VerifyEmail/VerifyEmail";
 import EditProgramPage from "./pages/EditProgramPage/EditProgramPage";
+import CourseEnrollmentForm from "./components/CourseEnrollmentForm/CourseEnrollmentForm";
+
+
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
 // import { Protected } from "./Components/Protected/Protected";
@@ -55,11 +57,15 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs} = useContext(CrossContext);
 
 
   useEffect(()=>{
     viewAllPrograms();
+  },[]);
+
+  useEffect(()=>{
+    viewAllCourseRegs();
   },[]);
 
   

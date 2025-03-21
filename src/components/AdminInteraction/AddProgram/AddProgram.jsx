@@ -32,7 +32,7 @@ function AddProgram() {
     };
 
 
-    // Update a subheading's value by index
+    // Update a date's value by index
   const updateDate = (index, value) => {
     const updatedDates = [...date];
     updatedDates[index] = value;

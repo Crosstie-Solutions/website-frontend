@@ -158,8 +158,6 @@ const[loading, setLoading] = useState(false);
   const [allPrograms, setAllPrograms] = useState();
   const [loadingAllPrograms, setLoadingAllPrograms] = useState(false);
 
-  console.log("allPrograms:", allPrograms);
-
 
   const viewAllPrograms = async () => {
     try {
@@ -175,14 +173,14 @@ const[loading, setLoading] = useState(false);
   };
 
 
-  // //for admin to filter product
+  //for admin to filter programs
   const [currentProgramsPage, setCurrentProgramsPage] = useState(1);
   const [programsSearchTerm, setProgramsSearchTerm] = useState("");
   const programsPerPage = 10;
 
   console.log("currentProgramsPage:", currentProgramsPage);
 
-  // // Filter products based on search term
+  // // Filter programs based on search term
   const filteredPrograms = allPrograms && allPrograms.filter((program) =>
     `${program.title} ${program.category}`
       .toLowerCase()
@@ -215,6 +213,8 @@ const[loading, setLoading] = useState(false);
 
 
   const toggleEnrollment = async (index)=> {
+
+    window.scrollTo({ top: 0, behavior: "auto" });
     // setEnrollmentForm(!enrollmentForm);
     setEnrollmentForm((prev) => (prev === index ? null : index));
 
@@ -427,6 +427,72 @@ const deleteProgram = async (programId) => {
 
 
 
+const [allCourseRegs, setAllCourseRegs] = useState(null);
+
+const [loadingAllCourseRegs, setLoadingAllCourseRegs] = useState(false);
+
+console.log("allCourseRegs:", allCourseRegs);
+
+
+const viewAllCourseRegs = async () => {
+  try {
+    setLoadingAllCourseRegs(true)
+    const response = await axios.get(`${baseUrl}/api/course-reg`);
+
+    setAllCourseRegs(response.data.data.data);
+  } catch (dupError) {
+    console.log("error fetching all course regs:", dupError);
+  }finally{
+    setLoadingAllCourseRegs(false)
+  }
+};
+
+
+
+//for admin to filter course regs
+const [currentCourseRegsPage, setCurrentCourseRegsPage] = useState(1);
+const [courseRegsSearchTerm, setCourseRegsSearchTerm] = useState("");
+const courseRegsPerPage = 10;
+
+console.log("currentCourseRegsPage:", currentCourseRegsPage);
+
+// // Filter CourseRegs based on search term
+const filteredCourseRegs = allCourseRegs && allCourseRegs.filter((program) =>
+  `${program.title} ${program.category}`
+    .toLowerCase()
+    .includes(courseRegsSearchTerm.toLowerCase())
+);
+
+
+// // Calculate total pages
+const totalCourseRegsPages = filteredCourseRegs && Math.ceil(filteredCourseRegs.length / courseRegsPerPage);
+
+// Get requests for the current page
+const courseRegsStartIndex = (currentCourseRegsPage - 1) * courseRegsPerPage;
+const courseRegsEndIndex = courseRegsStartIndex + courseRegsPerPage;
+const currentCourseRegs = filteredCourseRegs && filteredCourseRegs.slice(courseRegsStartIndex, courseRegsEndIndex).reverse();
+
+
+// Handle page change
+const handleCourseRegsPageChange = (page) => {
+  if (page > 0 && page <= totalCourseRegsPages) {
+    setCurrentCourseRegsPage(page);
+  }
+};
+
+
+
+
+
+  //active course reg.
+  const [activeCourseReg, setActiveCourseReg] = useState(null);
+
+  const toggleAdminCourseRegAction = async (index)=> {
+
+    window.scrollTo({ top: 0, behavior: "auto" });
+
+    setActiveCourseReg((prev) => (prev === index ? null : index));
+  }
 
 
 
@@ -436,12 +502,13 @@ const deleteProgram = async (programId) => {
     if (currentProgramsPage > 0) {
       window.scrollTo({ top: 0, behavior: "auto" });
     }
-  }, [currentProgramsPage, activeProgram]);
+  }, [currentProgramsPage, activeProgram, currentCourseRegsPage]);
 
 
   //value to export
   const contextValue = {
-    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program, toggleAdminProgramAction, activeProgram, deletingProgram, deleteProgram
+    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program, toggleAdminProgramAction, activeProgram, deletingProgram, deleteProgram, viewAllCourseRegs, allCourseRegs, currentCourseRegs,  handleCourseRegsPageChange, currentCourseRegsPage, totalCourseRegsPages,
+    courseRegsSearchTerm, allCourseRegs, activeCourseReg, toggleAdminCourseRegAction
   };
 
 

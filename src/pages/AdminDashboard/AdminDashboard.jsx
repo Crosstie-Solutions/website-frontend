@@ -37,6 +37,7 @@ import { CrossContext } from "../../Context/CrossContext";
 import AddProgram from "../../components/AdminInteraction/AddProgram/AddProgram";
 import { FaBookBookmark } from "react-icons/fa6";
 import AllProgramsTable from "../../components/AdminInteraction/AllProgramsTable/AllProgramsTable";
+import AllCourseRegsTable from "../../components/AdminInteraction/AllCourseRegsTable/AllCourseRegsTable";
 
 
 
@@ -288,7 +289,7 @@ function AdminDashboard() {
           className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
         >
           
-          <div className={`${ activeScreen === "addProgram" || activeScreen === "allPrograms" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
+          <div className={`${ activeScreen === "addProgram" || activeScreen === "allPrograms"|| activeScreen === "courseRegistrations" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
           onClick={toggleUsersDD}
           >
             <div className="flex gap-1">
@@ -301,13 +302,17 @@ function AdminDashboard() {
 
           {usersDD &&
           <div className="flex flex-col items-center gap-1 w-100">
-            <div className="h-auto cursor-pointer w-50"
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
              onClick={() => setActiveScreen("allPrograms")}
             >All Programs</div>
             
-            <div className="h-auto cursor-pointer w-50"
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
              onClick={() => setActiveScreen("addProgram")}
             >Add Program</div>
+
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("courseRegistrations")}
+            >Registrations</div>
           </div>}
         </div>
        
@@ -391,7 +396,7 @@ function AdminDashboard() {
 
         {activeScreen === "allPrograms" && <AllProgramsTable />}
         
-        {/* {activeScreen === "addUser" && <AddNewUser />} */}
+        {activeScreen === "courseRegistrations" && <AllCourseRegsTable />}
         
         {/* {activeScreen === "manageOrders" && <AdminOrdersTable />} */}
         
@@ -460,6 +465,14 @@ function AdminDashboard() {
                   toggleUsersDD();
                 }}
                 >Add Programs</div>
+
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={() => {
+                  setActiveScreen("all Registrations");
+                  toggleSideBar();
+                  toggleUsersDD();
+                }}
+                >Registrations</div>
               </div>}
             </div>
 
@@ -575,6 +588,8 @@ function AdminDashboard() {
 
         {activeScreen === "all Programs" &&<AllProgramsTable />}
         
+        
+        {activeScreen === "all Registrations" &&<AllCourseRegsTable />}
         
         {activeScreen === "all Users" &&<AdminUsersTable />}
         
