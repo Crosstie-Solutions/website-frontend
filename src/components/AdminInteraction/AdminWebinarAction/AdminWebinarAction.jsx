@@ -47,7 +47,7 @@ function AdminWebinarAction(webinar) {
   return (
     <div className='fixed top-0 left-0 z-20 flex flex-col items-center justify-center py-10 overflow-y-scroll w-100vw bg-overlay h-100'>
 
-        <VscClose className='absolute text-white cursor-pointer large:top-8 large:right-15 text-30px small:right-5 small:top-12'
+        <VscClose className='absolute text-white cursor-pointer large:top-8 large:right-15 text-30px small:right-5 small:top-5'
         onClick={() => toggleAdminWebinarAction('sdsffdf')}
         />
 
@@ -86,7 +86,7 @@ function AdminWebinarAction(webinar) {
       <div className='flex flex-col items-center justify-center h-auto px-2 py-3 bg-white large:gap-3 large:w-30vw rounded-10 small:w-90vw small:gap-1'>
 
         {!deletingWebinar &&
-          <h4 className='text-center'><span className='font-semibold'>{topic}</span> is {past===true ? "" : "NOT"} a past event. Are you sure you want to delete this webinar?</h4>}
+          <h4 className='text-center'><span className='font-semibold'>{topic}</span> Is {past===true ? "" : "NOT"} a past event. Are you sure you want to delete this webinar?</h4>}
 
         {!deletingWebinar &&
         <div className='text-vogueRed'>This action can not be reversed</div>}
@@ -119,7 +119,7 @@ function AdminWebinarAction(webinar) {
 
         {/* webinar view */}
       {viewMode &&
-      <div className='flex flex-col items-center justify-center h-auto px-2 py-5 bg-white large:gap-3 large:w-60vw rounded-10 small:w-90vw small:gap-1 large:mt-30'>
+      <div className={`flex flex-col items-center justify-center h-auto px-2 bg-white large:py-5 small:py-2 large:gap-3 large:w-60vw rounded-10 small:w-90vw small:gap-1 large:mt-30 ${totalAttendees > 0 ? "small:mt-35" : "small:mt-10"}`}>
 
         <h2 className='font-semibold text-20px'>{topic}</h2>
 
@@ -147,7 +147,7 @@ function AdminWebinarAction(webinar) {
 
        
         {totalAttendees > 0 &&
-       <div className='flex flex-col h-auto gap-2 large:w-90 small:w-90'>
+       <div className='flex flex-col h-auto gap-2 large:w-90 small:w-100'>
           <h5 className='pl-2 font-semibold text-white large:w-100 bg-crossLightPurple small:w-100'>Attendees({totalAttendees})</h5>
 
           <div className='flex flex-col items-start h-auto gap-2 w-100'>
