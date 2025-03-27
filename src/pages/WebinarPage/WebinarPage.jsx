@@ -104,6 +104,7 @@ function WebinarPage() {
                     totalAttendees={webinar.totalAttendees}
                     duration={webinar.duration}
                     youtubeLink={webinar.youtubeLink}
+                    webinarId={webinar.id}
                     />
                 )
             }

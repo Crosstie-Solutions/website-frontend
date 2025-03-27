@@ -160,7 +160,7 @@ export default {
         fadedGray: '#D5D5D5',
         fabricGray: '#a4a1a1',
         crossYellow: '#f6bc19',
-        paleYellow: '#A49C5A',
+        crossBlue: '#2dabe2',
         overlay: 'rgb(23, 23, 23, 0.7)',
         overlaySecond: 'rgb(23, 23, 23, 0.9)',
         buttonOverlay: 'rgba(223, 221, 223, 0.3)',

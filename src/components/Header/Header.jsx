@@ -120,7 +120,7 @@ function Header() {
             className="flex items-center gap-0.5"
             to="/about-us/"
           >
-            About CrossTie <MdKeyboardArrowDown className={`${aboutDD ? "rotate-180" : ""} text-25px`} />
+            About Crosstie <MdKeyboardArrowDown className={`${aboutDD ? "rotate-180" : ""} text-25px`} />
           </div>
           </li>
 

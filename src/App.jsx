@@ -45,6 +45,10 @@ import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import VerifyEmail from "./pages/VerifyEmail/VerifyEmail";
 import EditProgramPage from "./pages/EditProgramPage/EditProgramPage";
 import CourseEnrollmentForm from "./components/CourseEnrollmentForm/CourseEnrollmentForm";
+import AdminProfile from "./pages/AdminProfile/AdminProfile";
+import BackToTop from "./components/BackToTop/BackToTop";
+import EditWebinarPage from "./pages/EditWebinarPage/EditWebinarPage";
+import WebinarEnrollmentForm from "./components/WebinarEnrollmentForm/WebinarEnrollmentForm";
 
 
 
@@ -57,7 +61,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -100,6 +104,7 @@ function App() {
   
   return (
     <div className="App bg-appBg">
+      <BackToTop />
 
       <Router>
       
@@ -117,6 +122,7 @@ function App() {
         {/* {courseData.length >  0 && <CourseSuggestion />} */}
         {enrollmentForm && <CourseEnrollmentForm />}
         {loading && <Loading />}
+        {webinarEnrollment && <WebinarEnrollmentForm />}
         
 
         <Routes>
@@ -138,7 +144,10 @@ function App() {
           <Route path="/our-courses/complete-employee" element={<CompleteEmployee />} />
           <Route path="/our-courses/:programId" element={<ProgramDetailsPage />} />
           <Route path="/our-courses/edit/:programId" element={<EditProgramPage />} />
+          <Route path="/our-solutions/webinars/edit/:webinarId" element={<EditWebinarPage />} />
           <Route path="/login" element={<LoginSignupPage />} />
+
+          
 
           
           <Route path="/our-solutions/" element={<CorporateTrainingPage />} />
@@ -148,6 +157,7 @@ function App() {
           <Route path="/our-solutions/webinars" element={<WebinarPage />} />
           
           <Route path="/user-profile" element={<UserProfile />} />
+          <Route path="/admin-profile" element={<AdminProfile />} />
           
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
 

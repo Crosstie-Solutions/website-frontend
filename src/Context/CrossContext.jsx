@@ -295,8 +295,12 @@ const[loading, setLoading] = useState(false);
 
 
 
-  //for user to filter webinar
+  //for user to filter upcoming webinar
   const [upcomingSearchTerm, setUpcomingSearchTerm] = useState("");
+
+  const [currentUpcomingPage, setCurrentUpcomingPage] = useState(1);
+ 
+  const upcomingPerPage = 10;
 
 
   // Filter Upcoming webinar based on search term
@@ -306,9 +310,34 @@ const[loading, setLoading] = useState(false);
       .includes(upcomingSearchTerm.toLowerCase())
   );
 
+ 
+
+  // // Calculate total pages
+  const totalUpcomingPages = filteredUpcoming && Math.ceil(filteredUpcoming.length / upcomingPerPage);
+
+  // Get requests for the current page
+  const upcomingStartIndex = (currentUpcomingPage - 1) * upcomingPerPage;
+  const upcomingEndIndex = upcomingStartIndex + upcomingPerPage;
+  const currentUpcoming = filteredUpcoming && filteredUpcoming.slice(upcomingStartIndex, upcomingEndIndex).reverse();
+
+  
+  // Handle page change
+  const handleUpcomingPageChange = (page) => {
+    if (page > 0 && page <= totalUpcomingPages) {
+      setCurrentUpcomingPage(page);
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  };
+
+  
+
+
 
   //for user to filter past webinar
   const [pastSearchTerm, setPastSearchTerm] = useState("");
+  const [currentPastPage, setCurrentPastPage] = useState(1);
+ 
+  const pastPerPage = 10;
 
   
   // Filter Past webinar based on search term
@@ -317,8 +346,25 @@ const[loading, setLoading] = useState(false);
       .toLowerCase()
       .includes(pastSearchTerm.toLowerCase())
   );
+
+
+  // Calculate total pages
+  const totalPastPages = filteredPast && Math.ceil(filteredPast.length / pastPerPage);
+
+  // Get requests for the current page
+  const pastStartIndex = (currentPastPage - 1) * pastPerPage;
+  const pastEndIndex = pastStartIndex + pastPerPage;
+  const currentPast = filteredPast && filteredPast.slice(pastStartIndex, pastEndIndex).reverse();
+
   
- 
+  // Handle page change
+  const handlePastPageChange = (page) => {
+    if (page > 0 && page <= totalPastPages) {
+      setCurrentPastPage(page);
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  };
+
 
   //to get login Token from local storage
 const[loginToken, setLoginToken] = useState('');
@@ -497,18 +543,99 @@ const handleCourseRegsPageChange = (page) => {
 
 
 
+
+   //active webinar
+   const [activeWebinar, setActiveWebinar] = useState(null);
+
+   const toggleAdminWebinarAction = async (index)=> {
+ 
+     setActiveWebinar((prev) => (prev === index ? null : index));
+   }
+
+
+     //for admin to delete Webinar
+const [deletingWebinar, setDeletingWebinar] = useState(false);
+
+const deleteWebinar = async (webinarId) => {
+  
+  try {
+    setDeletingWebinar(true);
+
+    const response = await axios.delete(`${baseUrl}/api/webinar/${webinarId && webinarId}`);
+
+    console.log('Webinar delete response:', response.data);
+    if(response.data.status ==='success'){
+      toast.success('Webinar deleted successfully.');
+      toggleAdminWebinarAction("exit")
+    }
+    
+  } catch (error) {
+    console.error('Error deleting Webinar:', error);
+  }finally{
+    setDeletingWebinar(false);
+  }
+};
+
+
+
+const [activeWebinarView, setActiveWebinarView] = useState(null);
+
+const toggleActiveWebinarView = async (index)=> {
+
+  setActiveWebinarView((prev) => (prev === index ? null : index));
+}
+
+
+
+
+//for webinar enrollment
+const [webinarEnrollment, setWebinarEnrollment] = useState(null);
+
+
+const [webinar, setWebinar] = useState(null);
+const [loadingWebinar, setLoadingWebinar] = useState(false);
+console.log("webinar:", webinar)
+
+
+const toggleWebinarEnrollment = async (index)=> {
+
+  window.scrollTo({ top: 0, behavior: "auto" });
+
+  setWebinarEnrollment((prev) => (prev === index ? null : index));
+
+  try {
+    setLoadingWebinar(true)
+    const response = await axios.get(`${baseUrl}/api/webinar/${index}`);
+    setWebinar(response.data.data.data);
+
+  } catch (error) {
+    console.error('Error fetching Webinar:', error);
+  }finally{
+    setLoadingWebinar(false);
+  }
+
+}
+
+
+
+
+
+
+
   //scroll to top effect
   useEffect(() => {
     if (currentProgramsPage > 0) {
       window.scrollTo({ top: 0, behavior: "auto" });
     }
-  }, [currentProgramsPage, activeProgram, currentCourseRegsPage]);
+  }, [currentProgramsPage, activeProgram, currentCourseRegsPage, activeWebinar]);
 
 
   //value to export
   const contextValue = {
     hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program, toggleAdminProgramAction, activeProgram, deletingProgram, deleteProgram, viewAllCourseRegs, allCourseRegs, currentCourseRegs,  handleCourseRegsPageChange, currentCourseRegsPage, totalCourseRegsPages,
-    courseRegsSearchTerm, allCourseRegs, activeCourseReg, toggleAdminCourseRegAction
+    courseRegsSearchTerm, allCourseRegs, activeCourseReg, toggleAdminCourseRegAction,   activeWebinar, toggleAdminWebinarAction, deletingWebinar, deleteWebinar, currentUpcoming, handleUpcomingPageChange, totalUpcomingPages, currentUpcomingPage,
+    currentPast, handlePastPageChange, currentPastPage, totalPastPages, pastSearchTerm,
+  pastWebinars, activeWebinar, toggleActiveWebinarView, activeWebinarView, webinarEnrollment, toggleWebinarEnrollment, webinar, setWebinarEnrollment, loadingWebinar
   };
 
 

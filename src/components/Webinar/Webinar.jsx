@@ -9,9 +9,9 @@ import { CrossContext } from '../../Context/CrossContext';
 
 function Webinar(webinar) {
 
-    const {webinarType, setWebinarType} = useContext(CrossContext);
+    const {webinarType, setWebinarType, toggleWebinarEnrollment} = useContext(CrossContext);
 
-    const {presenter, topic, description, date, time, totalAttendees, duration, youtubeLink} = webinar;
+    const {presenter, topic, description, date, time, totalAttendees, duration, youtubeLink, webinarId} = webinar;
 
     const [showMore, setShowMore] = useState(false);
     
@@ -56,7 +56,11 @@ function Webinar(webinar) {
 
         <div className='flex items-center gap-1 w-100'><FiUsers className='text-15px'/> {totalAttendees} Registered</div>
 
-        <Link className='flex items-center self-center justify-center w-auto px-3 mt-2 border h-30px rounded-20 border-crossLightPurple text-crossLightPurple'>Register</Link>
+        <div className='flex items-center self-center justify-center w-auto px-3 mt-2 border cursor-pointer h-30px rounded-20 border-crossLightPurple text-crossLightPurple'
+        onClick={()=>{
+          toggleWebinarEnrollment(webinarId)
+        }}
+        >Register</div>
       </div>}
 
 

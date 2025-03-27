@@ -15,7 +15,7 @@ function AboutDD() {
     onMouseEnter={showAboutDD}
     onMouseLeave={hideAboutDD}
     >
-      <Link to="/about-us" className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
+      <Link to="/about-us/" className='flex items-center justify-between pl-1 text-black hover:bg-crossFooterText'
        onClick={()=>{
         toggleNav();
         hideAboutDD()

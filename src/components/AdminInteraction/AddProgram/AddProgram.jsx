@@ -132,7 +132,7 @@ function AddProgram() {
       
         
         //to add product
-        const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
           e.preventDefault();
       
           const validationErrors = {};

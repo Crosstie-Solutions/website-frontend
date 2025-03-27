@@ -6,13 +6,13 @@ import { HiOutlineEyeOff } from "react-icons/hi";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { CrossContext } from "../../Context/CrossContext";
-import MyWebinars from "../../components/MyWebinars/MyWebinars";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { LuMoveLeft } from "react-icons/lu";
 
 
 
 
-function UserProfile() {
+function AdminProfile() {
   const { me, baseUrl, loginToken } = useContext(CrossContext);
 
   const navigate = useNavigate();
@@ -576,20 +576,18 @@ function UserProfile() {
 
 
   //logout button
-  const logoutUser = () => {
-    localStorage.removeItem("loginToken");
-    navigate("/");
-    window.location.reload(false);
-  };
+    const logoutUser = () => {
+      localStorage.removeItem("loginToken");
+      navigate("/");
+      window.location.reload(false);
+    };
 
   
 
   return (
     <div className="flex flex-col h-auto py-3 large:mt-18 small:gap-3 large:px-2 rounded-10 large:w-90 bg-vogueWhite text-15px text-cribGray small:w-90vw small:px-1 large:gap-5 small:mt-15">
 
-
-      {/* My webinars */}
-      <MyWebinars />
+      <Link to='/admin-dashboard' className="flex items-center justify-center gap-1 px-1 border rounded border-crossLightPurple text-crossLightPurple w-100px large:mt-0 small:mt-0 h-30px"> <LuMoveLeft className="flex text-25px"/> Back</Link>
       
       {/* general settings */}
       <div className="flex flex-col h-auto gap-2 w-100">
@@ -965,4 +963,4 @@ function UserProfile() {
   );
 }
 
-export default UserProfile;
+export default AdminProfile;

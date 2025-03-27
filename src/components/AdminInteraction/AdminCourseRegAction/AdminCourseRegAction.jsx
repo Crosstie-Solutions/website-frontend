@@ -51,10 +51,9 @@ function AdminCourseRegAction(reg) {
         <div className='flex flex-col h-auto gap-1 w-100'>
           <div>Title: <span className='font-semibold'>{title}</span></div>
           <div>Name: <span className='font-semibold'>{fullName}</span></div>
-          <div>Phone number: <span className='font-semibold'>{nameOfOrg}</span></div>
+          <div>Phone number: <span className='font-semibold'>{phone}</span></div>
           <div>Email: <span className='font-semibold'>{email}</span></div>
           <div>Message: <span className='font-semibold'>{message}</span></div>
-          
         </div>
        </div>
        

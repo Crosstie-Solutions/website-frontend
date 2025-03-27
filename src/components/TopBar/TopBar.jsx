@@ -15,12 +15,13 @@ function TopBar() {
       <a
       href="https://wa.me/2348138957283"
       className='flex items-center justify-center large:gap-1'
-      ><FaWhatsapp className='text-whatsAppGreen text-20px'/> +234 708 560 4023</a>
+      ><FaWhatsapp className='text-whatsAppGreen text-25px'/> +234 708 560 4023</a>
       
       
       <a 
       href="mailto:info@crosstie.com"
-      className='items-center justify-center large:flex large:gap-1 small:hidden'><MdOutlineMail className='text-20px'/> info@crosstie.com</a>
+      className='items-center justify-center large:flex large:gap-1 small:hidden'><MdOutlineMail className='text-25px'/> info@crosstie.com</a>
+      
     </div>
   )
 }
