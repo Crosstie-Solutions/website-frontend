@@ -52,12 +52,9 @@ function AllProgramsTable() {
             currentPrograms && currentPrograms.map((program, i)=>
                 <div className={`flex items-center justify-between h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1`}>
                     <div>{i + 1}.</div>
+                    
                     <div className='flex flex-col gap-1 break-words large:w-15 small:w-20'>{program.title}
                         
-                        {/* <Link 
-                        // to='/' 
-                        to={`/shop/product/${product.id}`}
-                        className='text-blue-500'>Action</Link> */}
                         
                         <div  
                         className='flex items-center justify-center h-auto text-white rounded cursor-pointer w-60px bg-crossLightPurple'

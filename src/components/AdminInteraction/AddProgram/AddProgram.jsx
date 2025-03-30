@@ -14,7 +14,7 @@ function AddProgram() {
         loginToken,
         setLoading,
         activeScreen,
-        allCourses,
+        allCourses, setActiveScreen
       } = useContext(CrossContext);
 
 
@@ -56,13 +56,84 @@ function AddProgram() {
 };
 
 
-// Update a subheading's value by index
+// Update a objectives's value by index
     const updateObjective = (index, value) => {
         const updatedObjectives = [...objectives];
         updatedObjectives[index] = value;
         setObjectives(updatedObjectives);
     };
+
+
+
+
+  
+      //to add and remove training Modules
+  const [modules, setModules] = useState([""]);
+
+  console.log("modules:", modules);
+
+  const addModules = () => {
+    setModules([...modules, ""]);
+  };
+
+  const removeModules = (index) => {
+    setModules(modules.filter((_, i) => i !== index));
+};
+
+
+// Update a Modules's value by index
+    const updateModules = (index, value) => {
+        const updatedModules = [...modules];
+        updatedModules[index] = value;
+        setModules(updatedModules);
+    };
       
+
+
+   //to add and remove training optional Modules
+   const [optionalModules, setOptionalModules] = useState([""]);
+
+   console.log("optionalModules:", optionalModules);
+ 
+   const addOptionalModules = () => {
+     setOptionalModules([...optionalModules, ""]);
+   };
+ 
+   const removeOptionalModules = (index) => {
+     setOptionalModules(optionalModules.filter((_, i) => i !== index));
+ };
+ 
+ 
+ // Update a OptionalModule's value by index
+     const updateOptionalModules = (index, value) => {
+         const updatedOptionalModules = [...optionalModules];
+         updatedOptionalModules[index] = value;
+         setOptionalModules(updatedOptionalModules);
+     };
+
+
+
+   //to add and remove Notes
+   const [notes, setNotes] = useState([""]);
+
+   console.log("notes:", notes);
+ 
+   const addNotes = () => {
+     setNotes([...notes, ""]);
+   };
+ 
+   const removeNotes = (index) => {
+     setNotes(notes.filter((_, i) => i !== index));
+ };
+ 
+ 
+ // Update a Note's value by index
+     const updateNotes = (index, value) => {
+         const updatedNotes = [...notes];
+         updatedNotes[index] = value;
+         setNotes(updatedNotes);
+     };
+       
 
       
   //scroll to top
@@ -200,15 +271,12 @@ function AddProgram() {
           formData.append("category", category);
           formData.append("course", course);
           formData.append("courseContent", productData.courseContent);
-          // formData.append("date", JSON.stringify(date));
           date.forEach(item => formData.append("date[]", item));
           objectives.forEach(item => formData.append("objectives[]", item));
-          // formData.append("objectives", JSON.stringify(objectives));
-      
-          // Append each pdf file to the formData
-          // for (let i = 0; i < productData.courseContent.length; i++) {
-          //   formData.append("courseContent", productData.courseContent[i]);
-          // }
+          modules.forEach(item => formData.append("modules[]", item));
+          optionalModules.forEach(item => formData.append("optionalModules[]", item));
+          notes.forEach(item => formData.append("notes[]", item));
+          
       
           // Log each key-value pair in FormData
           for (let pair of formData.entries()) {
@@ -224,16 +292,16 @@ function AddProgram() {
               const response = await axios.post(`${baseUrl}/api/program`, formData, {
                 headers: {
                   "Content-Type": "multipart/form-data",
-                  // Authorization: `Bearer ${loginToken}`,
+                  
                 },
-                // withCredentials: true, // Important for sending cookies
+                
               });
       
               console.log("add program message:", response.data.message);
               if (response.data.message === "program created successful.") {
                 
                 toast.success('Program added successfully!');
-                // setActiveScreen('overview')
+                setActiveScreen('overview')
               }
             } catch (error) {
               console.error("Error creating program:", error);
@@ -487,7 +555,7 @@ function AddProgram() {
                           <input
                           type="text"
                           placeholder={`Enter course objective`}
-                          name="description"
+                          name="objectives"
                           className="p-0.5 border rounded-4 w-85"
                           value={objective}
                           onChange={(e) => updateObjective(index, e.target.value)}
@@ -517,6 +585,127 @@ function AddProgram() {
                   <button className='self-start text-crossLightPurple'
                     onClick={addObjective}
                     >+ Add objective</button>
+              </div>
+
+              <div className="flex flex-col h-auto gap-1 w-100">
+                  <label htmlFor="modules">Modules</label>
+                  {
+                    modules && modules.map((module, index)=>
+                      <div className='flex items-center gap-1' key={index}>
+                          <input
+                          type="text"
+                          placeholder={`Enter course module`}
+                          name="modules"
+                          className="p-0.5 border rounded-4 w-85"
+                          value={module}
+                          onChange={(e) => updateModules(index, e.target.value)}
+                          
+                        />
+                        
+                        {
+                          index !==0 &&
+                        
+                        <button className='self-start text-crossLightPurple'
+                          onClick={()=>{
+                            removeModules(index)
+                          }}
+                          >- Remove</button>}
+                      </div>
+                    )
+                  }
+                  
+                  {productErrors && (
+                    <p className="text-13px text-vogueRed">
+                      {productErrors.modules}
+                    </p>
+                  )}
+
+                 
+
+                  <button className='self-start text-crossLightPurple'
+                    onClick={addModules}
+                    >+ Add Module</button>
+              </div>
+
+              <div className="flex flex-col h-auto gap-1 w-100">
+                  <label htmlFor="optionalModules">Optional Modules</label>
+                  {
+                    optionalModules && optionalModules.map((module, index)=>
+                      <div className='flex items-center gap-1' key={index}>
+                          <input
+                          type="text"
+                          placeholder={`Enter course optional module`}
+                          name="optionalModules"
+                          className="p-0.5 border rounded-4 w-85"
+                          value={module}
+                          onChange={(e) => updateOptionalModules(index, e.target.value)}
+                          
+                        />
+                        
+                        {
+                          index !==0 &&
+                        
+                        <button className='self-start text-crossLightPurple'
+                          onClick={()=>{
+                            removeOptionalModules(index)
+                          }}
+                          >- Remove</button>}
+                      </div>
+                    )
+                  }
+                  
+                  {productErrors && (
+                    <p className="text-13px text-vogueRed">
+                      {productErrors.modules}
+                    </p>
+                  )}
+
+                 
+
+                  <button className='self-start text-crossLightPurple'
+                    onClick={addOptionalModules}
+                    >+ Add Optional Module</button>
+              </div>
+
+
+              <div className="flex flex-col h-auto gap-1 w-100">
+                  <label htmlFor="notes">Notes</label>
+                  {
+                    notes && notes.map((note, index)=>
+                      <div className='flex items-center gap-1' key={index}>
+                          <input
+                          type="text"
+                          placeholder={`Enter course note`}
+                          name="notes"
+                          className="p-0.5 border rounded-4 w-85"
+                          value={note}
+                          onChange={(e) => updateNotes(index, e.target.value)}
+                          
+                        />
+                        
+                        {
+                          index !==0 &&
+                        
+                        <button className='self-start text-crossLightPurple'
+                          onClick={()=>{
+                            removeNotes(index)
+                          }}
+                          >- Remove</button>}
+                      </div>
+                    )
+                  }
+                  
+                  {productErrors && (
+                    <p className="text-13px text-vogueRed">
+                      {productErrors.modules}
+                    </p>
+                  )}
+
+                 
+
+                  <button className='self-start text-crossLightPurple'
+                    onClick={addNotes}
+                    >+ Add Note</button>
               </div>
               
 

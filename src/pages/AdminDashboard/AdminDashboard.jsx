@@ -22,17 +22,7 @@ import { VscFeedback } from "react-icons/vsc";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
-// import AllProductsTable from "../../Components/AllProductsTable/AllProductsTable";
-import { FaUsers } from "react-icons/fa6";
 import { IoChevronDown } from "react-icons/io5"; 
-// import AdminUsersTable from "../../Components/AdminUsersTable/AdminUsersTable";
-// import AddNewUser from "../../Components/AddNewUser/AddNewUser";
-import { MdManageHistory } from "react-icons/md";
-// import AdminOrdersTable from "../../Components/AdminOrdersTable/AdminOrdersTable";
-import { FaRegNewspaper } from "react-icons/fa6";
-// import AdminNewsletter from "../../Components/AdminNewsletter/AdminNewsletter";
-import { BiMessageDetail } from "react-icons/bi";
-// import AdminEnquiry from "../../Components/AdminEnquiry/AdminEnquiry";
 import { CrossContext } from "../../Context/CrossContext";
 import AddProgram from "../../components/AdminInteraction/AddProgram/AddProgram";
 import { FaBookBookmark } from "react-icons/fa6";
@@ -42,6 +32,14 @@ import { SiGoogleclassroom } from "react-icons/si";
 import AddWebinar from "../../components/AdminInteraction/AddWebinar/AddWebinar";
 import UpcomingWebinarsTable from "../../components/AdminInteraction/UpcomingWebinarsTable/UpcomingWebinarsTable";
 import PastWebinarsTable from "../../components/AdminInteraction/PastWebinarsTable/PastWebinarsTable";
+import { GrHelpBook } from "react-icons/gr";
+import AllEnquiriesTable from "../../components/AdminInteraction/AllEnquiriesTable/AllEnquiriesTable";
+import { RiNewsLine } from "react-icons/ri";
+import AllNewsletterTable from "../../components/AdminInteraction/AllNewsletterTable/AllNewsletterTable";
+import AllTestimonialsTable from "../../components/AdminInteraction/AllTestimonialsTable/AllTestimonialsTable";
+import AddTestimonial from "../../components/AdminInteraction/AddTestimonial/AddTestimonial";
+
+
 
 
 
@@ -62,6 +60,13 @@ function AdminDashboard() {
 
   const toggleWebinarsDD = ()=>{
     setWebinarsDD(!webinarsDD);
+  }
+
+  //Testimonials dropdown
+  const [testimonialsDD, setTestimonialsDD] = useState(false);
+
+  const toggleTestimonialsDD = ()=>{
+    setTestimonialsDD(!testimonialsDD);
   }
   
 
@@ -179,6 +184,62 @@ function AdminDashboard() {
           </div>}
         </div>
 
+        
+          {/* enquiries */}
+        <div
+          className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
+            activeScreen === "enquiries" ? "bg-gray-300" : ""
+          } hover:bg-gray-300`}
+          onClick={() => setActiveScreen("enquiries")}
+        >
+          <GrHelpBook className="text-20px" />
+          Enquiries
+        </div>
+
+        {/* newsletter */}
+        <div
+          className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
+            activeScreen === "newsletter" ? "bg-gray-300" : ""
+          } hover:bg-gray-300`}
+          onClick={() => setActiveScreen("newsletter")}
+        >
+          <RiNewsLine className="text-20px" />
+          Newsletter
+        </div>
+
+
+        {/* testimonials */}
+
+
+        <div
+          className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+        >
+          
+          <div className={`${ activeScreen === "addTestimonial" || activeScreen === "allTestimonials" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
+          onClick={toggleTestimonialsDD}
+          >
+            <div className="flex gap-1">
+              <VscFeedback className="text-20px" />
+              Manage Testimonials
+            </div>
+
+            <IoChevronDown className={`text-20px ${testimonialsDD ? "rotate-180" : ""}`}/>
+          </div>
+
+          {testimonialsDD &&
+          <div className="flex flex-col items-start gap-1 large:pl-5 w-100">
+            
+            <div className="h-auto pl-1 cursor-pointer w-100 hover:bg-gray-300"
+             onClick={() => setActiveScreen("addTestimonial")}
+            >Add Testimonial</div>
+
+            <div className="h-auto pl-1 cursor-pointer w-100 hover:bg-gray-300"
+             onClick={() => setActiveScreen("allTestimonials")}
+            >All Testimonials</div>
+
+          </div>}
+        </div>
+
 
         
 
@@ -268,6 +329,15 @@ function AdminDashboard() {
         {activeScreen === "upcomingWebinars" && <UpcomingWebinarsTable />}
         
         {activeScreen === "pastWebinars" && <PastWebinarsTable />}
+        
+        {activeScreen === "enquiries" && <AllEnquiriesTable />}
+        
+        {activeScreen === "newsletter" && <AllNewsletterTable />}
+        
+        {activeScreen === "allTestimonials" && <AllTestimonialsTable />}
+        
+        {activeScreen === "addTestimonial" && <AddTestimonial />}
+        
         
       </div>
       
@@ -390,7 +460,75 @@ function AdminDashboard() {
                 >Past Webinars</div>
               </div>}
             </div>
+
+            {/* enquiries */}
+          <div
+            className={`flex items-center justify-between gap-1 px-1 cursor-pointer h-40px w-100 text-13px`}
+            onClick={() => setActiveScreen("enquiries")}
+          >
+            <div className="flex items-center gap-1 w-100 h-100" onClick={toggleSideBar}>
+              <GrHelpBook className="text-20px" />
+              Enquiries
+            </div>
+
+            <MdKeyboardArrowRight className="text-20px" />
+          </div>
             
+
+             {/* Newsletter */}
+          <div
+            className={`flex items-center justify-between gap-1 px-1 cursor-pointer h-40px w-100 text-13px`}
+            onClick={() => setActiveScreen("newsletter")}
+          >
+            <div className="flex items-center gap-1 w-100 h-100" onClick={toggleSideBar}>
+              <RiNewsLine className="text-20px" />
+              Newsletter
+            </div>
+
+            <MdKeyboardArrowRight className="text-20px" />
+          </div>
+
+
+          {/* Testimonials */}
+          <div
+                className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+              >
+          
+              <div className={`h-40px w-100 flex justify-between items-center pl-1 large:pr-2 small:pr-1`}
+            onClick={toggleTestimonialsDD}
+            >
+              <div className="flex gap-1">
+                <VscFeedback className="text-20px" />
+                Manage Testimonials
+              </div>
+
+              <IoChevronDown className={`large:text-20px small:text-15px ${testimonialsDD ? "rotate-180" : ""}`}/>
+              </div>
+
+              {testimonialsDD &&
+              <div className="flex flex-col items-center gap-1 w-100">
+                {/* onClick={toggleSideBar} */}
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={
+                  () => {
+                    setActiveScreen("add Testimonial");
+                    toggleSideBar();
+                    toggleTestimonialsDD();
+                  }
+                  
+                }
+                >Add Testimonial</div>
+                
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={() => {
+                  setActiveScreen("all Testimonials");
+                  toggleSideBar();
+                  toggleTestimonialsDD();
+                }}
+                >All Testimonials</div>
+
+              </div>}
+            </div>
 
            
           {/* <div
@@ -514,16 +652,22 @@ function AdminDashboard() {
         {activeScreen === "manage Orders" && <AdminOrdersTable />}
 
         
-        {activeScreen === "newsletter" && <AdminNewsletter />}
+        {activeScreen === "newsletter" && <AllNewsletterTable />}
         
         
-        {activeScreen === "enquiries" && <AdminEnquiry />}
+        {activeScreen === "enquiries" && <AllEnquiriesTable />}
         
         {activeScreen === "add Webinar" && <AddWebinar />}
+        
+        {activeScreen === "add Testimonial" && <AddTestimonial />}
+        
+        {activeScreen === "all Testimonials" && <AllTestimonialsTable />}
         
         {activeScreen === "upcoming Webinars" && <UpcomingWebinarsTable />}
         
         {activeScreen === "past Webinars" && <PastWebinarsTable />}
+        
+        {activeScreen === "testimonials" && <AllTestimonialsTable />}
 
         
         </div>

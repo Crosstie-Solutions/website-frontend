@@ -49,6 +49,8 @@ import AdminProfile from "./pages/AdminProfile/AdminProfile";
 import BackToTop from "./components/BackToTop/BackToTop";
 import EditWebinarPage from "./pages/EditWebinarPage/EditWebinarPage";
 import WebinarEnrollmentForm from "./components/WebinarEnrollmentForm/WebinarEnrollmentForm";
+import EditTestimonialPage from "./pages/EditTestimonialPage/EditTestimonialPage";
+
 
 
 
@@ -61,7 +63,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -95,10 +97,25 @@ function App() {
     fetchMyWebinars();
   }, [me]);
   
-
+  
   
   useEffect(()=>{
     viewAllCourses();
+  }, []);
+  
+  
+  useEffect(()=>{
+    viewAllEnquiries();
+  }, []);
+
+  
+  useEffect(()=>{
+    viewAllNewsletters();
+  }, []);
+
+
+  useEffect(()=>{
+    viewAllTestimonials();
   }, []);
 
   
@@ -145,6 +162,9 @@ function App() {
           <Route path="/our-courses/:programId" element={<ProgramDetailsPage />} />
           <Route path="/our-courses/edit/:programId" element={<EditProgramPage />} />
           <Route path="/our-solutions/webinars/edit/:webinarId" element={<EditWebinarPage />} />
+          
+          
+          <Route path="/about-us/feedbacks/edit/:testimonyId" element={<EditTestimonialPage />} />
           <Route path="/login" element={<LoginSignupPage />} />
 
           

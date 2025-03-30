@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { RiFolderDownloadLine } from "react-icons/ri";
 import { CrossContext } from "../../Context/CrossContext";
 import { FaRegCalendarAlt } from "react-icons/fa";
@@ -14,14 +14,13 @@ import { HiArrowLongRight } from "react-icons/hi2";
 import axios from "axios";
 import { LuMoveLeft } from "react-icons/lu";
 import { CiEdit } from "react-icons/ci";
-
+import { toast } from 'react-toastify';
 
 
 
 function ProgramDetailsPage() {
   const {
-    programsEndIndex,
-    allPrograms, toggleEnrollment, baseUrl, me
+    toggleEnrollment, baseUrl, me, setLoading
   } = useContext(CrossContext);
 
   const programId = useParams().programId;
@@ -52,13 +51,122 @@ function ProgramDetailsPage() {
   
   
 
-  const [details, setDetails] = useState("course");
+
 
   const [messageMode, setMessageMode] = useState("individual");
 
   
   const [trainingMode, setTrainingMode] = useState("Online");
 //   corporate
+
+
+  
+  
+  //state for enrollment
+ 
+  const [nameOfOrg, setNameOfOrg] = useState("");
+  const [mode, setMode] = useState("");
+  const [participants, setParticipants] = useState("");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [preferredDate, setPreferredDate] = useState("");
+  const [designation, setDesignation] = useState("");
+  const [title, setTitle] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+
+  
+
+  //funtion for enrollment
+
+  const [enrollmentErrors, setEnrollmentErrors] = useState({});
+
+  const [details, setDetails] = useState("course");
+
+  const nextForm = () =>{
+    const validationErrors = {};
+  
+    //To ensure valid inputs
+    // if (!enrollmentData.program.trim()) {
+    //   validationErrors.program = "select program";
+    // }
+
+    if (!mode.trim()) {
+      validationErrors.mode = "select training mode";
+    }
+
+    if (!preferredDate) {
+      validationErrors.preferredDate = "select training date";
+    }
+   
+    setEnrollmentErrors(validationErrors);
+   
+    const noError = Object.keys(validationErrors).length === 0;
+
+    if(noError){
+      setDetails('personal')
+    }
+  }
+  
+
+
+  const navigate = useNavigate();
+  
+  const makeEnquiry = async () => {
+   
+   
+   const validationErrors = {};
+  
+   //To ensure valid inputs
+   if (!fullName.trim()) {
+     validationErrors.fullName = "full name is required";
+   }
+  
+   setEnrollmentErrors(validationErrors);
+  
+   const noError = Object.keys(validationErrors).length === 0;
+  
+   if (noError) {
+     try {
+       // setLastErrors("");
+       setLoading(true);
+       const response = await axios.post(
+         `${baseUrl}/api/enquiry`,
+         {
+          program: program && program.title,
+          nameOfOrg: nameOfOrg,
+          mode: mode,
+          duration: program && program.duration,
+          participants: participants,
+          country: country,
+          city: city,
+          userType: messageMode,
+          preferredDate: preferredDate,
+          designation: designation,
+          title: title,
+          fullName: fullName,
+          email: email,
+          phone: phone,
+          message: message
+         }
+       );
+  
+       if (response.status === 201) {
+        
+         toast.success('Enquiry form submitted successfully. Our team will reach out via email.');
+         navigate("/our-courses")
+       }
+     } catch (error) {
+       
+       console.log("Error enrolling:", error);
+       
+     } finally {
+       setLoading(false);
+     }
+   }
+  };
 
   
 
@@ -191,55 +299,81 @@ function ProgramDetailsPage() {
 
         {/* about and modules */}
       <div className="flex justify-between large:items-start large:w-80 small:flex-col large:flex-row small:w-90vw small:items-center small:gap-3 large:gap-0">
-        <div className="flex flex-col gap-3 bg-white large:w-40 small:w-100 small:px-1 large:px-0 small:py-3 large:py-0">
-            
-          <div className="flex flex-col items-center justify-center h-auto w-100">
-          <h4 className="p-1 text-white bg-crossLightPurple w-100">Training Objectives</h4>
-            <ul className="flex flex-col gap-0.5 list-disc w-100 items-start pl-3 py-1">
-              
+        
+        <div className="flex flex-col gap-3 large:w-40 small:w-100 small:px-1 large:px-0 small:py-3 large:py-0">
+
+
+
+        <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
+            <h4 className="p-1 text-white bg-crossLightPurple w-100">Modules</h4>
+              <ul className="flex flex-col gap-0.5 list-disc w-100 items-start pl-3 py-1">
+                
               {
-                program && program.objectives.map((objective, i)=>
-                  <li key={i} className="">{objective}</li>
-                )
-              }            
-            </ul>
+                  program && program.modules.map((module, i)=>
+                    <li key={i} className="">{module}</li>
+                  )
+                }            
+              </ul>
           </div>
 
-          {/* <ul className="flex flex-col gap-0.5 list-disc w-100 items-center">
-            <h4 className="p-1 text-white bg-crossLightPurple w-100">Optional Modules</h4>
-            <li>Strategic Thinking, Organization and Planning</li>
-            <li>Strategic Thinking, Organization and Planning</li>
-            <li>Strategic Thinking, Organization and Planning</li>
-            <li>Strategic Thinking, Organization and Planning</li>
-          </ul> */}
 
-          {/* <ul className="flex flex-col list-disc gap-0.5 w-100 items-center pb-3">
-            <h4 className="p-1 text-white bg-crossLightPurple w-100">NOTES</h4>
-            <li>Strategic Thinking, Organization and Planning</li>
-            <li>Strategic Thinking, Organization and Planning</li>
-            <li>Strategic Thinking, Organization and Planning</li>
-            <li>Strategic Thinking, Organization and Planning</li>
-          </ul> */}
-          
+
+          <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
+            <h4 className="p-1 text-white bg-crossLightPurple w-100">Optional Modules</h4>
+              <ul className="flex flex-col gap-0.5 list-disc w-100 items-start pl-3 py-1">
+                
+              {
+                  program && program.optionalModules.map((module, i)=>
+                    <li key={i} className="">{module}</li>
+                  )
+                }          
+              </ul>
+          </div>
+
+
+          <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
+            <h4 className="p-1 text-white bg-crossLightPurple w-100">Notes</h4>
+              <ul className="flex flex-col gap-0.5 list-disc w-100 items-start pl-3 py-1">
+                
+              {
+                  program && program.notes.map((note, i)=>
+                    <li key={i} className="">{note}</li>
+                  )
+                }         
+              </ul>
+          </div>         
           
         </div>
 
 
         <div className="flex flex-col gap-3 border large:w-40 small:w-100">
           
-        <div className="flex flex-col gap-1 bg-white w-100">
-          <h4 className="p-1 text-white bg-crossLightPurple">About the course</h4>
-          <p className="leading-loose small:p-1">
-          {program && program.description[0].toUpperCase()}
-          {program && program.description.slice(1)}.
-          </p>
-        </div>
+          <div className="flex flex-col gap-1 bg-white w-100">
+            <h4 className="p-1 text-white bg-crossLightPurple">About the course</h4>
+            <p className="leading-loose small:p-1">
+            {program && program.description[0].toUpperCase()}
+            {program && program.description.slice(1)}.
+            </p>
+          </div>
 
-        <div className="flex flex-col gap-1 bg-white w-100">
-          <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple"><FaRegUser className="text-20px"/> Who should attend?</h4>
-          <p className="leading-loose small:p-1">{program && program.targetAudience[0].toUpperCase()}
-          {program && program.targetAudience.slice(1)}</p>
-        </div>
+          <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
+            <h4 className="p-1 text-white bg-crossLightPurple w-100">Course Objectives</h4>
+              <ul className="flex flex-col gap-0.5 list-disc w-100 items-start pl-3 py-1">
+                
+                {
+                  program && program.objectives.map((objective, i)=>
+                    <li key={i} className="">{objective}</li>
+                  )
+                }            
+              </ul>
+          </div>
+
+
+          <div className="flex flex-col gap-1 bg-white w-100">
+            <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple"><FaRegUser className="text-20px"/> Who should attend?</h4>
+            <p className="leading-loose small:p-1">{program && program.targetAudience[0].toUpperCase()}
+            {program && program.targetAudience.slice(1)}</p>
+          </div>
         </div>
       </div>
 
@@ -258,7 +392,9 @@ function ProgramDetailsPage() {
         </div>
 
         
+        
         <div className="flex flex-col items-center h-auto small:gap-2 large:gap-3 w-100">
+          
           <h5 className="font-bold large:text-20px small:text-15px">Request More Information</h5>
           
           {/* whatsapp and email */}
@@ -279,8 +415,8 @@ function ProgramDetailsPage() {
           </div>
 
           
+          
           {/* Course Details */}
-          {/* 55, 45, 22 */}
           
           {details==="course" && 
           //   messageMode==='corporate' &&
@@ -290,35 +426,55 @@ function ProgramDetailsPage() {
                 <div className="flex items-center justify-between h-auto w-100">
                     
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="">Selected course</label>
-                        <select name="" id="" className="p-1 border rounded h-40px w-100">
-                            <option value="Python course">Python course</option>
+                        <label htmlFor="program">Selected course</label>
+                        <select name="program" id="" className="p-1 border rounded h-40px w-100"
+                        >
+                            <option value={program && program.title}>{program && program.title}</option>
                         </select>
+
+                        <p className="text-vogueRed">{enrollmentErrors && enrollmentErrors.program}</p>
                     </div>
 
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="">Preferred Date</label>
-                        <input type="date" className="p-1 border rounded h-40px w-100"/>
+                        <label htmlFor="preferredDate">Preferred Date</label>
+                        {/* <input type="date" className="p-1 border rounded h-40px w-100"/> */}
+                        <select name="preferredDate" id="" className="p-1 border rounded h-40px w-100"
+                        onChange={(e)=>setPreferredDate(e.target.value)}
+                        >
+                          {
+                            program && program.date.map((day,i)=>
+                              <option value={day} key={i}>{day}</option>
+                            )
+                          }
+                           
+                        </select>
+
+                        <p className="text-vogueRed">{enrollmentErrors && enrollmentErrors.preferredDate}</p>
                     </div>
                 </div>
 
                 <div className="flex items-center justify-between h-auto w-100">
                     
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="">Training Mode</label>
+                        <label htmlFor="mode">Training Mode</label>
                         
-                        <select name="" id="" className="p-1 border rounded h-40px w-100">
-                            <option value="Python course">Classroom/Our Location</option>
-                            <option value="Python course">Classroom/Your Location</option>
-                            <option value="Python course">Online/Live</option>
+                        <select name="mode" id="" className="p-1 border rounded h-40px w-100"
+                         onChange={(e)=>setMode(e.target.value)}
+                        >
+                            <option value="">-select-</option>
+                            <option value="Classroom/Our Location">Classroom/Our Location</option>
+                            <option value="Classroom/Your Location">Classroom/Your Location</option>
+                            <option value="Online/Live">Online/Live</option>
                         </select>
                     </div>
 
+
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="">Duration</label>
+                        <label htmlFor="duration">Duration</label>
                         
-                        <select name="" id="" className="p-1 border rounded h-40px w-100">
-                            <option value="Python course">4 Days</option>
+                        <select name="duration" id="" className="p-1 border rounded h-40px w-100"
+                        >
+                            <option value={program && program.duration}>{program && program.duration}</option>
                         </select>
                     </div>
                 </div>
@@ -330,15 +486,20 @@ function ProgramDetailsPage() {
                     <div className="flex flex-col h-auto w-45">
                         <label htmlFor="">Number of participants</label>
                         
-                        <input type="text" className="p-1 border rounded h-40px w-100"/>
+                        <input type="text" name="participants" className="p-1 border rounded h-40px w-100"
+                         onChange={(e)=>setParticipants(e.target.value)}
+                        />
                     </div>
 
                     
 
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="">Name of organization</label>
-                        <input type="text" className="p-1 border rounded h-40px w-100"/>
+                        <label htmlFor="nameOfOrg">Name of organization</label>
+                        <input type="text" name="nameOfOrg" className="p-1 border rounded h-40px w-100"
+                        onChange={(e)=>setNameOfOrg(e.target.value)}
+                        />
                     </div>
+                    
                 </div>}
                 
 
@@ -346,7 +507,7 @@ function ProgramDetailsPage() {
 
 
             <button className="flex items-center justify-center text-white rounded w-100 h-40px bg-crossLightPurple"
-            onClick={()=>setDetails("personal")}
+            onClick={nextForm}
             >Next</button>
           </div>}
 
@@ -356,30 +517,37 @@ function ProgramDetailsPage() {
           {/* messageMode==='corporate' */}
           {details==="personal" &&
           <div className="flex flex-col large:gap-4 large:px-2 w-100 small:px-1 small:gap-2">
+            
             <FaArrowLeftLong className="cursor-pointer large:text-25px text-crossLightPurple small:text-20px"
             onClick={()=>setDetails("course")}
             />
             <h4 className="self-start font-semibold large:text-20px text-crossLightPurple small:text-15px">Personal Details</h4>
             
+            
             <div className="flex flex-col items-center h-auto gap-2 w-100">
                 <div className="flex items-center justify-between h-auto w-100">
                     
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="">Title</label>
+                        <label htmlFor="title">Title</label>
                         
-                        <select name="" id="" className="p-1 border rounded h-40px w-100">
-                            <option value="Python course">Mr.</option>
-                            <option value="Python course">Mrs.</option>
-                            <option value="Python course">Ms.</option>
-                            <option value="Python course">Dr.</option>
-                            <option value="Python course">Eng.</option>
-                            <option value="Python course">Prof.</option>
+                        <select name="title" id="" className="p-1 border rounded h-40px w-100"
+                        onChange={(e)=>setTitle(e.target.value)}
+                        >
+                            <option value="">-select-</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Dr.">Dr.</option>
+                            <option value="Eng.">Eng.</option>
+                            <option value="Prof.">Prof.</option>
                         </select>
                     </div>
 
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="">Full Name</label>
-                        <input type="text" className="p-1 border rounded h-40px w-100"/>
+                        <label htmlFor="fullName">Full Name</label>
+                        <input type="text" name="fullName" className="p-1 border rounded h-40px w-100"
+                        onChange={(e)=>setFullName(e.target.value)}
+                        />
                     </div>
                 </div>
 
@@ -387,15 +555,20 @@ function ProgramDetailsPage() {
                 <div className="flex items-center justify-between h-auto w-100">
                     
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="">Designation</label>
+                        <label htmlFor="designation">Designation</label>
                         
-                        <input type="text" className="p-1 border rounded h-40px w-100" placeholder="what is your role in the company?"/>
+                        <input type="text" name="designation" className="p-1 border rounded h-40px w-100" placeholder="what is your role in the company?"
+                        onChange={(e)=>setDesignation(e.target.value)}
+                        />
                     </div>
+                    
 
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="">Additional Information</label>
+                        <label htmlFor="message">Additional Information</label>
                         
-                        <input type="text" className="p-1 border rounded h-40px w-100" placeholder="Anything else we should know about you?"/>
+                        <input type="text" name="message" className="p-1 border rounded h-40px w-100" placeholder="Anything else we should know about you?"
+                        onChange={(e)=>setMessage(e.target.value)}
+                        />
                     </div>
                 </div>}
 
@@ -403,36 +576,44 @@ function ProgramDetailsPage() {
                 <div className="flex items-center justify-between h-auto w-100">
                     
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="">Country</label>
+                        <label htmlFor="country">Country</label>
                         
-                        <input type="text" className="p-1 border rounded h-40px w-100"/>
+                        <input type="text" name="country" className="p-1 border rounded h-40px w-100"
+                        onChange={(e)=>setCountry(e.target.value)}
+                        />
                     </div>
 
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="">City</label>
-                        <input type="text" className="p-1 border rounded h-40px w-100"/>
+                        <label htmlFor="city">City</label>
+                        <input type="text" name="city" className="p-1 border rounded h-40px w-100"
+                        onChange={(e)=>setCity(e.target.value)}
+                        />
                     </div>
                 </div>
 
                 <div className="flex items-center justify-between h-auto w-100">
                     
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="">Phone</label>
+                        <label htmlFor="phone">Phone</label>
                         
-                        <input type="text" className="p-1 border rounded h-40px w-100"/>
+                        <input type="text" name="phone" className="p-1 border rounded h-40px w-100"
+                        onChange={(e)=>setPhone(e.target.value)}
+                        />
                     </div>
 
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="">Email</label>
-                        <input type="email" className="p-1 border rounded h-40px w-100"/>
+                        <label htmlFor="email">Email</label>
+                        <input type="email" name="email" className="p-1 border rounded h-40px w-100"
+                        onChange={(e)=>setEmail(e.target.value)}
+                        />
                     </div>
                 </div>
             </div>
 
 
             <button className="flex items-center justify-center text-white rounded w-100 h-40px bg-crossLightPurple"
-            // onClick={()=>setDetails("personal")}
-            >Send Message</button>
+            onClick={makeEnquiry}
+            >Submit</button>
           </div>}
 
           

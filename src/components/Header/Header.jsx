@@ -54,7 +54,7 @@ function Header() {
             }
             to="/about-us/"
           >
-            About CrossTie <MdKeyboardArrowDown className={`${aboutDD ? "rotate-180" : ""} text-25px`} />
+            About Crosstie <MdKeyboardArrowDown className={`${aboutDD ? "rotate-180" : ""} text-25px`} />
           </NavLink>
         </li>
 

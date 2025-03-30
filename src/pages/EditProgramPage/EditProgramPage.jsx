@@ -852,6 +852,195 @@ function EditProgramPage() {
 
 
 
+  //to add and remove training Modules
+    const [modules, setModules] = useState([""]);
+  
+    console.log("modules:", modules);
+  
+    const addModules = () => {
+      setModules([...modules, ""]);
+    };
+  
+    const removeModules = (index) => {
+      setModules(modules.filter((_, i) => i !== index));
+  };
+  
+  
+  // Update a Modules's value by index
+      const updateModules = (index, value) => {
+          const updatedModules = [...modules];
+          updatedModules[index] = value;
+          setModules(updatedModules);
+      };
+        
+  
+  
+     //to add and remove training optional Modules
+     const [optionalModules, setOptionalModules] = useState([""]);
+  
+     console.log("optionalModules:", optionalModules);
+   
+     const addOptionalModules = () => {
+       setOptionalModules([...optionalModules, ""]);
+     };
+   
+     const removeOptionalModules = (index) => {
+       setOptionalModules(optionalModules.filter((_, i) => i !== index));
+   };
+   
+   
+   // Update a OptionalModule's value by index
+       const updateOptionalModules = (index, value) => {
+           const updatedOptionalModules = [...optionalModules];
+           updatedOptionalModules[index] = value;
+           setOptionalModules(updatedOptionalModules);
+       };
+  
+  
+  
+     //to add and remove Notes
+     const [notes, setNotes] = useState([""]);
+  
+     console.log("notes:", notes);
+   
+     const addNotes = () => {
+       setNotes([...notes, ""]);
+     };
+   
+     const removeNotes = (index) => {
+       setNotes(notes.filter((_, i) => i !== index));
+   };
+   
+   
+   // Update a Note's value by index
+       const updateNotes = (index, value) => {
+           const updatedNotes = [...notes];
+           updatedNotes[index] = value;
+           setNotes(updatedNotes);
+       };
+
+
+
+
+
+    
+  //change program Modules
+  const [editModules, setEditModules] = useState(false);
+  const [updatingModules, setUpdatingModules] = useState(false);
+
+  const toggleModules = () => {
+    setEditModules(!editModules);
+  };
+
+
+  const changeModules = async () => {
+    const validationErrors = {};
+
+
+    setEditErrors(validationErrors);
+
+    const noError = Object.keys(validationErrors).length === 0;
+
+   
+      try {
+        setUpdatingModules(true);
+        setEditModules(false);
+        const response = await axios.patch(
+          `${baseUrl}/api/program/${programId && programId}`,
+          {
+            modules: modules,
+          },
+        );
+
+        console.log("program update response:", response.data);
+        if ((response.data.status = "success")) {
+          toast.success(
+            "Program updated successfully. Refresh to see changes."
+          );
+        }
+      } catch (error) {
+        console.error("Error updating program:", error);
+      } finally {
+        setUpdatingModules(false);
+      }
+    
+  };
+
+
+
+    //change program OptionalModules
+    const [editOptionalModules, setEditOptionalModules] = useState(false);
+    const [updatingOptionalModules, setUpdatingOptionalModules] = useState(false);
+  
+    const toggleOptionalModules = () => {
+      setEditOptionalModules(!editOptionalModules);
+    };
+  
+  
+  
+    const changeOptionalModules = async () => {  
+     
+        try {
+          setUpdatingOptionalModules(true);
+          setEditOptionalModules(false);
+          const response = await axios.patch(
+            `${baseUrl}/api/program/${programId && programId}`,
+            {
+              optionalModules: optionalModules,
+            },
+          );
+  
+          console.log("program update response:", response.data);
+          if ((response.data.status = "success")) {
+            toast.success(
+              "Program updated successfully. Refresh to see changes."
+            );
+          }
+        } catch (error) {
+          console.error("Error updating program:", error);
+        } finally {
+          setUpdatingOptionalModules(false);
+        }
+      
+    };
+
+
+
+    //change program Notes
+  const [editNotes, setEditNotes] = useState(false);
+  const [updatingNotes, setUpdatingNotes] = useState(false);
+
+  const toggleNotes = () => {
+    setEditNotes(!editNotes);
+  };
+
+
+  const changeNotes = async () => {
+
+   
+      try {
+        setUpdatingNotes(true);
+        setEditNotes(false);
+        const response = await axios.patch(
+          `${baseUrl}/api/program/${programId && programId}`,
+          {
+            notes: notes,
+          },
+        );
+
+        console.log("program update response:", response.data);
+        if ((response.data.status = "success")) {
+          toast.success(
+            "Program updated successfully. Refresh to see changes."
+          );
+        }
+      } catch (error) {
+        console.error("Error updating program:", error);
+      } finally {
+        setUpdatingNotes(false);
+      }
+    
+  };
 
   
   return (
@@ -1224,7 +1413,7 @@ function EditProgramPage() {
 
                 {/* date */}
                 
-              <div className="flex flex-col h-auto gap-1 large:w-85 small:w-85vw">
+              <div className="flex flex-col self-start h-auto gap-1 large:w-85 small:w-85vw">
                   <label htmlFor="title">Date</label>            
            
                   <div className='flex flex-col h-auto gap-1 w-100'>
@@ -1291,34 +1480,8 @@ function EditProgramPage() {
               </div>
 
                 {/* objectives */}
-              <div className="flex flex-col h-auto gap-1 large:w-85 small:w-85vw">
+              <div className="flex flex-col self-start h-auto gap-1 large:w-85 small:w-85vw">
                   <label htmlFor="objectives">Course Objectives</label>
-                  {/* {
-                    objectives && objectives.map((objective, index)=>
-                      <div className='flex items-center gap-1' key={index}>
-                          <input
-                          type="text"
-                          placeholder={`Enter course objective`}
-                          name="description"
-                          className="p-0.5 border rounded-4 w-90"
-                          value={objective}
-                          onChange={(e) => updateObjective(index, e.target.value)}
-                        />
-                        
-                        {
-                          index !==0 &&
-                        
-                        <button className='flex items-center justify-center text-crossLightPurple'
-                          onClick={()=>{
-                            removeObjective(index)
-                          }}
-                          >Remove</button>}
-                      </div>
-                    )
-                  } */}
-
-
-
 
 
                    <div className='flex flex-col h-auto gap-1 w-100'>
@@ -1348,9 +1511,9 @@ function EditProgramPage() {
  
                      {!editObjectives &&
                        <div className="p-0.5 border rounded-4 flex items-start h-auto justify-between bg-white">
-                         <div className='flex flex-col py-1 w-90'>
+                         <div className='flex flex-col gap-1 py-1 w-90'>
                           {program && program.objectives.map((objective, i)=>
-                            <div key={i}>{i + 1}. {objective[0].toUpperCase()}{objective.slice(1)}</div>
+                            <div key={i}>{i + 1}. {objective.length>0 && objective[0].toUpperCase()}{objective.slice(1)}</div>
                           )}
                           </div>
                          <CiEdit className='cursor-pointer text-25px text-crossLightPurple'
@@ -1358,7 +1521,6 @@ function EditProgramPage() {
                          />
                        </div>}
                      
-                       {editDate && <p className="text-13px text-vogueRed">{editErrors.date}</p>}
 
                           
                        {editObjectives &&
@@ -1377,6 +1539,202 @@ function EditProgramPage() {
                        </div>}
  
                        {updatingObjectives && <UpdatingBtn />}
+                   </div>
+
+              </div>
+
+
+               {/* Modules */}
+               <div className="flex flex-col self-start h-auto gap-1 large:w-85 small:w-85vw">
+                  <label htmlFor="modules">Modules</label>
+
+
+                   <div className='flex flex-col h-auto gap-1 w-100'>
+                   
+                   {
+                      editModules && modules && modules.map((module, index)=>
+                        <div className='flex items-center gap-1' key={index}>
+                          <input
+                          type="text"
+                          placeholder={`Enter course module`}
+                          name="optionalModules"
+                          className="p-0.5 border rounded-4 w-90"
+                          value={module}
+                          onChange={(e) => updateModules(index, e.target.value)}
+                        />
+                 
+                          {
+                            index !==0 &&
+                          
+                          <button className='flex items-center justify-center text-crossLightPurple'
+                            onClick={()=>{
+                              removeModules(index)
+                            }}
+                            >Remove</button>}
+                              </div>)}
+ 
+ 
+                     {!editModules &&
+                       <div className="p-0.5 border rounded-4 flex items-start h-auto justify-between bg-white">
+                         <div className='flex flex-col gap-1 py-1 w-90'>
+                          {program && program.modules.map((module, i)=>
+                            <div key={i}>{i + 1}. {module.length>0 && module[0].toUpperCase()}{module.slice(1)}</div>
+                          )}
+                          </div>
+                         <CiEdit className='cursor-pointer text-25px text-crossLightPurple'
+                         onClick={toggleModules}
+                         />
+                       </div>}
+
+                          
+                       {editModules &&
+                       <button className='self-start text-crossLightPurple'
+                    onClick={addModules}
+                    >+ Add module</button>}
+                     
+                       {editModules &&
+                       <div className='flex flex-row items-start h-auto gap-2 w-100'>
+                         <button className='flex items-center justify-center w-auto px-1 border rounded text-crossLightPurple border-crossLightPurple h-30px'
+                         onClick={toggleModules}
+                         >Cancel</button>
+                         <button className='flex items-center justify-center w-auto px-2 text-white border rounded bg-crossLightPurple border-crossLightPurple h-30px'
+                         onClick={changeModules}
+                         >Save</button>
+                       </div>}
+ 
+                       {updatingModules && <UpdatingBtn />}
+                   </div>
+
+              </div>
+
+
+
+              {/*optional Modules */}
+              <div className="flex flex-col self-start h-auto gap-1 large:w-85 small:w-85vw">
+                  <label htmlFor="optionalModules">Optional Modules</label>
+
+
+                   <div className='flex flex-col h-auto gap-1 w-100'>
+                   
+                   {
+                      editOptionalModules && optionalModules && optionalModules.map((module, index)=>
+                        <div className='flex items-center gap-1' key={index}>
+                          <input
+                          type="text"
+                          placeholder={`Enter optional module`}
+                          name="optionalModules"
+                          className="p-0.5 border rounded-4 w-90"
+                          value={module}
+                          onChange={(e) => updateOptionalModules(index, e.target.value)}
+                        />
+                 
+                          {
+                            index !==0 &&
+                          
+                          <button className='flex items-center justify-center text-crossLightPurple'
+                            onClick={()=>{
+                              removeOptionalModules(index)
+                            }}
+                            >Remove</button>}
+                              </div>)}
+ 
+ 
+                     {!editOptionalModules &&
+                       <div className="p-0.5 border rounded-4 flex items-start h-auto justify-between bg-white">
+                         <div className='flex flex-col gap-1 py-1 w-90'>
+                          {program && program.optionalModules.map((module, i)=>
+                            <div key={i}>{i + 1}. {module.length>0 && module[0].toUpperCase()}{module.slice(1)}</div>
+                          )}
+                          </div>
+                         <CiEdit className='cursor-pointer text-25px text-crossLightPurple'
+                         onClick={toggleOptionalModules}
+                         />
+                       </div>}
+                     
+
+                          
+                       {editOptionalModules &&
+                       <button className='self-start text-crossLightPurple'
+                    onClick={addOptionalModules}
+                    >+ Add optional module</button>}
+                     
+                       {editOptionalModules &&
+                       <div className='flex flex-row items-start h-auto gap-2 w-100'>
+                         <button className='flex items-center justify-center w-auto px-1 border rounded text-crossLightPurple border-crossLightPurple h-30px'
+                         onClick={toggleOptionalModules}
+                         >Cancel</button>
+                         <button className='flex items-center justify-center w-auto px-2 text-white border rounded bg-crossLightPurple border-crossLightPurple h-30px'
+                         onClick={changeOptionalModules}
+                         >Save</button>
+                       </div>}
+ 
+                       {updatingOptionalModules && <UpdatingBtn />}
+                   </div>
+
+              </div>
+
+
+
+               {/*Notes */}
+               <div className="flex flex-col self-start h-auto gap-1 large:w-85 small:w-85vw">
+                  <label htmlFor="notes">Notes</label>
+
+
+                   <div className='flex flex-col h-auto gap-1 w-100'>
+                   
+                   {
+                      editNotes && notes && notes.map((note, index)=>
+                        <div className='flex items-center gap-1' key={index}>
+                          <input
+                          type="text"
+                          placeholder={`Enter note`}
+                          name="notes"
+                          className="p-0.5 border rounded-4 w-90"
+                          value={note}
+                          onChange={(e) => updateNotes(index, e.target.value)}
+                        />
+                 
+                          {
+                            index !==0 &&
+                          
+                          <button className='flex items-center justify-center text-crossLightPurple'
+                            onClick={()=>{
+                              removeNotes(index)
+                            }}
+                            >Remove</button>}
+                              </div>)}
+ 
+ 
+                     {!editNotes &&
+                       <div className="p-0.5 border rounded-4 flex items-start h-auto justify-between bg-white">
+                         <div className='flex flex-col gap-1 py-1 w-90'>
+                          {program && program.notes.map((note, i)=>
+                            <div key={i}>{i + 1}. {note.length>0 && note[0].toUpperCase()}{note.slice(1)}</div>
+                          )}
+                          </div>
+                         <CiEdit className='cursor-pointer text-25px text-crossLightPurple'
+                         onClick={toggleNotes}
+                         />
+                       </div>}
+                     
+
+                          
+                       {editNotes &&
+                       <button className='self-start text-crossLightPurple'
+                    onClick={addNotes}
+                    >+ Add note</button>}
+                     
+                       {editNotes &&
+                       <div className='flex flex-row items-start h-auto gap-2 w-100'>
+                         <button className='flex items-center justify-center w-auto px-1 border rounded text-crossLightPurple border-crossLightPurple h-30px'
+                         onClick={toggleNotes}
+                         >Cancel</button>
+                         <button className='flex items-center justify-center w-auto px-2 text-white border rounded bg-crossLightPurple border-crossLightPurple h-30px'
+                         onClick={changeNotes}
+                         >Save</button>
+                       </div>}
+ 
+                       {updatingNotes && <UpdatingBtn />}
                    </div>
 
               </div>

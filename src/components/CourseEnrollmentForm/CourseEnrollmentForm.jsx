@@ -45,8 +45,6 @@ function CourseEnrollmentForm() {
 
   
 
-  
-
   //to controll form look for different course categories
   const executiveCourse = program && program.category=== "Open Executive Programmes (OEP)";
 

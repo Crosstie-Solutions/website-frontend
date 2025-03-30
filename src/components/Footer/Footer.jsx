@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { RiYoutubeLine } from "react-icons/ri";
 import { SiFacebook } from "react-icons/si";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { BsTwitterX } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { CrossContext } from "../../Context/CrossContext";
+import { toast } from 'react-toastify';
+import axios from "axios";
 
 
 
@@ -11,6 +14,72 @@ function Footer() {
 
     const date = new Date;
     const year = date.getFullYear();
+
+
+    const {setLoading, baseUrl} = useContext(CrossContext);
+
+
+    // states for newsletters
+  const [email, setEmail] = useState("");
+
+  //Login request
+const [newsletterErrors, setNewsletterErrors] = useState({});
+
+
+const myEmail = document.getElementById('myEmail');
+    
+
+  //funtion for form submit
+  const subscribeToNewsletter = async (event) => {
+    event.preventDefault();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const validationErrors = {};
+
+    //To ensure valid inputs
+
+    if (!email.trim()) {
+      validationErrors.email = "email is required.";
+    }
+
+    else if (!emailRegex.test(email)) {
+      validationErrors.email = "Please enter a valid email address.";
+    }
+
+    setNewsletterErrors(validationErrors);
+
+    const noError = Object.keys(validationErrors).length === 0;
+
+    if (noError) {
+      try {
+        // setLastErrors("");
+        setLoading(true);
+        const response = await axios.post(
+          `${baseUrl}/api/newsletter`,
+           {
+            email: email
+           }
+        );
+
+        if (response.status === 201) {
+         
+          toast.success(`You have successfully subscribed to crosstie newsletter.`);
+          
+          myEmail.value='';
+        }
+      } catch (error) {
+        
+        console.log("loginError:", error);
+        
+        // validationErrors.email = error;
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+
+  
     
   return (
     <footer className="flex flex-col gap-5 py-5 mt-10 text-white small:px-2 large:px-10 bg-crossDarkPurple w-100vw large:text-15px small:text-13px">
@@ -18,10 +87,20 @@ function Footer() {
       <div className="flex justify-between h-auto pb-1 border-b-2 large:flex-row w-100 border-crossLightPurple small:flex-col small:gap-2 large:gap-0">
         
         <div className="flex flex-col h-auto gap-1 large:w-40 small:w-100">
-          <div className="large:text-30px small:text-20px">Subscribe To our newsletter</div>
-          <div className="flex items-center h-auto w-100">
-            <input type="text" placeholder="Email Address" className="p-1 text-black rounded-tl rounded-bl h-40px w-90"/>
-            <button className="flex items-center justify-center w-auto px-1 rounded-tr rounded-br h-40px bg-crossLightPurple">Subscribe</button>
+          <div className="large:text-15px small:text-20px">Subscribe To Our Newsletter</div>
+          <div className="flex flex-col items-center justify-center h-auto gap-1 w-100">
+            
+           <div className="flex items-center justify-center h-auto w-100">
+              <input type="text" name="email" id="myEmail" placeholder="Email Address" className="p-1 text-black rounded-tl rounded-bl h-40px w-90"
+              onChange={(e)=>setEmail(e.target.value)}
+              />
+           
+              <button className="flex items-center justify-center w-auto px-1 rounded-tr rounded-br h-40px bg-crossLightPurple"
+              onClick={subscribeToNewsletter}
+              >Subscribe</button>
+           </div>
+
+            <p className='text-crossYellow text-15px'>{newsletterErrors && newsletterErrors.email}</p>
           </div>
         </div>
 

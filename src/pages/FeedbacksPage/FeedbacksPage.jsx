@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { MobileAboutButtonSwiper } from "../../components/MobileButtonSwiper/MobileButtonSwiper";
 import { AboutButtonSwiper } from "../../components/ButtonSwiper/ButtonSwiper";
 import { Link } from "react-router-dom";
 import { PHOTOS } from "../../assets/images";
 import { HiArrowLongRight } from "react-icons/hi2";
 import Feedback from "../../components/Feedback/Feedback";
-import Feeeeedback from "../../components/Feedback/Feedback";
+import { CrossContext } from "../../Context/CrossContext";
 
 
 function FeedbacksPage() {
+
+    const {allTestimonials} = useContext(CrossContext);
+
+
+    const [expanded, setExpanded] = useState({});
+      
+        const toggleReadMore = (id) => {
+          setExpanded((prevState) => ({
+            ...prevState,
+            [id]: !prevState[id], // Toggle only for the clicked testimonial
+          }));
+        };
+  
   return (
     <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto large:mt-10 small:mt-12">
         
@@ -37,13 +50,23 @@ function FeedbacksPage() {
       </div>
 
       <div className="flex flex-row flex-wrap justify-center h-auto gap-5 px-3 w-100">
-        <Feedback />
-        <Feedback />
-        <Feedback />
-        <Feedback />
-        <Feedback />
-        <Feedback />
-        <Feedback />
+        {
+          allTestimonials && allTestimonials.map((testimonial, i)=>
+            <Feedback 
+            key={i}
+            name={testimonial.name}
+            jobRole={testimonial.jobRole}
+            testimony={testimonial.testimony}
+            priorityIndex={testimonial.priorityIndex}
+            date={testimonial.date}
+            program={testimonial.program}
+            id={testimonial.id}
+            isExpanded={expanded[testimonial.id]} // Pass state
+            toggleReadMore={toggleReadMore} // Pass function
+            />
+          )
+        }
+       
       </div>
 
       <div className="flex flex-col items-center h-auto gap-1 mt-3 w-100">

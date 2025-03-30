@@ -1,10 +1,9 @@
-import React, { createContext, useState, useEffect, useRef } from "react";1
+import React, { createContext, useState, useEffect, useRef } from "react";
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { saveAs } from "file-saver";
 import { unparse } from "papaparse";
 import { toast } from 'react-toastify';
-import { courseData } from "../assets/data";
 
 
 
@@ -231,6 +230,8 @@ const[loading, setLoading] = useState(false);
 
   //active program
   const [activeProgram, setActiveProgram] = useState(null);
+
+  console.log("activeProgram:", activeProgram);
 
   const toggleAdminProgramAction = async (index)=> {
 
@@ -617,6 +618,137 @@ const toggleWebinarEnrollment = async (index)=> {
 }
 
 
+//Enquiries
+
+const [allEnquiries, setAllEnquiries] = useState(null);
+
+const [loadingAllEnquiries, setLoadingAllEnquiries] = useState(false);
+
+
+
+const viewAllEnquiries = async () => {
+  try {
+    setLoadingAllEnquiries(true)
+    const response = await axios.get(`${baseUrl}/api/enquiry`);
+
+    setAllEnquiries(response.data.data.data);
+  } catch (dupError) {
+    console.log("error fetching all enquiries:", dupError);
+  }finally{
+    setLoadingAllEnquiries(false)
+  }
+};
+
+
+
+  //active Enquiry
+  const [activeEnquiry, setActiveEnquiry] = useState(null);
+
+  const toggleAdminEnquiryAction = async (index)=> {
+
+    window.scrollTo({ top: 0, behavior: "auto" });
+
+    setActiveEnquiry((prev) => (prev === index ? null : index));
+  }
+
+
+
+
+  //Newsletters
+
+const [allNewsletters, setAllNewsletters] = useState(null);
+
+const [loadingAllNewsletters, setLoadingAllNewsletters] = useState(false);
+
+
+
+const viewAllNewsletters = async () => {
+  try {
+    setLoadingAllNewsletters(true)
+    const response = await axios.get(`${baseUrl}/api/newsletter`);
+
+    setAllNewsletters(response.data.data.data);
+  } catch (dupError) {
+    console.log("error fetching all newsletters:", dupError);
+  }finally{
+    setLoadingAllNewsletters(false)
+  }
+};
+
+
+
+//Testimonials
+
+const [testimonials, setTestimonials] = useState(null);
+
+const [loadingAllTestimonials, setLoadingAllTestimonials] = useState(false);
+
+const allTestimonials = testimonials && testimonials.sort((a, b) => a.priorityIndex - b.priorityIndex);
+
+console.log("allTestimonials:", allTestimonials);
+
+
+const viewAllTestimonials = async () => {
+  try {
+    setLoadingAllTestimonials(true)
+    const response = await axios.get(`${baseUrl}/api/testimonial`);
+
+    setTestimonials(response.data.data.data);
+  } catch (dupError) {
+    console.log("error fetching all testimonials:", dupError);
+  }finally{
+    setLoadingAllTestimonials(false)
+  }
+};
+
+
+
+ //active Testimonial
+ const [activeTestimonial, setActiveTestimonial] = useState(null);
+
+ console.log("activeTestimonial:", activeTestimonial);
+
+ const toggleAdminTestimonialAction = async (index)=> {
+
+   setActiveTestimonial((prev) => (prev === index ? null : index));
+ }
+
+
+
+
+      //for admin to delete testimonial
+const [deletingTestimonial, setDeletingTestimonial] = useState(false);
+
+const deleteTestimonial = async (testimonialId) => {
+  
+  try {
+    setDeletingTestimonial(true);
+
+    const response = await axios.delete(`${baseUrl}/api/testimonial/${testimonialId && testimonialId}`);
+
+    console.log('Testimonial delete response:', response.data);
+    if(response.data.status ==='success'){
+      toast.success('Testimonial deleted successfully.');
+      toggleAdminTestimonialAction("exit")
+    }
+    
+  } catch (error) {
+    console.error('Error deleting Testimonial:', error);
+  }finally{
+    setDeletingTestimonial(false);
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -635,7 +767,7 @@ const toggleWebinarEnrollment = async (index)=> {
     hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program, toggleAdminProgramAction, activeProgram, deletingProgram, deleteProgram, viewAllCourseRegs, allCourseRegs, currentCourseRegs,  handleCourseRegsPageChange, currentCourseRegsPage, totalCourseRegsPages,
     courseRegsSearchTerm, allCourseRegs, activeCourseReg, toggleAdminCourseRegAction,   activeWebinar, toggleAdminWebinarAction, deletingWebinar, deleteWebinar, currentUpcoming, handleUpcomingPageChange, totalUpcomingPages, currentUpcomingPage,
     currentPast, handlePastPageChange, currentPastPage, totalPastPages, pastSearchTerm,
-  pastWebinars, activeWebinar, toggleActiveWebinarView, activeWebinarView, webinarEnrollment, toggleWebinarEnrollment, webinar, setWebinarEnrollment, loadingWebinar
+  pastWebinars, activeWebinar, toggleActiveWebinarView, activeWebinarView, webinarEnrollment, toggleWebinarEnrollment, webinar, setWebinarEnrollment, loadingWebinar, viewAllEnquiries, toggleAdminEnquiryAction, activeEnquiry, allEnquiries, setActiveEnquiry, viewAllNewsletters, allNewsletters, viewAllTestimonials, allTestimonials, loadingAllTestimonials,  activeTestimonial, toggleAdminTestimonialAction, deletingTestimonial, deleteTestimonial
   };
 
 

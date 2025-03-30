@@ -7,7 +7,7 @@ function OurReach() {
   const [hasCounted, setHasCounted] = useState(false);
 
   const counters = [
-    { label: "Employees", end: 600 },
+    { label: "Employees Trained", end: 6000 },
     { label: "Participants Trained Monthly", end: 40 },
     { label: "Consulting Projects", end: 40 },
     { label: "Trainers and Consultants", end: 30 },
