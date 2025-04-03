@@ -7,12 +7,12 @@ import "./Hero.css";
 
 function Hero() {
   return (
-    <div className="flex flex-col items-start justify-center text-white large:pl-15 large:w-100vw large:h-500px hero small:w-100vw small:h-65vh">
+    <div className="flex flex-col items-start justify-center text-white large:pl-10 large:w-100vw large:h-500px hero small:w-100vw small:h-65vh">
       
       <div className="z-10 flex flex-col items-start justify-center large:gap-1 w-100 h-100 small:px-2 large:p-0 small:gap-2">
         
         
-        <div className="flex items-center w-auto gap-1 pr-2 large:pl-1 rounded-20 bg-crossYellow large:h-40px small:h-20px large:text-17px small:text-13px">
+        <div className="flex items-center w-auto gap-1 pr-2 large:pl-0.5 rounded-20 bg-crossYellow large:h-30px small:h-20px large:text-13px small:text-13px">
           <div className="flex items-center justify-center px-1 bg-white rounded-20 text-crossYellow">
             NEW
           </div>
@@ -21,11 +21,11 @@ function Hero() {
 
 
 
-        <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-extrabold small:w-100 small:text-20px">
+        <h1 class="large:text-35px large:w-50 large:leading-8 small:leading-5 font-extrabold small:w-100 small:text-20px">
           PEOPLE DEVELOPMENT & MANAGEMENT CONSULTING
         </h1>
 
-        <p className="font-extralight large:w-50 small:w-100 small:text-11px large:text-15px">
+        <p className="font-extralight large:w-30 small:w-100 small:text-11px large:text-15px">
           Discover new skills and interests with our extensive course collection
         </p>
 

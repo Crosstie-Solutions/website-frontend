@@ -100,7 +100,7 @@ function CourseEnrollmentForm() {
     <div className="absolute top-0 left-0 z-20 flex flex-col items-center justify-center py-3 large:h-auto w-100 bg-overlaySecond text-13px small:h-auto">
       
       
-      <div className="relative flex flex-col items-center h-auto gap-3 py-5 mt-5 bg-white large:px-3 large:w-80 rounded-10 small:w-90vw small:px-1">
+      <div className="relative flex flex-col items-center h-auto gap-3 py-5 mt-5 bg-white large:px-3 large:w-83vw rounded-10 small:w-90vw small:px-1">
         
         <h3 className="font-semibold large:text-17px small:text-13px">
           Purchase Course -{" "}
@@ -245,14 +245,29 @@ function CourseEnrollmentForm() {
 
 
                 <div className="flex flex-col h-auto w-45">
-                  <label htmlFor="location">Preferred date</label>
+                  <label htmlFor="preferredDate">Preferred date</label>
                   
-                  <input
+                  {/* <input
                     type="date"
                     className="p-1 border rounded h-40px w-100"
                     name="preferredDate"
                     onChange={handleChange}
-                  />
+                  /> */}
+
+                    <select
+                      name="preferredDate"
+                      id=""
+                      className="p-1 border rounded cursor-pointer h-40px w-100"
+                      onChange={handleChange}
+                          >
+                      <option value="">-select-</option>
+                      {
+                        program && program.date.map((day, i)=>
+                          <option value={day} key={i}>{day}</option>
+                        )
+                      }
+                      
+                  </select>
                 </div>
               </div>
             </div>

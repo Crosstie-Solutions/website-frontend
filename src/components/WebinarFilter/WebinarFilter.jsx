@@ -11,9 +11,9 @@ function UpcomingFilter() {
     
     
   return (
-    <div className="flex flex-row items-center gap-1 p-1 border border-crossLightPurple rounded-10 h-100 w-100 text-15px">
+    <div className="flex flex-row items-center gap-1 p-1 border-2 border-crossTextGray rounded-10 h-100 w-100 text-15px">
       
-        <IoIosSearch className='text-20px text-crossLightPurple'/>
+        <IoIosSearch className='text-20px text-crossTextGray'/>
         
         <input
           type="text"
@@ -36,9 +36,9 @@ function PastFilter() {
   
   
 return (
-  <div className="flex flex-row items-center gap-1 p-1 border border-crossLightPurple rounded-10 h-100 w-100 text-15px">
+  <div className="flex flex-row items-center gap-1 p-1 border-2 border-crossTextGray rounded-10 h-100 w-100 text-15px">
     
-      <IoIosSearch className='text-20px text-crossLightPurple'/>
+      <IoIosSearch className='text-20px text-crossTextGray'/>
       
       <input
         type="text"

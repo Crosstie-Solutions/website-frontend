@@ -19,7 +19,7 @@ function Feedback(testimonial) {
   
   
   return (
-    <div className={`relative flex flex-col items-center gap-1 px-2 py-5 bg-white border shadow-lg border-crossIconBg large:w-30 rounded-10 small:w-100 ${testimony.length > 100 ? "h-auto" : "h-290px"}`}>
+    <div className={`relative flex flex-col items-center gap-1 px-2 py-5 bg-white border shadow-lg border-crossIconBg large:w-30 rounded-10 small:w-80vw ${testimony.length > 100 ? "h-auto" : "h-290px"}`}>
       
       {/* crossIconBg */}
       <div className="flex flex-col items-center h-auto gap-1 w-100">

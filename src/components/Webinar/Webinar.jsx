@@ -22,11 +22,11 @@ function Webinar(webinar) {
     
 
   return (
-    <div className='flex flex-col items-start h-auto border w-300px border-crossLightPurple rounded-10 text-15px'>
+    <div className='flex flex-col items-start h-auto bg-white border w-300px border-crossLightPurple rounded-10 text-15px'>
 
         {/* upcoming */}
         {webinarType==='upcoming' &&
-      <div className='flex flex-col items-start h-auto gap-1 px-2 py-2 w-100'>
+      <div className='flex flex-col items-start h-auto gap-2 px-2 py-2 w-100'>
         <div className='text-crossTextGray'>Presenter: {presenter}</div>
 
         <h4 className='font-semibold'>{topic}</h4>
@@ -68,7 +68,7 @@ function Webinar(webinar) {
        {/* past */}
        
        {webinarType==='past' &&
-       <div className='flex flex-col items-start h-auto gap-1 px-2 py-2 w-100'>
+       <div className='flex flex-col items-start h-auto gap-2 px-2 py-2 w-100'>
         <div className='text-center text-crossTextGray w-100'>Delivered by: {presenter}</div>
 
         <h4 className='font-semibold text-center w-100'>{topic}</h4>

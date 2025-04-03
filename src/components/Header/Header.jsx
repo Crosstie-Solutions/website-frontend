@@ -25,10 +25,10 @@ function Header() {
     
     
   return (
-    <nav className="flex flex-row items-center justify-around w-100 h-80px bg-vogueWhite">
+    <nav className={`flex flex-row items-center justify-center ${me ? "gap-3" : "gap-2"} w-100 large:h-100px bg-vogueWhite small:h-80px`}>
      
      {/* logo container */}
-     <div className="flex flex-row items-center justify-center w-auto h-auto gap-2">
+     <div className="relative flex flex-row items-center justify-center w-auto h-auto gap-2 right-2">
      
         <HiMenuAlt2 className="cursor-pointer text-30px text-crossLightPurple small:flex large:hidden"
         onClick={toggleNav}
@@ -41,7 +41,7 @@ function Header() {
 
       {/* desktop Nav */}
       {!activeSearch &&
-      <ul className="flex-row items-center justify-center w-40 gap-2 large:flex h-100 small:hidden">
+      <ul className="flex-row items-center justify-center w-auto gap-1 large:flex h-100 small:hidden">
         <li className="flex items-center list-none cursor-pointer h-100 hover:text-crossLightPurple"
         onMouseEnter={showAboutDD}
         onMouseLeave={hideAboutDD}
@@ -90,6 +90,22 @@ function Header() {
             Our Courses <MdKeyboardArrowDown className={`${coursesDD ? "rotate-180" : ""} text-25px`} />
           </NavLink>
         </li>
+
+        
+        <li className="flex items-center list-none cursor-pointer h-100 hover:text-crossLightPurple">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "flex items-center gap-0.5 text-crossLightPurple"
+                : "flex items-center gap-0.5"
+            }
+            // to="/contact-us/"
+            to="/jhbjhjhj"
+          >
+            Contact Us
+          </NavLink>
+        </li>
+        
       </ul>}
 
       
@@ -147,6 +163,19 @@ function Header() {
             >
               Our Courses <MdKeyboardArrowDown className={`${coursesDD ? "rotate-180" : ""} text-25px`} />
             </div>
+          </li>
+
+
+          <li className="flex items-center h-auto list-none cursor-pointer hover:text-crossLightPurple"
+          onClick={toggleNav}
+          >
+            <Link
+              className="flex items-center gap-0.5"
+              to="/"
+              // to="/contact-us/"
+            >
+              Contact Us
+            </Link>
           </li>
         </div>
 
@@ -210,7 +239,7 @@ function Header() {
         <div className="flex flex-row items-center justify-between gap-1 pl-1 text-gray-400 border cursor-pointer pr-0.5 w-auto text-13px h-40px rounded-20 border-crossLightPurple">
           
           <input type="search" name="" id="" placeholder="What would you love to learn today?"
-          className="text-black h-90 w-90 text-11px focus:w-500px focus:border-none focus:outline-none focus:text-20px focus:pl-1"
+          className="text-black h-90 w-200px text-11px focus:w-500px focus:border-none focus:outline-none focus:text-20px focus:pl-1"
           onFocus={()=>{
             setActiveSearch(true);
           }}

@@ -22,7 +22,7 @@ function OurFeedbacks() {
   const {allTestimonials, loadingAllTestimonials} = useContext(CrossContext);
 
   return (
-    <div className="flex flex-col h-auto gap-3 large:w-80vw small:w-90vw">
+    <div className="flex flex-col h-auto gap-3 large:w-83vw small:w-90vw">
       <div className="flex flex-col h-auto gap-0.5 w-100">
         <div className="flex items-center w-auto h-auto gap-1">
           <hr className="h-2px w-40px bg-crossLightPurple" />
@@ -41,10 +41,10 @@ function OurFeedbacks() {
       <div className="flex flex-row h-auto py-2 border-crossIconBg w-100 rounded-10 text-13px">
         <div className="flex flex-col items-center h-auto gap-4 w-100">
           
-          <div className="flex items-start justify-between h-auto gap-3 large:flex-wrap large:flex-row w-100 small:flex-col">
+          <div className="flex justify-between h-auto gap-3 large:items-start large:flex-wrap large:flex-row w-100 small:flex-col small:items-center">
             
           {
-          allTestimonials && allTestimonials.map((testimonial, i)=>
+          allTestimonials && allTestimonials.slice(0, 3).map((testimonial, i)=>
             <Feedback 
             key={i}
             name={testimonial.name}
@@ -63,7 +63,9 @@ function OurFeedbacks() {
               {loadingAllTestimonials &&<p className="font-semibold text-20px">Loading testimonials...</p>}
           </div>
 
-          <Link className="flex flex-row items-center justify-center w-auto gap-1 p-2 text-white h-30px rounded-10 bg-crossLightPurple ">
+          <Link 
+          to='/about-us/feedbacks'
+          className="flex flex-row items-center justify-center w-auto gap-1 p-2 text-white h-30px rounded-10 bg-crossLightPurple">
             Show All <GoArrowRight className="text-25px" />
           </Link>
         </div>

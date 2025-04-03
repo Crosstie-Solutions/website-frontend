@@ -9,7 +9,7 @@ const AboutButtonSwiper = () => {
     route: ""
   },
   {
-    name: "Our story",
+    name: "Our Story",
     route: "our-story"
   },
   {
@@ -17,7 +17,7 @@ const AboutButtonSwiper = () => {
     route: "leadership"
   },
   {
-    name: "Our clients",
+    name: "Our Clients",
     route: "our-clients"
   },
   {
@@ -29,7 +29,7 @@ const AboutButtonSwiper = () => {
     route: "satisfaction"
   },
   {
-    name: "Crosstie photos",
+    name: "Crosstie Photos",
     route: "crosstie-photos"
   }
 
@@ -40,16 +40,16 @@ const AboutButtonSwiper = () => {
 
 
   return (
-    <div className="flex-row justify-center mt-5 overflow-hidden large:flex large:w-100 large:text-15px small:w-90 small:text-10px small:hidden">
+    <div className="flex-row justify-center overflow-hidden small:mt-5 large:flex large:w-84vw large:text-15px small:w-90 small:text-10px small:hidden large:mt-2">
    
       
-      <div className="flex flex-row justify-center large:w-auto gap-2 px-1 py-0.5 border border-crossFooterText  rounded-20 small:w-100" 
+      <div className="flex flex-row justify-between large:w-100 gap-2 px-1 py-0.5 border border-crossFooterText  rounded-20 small:w-100" 
      
       >
         {routes.map((item, index) => (
           <NavLink to={`/about-us/${item.route}`} key={index} 
-          className={`${location.pathname===`/about-us/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
-          } flex items-center justify-center w-auto large:px-2 large:h-40px rounded-20 small:px-1 small:h-30px`}
+          className={`${location.pathname===`/about-us/${item.route}` ? "bg-crossLightPurple text-white" : "hover:bg-[#E7E7E7] hover:text-[#959595]"
+          } flex items-center justify-center w-auto large:px-1 large:h-40px rounded-20 small:px-1 small:h-30px`}
           >{item.name}</NavLink>
         ))}
       </div>
@@ -63,19 +63,19 @@ const AboutButtonSwiper = () => {
 const CoursesButtonSwiper = () => {
 
   const routes = [{
-    name: "Open executive programmes (OEP)",
+    name: "Open Executive Programmes (OEP)",
     route: ""
   },
   {
-    name: "Executive Leadership programmes (ELP)",
+    name: "Executive Leadership Programmes (ELP)",
     route: "executive-leadership"
   },
   {
-    name: "Sales excellence series (SES)",
+    name: "Sales Excellence Series (SES)",
     route: "sales-excellence"
   },
   {
-    name: "Complete employee series (CES)",
+    name: "Complete Employee Series (CES)",
     route: "complete-employee"
   }
 ]
@@ -86,16 +86,15 @@ const CoursesButtonSwiper = () => {
   
 
   return (
-    <div className="flex-row justify-center mt-5 overflow-hidden large:flex large:w-100 large:text-13px small:w-90 small:text-10px small:hidden">
+    <div className="flex-row justify-center overflow-hidden large:mt-0 small:mt-5 large:flex large:w-83vw large:text-13px small:w-90 small:text-10px small:hidden">
    
       
-      <div className="flex flex-row justify-center large:w-auto gap-2 px-1 py-0.5 border border-crossFooterText  rounded-20 small:w-100" 
-     
+      <div className="flex flex-row justify-between large:w-100 gap-2 px-1 py-0.5 border border-crossFooterText  rounded-20 small:w-100" 
       >
         {routes.map((item, index) => (
           <NavLink to={`/our-courses/${item.route}`} key={index} 
           className={`${location.pathname===`/our-courses/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
-          } flex items-center justify-center w-auto large:px-2 large:h-40px rounded-20 small:px-1 small:h-30px`}
+          } flex items-center justify-center w-auto large:px-1 large:h-40px rounded-20 small:px-1 small:h-30px`}
           >{item.name}</NavLink>
         ))}
       </div>
@@ -136,15 +135,15 @@ const SolutionButtonSwiper = () => {
 
 
   return (
-    <div className="flex-row justify-center mt-5 overflow-hidden large:flex large:w-100 large:text-15px small:w-90 small:text-10px small:hidden">
+    <div className="flex-row justify-center overflow-hidden border small:mt-5 large:flex large:w-84vw large:text-15px small:w-90 small:text-10px small:hidden large:mt-0">
    
       
-      <div className="flex flex-row justify-center large:w-auto gap-2 px-1 py-0.5 border border-crossFooterText  rounded-20 small:w-100" 
+      <div className="flex flex-row justify-between large:w-100 gap-2 px-1 py-0.5 border border-crossFooterText  rounded-20 small:w-100" 
      
       >
         {routes.map((item, index) => (
           <NavLink to={`/our-solutions/${item.route}`} key={index} 
-          className={`${location.pathname===`/our-solutions/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
+          className={`${location.pathname===`/our-solutions/${item.route}` ? "bg-crossLightPurple text-white" : "hover:bg-[#E7E7E7] hover:text-[#959595]"
           } flex items-center justify-center w-auto large:px-2 large:h-40px rounded-20 small:px-1 small:h-30px`}
           >{item.name}</NavLink>
         ))}

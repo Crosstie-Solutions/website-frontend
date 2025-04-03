@@ -12,24 +12,24 @@ function OurInsights() {
 
   
   return (
-    <div className="flex flex-col h-auto gap-3 small:w-90vw large:w-80vw">
+    <div className="flex flex-col h-auto gap-3 small:w-90vw large:w-83vw">
       <div className="flex flex-col h-auto gap-0.5 w-100">
         <div className="flex items-center w-auto h-auto gap-1">
           <hr className="h-2px w-40px bg-crossLightPurple" />
-          <h5 className="text-crossLightPurple text-15px">
+          <h5 className="text-crossLightPurple text-17px">
           Our Insights
           </h5>
         </div>
-        <h3 className="font-bold text-20px">Expert Knowledge Shared</h3>
+        <h3 className="font-bold text-25px">Expert Knowledge Shared</h3>
         <p className="text-15px text-crossTextGray">
         Explore valuable contents and updates industry trends and solutions</p>
       </div>
 
 
-      <div className="flex flex-row h-auto p-2 w-100 rounded-10 text-13px">
+      <div className="flex flex-row h-auto py-2 w-100 rounded-10 text-13px">
         <div className="flex flex-col items-center h-auto gap-4 w-100">
           
-          <div className="flex justify-center h-auto gap-3 small:flex-col large:flex-wrap large:flex-row w-100">
+          <div className="flex justify-between h-auto small:flex-col large:flex-wrap large:flex-row w-100 small:gap-2 large:gap-0">
             
            {
             posts && posts.map((post, i) =>
@@ -42,7 +42,9 @@ function OurInsights() {
 
           </div>
 
-          <Link className="flex flex-row items-center justify-center w-auto gap-1 p-2 text-white h-30px rounded-10 bg-crossLightPurple">
+          <Link 
+          to='/blog'
+          className="flex flex-row items-center justify-center w-auto gap-1 p-2 text-white h-30px rounded-10 bg-crossLightPurple">
             Show All <GoArrowRight className="text-25px" />
           </Link>
         </div>

@@ -8,11 +8,12 @@ import { MdOutlineChevronRight } from "react-icons/md";
 
 function CaseStudy() {
   return (
-    <div className="flex flex-col items-start h-auto gap-1 px-1 py-2 border large:w-30 border-crossIconBg rounded-10 small:w-100">
+    <div className="flex flex-col items-start h-auto gap-1 px-1 py-2 border large:w-30 border-crossIconBg rounded-10 small:w-100 text-15px">
+      
       <img
         src={PHOTOS.case}
         alt="blog image"
-        className="w-100 h-150px rounded-5"
+        className="w-100 h-170px rounded-5"
       />
 
       <div className="flex flex-row justify-between h-auto w-100 text-crossTextGray">

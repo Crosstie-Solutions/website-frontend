@@ -16,7 +16,6 @@ import { CiShoppingCart } from "react-icons/ci";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MdDriveFolderUpload } from "react-icons/md";
 import { MdManageAccounts } from "react-icons/md";
-
 import { VscGift } from "react-icons/vsc";
 import { VscFeedback } from "react-icons/vsc";
 import { MdKeyboardArrowRight } from "react-icons/md";
@@ -38,9 +37,8 @@ import { RiNewsLine } from "react-icons/ri";
 import AllNewsletterTable from "../../components/AdminInteraction/AllNewsletterTable/AllNewsletterTable";
 import AllTestimonialsTable from "../../components/AdminInteraction/AllTestimonialsTable/AllTestimonialsTable";
 import AddTestimonial from "../../components/AdminInteraction/AddTestimonial/AddTestimonial";
-
-
-
+import { LuBadgeHelp } from "react-icons/lu";
+import AllContactFormsTable from "../../components/AdminInteraction/AllContactFormsTable/AllContactFormsTable";
 
 
 
@@ -97,7 +95,7 @@ function AdminDashboard() {
 
   
   return (
-    <div className="large:flex-row large:bg-transparent large:h-auto large:justify-between large:items-start large:flex large:mt-15 large:w-90vw small:flex small:flex-col small:h-auto small:w-90vw small:items-center small:mt-15 small:gap-1">
+    <div className="large:flex-row large:bg-transparent large:h-auto large:justify-between large:items-start large:flex large:mt-20 large:w-90vw small:flex small:flex-col small:h-auto small:w-90vw small:items-center small:mt-15 small:gap-1">
       
       {/*desktop side menu */}
       <div className="flex-col items-start h-auto gap-2 border large:flex w-25 bg-vogueWhite rounded-10 small:hidden">
@@ -241,6 +239,18 @@ function AdminDashboard() {
         </div>
 
 
+         {/* contact form */}
+         {/* <div
+          className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
+            activeScreen === "contact" ? "bg-gray-300" : ""
+          } hover:bg-gray-300`}
+          onClick={() => setActiveScreen("contact")}
+        >
+          <LuBadgeHelp className="text-20px" />
+          Contact Form
+        </div> */}
+
+
         
 
         <Link
@@ -337,6 +347,8 @@ function AdminDashboard() {
         {activeScreen === "allTestimonials" && <AllTestimonialsTable />}
         
         {activeScreen === "addTestimonial" && <AddTestimonial />}
+        
+        {activeScreen === "contact" && <AllContactFormsTable />}
         
         
       </div>
@@ -528,20 +540,21 @@ function AdminDashboard() {
                 >All Testimonials</div>
 
               </div>}
-            </div>
+          </div>
 
-           
+          {/* contact form */}
           {/* <div
             className={`flex items-center justify-between gap-1 px-1 cursor-pointer h-40px w-100 text-13px`}
-            onClick={() => setActiveScreen("newsletter")}
+            onClick={() => setActiveScreen("contact")}
           >
             <div className="flex items-center gap-1 w-100 h-100" onClick={toggleSideBar}>
-              <FaRegNewspaper className="text-20px" />
-              Newsletter
+              <LuBadgeHelp className="text-20px" />
+              Contact Forms
             </div>
 
             <MdKeyboardArrowRight className="text-20px" />
           </div> */}
+
 
 
           <Link
@@ -668,6 +681,8 @@ function AdminDashboard() {
         {activeScreen === "past Webinars" && <PastWebinarsTable />}
         
         {activeScreen === "testimonials" && <AllTestimonialsTable />}
+        
+        {activeScreen === "contact" && <AllContactFormsTable />}
 
         
         </div>

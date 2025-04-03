@@ -9,16 +9,24 @@ import { CrossContext } from "../../Context/CrossContext";
 import ProgramsFilter from "../../components/ProgramsFilter/ProgramsFilter";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { CgChevronLeft } from "react-icons/cg";
+import DownloadScreen from "../../components/DownloadScreen/DownloadScreen";
 
 
 
 function ExecutiveLeadership() {
 
-    const {currentPrograms, handleProgramsPageChange, currentProgramsPage, totalProgramsPages, programsSearchTerm} = useContext(CrossContext);
+    const {currentPrograms, handleProgramsPageChange, currentProgramsPage, totalProgramsPages, programsSearchTerm, allCourses, downloadScreen, toggleDownloadScreen} = useContext(CrossContext);
+
+    const downloadUrl = allCourses && allCourses[1].courseBrochure;
+    const title = allCourses && allCourses[1].courseTitle;
+
+    const executiveLeadershipPrograms = currentPrograms && currentPrograms.filter((program)=> {
+      return program.course.courseTitle.includes("Executive Leadership");
+    });
     
     
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 large:mt-8 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13">
+    <div className="relative flex flex-col items-center justify-start gap-5 large:mt-8 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
       
       <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
               <img src={PHOTOS.about8} alt="photos" className="w-100 h-100" />
@@ -33,10 +41,13 @@ function ExecutiveLeadership() {
                   collection
                 </p>
       
-                <Link className="flex items-center justify-center gap-1 px-1 font-semibold large:w-300px rounded-10 h-40px bg-buttonOverlay large:text-15px small:w-250px small:text-11px">
-                  Download ELP course brochure{" "}
-                  <RiFolderDownloadLine className="large:text-25px small:text-20px" />
-                </Link>
+                <div className="flex items-center justify-center gap-1 px-1 font-semibold cursor-pointer large:w-300px rounded-10 h-40px bg-buttonOverlay large:text-15px small:w-250px small:text-11px"
+                  onClick={toggleDownloadScreen}
+                  >
+                    Download ELP course brochure{" "}
+                    <RiFolderDownloadLine className="large:text-25px small:text-20px" />
+                  </div>
+                  
               </div>
             </div>
 
@@ -53,8 +64,9 @@ function ExecutiveLeadership() {
         <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
             
             {
-                currentPrograms && currentPrograms.map((program)=>
+                executiveLeadershipPrograms && executiveLeadershipPrograms.map((program, i)=>
                     <Program 
+                      k={i}
                       title={program.title}
                       duration={program.duration}
                       date={program.date}
@@ -70,7 +82,7 @@ function ExecutiveLeadership() {
         
 
           {/* Pagination */}
-      {currentPrograms && currentPrograms.length > 0 && (
+      {executiveLeadershipPrograms && executiveLeadershipPrograms.length > 0 && (
         <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
             className="flex items-center justify-center text-white large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
@@ -98,9 +110,16 @@ function ExecutiveLeadership() {
       )}
             
             
-            {currentPrograms && currentPrograms.length < 1 && (
-              <p className="mt-5 text-center w-100 text-15px">No result for found.</p>
+            {executiveLeadershipPrograms && executiveLeadershipPrograms.length < 1 && (
+              <p className="mt-5 text-center w-100 text-15px">No result found.</p>
             )}
+
+
+      {downloadScreen && 
+        <DownloadScreen 
+          downloadUrl={downloadUrl && downloadUrl}
+          title={title && title}
+        />}
     </div>
   );
 }

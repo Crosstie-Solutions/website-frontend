@@ -50,6 +50,9 @@ import BackToTop from "./components/BackToTop/BackToTop";
 import EditWebinarPage from "./pages/EditWebinarPage/EditWebinarPage";
 import WebinarEnrollmentForm from "./components/WebinarEnrollmentForm/WebinarEnrollmentForm";
 import EditTestimonialPage from "./pages/EditTestimonialPage/EditTestimonialPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
+import DownloadScreen from "./components/DownloadScreen/DownloadScreen";
+import Bio from "./components/Bio/Bio";
 
 
 
@@ -63,7 +66,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, downloadScreen, viewAllHighDemands, bio} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -119,6 +122,17 @@ function App() {
   }, []);
 
   
+  useEffect(()=>{
+    viewAllContactForms();
+  }, []);
+
+  
+
+  useEffect(()=>{
+    viewAllHighDemands();
+  }, []);
+
+  
   return (
     <div className="App bg-appBg">
       <BackToTop />
@@ -140,12 +154,15 @@ function App() {
         {enrollmentForm && <CourseEnrollmentForm />}
         {loading && <Loading />}
         {webinarEnrollment && <WebinarEnrollmentForm />}
+        {bio && <Bio />}
+       
         
 
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/ip-geo" element={<IPGeolocation />} />
           <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/contact-us" element={<ContactPage />} />
           <Route path="/about-us/our-story" element={<OurStoryPage />} />
           <Route path="/about-us/leadership" element={<LeadershipPage />} />
           <Route path="/about-us/our-clients" element={<OurClientsPage />} />

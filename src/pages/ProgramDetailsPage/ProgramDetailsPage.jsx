@@ -29,6 +29,12 @@ function ProgramDetailsPage() {
   const [program, setProgram] = useState(null);
   const [loadingProgram, setLoadingProgram] = useState(false);
 
+  const executiveProgram = program && program.course.courseTitle === "Open Executive Programmes (OEP)";
+
+  // 67e7db4aaa370840c014ee9d
+  
+  console.log("program:", program);
+
 
   useEffect(()=>{
     const viewProgram = async ()=> {
@@ -97,9 +103,9 @@ function ProgramDetailsPage() {
       validationErrors.mode = "select training mode";
     }
 
-    if (!preferredDate) {
-      validationErrors.preferredDate = "select training date";
-    }
+    // if (!preferredDate) {
+    //   validationErrors.preferredDate = "select training date";
+    // }
    
     setEnrollmentErrors(validationErrors);
    
@@ -116,6 +122,7 @@ function ProgramDetailsPage() {
   
   const makeEnquiry = async () => {
    
+    window.scrollTo({ top: 0, behavior: "auto" });
    
    const validationErrors = {};
   
@@ -156,7 +163,7 @@ function ProgramDetailsPage() {
        if (response.status === 201) {
         
          toast.success('Enquiry form submitted successfully. Our team will reach out via email.');
-         navigate("/our-courses")
+         navigate("/our-courses/")
        }
      } catch (error) {
        
@@ -171,7 +178,7 @@ function ProgramDetailsPage() {
   
 
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 large:mt-8 large:text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13 small:text-13px">
+    <div className="relative flex flex-col items-center justify-start gap-5 large:mt-15 large:text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13 small:text-13px">
       
       <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
         <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw small:w-100vw small:h-200px small:pl-2 bg-crossLightPurple">         
@@ -209,7 +216,7 @@ function ProgramDetailsPage() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center pb-5 bg-white border large:gap-5 rounded-tl-20 large:w-80 rounded-tr-20 small:w-90vw small:gap-3">
+      <div className="flex flex-col items-center pb-5 bg-white border large:gap-5 rounded-tl-20 large:w-83vw rounded-tr-20 small:w-90vw small:gap-3">
         
         <div className="flex items-center justify-center text-white rounded-tl-20 rounded-tr-20 large:h-50px w-100 bg-crossLightPurple small:h-auto large:text-20px small:text-13px large:flex-row small:flex-col small:text-center small:py-1">
           Purchase this course -  <span className="font-bold">  {program && program.title}</span>
@@ -298,7 +305,7 @@ function ProgramDetailsPage() {
 
 
         {/* about and modules */}
-      <div className="flex justify-between large:items-start large:w-80 small:flex-col large:flex-row small:w-90vw small:items-center small:gap-3 large:gap-0">
+      <div className="flex justify-between large:items-start large:w-83vw small:flex-col large:flex-row small:w-90vw small:items-center small:gap-3 large:gap-0">
         
         <div className="flex flex-col gap-3 large:w-40 small:w-100 small:px-1 large:px-0 small:py-3 large:py-0">
 
@@ -349,7 +356,7 @@ function ProgramDetailsPage() {
         <div className="flex flex-col gap-3 border large:w-40 small:w-100">
           
           <div className="flex flex-col gap-1 bg-white w-100">
-            <h4 className="p-1 text-white bg-crossLightPurple">About the course</h4>
+            <h4 className="p-1 text-white bg-crossLightPurple">About The Course</h4>
             <p className="leading-loose small:p-1">
             {program && program.description[0].toUpperCase()}
             {program && program.description.slice(1)}.
@@ -357,7 +364,7 @@ function ProgramDetailsPage() {
           </div>
 
           <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
-            <h4 className="p-1 text-white bg-crossLightPurple w-100">Course Objectives</h4>
+            <h4 className="p-1 text-white bg-crossLightPurple w-100">Workshop Objectives</h4>
               <ul className="flex flex-col gap-0.5 list-disc w-100 items-start pl-3 py-1">
                 
                 {
@@ -370,7 +377,7 @@ function ProgramDetailsPage() {
 
 
           <div className="flex flex-col gap-1 bg-white w-100">
-            <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple"><FaRegUser className="text-20px"/> Who should attend?</h4>
+            <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple"><FaRegUser className="text-20px"/> Who Should Attend?</h4>
             <p className="leading-loose small:p-1">{program && program.targetAudience[0].toUpperCase()}
             {program && program.targetAudience.slice(1)}</p>
           </div>
@@ -379,7 +386,9 @@ function ProgramDetailsPage() {
 
 
       {/* Request More Information */}
-      <div className="flex flex-col items-center gap-3 py-5 bg-white rounded large:w-80 small:w-90vw">
+      <div className="flex flex-col items-center gap-3 py-5 bg-white rounded large:w-83vw small:w-90vw">
+        
+        {executiveProgram &&
         <div className="flex items-center w-auto h-auto">
           
           <button className={`flex items-center justify-center w-auto p-2  border h-40px ${messageMode==="individual" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray"} rounded-tl-20 rounded-bl-20`}
@@ -389,7 +398,7 @@ function ProgramDetailsPage() {
           <button className={`flex items-center justify-center w-auto p-2 h-40px rounded-tr-20 rounded-br-20 ${messageMode==="corporate" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray"}`}
           onClick={()=>setMessageMode("corporate")}
           >Corporate</button>
-        </div>
+        </div>}
 
         
         
@@ -425,7 +434,7 @@ function ProgramDetailsPage() {
             <div className="flex flex-col items-center h-auto gap-2 w-100">
                 <div className="flex items-center justify-between h-auto w-100">
                     
-                    <div className="flex flex-col h-auto w-45">
+                    <div className={`flex flex-col h-auto ${executiveProgram ? "w-45" : "w-100"}`}>
                         <label htmlFor="program">Selected course</label>
                         <select name="program" id="" className="p-1 border rounded h-40px w-100"
                         >
@@ -435,6 +444,7 @@ function ProgramDetailsPage() {
                         <p className="text-vogueRed">{enrollmentErrors && enrollmentErrors.program}</p>
                     </div>
 
+                    {executiveProgram &&
                     <div className="flex flex-col h-auto w-45">
                         <label htmlFor="preferredDate">Preferred Date</label>
                         {/* <input type="date" className="p-1 border rounded h-40px w-100"/> */}
@@ -449,8 +459,8 @@ function ProgramDetailsPage() {
                            
                         </select>
 
-                        <p className="text-vogueRed">{enrollmentErrors && enrollmentErrors.preferredDate}</p>
-                    </div>
+                        {/* <p className="text-vogueRed">{enrollmentErrors && enrollmentErrors.preferredDate}</p> */}
+                    </div>}
                 </div>
 
                 <div className="flex items-center justify-between h-auto w-100">

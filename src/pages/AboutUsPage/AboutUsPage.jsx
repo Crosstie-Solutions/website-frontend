@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import "./AboutUsPage.css";
@@ -8,35 +8,29 @@ import { AboutButtonSwiper } from "../../components/ButtonSwiper/ButtonSwiper";
 import WhoWeAre from "../../components/WhoWeAre/WhoWeAre";
 import OurReach from "../../components/OurReach/OurReach";
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
+import { RiFolderDownloadLine } from "react-icons/ri";
+import { CrossContext } from "../../Context/CrossContext";
+import DownloadScreen from "../../components/DownloadScreen/DownloadScreen";
+import { TbFileTypePdf } from "react-icons/tb";
+import OurValues from "../../components/OurValues/OurValues";
+import AboutHero from "../../components/AboutHero/AboutHero";
 
 
 
 
 
 function AboutUsPage() {
+
+  const {allCourses, toggleDownloadScreen, downloadScreen} = useContext(CrossContext);
+
+  const downloadUrl = "https://res.cloudinary.com/dnq0mhrjs/raw/upload/v1742100118/course_brochures/tl8unlrm6qlttpde4bnk.pdf";
+  const title = "Our Corporate Presentation";
+
+  
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 large:mt-8 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
-      
-      <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
+    <div className="relative flex flex-col items-center justify-start gap-3 large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
 
-        <img src={PHOTOS.about1} alt="photos" className="w-100 h-100"/>
-
-        <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw aboutOne small:h-200px small:pl-3">
-          
-          <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-extrabold small:w-80 small:text-20px">
-          TRANSFORMING BUSINESS THROUGH PEOPLE DEVELOPMENT
-          </h1>
-
-          <p className="font-extralight large:w-50 small:w-90 small:text-13px large:text-15px">
-            Discover new skills and interests with our extensive course collection
-          </p>
-        </div>
-
-        {/* <Link className="flex items-center justify-center w-auto gap-1 px-1 mt-2 rounded-10 h-30px bg-buttonOverlay text-15px">
-          Download our corporate presentation <BsArrowRight />
-        </Link> */}
-        
-      </div>
+      <AboutHero />
 
 
       <div className="flex flex-col items-center h-auto w-100">
@@ -44,19 +38,32 @@ function AboutUsPage() {
         <MobileAboutButtonSwiper />
       </div>
 
-      <div className="flex items-center justify-center h-auto large:mt-5 large:gap-20 small:flex-col-reverse large:flex-row w-100 small:gap-1">
-        <div className="large:w-40 h-auto bg-[#F9F9F9] p-2 rounded small:w-90vw">
+      <div className="flex items-center justify-center large:h-350px large:mt-4 large:gap-0 small:flex-col-reverse large:flex-row small:w-90vw large:w-83vw small:gap-1 small:h-auto">
+
+        <img src={PHOTOS.how} alt="logo"  className="border-2 border-t-crossLightPurple large:w-25 large:h-100 small:h-300px small:w-80 border-l-crossLightPurple border-b-crossLightPurple"/>
+       
+        <div className="flex flex-col justify-center gap-1 font-semibold shadow-xl large:p-3 h-100 large:w-75 small:w-90vw bg-purple-50 rounded-10 small:p-1">
+         <p className="leading-loose">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius excepturi labore magnam odit, magni quo eos, ipsa quis cupiditate porro similique deserunt voluptatibus iure laudantium perspiciatis rerum ea eum autem!</p>
+
          <p className="leading-loose">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius excepturi labore magnam odit, magni quo eos, ipsa quis cupiditate porro similique deserunt voluptatibus iure laudantium perspiciatis rerum ea eum autem!</p>
         </div>
 
-        <img src={PHOTOS.logo} alt="logo"  className="large:-rotate-90 large:w-200px large:h-50px small:h-40px small:w-150px"/>
       </div>
 
       <WhoWeAre />
+      
+      <OurValues />
 
       <OurReach />
 
       <WhyChooseUs />
+
+
+      {downloadScreen && 
+      <DownloadScreen 
+        downloadUrl={downloadUrl && downloadUrl}
+        title={title && title}
+      />}
     </div>
   );
 }

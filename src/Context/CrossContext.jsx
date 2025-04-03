@@ -157,6 +157,8 @@ const[loading, setLoading] = useState(false);
   const [allPrograms, setAllPrograms] = useState();
   const [loadingAllPrograms, setLoadingAllPrograms] = useState(false);
 
+  console.log("allPrograms:", allPrograms)
+
 
   const viewAllPrograms = async () => {
     try {
@@ -688,6 +690,43 @@ const allTestimonials = testimonials && testimonials.sort((a, b) => a.priorityIn
 console.log("allTestimonials:", allTestimonials);
 
 
+  //for admin to filter testimonials
+  const [currentTestimonialsPage, setCurrentTestimonialsPage] = useState(1);
+  // const [programsSearchTerm, setProgramsSearchTerm] = useState("");
+  const testimonialsPerPage = 12;
+
+  console.log("currentProgramsPage:", currentProgramsPage);
+
+  // // Filter programs based on search term
+  // const filteredPrograms = allPrograms && allPrograms.filter((program) =>
+  //   `${program.title} ${program.category}`
+  //     .toLowerCase()
+  //     .includes(programsSearchTerm.toLowerCase())
+  // );
+
+
+  // // Calculate total pages
+  const totalTestimonialsPages = allTestimonials && Math.ceil(allTestimonials.length / testimonialsPerPage);
+  
+  // Get requests for the current page
+  const testimonialsStartIndex = (currentTestimonialsPage - 1) * testimonialsPerPage;
+  const testimonialsEndIndex = testimonialsStartIndex + testimonialsPerPage;
+  const currentTestimonials = allTestimonials && allTestimonials.slice(testimonialsStartIndex, testimonialsEndIndex);
+
+
+
+
+  
+  // Handle page change
+  const handleTestimonialsPageChange = (page) => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    if (page > 0 && page <= totalTestimonialsPages) {
+      setCurrentTestimonialsPage(page);
+    }
+  };
+        
+
+
 const viewAllTestimonials = async () => {
   try {
     setLoadingAllTestimonials(true)
@@ -742,14 +781,80 @@ const deleteTestimonial = async (testimonialId) => {
 
 
 
+//Contact form
+
+const [allContactForms, setAllContactForms] = useState(null);
+
+console.log("allContactForms:", allContactForms);
+
+const [loadingAllContactForms, setLoadingAllContactForms] = useState(false);
 
 
 
+const viewAllContactForms = async () => {
+  try {
+    setLoadingAllContactForms(true)
+    const response = await axios.get(`${baseUrl}/api/contact`);
+
+    setAllContactForms(response.data.data.data);
+  } catch (dupError) {
+    console.log("error fetching all contact forms:", dupError);
+  }finally{
+    setLoadingAllContactForms(false)
+  }
+};
 
 
 
+  //active Contact Form
+  const [activeContactForm, setActiveContactForm] = useState(null);
+
+  const toggleAdminContactFormAction = async (index)=> {
+
+    window.scrollTo({ top: 0, behavior: "auto" });
+
+    setActiveContactForm((prev) => (prev === index ? null : index));
+  }
 
 
+
+   //downloadScreen
+   const [downloadScreen, setDownloadScreen] = useState(false);
+
+   const toggleDownloadScreen = ()=> { 
+    setDownloadScreen(!downloadScreen);
+   }
+
+
+
+   //high demand programs
+
+const [allHighDemands, setAllHighDemands] = useState(null);
+
+console.log("allHighDemands:", allHighDemands);
+
+const [loadingAllHighDemands, setLoadingAllHighDemands] = useState(false);
+
+
+
+const viewAllHighDemands = async () => {
+  try {
+    setLoadingAllHighDemands(true)
+    const response = await axios.get(`${baseUrl}/api/program/high-demand/all`);
+
+    setAllHighDemands(response.data.data.data);
+  } catch (dupError) {
+    console.log("error fetching all high-demand programs:", dupError);
+  }finally{
+    setLoadingAllHighDemands(false)
+  }
+};
+
+const [bio, setBio] = useState(false);
+
+const toggleBio = ()=>{
+  setBio(!bio);
+}
 
 
 
@@ -767,7 +872,10 @@ const deleteTestimonial = async (testimonialId) => {
     hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program, toggleAdminProgramAction, activeProgram, deletingProgram, deleteProgram, viewAllCourseRegs, allCourseRegs, currentCourseRegs,  handleCourseRegsPageChange, currentCourseRegsPage, totalCourseRegsPages,
     courseRegsSearchTerm, allCourseRegs, activeCourseReg, toggleAdminCourseRegAction,   activeWebinar, toggleAdminWebinarAction, deletingWebinar, deleteWebinar, currentUpcoming, handleUpcomingPageChange, totalUpcomingPages, currentUpcomingPage,
     currentPast, handlePastPageChange, currentPastPage, totalPastPages, pastSearchTerm,
-  pastWebinars, activeWebinar, toggleActiveWebinarView, activeWebinarView, webinarEnrollment, toggleWebinarEnrollment, webinar, setWebinarEnrollment, loadingWebinar, viewAllEnquiries, toggleAdminEnquiryAction, activeEnquiry, allEnquiries, setActiveEnquiry, viewAllNewsletters, allNewsletters, viewAllTestimonials, allTestimonials, loadingAllTestimonials,  activeTestimonial, toggleAdminTestimonialAction, deletingTestimonial, deleteTestimonial
+  pastWebinars, activeWebinar, toggleActiveWebinarView, activeWebinarView, webinarEnrollment, toggleWebinarEnrollment, webinar, setWebinarEnrollment, loadingWebinar, viewAllEnquiries, toggleAdminEnquiryAction, activeEnquiry, allEnquiries, setActiveEnquiry, viewAllNewsletters, allNewsletters, viewAllTestimonials, allTestimonials, loadingAllTestimonials,  activeTestimonial, toggleAdminTestimonialAction, deletingTestimonial, deleteTestimonial,   activeContactForm, toggleAdminContactFormAction, viewAllContactForms, allContactForms, loadingAllContactForms, toggleDownloadScreen, downloadScreen, viewAllHighDemands, allHighDemands, toggleBio, bio, currentTestimonials,
+  handleTestimonialsPageChange,
+  currentTestimonialsPage,
+  totalTestimonialsPages,
   };
 
 

@@ -11,14 +11,14 @@ function ProgramsFilter() {
     
     
   return (
-    <div className="flex flex-row items-center large:p-1 large:gap-5 large:justify-center rounded-10 h-100 large:w-100 text-15px small:w-90vw small:justify-between">
+    <div className="flex flex-row items-center large:p-0 large:gap-0 large:justify-between rounded-10 h-100 large:w-83vw text-15px small:w-90vw small:justify-between">
       
         <div className='flex items-center bg-white border rounded large:justify-center large:w-30 h-40px border-crossTextGray small:w-60 small:justify-between'>
           
           
           <input
             type="text"
-            placeholder="search Courses"
+            placeholder="Search Courses"
             value={programsSearchTerm}
             onChange={(e) => {
               setProgramsSearchTerm(e.target.value);
@@ -31,7 +31,7 @@ function ProgramsFilter() {
         </div>
 
 
-        <div className='flex items-center justify-center border rounded border-crossTextGray w-30 h-40px small:text-15px large:text-15px'>
+        {/* <div className='flex items-center justify-center border rounded border-crossTextGray w-30 h-40px small:text-15px large:text-15px'>
           <select className='px-1 rounded cursor-pointer h-100 focus:border-none focus:outline-none w-100'
            onChange={(e) => {
             setProgramsSearchTerm(e.target.value);
@@ -44,7 +44,7 @@ function ProgramsFilter() {
             <option value="Sales excellence series (SES)">Sales excellence series (SES)</option>
             <option value="Complete employee series (CES)">Complete employee series (CES)</option>
           </select>
-        </div>
+        </div> */}
         
       </div>
   )

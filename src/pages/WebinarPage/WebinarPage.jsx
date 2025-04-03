@@ -55,18 +55,18 @@ function WebinarPage() {
 
 
         {/* Upcoming webinar */}
-      <div className="flex flex-col items-center gap-4 large:mt-3 large:w-90 small:w-90vw">
+      <div className="flex flex-col items-center gap-4 large:mt-3 large:w-83vw small:w-90vw">
         
         <div className="flex items-center w-auto h-auto gap-2 border border-crossLightPurple py-0.5 px-1 rounded large:w-auto small:w-auto justify-center">
           
             <button
-            className={`flex items-center justify-center large:w-200px small:w-auto large:px-2 small:px-1  h-40px rounded ${webinarType==="upcoming" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray bg-gray-200"} small:text-11px large:text-15px`}
+            className={`flex items-center justify-center large:w-200px small:w-auto large:px-2 small:px-1  h-40px rounded ${webinarType==="upcoming" ? "bg-crossLightPurple text-white" : "hover:border hover:border-[#D9D9D9] hover:text-crossTextGray hover:bg-gray-200"} small:text-11px large:text-15px`}
             
             onClick={()=>setWebinarType('upcoming')}
             >Upcoming Webinars</button>
             
             <button
-            className={`flex items-center justify-center large:w-200px small:w-auto  large:px-2 small:px-1  h-40px rounded ${webinarType==="past" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray bg-gray-200"} small:text-11px large:text-15px`}
+            className={`flex items-center justify-center large:w-200px small:w-auto  large:px-2 small:px-1  h-40px rounded ${webinarType==="past" ? "bg-crossLightPurple text-white" : "hover:border hover:border-[#D9D9D9] hover:text-crossTextGray hover:bg-gray-200"} small:text-11px large:text-15px`}
             
             onClick={()=>setWebinarType('past')}
             >Past Webinars</button>
@@ -78,20 +78,20 @@ function WebinarPage() {
         
         {/* upcoming search box */}
         {webinarType==='upcoming' &&
-        <div className="flex items-center self-start justify-center large:relative large:w-30 h-40px large:left-10 small:w-90 small:self-center large:self-start">
+        <div className="flex items-center self-start justify-center large:w-30 h-40px small:w-90 small:self-center large:self-start">
           <UpcomingFilter />
         </div>}
 
         {/* past search box */}
         {webinarType==='past' &&
-        <div className="flex items-center self-start justify-center large:relative large:w-30 h-40px large:left-10 small:w-90 small:self-center large:self-start">
+        <div className="flex items-center self-start justify-center large:w-30 h-40px small:w-90 small:self-center large:self-start">
           <PastFilter />
         </div>}
         
 
             {/* upcoming */}
         {webinarType==='upcoming' &&
-        <div className="flex flex-wrap justify-center gap-3 border w-100">
+        <div className="flex flex-wrap gap-3 large:justify-between w-100 small:justify-center">
             {
                 filteredUpcoming && filteredUpcoming.map((webinar, i)=>
                     <Webinar 
@@ -113,7 +113,7 @@ function WebinarPage() {
 
         {/* past */}
         {webinarType==='past' &&
-        <div className="flex flex-wrap justify-center gap-3 border w-100">
+        <div className="flex flex-wrap gap-3 large:justify-between w-100 small:justify-center">
             {
                 filteredPast && filteredPast.map((webinar, i)=>
                     <Webinar 

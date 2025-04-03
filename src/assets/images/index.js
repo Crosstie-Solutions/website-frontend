@@ -7,7 +7,6 @@ const PHOTOS = {
     hero_1: new URL("./hero_1.png", import.meta.url).href,
     about: new URL("./about.jpeg", import.meta.url).href,
 
-
     about1: new URL("./about1.jpg", import.meta.url).href,
     about2: new URL("./about2.jpg", import.meta.url).href,
     about3: new URL("./about3.jpg", import.meta.url).href,
@@ -17,6 +16,12 @@ const PHOTOS = {
     about7: new URL("./about7.jpg", import.meta.url).href,
     about8: new URL("./about8.jpg", import.meta.url).href,
     case: new URL("./case.png", import.meta.url).href,
+    value: new URL("./value.png", import.meta.url).href,
+    experience: new URL("./experience.jpg", import.meta.url).href,
+    excellence: new URL("./excellence.jpg", import.meta.url).href,
+    transformation: new URL("./transformation.jpg", import.meta.url).href,
+
+    contact: new URL("./contact.jpg", import.meta.url).href,
 
     story: new URL("./story.png", import.meta.url).href,
     journey: new URL("./journey.png", import.meta.url).href,
@@ -59,5 +64,13 @@ const heroImages = [
     new URL("./hero_5.jpg", import.meta.url).href,
 ];
 
+const partnerImages = [
+    new URL("./client1.png", import.meta.url).href,
+    new URL("./client2.jpg", import.meta.url).href,
+    new URL("./client3.jpg", import.meta.url).href,
+    new URL("./client4.png", import.meta.url).href,
+    new URL("./client5.jpg", import.meta.url).href,
+];
 
-export {PHOTOS, shopBannerImages, heroImages};
+
+export {PHOTOS, shopBannerImages, heroImages, partnerImages};

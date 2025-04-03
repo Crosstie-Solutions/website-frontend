@@ -85,6 +85,9 @@ function WebinarEnrollmentForm() {
        } catch (error) {
          
          console.log("Error registering for webinar:", error);
+         if(error){
+          toast.error(error.response.data.message);
+         }
          
        } finally {
          setLoading(false);

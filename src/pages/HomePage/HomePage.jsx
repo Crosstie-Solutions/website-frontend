@@ -9,7 +9,7 @@ import OurInsights from '../../components/OurInsights/OurInsights';
 
 function HomePage() {
   return (
-    <div className='flex flex-col items-center h-auto mt-13 gap-7 w-100vw'>
+    <div className='flex flex-col items-center h-100 large:mt-13 small:mt-12 gap-7 w-100vw'>
       <Hero />
       <OurSolutions />
       <OurReach />

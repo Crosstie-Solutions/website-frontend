@@ -82,12 +82,13 @@ const myEmail = document.getElementById('myEmail');
   
     
   return (
-    <footer className="flex flex-col gap-5 py-5 mt-10 text-white small:px-2 large:px-10 bg-crossDarkPurple w-100vw large:text-15px small:text-13px">
+    <footer className="flex flex-col gap-3 py-3 mt-8 text-white small:px-2 large:px-10 bg-crossDarkPurple w-100vw large:text-15px small:text-13px">
       
       <div className="flex justify-between h-auto pb-1 border-b-2 large:flex-row w-100 border-crossLightPurple small:flex-col small:gap-2 large:gap-0">
         
         <div className="flex flex-col h-auto gap-1 large:w-40 small:w-100">
-          <div className="large:text-15px small:text-20px">Subscribe To Our Newsletter</div>
+          <div className="large:text-15px small:text-13px">Subscribe To Our Newsletter</div>
+          
           <div className="flex flex-col items-center justify-center h-auto gap-1 w-100">
             
            <div className="flex items-center justify-center h-auto w-100">
@@ -114,9 +115,8 @@ const myEmail = document.getElementById('myEmail');
       
 
 
-
-      <div className="flex justify-start pb-1 border-b-2 large:items-center large:gap-20 large:flex-row w-100 border-crossLightPurple small:flex-col small:items-start small:gap-3">
-        <ul>
+      <div className="flex justify-start pb-1 border-b-2 large:items-center large:gap-20 large:flex-row w-100 border-crossLightPurple small:flex-col small:items-start small:gap-3 text-15px">
+        <ul className="flex flex-col gap-2">
             <h5 className="text-crossFooterText">Company</h5>
             <li><Link to="">About Us</Link></li>
             <li><Link to="">Leadership & Team</Link></li>
@@ -127,7 +127,7 @@ const myEmail = document.getElementById('myEmail');
         </ul>
 
 
-        <ul>
+        <ul className="flex flex-col gap-2">
             <h5 className="text-crossFooterText">Our Solutions</h5>
             <li><Link to="">Corporate Training</Link></li>
             <li><Link to="">Management Consulting</Link></li>
@@ -138,7 +138,7 @@ const myEmail = document.getElementById('myEmail');
         </ul>
 
 
-        <ul>
+        <ul className="flex flex-col gap-2">
             <h5 className="text-crossFooterText">Blog </h5>
             <li><Link to="">Case Studies </Link></li>
             <li><Link to="">Terms of Service </Link></li>
@@ -148,9 +148,9 @@ const myEmail = document.getElementById('myEmail');
         </ul>
       </div>
 
-      <small>All rights reserved. ©2013 – {year}. Crosstie Solutions Ltd.</small>
+      <small className="text-15px">All rights reserved. ©2013 – {year}. Crosstie Solutions Ltd.</small>
 
-      <div>
+      <div className="text-11px">
         <ul className="flex list-disc flex-col gap-0.5">
             <li>Crosstie Solutions is rated 4.9 stars on Google Reviews: <a href="https://g.page/r/Cd9bjtmg4w7hEAE/review" className="text-crossFooterText">https://g.page/r/Cd9bjtmg4w7hEAE/review</a></li>
             <li> Crosstie Solutions is a registered Training Service Provider with the Chartered Institute of Bankers of Nigeria (CIBN), serving the  Banking and Finance Industry.</li>

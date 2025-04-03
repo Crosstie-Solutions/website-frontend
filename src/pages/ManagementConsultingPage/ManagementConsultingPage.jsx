@@ -11,12 +11,12 @@ import { FaUserTie } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { HiArrowLongRight } from "react-icons/hi2";
 
-
 import { GoArrowRight } from "react-icons/go";
 
 import { MdOutlineChevronRight } from "react-icons/md";
 
 import CaseStudy from "../../components/CaseStudy/CaseStudy";
+import OurCaseStudy from "../../components/OurCaseStudy/OurCaseStudy";
 
 
 
@@ -52,7 +52,8 @@ function ManagementConsultingPage() {
       </div>
 
       <div className="flex items-center h-auto large:justify-center large:flex-row large:w-70vw small:flex-col small:gap-3 large:gap-5 large:flex-wrap">
-        <div className="flex flex-col items-center justify-center h-auto gap-1 px-1 py-2 border border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+        
+        <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaBookOpen className="text-crossLightPurple text-30px" />
           </div>
@@ -75,7 +76,7 @@ function ManagementConsultingPage() {
           </Link> */}
         </div>
 
-        <div className="flex flex-col items-center justify-center h-auto gap-1 px-1 py-2 border border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+        <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaUserTie className="text-crossLightPurple text-30px" />
           </div>
@@ -98,7 +99,7 @@ function ManagementConsultingPage() {
           </Link> */}
         </div>
 
-        <div className="flex flex-col items-center justify-center h-auto gap-1 px-1 py-2 border border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+        <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaUser className="text-crossLightPurple text-30px" />
           </div>
@@ -114,7 +115,7 @@ function ManagementConsultingPage() {
           </p>
         </div>
 
-        <div className="flex flex-col items-center justify-center h-auto gap-1 px-1 py-2 border border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+        <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaUser className="text-crossLightPurple text-30px" />
           </div>
@@ -131,7 +132,12 @@ function ManagementConsultingPage() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center h-auto gap-1 mt-3 w-100">
+
+      {/* case study */}
+      <OurCaseStudy />
+
+            {/* explore */}
+      <div className="flex flex-col items-center h-auto gap-1 w-100">
         <h4 className="font-bold large:text-20px small:text-17px">
           Ready To Get Started?
         </h4>
@@ -143,31 +149,6 @@ function ManagementConsultingPage() {
         </Link>
       </div>
 
-
-      <div className="flex flex-col h-auto gap-3 small:w-90vw large:w-80vw">
-        <div className="flex flex-col h-auto gap-0.5 w-100">
-          <div className="flex items-center w-auto h-auto gap-1">
-            <hr className="h-2px w-40px bg-crossLightPurple" />
-            <h5 className="text-crossLightPurple text-15px">Get to know more</h5>
-          </div>
-          <h3 className="font-bold text-20px">Case Studies</h3>
-          <p className="text-15px text-crossTextGray">
-          Every case study is tailored to inform
-          </p>
-        </div>
-
-        <div className="flex flex-row h-auto p-2 w-100 rounded-10 text-13px">
-          <div className="flex flex-col items-center h-auto gap-4 w-100">
-            <div className="flex justify-center h-auto gap-3 small:flex-col large:flex-wrap large:flex-row w-100">
-              {posts && posts.map((post, i) => <CaseStudy key={i} />)}
-            </div>
-
-            <Link to='/our-solutions/case-study' className="flex flex-row items-center justify-center w-auto gap-1 p-2 text-white h-30px rounded-10 bg-crossLightPurple">
-              Show All <GoArrowRight className="text-25px" />
-            </Link>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

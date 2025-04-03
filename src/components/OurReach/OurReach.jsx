@@ -10,7 +10,7 @@ function OurReach() {
     { label: "Employees Trained", end: 6000 },
     { label: "Participants Trained Monthly", end: 40 },
     { label: "Consulting Projects", end: 40 },
-    { label: "Trainers and Consultants", end: 30 },
+    { label: "Trainers And Consultants", end: 30 },
     { label: "Training Programmes", end: 50 },
   ];
 
@@ -48,21 +48,21 @@ function OurReach() {
   }, [hasCounted]);
 
   return (
-    <div className="flex flex-col h-auto gap-5 large:w-80vw small:w-90vw">
+    <div className="flex flex-col h-auto gap-5 large:w-83vw small:w-90vw">
       
       <div className="flex flex-col h-auto gap-0.5 w-100">
         <div className="flex items-center w-auto h-auto gap-1">
           <hr className="h-2px w-40px bg-crossLightPurple" />
-          <h5 className="text-crossLightPurple text-15px">OUR NUMBERS</h5>
+          <h5 className="text-crossLightPurple text-17px">OUR NUMBERS</h5>
         </div>
-        <h3 className="font-bold text-20px">Our Reach & Impact</h3>
+        <h3 className="font-bold text-25px">Our Reach & Impact</h3>
         <p className="text-15px text-crossTextGray">
           Empowering People, Delivering Results
         </p>
       </div>
 
       <div
-        className="flex items-center justify-center gap-3 border border-gray-300 large:flex-row large:h-150px w-100 bg-crossIconBg rounded-10 small:flex-wrap small:h-auto small:py-2 large:py-0"
+        className="flex items-center justify-center gap-3 border border-gray-300 rounded-tr-3xl large:flex-row large:h-150px w-100 bg-crossIconBg small:flex-wrap small:h-auto small:py-2 large:py-0 rounded-bl-3xl"
         ref={counterRef}
       >
 
@@ -77,13 +77,13 @@ function OurReach() {
           return (
 
             <div
-              className={`flex flex-col justify-start large:h-70 border-crossLightPurple large:w-150px  border-r small:w-100px small:h-100px`}
+              className={`flex flex-col justify-start large:h-70 border-crossLightPurple large:w-150px ${index === 4 ? "" : "border-r"} small:w-100px small:h-100px `}
               key={index}
             >
-              <h3 className="font-bold text-center text-30px text-crossLightPurple w-80">
+              <h3 className="font-bold text-center text-30px text-crossLightPurple w-90">
               {value}+
               </h3>
-              <p className="text-center text-15px w-80">{counter.label}</p>
+              <p className="text-center text-15px w-90">{counter.label}</p>
             </div>
             
           );

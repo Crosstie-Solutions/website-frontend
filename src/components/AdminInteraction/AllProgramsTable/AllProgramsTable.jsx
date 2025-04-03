@@ -19,6 +19,7 @@ function AllProgramsTable() {
         handleProgramsPageChange,
         currentProgramsPage,
         totalProgramsPages,
+        
         programsSearchTerm,
         allPrograms,
         toggleAdminProgramAction,

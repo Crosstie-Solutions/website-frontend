@@ -1,3 +1,5 @@
+import { partnerImages } from "./images"
+
 const courseData = [
     {
       "title": "Frontend Web Development",
@@ -122,4 +124,34 @@ const courseData = [
   ]
   
 
-  export {courseData}
+
+const partnerData = [
+     partnerImages[0],
+     partnerImages[1],
+     partnerImages[2],
+     partnerImages[3],
+     partnerImages[4],
+     partnerImages[0],
+     partnerImages[1],
+     partnerImages[2],
+
+
+     partnerImages[0],
+     partnerImages[1],
+     partnerImages[2],
+     partnerImages[3],
+     partnerImages[4],
+     partnerImages[0],
+     partnerImages[1],
+     partnerImages[2],
+     partnerImages[0],
+     partnerImages[1],
+     partnerImages[2],
+     partnerImages[3],
+     partnerImages[4],
+     partnerImages[0],
+     partnerImages[1],
+     partnerImages[2],
+]
+
+  export {courseData, partnerData}

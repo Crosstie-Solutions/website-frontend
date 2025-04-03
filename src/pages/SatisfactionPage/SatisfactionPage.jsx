@@ -7,35 +7,20 @@ import { HiArrowLongRight } from "react-icons/hi2";
 import { FiUsers } from "react-icons/fi";
 import { TbMedal2 } from "react-icons/tb";
 import { IoMdPersonAdd } from "react-icons/io";
+import AboutHero from "../../components/AboutHero/AboutHero";
 
 function SatisfactionPage() {
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto large:mt-10 small:mt-12">
-      <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
-        <img src={PHOTOS.about5} alt="photos" className="w-100 h-100" />
-
-        <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw aboutOne small:h-200px small:pl-3">
-          <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-extrabold small:w-80 small:text-20px">
-            TRANSFORMING BUSINESS THROUGH PEOPLE DEVELOPMENT
-          </h1>
-
-          <p className="font-extralight large:w-50 small:w-90 small:text-13px large:text-15px">
-            Discover new skills and interests with our extensive course
-            collection
-          </p>
-        </div>
-
-        {/* <Link className="flex items-center justify-center w-auto gap-1 px-1 mt-2 rounded-10 h-30px bg-buttonOverlay text-15px">
-          Download our corporate presentation <BsArrowRight />
-        </Link> */}
-      </div>
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto large:mt-17 small:mt-12">
+      
+      <AboutHero />
 
       <div className="flex flex-col items-center h-auto w-100">
         <AboutButtonSwiper />
         <MobileAboutButtonSwiper />
       </div>
 
-      <div className="flex h-auto large:flex-row large:pr-2 large:gap-5 large:justify-start large:items-center large:w-70 bg-faintPink rounded-10 small:flex-col small:items-center small:w-90vw small:p-1 small:gap-2">
+      <div className="flex h-auto large:flex-row large:pr-2 large:gap-5 large:justify-start large:items-center large:w-83vw bg-faintPink rounded-10 small:flex-col small:items-center small:w-90vw small:p-1 small:gap-2">
         
         <img
           src={PHOTOS.how}
@@ -89,8 +74,10 @@ function SatisfactionPage() {
 
             {/* how it works */}
 
-      <div className="flex flex-col items-center h-auto gap-2 large:mt-5 large:w-70 small:w-90vw">
+      <div className="flex flex-col items-center h-auto gap-2 large:mt-5 large:w-83vw small:w-90vw">
         <h3 className="font-bold large:text-25px small:text-17px">How does it work?</h3>
+
+        <p className="text-center text-black w-80">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum deleniti,</p>
 
         <div className="flex justify-between p-2 border large:flex-row border-crossFooterText rounded-10 w-100 small:flex-col small:gap-3 large:gap-0">
         
@@ -142,16 +129,17 @@ function SatisfactionPage() {
 
 
             {/* message from CEO */}
-      <div className="flex flex-col items-center h-auto gap-2 large:mt-5 large:w-70 small:w-90vw">
-        <h3 className="font-bold large:text-25px small:text-17px">A message from our CEO</h3>
+      <div className="flex flex-col items-center h-auto gap-2 large:mt-2 large:w-83vw small:w-90vw">
+        <h3 className="font-bold large:text-30px small:text-17px">A Message From Our CEO</h3>
 
-        <div className="flex large:justify-between large:p-2 large:items-center large:flex-row border-crossFooterText rounded-10 w-100 small:flex-col small:gap-2 large:gap-0 small:p-1 small:items-center">
+        <div className="flex large:justify-start large:py-2 large:items-center large:flex-row rounded-10 w-100 small:flex-col small:gap-2 large:gap-0 small:p-1 small:items-center large:p-0">
             
-            <img src={PHOTOS.adebayo} alt="CEO" className="large:relative h-300px w-250px rounded-tl-3xl rounded-br-3xl large:left-5"/>
+            <img src={PHOTOS.adebayo} alt="CEO" className="h-350px w-300px rounded-tl-3xl rounded-br-3xl large:z-10"/>
             
-            <div className="border large:w-70 bg-[#FFF3F3] flex flex-col gap-2 large:pr-2 large:py-2 large:pl-10 small:p-2 small:rounded">
+            <div className="flex flex-col gap-2 border large:w-95 bg-crossIconBg large:pr-2 large:py-2 large:pl-5 small:p-2 small:rounded large:relative large:right-2">
                 <h5 className="font-bold">Dear Kustomer</h5>
-                <p className="text-crossTextGray">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum deleniti,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum deleniti,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum deleniti,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum deleniti,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum </p>
+                <p className="text-black">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum deleniti,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum deleniti,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum deleniti,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum deleniti,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum. consectetur adipisicing elit. Odit eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum deleniti,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum deleniti,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit
+                eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum eaque ad maiores tenetur doloribus. Voluptatem, quas similique vero eum deleniti,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit </p>
             </div>
         </div>
       </div>
