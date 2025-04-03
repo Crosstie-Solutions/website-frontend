@@ -28,7 +28,7 @@ function Header() {
     <nav className={`flex flex-row items-center justify-center ${me ? "gap-3" : "gap-2"} w-100 large:h-100px bg-vogueWhite small:h-80px`}>
      
      {/* logo container */}
-     <div className="relative flex flex-row items-center justify-center w-auto h-auto gap-2 right-2">
+     <div className="relative flex flex-row items-center justify-center w-auto h-auto gap-2 large:right-2">
      
         <HiMenuAlt2 className="cursor-pointer text-30px text-crossLightPurple small:flex large:hidden"
         onClick={toggleNav}
