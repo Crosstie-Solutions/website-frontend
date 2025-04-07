@@ -591,6 +591,49 @@ function AdminDashboard() {
 
 
 
+          {/* blog */}
+          <div
+                className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+              >
+          
+              <div className={`h-40px w-100 flex justify-between items-center pl-1 large:pr-2 small:pr-1`}
+            onClick={toggleBlogDD}
+            >
+              <div className="flex gap-1">
+                <SiGoogleclassroom className="text-20px" />
+                Manage Blog
+              </div>
+
+              <IoChevronDown className={`large:text-20px small:text-15px ${blogDD ? "rotate-180" : ""}`}/>
+              </div>
+
+              {blogDD &&
+              <div className="flex flex-col items-center gap-1 w-100">
+                {/* onClick={toggleSideBar} */}
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={
+                  () => {
+                    setActiveScreen("add Post");
+                    toggleSideBar();
+                    toggleBlogDD();
+                  }
+                  
+                }
+                >Add Post</div>
+                
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={() => {
+                  setActiveScreen("all Posts");
+                  toggleSideBar();
+                  toggleBlogDD();
+                }}
+                >All Posts</div>
+
+              </div>}
+            </div>
+
+
+
           <Link
             className={`flex items-center justify-between gap-1 px-1 cursor-pointer h-40px w-100 text-13px`}
             // to={`/edit/${me && me.id}`}
@@ -717,6 +760,10 @@ function AdminDashboard() {
         {activeScreen === "testimonials" && <AllTestimonialsTable />}
         
         {activeScreen === "contact" && <AllContactFormsTable />}
+        
+        {activeScreen === "add Post" && <AddPost />}
+        
+        {activeScreen === "all Posts" && <AllBlogPostsTable />}
 
         
         </div>

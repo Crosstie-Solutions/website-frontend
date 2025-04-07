@@ -55,7 +55,7 @@ function AddPost() {
       
         //product errors
         const [postErrors, setPostErrors] = useState({});
-        console.log('productData:', productData);
+        
       
 
   //to add blog post
