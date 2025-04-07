@@ -115,7 +115,7 @@ const myEmail = document.getElementById('myEmail');
       
 
 
-      <div className="flex justify-start pb-1 border-b-2 large:items-center large:gap-20 large:flex-row w-100 border-crossLightPurple small:flex-col small:items-start small:gap-3 text-15px">
+      <div className="flex justify-start pb-1 border-b-2 large:items-start large:gap-20 large:flex-row w-100 border-crossLightPurple small:flex-col small:items-start small:gap-3 text-15px">
         <ul className="flex flex-col gap-2">
             <h5 className="text-crossFooterText">Company</h5>
             <li><Link to="">About Us</Link></li>
@@ -128,7 +128,9 @@ const myEmail = document.getElementById('myEmail');
 
 
         <ul className="flex flex-col gap-2">
-            <h5 className="text-crossFooterText">Our Solutions</h5>
+            <Link className="text-crossFooterText"
+            to='/our-solutions'
+            >Our Solutions</Link>
             <li><Link to="">Corporate Training</Link></li>
             <li><Link to="">Management Consulting</Link></li>
             <li><Link to="">Webinars</Link></li>
@@ -139,7 +141,9 @@ const myEmail = document.getElementById('myEmail');
 
 
         <ul className="flex flex-col gap-2">
-            <h5 className="text-crossFooterText">Blog </h5>
+            <Link className="text-crossFooterText"
+             to='/blog'
+            >Blog </Link>
             <li><Link to="">Case Studies </Link></li>
             <li><Link to="">Terms of Service </Link></li>
             <li><Link to="">Careers</Link></li>

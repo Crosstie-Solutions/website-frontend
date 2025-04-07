@@ -13,8 +13,8 @@ export const CrossContext = createContext(null);
 function CrossContextProvider(props) {
 
   //base URL for API calls
-  // const baseUrl = "http://127.0.0.1:8000";
-  const baseUrl = "https://server.crosstiesolutions.com";
+  const baseUrl = "http://127.0.0.1:8000";
+  // const baseUrl = "https://server.crosstiesolutions.com";
 
 
 
@@ -149,8 +149,11 @@ const[loading, setLoading] = useState(false);
   //to format date
   function formatDate(dateString) {
     const date = new Date(dateString);
-    const options = { day: '2-digit', month: 'short' };
-    return date.toLocaleDateString('en-GB', options);
+    // const options = { day: '2-digit', month: 'short' };
+    // return date.toLocaleDateString('en-GB', options);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
+
 }
 
 
@@ -836,7 +839,6 @@ console.log("allHighDemands:", allHighDemands);
 const [loadingAllHighDemands, setLoadingAllHighDemands] = useState(false);
 
 
-
 const viewAllHighDemands = async () => {
   try {
     setLoadingAllHighDemands(true)
@@ -858,6 +860,103 @@ const toggleBio = ()=>{
 
 
 
+// blogPost
+//blog posts 
+const [allBlogPosts, setAllBlogPosts] = useState();
+const [loadingAllBlogPosts, setLoadingAllBlogPosts] = useState(false);
+
+console.log("allBlogPosts:", allBlogPosts)
+
+
+const viewAllBlogPosts = async () => {
+  try {
+    setLoadingAllBlogPosts(true)
+    const response = await axios.get(`${baseUrl}/api/blog`);
+
+    setAllBlogPosts(response.data.data.data);
+  } catch (dupError) {
+    console.log("error fetching all BlogPosts:", dupError);
+  }finally{
+    setLoadingAllBlogPosts(false)
+  }
+};
+
+
+//for admin to filter BlogPosts
+const [currentBlogPostsPage, setCurrentBlogPostsPage] = useState(1);
+const [blogPostsSearchTerm, setBlogPostsSearchTerm] = useState("");
+const blogPostsPerPage = 10;
+
+console.log("currentBlogPostsPage:", currentBlogPostsPage);
+
+// // Filter BlogPosts based on search term
+const filteredBlogPosts = allBlogPosts && allBlogPosts.filter((blogPost) =>
+  `${blogPost.title}`
+    .toLowerCase()
+    .includes(blogPostsSearchTerm.toLowerCase())
+);
+
+
+
+// // Calculate total pages
+const totalBlogPostsPages = filteredBlogPosts && Math.ceil(filteredBlogPosts.length / blogPostsPerPage);
+
+// Get requests for the current page
+const blogPostsStartIndex = (currentBlogPostsPage - 1) * blogPostsPerPage;
+const blogPostsEndIndex = blogPostsStartIndex + blogPostsPerPage;
+const currentBlogPosts = filteredBlogPosts && filteredBlogPosts.slice(blogPostsStartIndex, blogPostsEndIndex).reverse();
+
+
+// Handle page change
+const handleBlogPostsPageChange = (page) => {
+  window.scrollTo({ top: 0, behavior: "auto" });
+  if (page > 0 && page <= totalBlogPostsPages) {
+    setCurrentBlogPostsPage(page);
+  }
+};
+
+
+
+//active BlogPost
+const [activeBlogPost, setActiveBlogPost] = useState(null);
+
+console.log("activeBlogPost:", activeBlogPost);
+
+const toggleAdminBlogPostAction = async (index)=> {
+
+  setActiveBlogPost((prev) => (prev === index ? null : index));
+}
+
+
+
+ //for admin to delete blog post
+ const [deletingBlogPost, setDeletingBlogPost] = useState(false);
+
+ const deleteBlogPost = async (postId) => {
+   
+   try {
+     setDeletingBlogPost(true);
+ 
+     const response = await axios.delete(`${baseUrl}/api/blog/${postId && postId}`);
+ 
+     console.log('Blog post delete response:', response.data);
+     if(response.data.status ==='success'){
+       toast.success('Blog post deleted successfully.');
+       toggleAdminBlogPostAction("exit")
+     }
+     
+   } catch (error) {
+     console.error('Error deleting blog post:', error);
+   }finally{
+     setDeletingBlogPost(false);
+   }
+ };
+
+
+ 
+
+
+
 
   //scroll to top effect
   useEffect(() => {
@@ -873,9 +972,12 @@ const toggleBio = ()=>{
     courseRegsSearchTerm, allCourseRegs, activeCourseReg, toggleAdminCourseRegAction,   activeWebinar, toggleAdminWebinarAction, deletingWebinar, deleteWebinar, currentUpcoming, handleUpcomingPageChange, totalUpcomingPages, currentUpcomingPage,
     currentPast, handlePastPageChange, currentPastPage, totalPastPages, pastSearchTerm,
   pastWebinars, activeWebinar, toggleActiveWebinarView, activeWebinarView, webinarEnrollment, toggleWebinarEnrollment, webinar, setWebinarEnrollment, loadingWebinar, viewAllEnquiries, toggleAdminEnquiryAction, activeEnquiry, allEnquiries, setActiveEnquiry, viewAllNewsletters, allNewsletters, viewAllTestimonials, allTestimonials, loadingAllTestimonials,  activeTestimonial, toggleAdminTestimonialAction, deletingTestimonial, deleteTestimonial,   activeContactForm, toggleAdminContactFormAction, viewAllContactForms, allContactForms, loadingAllContactForms, toggleDownloadScreen, downloadScreen, viewAllHighDemands, allHighDemands, toggleBio, bio, currentTestimonials,
-  handleTestimonialsPageChange,
-  currentTestimonialsPage,
-  totalTestimonialsPages,
+  handleTestimonialsPageChange, allBlogPosts, viewAllBlogPosts, currentTestimonialsPage, totalTestimonialsPages, currentBlogPosts, handleBlogPostsPageChange,
+  currentBlogPostsPage, deletingBlogPost, deleteBlogPost,
+  totalBlogPostsPages,setBlogPostsSearchTerm,
+  blogPostsSearchTerm,
+  toggleAdminBlogPostAction,
+  activeBlogPost,
   };
 
 

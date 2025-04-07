@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { GoArrowRight } from "react-icons/go";
 import { PHOTOS } from "../../assets/images";
 import { Link } from "react-router-dom";
-import { MdOutlineChevronRight } from "react-icons/md";
+import { CrossContext } from "../../Context/CrossContext";
 
 
+function BlogPost(post) {
 
-function BlogPost() {
+  const {title, blogImage, mainContent, postId, createdAt} = post
+  
   return (
     <div className="flex flex-col items-start h-auto gap-1 px-1 py-1 bg-white border large:w-30 border-crossIconBg rounded-10 small:w-100">
       <img
-        src={PHOTOS.about8}
+        src={blogImage}
         alt="blog image"
         className="w-100 h-170px rounded-5"
       />
@@ -21,20 +23,84 @@ function BlogPost() {
       </div>
 
       <h3 className="font-semibold">
-        Emotional Intelligence in the workplace: What you should know
+        {title}
       </h3>
 
       <p className="text-crossTextGray">
-        The business landscape is evolving, and staying ahead requires more than
-        just experience—it demands strategic thinking, innovation, and
-        executive-level expertise.
+        {mainContent && mainContent.slice(0, 70)}...
       </p>
 
-      <Link className="flex flex-row items-center justify-center w-auto text-crossLightPurple">
+      <Link className="flex flex-row items-center justify-center w-auto text-crossLightPurple"
+      to={`blog/${postId}`}
+      >
         Read Insight
       </Link>
     </div>
   );
 }
 
-export default BlogPost;
+
+
+function SecondBlogPost(post) {
+
+  const {title, blogImage, mainContent, postId, createdAt} = post;
+
+  const {formatDate} = useContext(CrossContext);
+  
+  return (
+    <div className="flex items-start h-auto gap-2 px-1 py-1 border small:flex-col large:w-100 border-crossIconBg rounded-10 small:w-100 large:flex-row">
+      
+      <img
+        src={blogImage}
+        alt="blog image"
+        className="large:w-40 h-200px rounded-5"
+      />
+
+      <div className="flex flex-col items-start h-auto gap-2 w-60">
+        <div className="flex flex-row justify-between h-auto w-100 text-crossTextGray">
+          <div>Article</div>
+          <div>{formatDate(createdAt)}</div>
+        </div>
+
+        <h3 className="font-semibold">
+          {title}
+        </h3>
+
+        <p className="text-crossTextGray">
+          {mainContent.slice(0, 80)}...
+        </p>
+
+        <Link className="flex flex-row items-center justify-center w-auto gap-1 text-crossLightPurple"
+        to={`/blog/${postId}`}
+        >
+          Read More <GoArrowRight className="text-18px"/>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+
+function PopularPost(post) {
+  
+  const {blogImage, title, postId} = post;
+  
+  return (
+    <Link className="flex items-center h-auto gap-2 px-1 py-1 border small:flex-col large:w-100 border-crossIconBg rounded-10 small:w-100 large:flex-col"
+    to={`/blog/${postId}`}
+    >
+      
+      <img
+        src={blogImage}
+        alt="blog image"
+        className="large:w-80 h-150px rounded-5"
+      />
+
+      <h3 className="font-semibold text-center">
+        {title}
+      </h3>
+    </Link>
+  );
+}
+
+export {BlogPost, SecondBlogPost, PopularPost};

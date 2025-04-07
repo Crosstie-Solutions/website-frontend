@@ -10,6 +10,7 @@ export default {
         '100px': '100px',
         '80px': '80px',
         '50px': '50px',
+        '45px': '45px',
         '40px': '40px',
         '35px': '35px',
         '30px': '30px',
@@ -25,6 +26,10 @@ export default {
         '11px': '11px',
         '8px': '8px',
         '6px': '6px',
+      },
+
+      fontFamily: {
+        'custom-font': ['Roboto', 'sans-serif'],
       },
 
 

@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { IoIosStar } from "react-icons/io";
+
 
 
 
 function DattiAndProf() {
 
     const [height, setHeight] = useState("___");
+
+    const [ratingValue, setRatingValue] = useState(1)
     
     
 
@@ -22,6 +26,9 @@ function DattiAndProf() {
         <button onClick={()=>setHeight("Short")} className='text-black bg-red-500'>Set it to Short</button>
         <button onClick={()=>setHeight("Average")} className='text-black bg-red-500'>Set it to Average</button>
       </div>
+
+
+      
     </div>
   )
 };

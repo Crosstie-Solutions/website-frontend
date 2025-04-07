@@ -53,6 +53,9 @@ import EditTestimonialPage from "./pages/EditTestimonialPage/EditTestimonialPage
 import ContactPage from "./pages/ContactPage/ContactPage";
 import DownloadScreen from "./components/DownloadScreen/DownloadScreen";
 import Bio from "./components/Bio/Bio";
+import BlogPage from "./pages/BlogPage/BlogPage";
+import BlogPostDetails from "./pages/BlogPostDetails/BlogPostDetails";
+import EditBlogPostPage from "./pages/EditBlogPostPage/EditBlogPostPage";
 
 
 
@@ -66,13 +69,19 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, downloadScreen, viewAllHighDemands, bio} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, downloadScreen, viewAllHighDemands, bio, viewAllBlogPosts} = useContext(CrossContext);
 
 
   useEffect(()=>{
     viewAllPrograms();
   },[]);
+  
+  
+  useEffect(()=>{
+    viewAllBlogPosts();
+  },[]);
 
+  
   useEffect(()=>{
     viewAllCourseRegs();
   },[]);
@@ -182,7 +191,13 @@ function App() {
           
           
           <Route path="/about-us/feedbacks/edit/:testimonyId" element={<EditTestimonialPage />} />
+          
           <Route path="/login" element={<LoginSignupPage />} />
+          
+          <Route path="/blog" element={<BlogPage />} />
+          
+          <Route path="/blog/:postId" element={<BlogPostDetails />} />
+          <Route path="/blog/edit/:postId" element={<EditBlogPostPage />} />
 
           
 

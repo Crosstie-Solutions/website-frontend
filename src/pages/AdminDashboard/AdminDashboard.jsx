@@ -2,21 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from 'react-toastify';
 import { FaRegUser } from "react-icons/fa";
-import { TbTruckDelivery } from "react-icons/tb";
-import { MdMailOutline } from "react-icons/md";
-import { MdOutlineRateReview } from "react-icons/md";
-import { RiCoupon5Line } from "react-icons/ri";
-import { FaRegHeart } from "react-icons/fa";
-import { GoHistory } from "react-icons/go";
 import { LuSettings } from "react-icons/lu";
 import { BsTrash3 } from "react-icons/bs";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { MdModeEditOutline } from "react-icons/md";
 import { CiShoppingCart } from "react-icons/ci";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { MdDriveFolderUpload } from "react-icons/md";
-import { MdManageAccounts } from "react-icons/md";
-import { VscGift } from "react-icons/vsc";
 import { VscFeedback } from "react-icons/vsc";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { IoIosArrowRoundBack } from "react-icons/io";
@@ -39,6 +30,9 @@ import AllTestimonialsTable from "../../components/AdminInteraction/AllTestimoni
 import AddTestimonial from "../../components/AdminInteraction/AddTestimonial/AddTestimonial";
 import { LuBadgeHelp } from "react-icons/lu";
 import AllContactFormsTable from "../../components/AdminInteraction/AllContactFormsTable/AllContactFormsTable";
+import { BiMessageAltEdit } from "react-icons/bi";
+import AddPost from "../../components/AdminInteraction/AddPost/AddPost";
+import AllBlogPostsTable from "../../components/AdminInteraction/AllBlogPostsTable/AllBlogPostsTable";
 
 
 
@@ -65,6 +59,13 @@ function AdminDashboard() {
 
   const toggleTestimonialsDD = ()=>{
     setTestimonialsDD(!testimonialsDD);
+  }
+
+  //blog dropdown
+  const [blogDD, setBlogDD] = useState(false);
+
+  const toggleBlogDD = ()=>{
+    setBlogDD(!blogDD);
   }
   
 
@@ -207,8 +208,7 @@ function AdminDashboard() {
 
 
         {/* testimonials */}
-
-
+        
         <div
           className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
         >
@@ -249,6 +249,36 @@ function AdminDashboard() {
           <LuBadgeHelp className="text-20px" />
           Contact Form
         </div> */}
+
+
+        {/* manage blog */}
+        <div
+          className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+        >
+          
+          <div className={`${ activeScreen === "addPost" || activeScreen === "allPosts" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
+          onClick={toggleBlogDD}
+          >
+            <div className="flex gap-1">
+              <BiMessageAltEdit className="text-20px" />
+              Manage Blog
+            </div>
+
+            <IoChevronDown className={`text-20px ${blogDD ? "rotate-180" : ""}`}/>
+          </div>
+
+          {blogDD &&
+          <div className="flex flex-col items-center gap-1 w-100">
+            <div className="flex justify-center h-auto cursor-pointer w-100 hover:bg-gray-300"
+             onClick={() => setActiveScreen("allPosts")}
+            >All Posts</div>
+            
+            <div className="flex justify-center h-auto cursor-pointer w-100 hover:bg-gray-300"
+             onClick={() => setActiveScreen("addPost")}
+            >Add Post</div>
+            
+          </div>}
+        </div>
 
 
         
@@ -349,6 +379,10 @@ function AdminDashboard() {
         {activeScreen === "addTestimonial" && <AddTestimonial />}
         
         {activeScreen === "contact" && <AllContactFormsTable />}
+        
+        {activeScreen === "addPost" && <AddPost />}
+        
+        {activeScreen === "allPosts" && <AllBlogPostsTable />}
         
         
       </div>

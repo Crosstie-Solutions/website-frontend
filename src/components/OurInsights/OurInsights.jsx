@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { GoArrowRight } from "react-icons/go";
 import { PHOTOS } from "../../assets/images";
 import { Link } from "react-router-dom";
 import { MdOutlineChevronRight } from "react-icons/md";
-import BlogPost from "../BlogPost/BlogPost";
+import {BlogPost} from "../BlogPost/BlogPost";
+import { CrossContext } from "../../Context/CrossContext";
+
 
 
 function OurInsights() {
 
-  const posts = [1, 2, 3];
+  const {allBlogPosts, loadingAllBlogPosts} = useContext(CrossContext);
 
   
   return (
@@ -32,9 +34,14 @@ function OurInsights() {
           <div className="flex justify-between h-auto small:flex-col large:flex-wrap large:flex-row w-100 small:gap-2 large:gap-0">
             
            {
-            posts && posts.map((post, i) =>
-              <BlogPost 
+            allBlogPosts && allBlogPosts.slice(0, 3).map((post, i) =>
+              <BlogPost
               key={i}
+              title={post.title}
+              blogImage={post.blogImage}
+              mainContent={post.mainContent}
+              createdAt={post.createdAt}
+              postId={post._id}
               />
             )
            }
