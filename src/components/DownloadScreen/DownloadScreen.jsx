@@ -96,7 +96,7 @@ function DownloadScreen(props) {
         {screen==="form" &&
         <div className="flex flex-col items-center justify-center gap-2 py-3 text-black bg-white rounded-5 large:px-5 large:h-100 large:w-40 small:rounded-5 small:w-90 text-15px small:px-1">
 
-            <p>PROVIDE THESE DETAILS TO DOWNLOAD <span className="text-crossLightPurple">{title.toUpperCase()}</span> FILE</p>
+            <p>PROVIDE THESE DETAILS TO DOWNLOAD <span className="text-crossLightPurple">{title && title.toUpperCase()}</span> FILE</p>
           
           <div className="flex flex-col items-start h-auto w-100">
             <label htmlFor="fullName">Full Name</label>
