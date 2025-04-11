@@ -18,8 +18,8 @@ function SalesExcellencePage() {
     const {currentPrograms, handleProgramsPageChange, currentProgramsPage, totalProgramsPages, programsSearchTerm,  programsStartIndex, programsEndIndex, allPrograms, allCourses, downloadScreen, toggleDownloadScreen} = useContext(CrossContext);
 
 
-    const downloadUrl = allCourses && allCourses[2].courseBrochure;
-    const title = allCourses && allCourses[2].courseTitle;
+    const downloadUrl = allCourses && allCourses.length > 0 ? allCourses[2].courseBrochure : "";
+  const title = allCourses && allCourses.length > 0 && allCourses[2].courseTitle;
     
     const salesSeriesPrograms = currentPrograms && currentPrograms.filter((program)=> {
       return program.course.courseTitle.includes("Sales Excellence");

@@ -23,8 +23,8 @@ function OpenExecutivePage() {
     toggleDownloadScreen
   } = useContext(CrossContext);
 
-  const downloadUrl = allCourses && allCourses[0].courseBrochure;
-  const title = allCourses && allCourses[0].courseTitle;
+  const downloadUrl = allCourses && allCourses.length > 0 ? allCourses[0].courseBrochure : "";
+  const title = allCourses && allCourses.length > 0 && allCourses[0].courseTitle;
 
   // const executiveProgram = program && program.course.courseTitle === "Open Executive Programmes (OEP)";
 

@@ -17,8 +17,8 @@ function ExecutiveLeadership() {
 
     const {currentPrograms, handleProgramsPageChange, currentProgramsPage, totalProgramsPages, programsSearchTerm, allCourses, downloadScreen, toggleDownloadScreen} = useContext(CrossContext);
 
-    const downloadUrl = allCourses && allCourses[1].courseBrochure;
-    const title = allCourses && allCourses[1].courseTitle;
+    const downloadUrl = allCourses && allCourses.length > 0 ? allCourses[1].courseBrochure : "";
+  const title = allCourses && allCourses.length > 0 && allCourses[1].courseTitle;
 
     const executiveLeadershipPrograms = currentPrograms && currentPrograms.filter((program)=> {
       return program.course.courseTitle.includes("Executive Leadership");

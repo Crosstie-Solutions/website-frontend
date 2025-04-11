@@ -18,8 +18,8 @@ function CompleteEmployee() {
 
     const {currentPrograms, handleProgramsPageChange, currentProgramsPage, totalProgramsPages, programsSearchTerm, toggleDownloadScreen, downloadScreen, allCourses} = useContext(CrossContext);
     
-    const downloadUrl = allCourses && allCourses[3].courseBrochure;
-    const title = allCourses && allCourses[3].courseTitle;
+    const downloadUrl = allCourses && allCourses.length > 0 ? allCourses[3].courseBrochure : "";
+  const title = allCourses && allCourses.length > 0 && allCourses[3].courseTitle;
 
     const completeEmployeePrograms = currentPrograms && currentPrograms.filter((program)=> {
       return program.course.courseTitle.includes("Complete Employee");
