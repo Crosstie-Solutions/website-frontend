@@ -166,7 +166,7 @@ const loginFormData = {
           localStorage.setItem('role', JSON.stringify(response.data.data.user.role));
           
         }
-        if(response.data.data.user.role==='admin'){
+        if(response.data.data.user.role.toLowerCase().includes('admin')){
           navigate("/admin-dashboard")
         }
         else{

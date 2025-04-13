@@ -99,8 +99,8 @@ function Header() {
                 ? "flex items-center gap-0.5 text-crossLightPurple"
                 : "flex items-center gap-0.5"
             }
-            // to="/contact-us/"
-            to="/jhbjhjhj"
+            to="/contact-us/"
+            // to="/jhbjhjhj"
           >
             Contact Us
           </NavLink>
@@ -171,8 +171,8 @@ function Header() {
           >
             <Link
               className="flex items-center gap-0.5"
-              to="/"
-              // to="/contact-us/"
+              // to="/"
+              to="/contact-us/"
             >
               Contact Us
             </Link>

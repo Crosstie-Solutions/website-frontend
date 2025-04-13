@@ -33,6 +33,16 @@ import AllContactFormsTable from "../../components/AdminInteraction/AllContactFo
 import { BiMessageAltEdit } from "react-icons/bi";
 import AddPost from "../../components/AdminInteraction/AddPost/AddPost";
 import AllBlogPostsTable from "../../components/AdminInteraction/AllBlogPostsTable/AllBlogPostsTable";
+import AllUsersTable from "../../components/AdminInteraction/AllUsersTable/AllUsersTable";
+import AddNewAdmin from "../../components/AdminInteraction/AddNewAdmin/AddNewAdmin";
+import { LuUsers } from "react-icons/lu";
+import { GiThreeFriends } from "react-icons/gi";
+import AllPartnersTable from "../../components/AdminInteraction/AllPartnersTable/AllPartnersTable";
+import AddPartner from "../../components/AdminInteraction/AddPartner/AddPartner";
+import AllHighDemandTable from "../../components/AdminInteraction/AllHighDemandTable/AllHighDemandTable";
+import AddHighDemand from "../../components/AdminInteraction/AddHighDemand/AddHighDemand";
+
+
 
 
 
@@ -47,6 +57,23 @@ function AdminDashboard() {
     setUsersDD(!usersDD);
   }
 
+   //partners dropdown
+   const [partnersDD, setPartnersDD] = useState(false);
+
+   const togglePartnersDD = ()=>{
+     setPartnersDD(!partnersDD);
+   }
+
+
+  //Programs dropdown
+  const [programsDD, setProgramsDD] = useState(false);
+
+  const toggleProgramsDD = ()=>{
+    setProgramsDD(!programsDD);
+  }
+
+
+  
   //webinars dropdown
   const [webinarsDD, setWebinarsDD] = useState(false);
 
@@ -114,25 +141,24 @@ function AdminDashboard() {
           Crosstie Admin
         </div>
 
-          
-        
+
         {/* manage programs */}
         <div
           className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
         >
           
           <div className={`${ activeScreen === "addProgram" || activeScreen === "allPrograms"|| activeScreen === "courseRegistrations" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
-          onClick={toggleUsersDD}
+          onClick={toggleProgramsDD}
           >
             <div className="flex gap-1">
               <FaBookBookmark className="text-20px" />
               Manage Programs
             </div>
 
-            <IoChevronDown className={`text-20px ${usersDD ? "rotate-180" : ""}`}/>
+            <IoChevronDown className={`text-20px ${programsDD ? "rotate-180" : ""}`}/>
           </div>
 
-          {usersDD &&
+          {programsDD &&
           <div className="flex flex-col items-center gap-1 w-100">
             <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
              onClick={() => setActiveScreen("allPrograms")}
@@ -144,9 +170,55 @@ function AdminDashboard() {
 
             <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
              onClick={() => setActiveScreen("courseRegistrations")}
-            >Registrations</div>
+            >Course Registrations</div>
+
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("allHighDemand")}
+            >All High Demand Programs</div>
+
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("addHighDemand")}
+            >Add High Demand Program</div>
+
+            
+          </div>}
+          
+          
+        </div>
+
+          
+        
+        {/* manage users */}
+        <div
+          className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+        >
+          
+          <div className={`${ activeScreen === "addAdmin" || activeScreen === "allUsers" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
+          onClick={toggleUsersDD}
+          >
+            <div className="flex gap-1">
+              <LuUsers className="text-20px" />
+              Manage Users
+            </div>
+
+            <IoChevronDown className={`text-20px ${usersDD ? "rotate-180" : ""}`}/>
+          </div>
+
+          {usersDD &&
+          <div className="flex flex-col items-center gap-1 w-100">
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("allUsers")}
+            >All Users</div>
+            
+            {me && me.role.includes("super") &&
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("addAdmin")}
+            >Add Admin</div>}
+
           </div>}
         </div>
+
 
         {/* manage webinars */}
         
@@ -179,6 +251,38 @@ function AdminDashboard() {
             <div className="h-auto pl-1 cursor-pointer w-100 hover:bg-gray-300"
              onClick={() => setActiveScreen("pastWebinars")}
             >Past Webinars</div>
+
+          </div>}
+        </div>
+
+
+         {/* manage Partners */}
+         <div
+          className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+        >
+          
+          <div className={`${ activeScreen === "addPartner" || activeScreen === "allPartners" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
+          onClick={togglePartnersDD}
+          >            
+            <div className="flex gap-1">
+              <GiThreeFriends className="text-20px" />
+              Manage Partners
+            </div>
+
+            <IoChevronDown className={`text-20px ${partnersDD ? "rotate-180" : ""}`}/>
+          </div>
+
+          {partnersDD &&
+          <div className="flex flex-col items-center gap-1 w-100">
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("allPartners")}
+            >All Partners</div>
+            
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("addPartner")}
+            >Add Partner</div>
 
           </div>}
         </div>
@@ -240,7 +344,7 @@ function AdminDashboard() {
 
 
          {/* contact form */}
-         {/* <div
+         <div
           className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
             activeScreen === "contact" ? "bg-gray-300" : ""
           } hover:bg-gray-300`}
@@ -248,7 +352,7 @@ function AdminDashboard() {
         >
           <LuBadgeHelp className="text-20px" />
           Contact Form
-        </div> */}
+        </div>
 
 
         {/* manage blog */}
@@ -384,8 +488,22 @@ function AdminDashboard() {
         
         {activeScreen === "allPosts" && <AllBlogPostsTable />}
         
+        {activeScreen === "allUsers" && <AllUsersTable />}
+        
+        {activeScreen === "allPartners" && <AllPartnersTable />}
+        
+        {activeScreen === "addPartner" && <AddPartner />}
+        
+        {activeScreen === "addAdmin" && <AddNewAdmin />}
+
+        {activeScreen === "allHighDemand" && <AllHighDemandTable />}
+        
+        {activeScreen === "addHighDemand" && <AddHighDemand />}
+        
         
       </div>
+      
+
       
       {!current ?
         <h4 className="text-gray-500 text-15px large:hidden small:flex">Crosstie Admin</h4> : ""
@@ -416,11 +534,80 @@ function AdminDashboard() {
               >
           
               <div className={`h-40px w-100 flex justify-between items-center pl-1 large:pr-2 small:pr-1`}
-            onClick={toggleUsersDD}
-            >
+            onClick={toggleProgramsDD}>
+              
               <div className="flex gap-1">
                 <FaBookBookmark className="text-20px" />
                 Manage Programs
+              </div>
+
+              <IoChevronDown className={`large:text-20px small:text-15px ${programsDD ? "rotate-180" : ""}`}/>
+              </div>
+
+              {programsDD &&
+              <div className="flex flex-col items-center gap-1 w-100">
+               
+                {/* onClick={toggleSideBar} */}
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={
+                  () => {
+                    setActiveScreen("all Programs");
+                    toggleSideBar();
+                    toggleProgramsDD();
+                  }
+                  
+                }
+                >All Programs</div>
+                
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={() => {
+                  setActiveScreen("add Program");
+                  toggleSideBar();
+                  toggleProgramsDD();
+                }}
+                >Add Programs</div>
+                
+
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={() => {
+                  setActiveScreen("all Registrations");
+                  toggleSideBar();
+                  toggleProgramsDD();
+                }}
+                >Course Registrations</div>
+
+                  <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={() => {
+                  setActiveScreen("all HighDemands");
+                  toggleSideBar();
+                  toggleProgramsDD();
+                }}
+                >All High Demand Programs</div>
+
+
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={() => {
+                  setActiveScreen("add HighDemand");
+                  toggleSideBar();
+                  toggleProgramsDD();
+                }}
+                >Add High Demand Program</div>
+              </div>}
+            </div>
+
+
+
+            {/* users */}
+            <div
+                className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-13px`}
+              >
+          
+              <div className={`h-40px w-100 flex justify-between items-center pl-1 large:pr-2 small:pr-1`}
+            onClick={toggleUsersDD}
+            >
+              <div className="flex gap-1">
+                <LuUsers className="text-20px" />
+                Manage Users
               </div>
 
               <IoChevronDown className={`large:text-20px small:text-15px ${usersDD ? "rotate-180" : ""}`}/>
@@ -432,36 +619,31 @@ function AdminDashboard() {
                 <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
                 onClick={
                   () => {
-                    setActiveScreen("all Programs");
+                    setActiveScreen("all Users");
                     toggleSideBar();
                     toggleUsersDD();
                   }
                   
                 }
-                >All Programs</div>
+                >All Users</div>
                 
+                {me && me.role.includes("super") &&
                 <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
                 onClick={() => {
-                  setActiveScreen("add Program");
+                  setActiveScreen("add Admin");
                   toggleSideBar();
                   toggleUsersDD();
                 }}
-                >Add Programs</div>
+                >Add Admin</div>}
 
-                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
-                onClick={() => {
-                  setActiveScreen("all Registrations");
-                  toggleSideBar();
-                  toggleUsersDD();
-                }}
-                >Registrations</div>
+                
               </div>}
             </div>
 
 
             {/* webinars */}
             <div
-                className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+                className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-13px`}
               >
           
               <div className={`h-40px w-100 flex justify-between items-center pl-1 large:pr-2 small:pr-1`}
@@ -507,6 +689,52 @@ function AdminDashboard() {
               </div>}
             </div>
 
+
+            {/* partners */}
+            <div
+                className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-13px`}
+              >
+          
+              <div className={`h-40px w-100 flex justify-between items-center pl-1 large:pr-2 small:pr-1`}
+            onClick={togglePartnersDD}
+            >
+              <div className="flex gap-1">
+                <GiThreeFriends className="text-20px" />
+                Manage Partners
+              </div>
+
+              <IoChevronDown className={`large:text-20px small:text-15px ${partnersDD ? "rotate-180" : ""}`}/>
+              </div>
+
+
+              {partnersDD &&
+              <div className="flex flex-col items-center gap-1 w-100">
+                {/* onClick={toggleSideBar} */}
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={
+                  () => {
+                    setActiveScreen("all Partners");
+                    toggleSideBar();
+                    togglePartnersDD();
+                  }
+                  
+                }
+                >All Partners</div>
+                
+                {me && me.role.includes("super") &&
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={() => {
+                  setActiveScreen("add Partner");
+                  toggleSideBar();
+                  togglePartnersDD();
+                }}
+                >Add Partner</div>}
+                
+              </div>}
+            </div>
+
+
+
             {/* enquiries */}
           <div
             className={`flex items-center justify-between gap-1 px-1 cursor-pointer h-40px w-100 text-13px`}
@@ -537,7 +765,7 @@ function AdminDashboard() {
 
           {/* Testimonials */}
           <div
-                className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+                className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-13px`}
               >
           
               <div className={`h-40px w-100 flex justify-between items-center pl-1 large:pr-2 small:pr-1`}
@@ -577,7 +805,7 @@ function AdminDashboard() {
           </div>
 
           {/* contact form */}
-          {/* <div
+          <div
             className={`flex items-center justify-between gap-1 px-1 cursor-pointer h-40px w-100 text-13px`}
             onClick={() => setActiveScreen("contact")}
           >
@@ -587,13 +815,13 @@ function AdminDashboard() {
             </div>
 
             <MdKeyboardArrowRight className="text-20px" />
-          </div> */}
+          </div>
 
 
 
           {/* blog */}
           <div
-                className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+                className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-13px`}
               >
           
               <div className={`h-40px w-100 flex justify-between items-center pl-1 large:pr-2 small:pr-1`}
@@ -630,7 +858,7 @@ function AdminDashboard() {
                 >All Posts</div>
 
               </div>}
-            </div>
+          </div>
 
 
 
@@ -733,13 +961,13 @@ function AdminDashboard() {
         
         {activeScreen === "all Registrations" &&<AllCourseRegsTable />}
         
-        {activeScreen === "all Users" &&<AdminUsersTable />}
+        {activeScreen === "all Users" &&<AllUsersTable />}
         
-        {/* add User all Users */}
-        {activeScreen === "add User" && <AddNewUser />}
+        {/* add admin */}
+        {activeScreen === "add Admin" && <AddNewAdmin />}
         
         
-        {activeScreen === "manage Orders" && <AdminOrdersTable />}
+        {/* {activeScreen === "manage Orders" && <AdminOrdersTable />} */}
 
         
         {activeScreen === "newsletter" && <AllNewsletterTable />}
@@ -764,6 +992,14 @@ function AdminDashboard() {
         {activeScreen === "add Post" && <AddPost />}
         
         {activeScreen === "all Posts" && <AllBlogPostsTable />}
+        
+        {activeScreen === "all Partners" && <AllPartnersTable />}
+        
+        {activeScreen === "add Partner" && <AddPartner />}
+        
+        {activeScreen === "add HighDemand" && <AddHighDemand />}
+        
+        {activeScreen === "all HighDemands" && <AllHighDemandTable />}
 
         
         </div>

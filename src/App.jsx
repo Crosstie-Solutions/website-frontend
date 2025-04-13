@@ -69,7 +69,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, downloadScreen, viewAllHighDemands, bio, viewAllBlogPosts} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, downloadScreen, viewAllHighDemands, bio, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -141,6 +141,24 @@ function App() {
     viewAllHighDemands();
   }, []);
 
+  useEffect(()=>{
+    fetchUsers();
+  }, [loginToken]);
+
+  
+
+  useEffect(()=>{
+    fetchPartners();
+  }, [loginToken]);
+
+
+  
+  useEffect(()=>{
+    fetchAllHighDemand();
+  }, []);
+
+
+  
   
   return (
     <div className="App bg-appBg">

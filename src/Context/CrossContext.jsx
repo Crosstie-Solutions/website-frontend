@@ -7,7 +7,6 @@ import { toast } from 'react-toastify';
 
 
 
-
 export const CrossContext = createContext(null);
 
 function CrossContextProvider(props) {
@@ -241,7 +240,7 @@ const[loading, setLoading] = useState(false);
   const toggleAdminProgramAction = async (index)=> {
 
     setActiveProgram((prev) => (prev === index ? null : index));
-  }
+  };
 
   
 
@@ -953,7 +952,210 @@ const toggleAdminBlogPostAction = async (index)=> {
  };
 
 
+
+
+
+   //for admin to fetch all users
+    
+     const [allUsers, setAllUsers] = useState([]);
+
+     console.log("allUsers:", allUsers);
  
+ 
+     const [loadUsers, setLoadUsers] = useState(false);
+     
+     const fetchUsers = async () => {
+       
+       try {
+         setLoadUsers(true);
+   
+         const response = await axios.get(`${baseUrl}/api/users`, {
+           headers: {
+             Authorization: `Bearer ${loginToken ? loginToken : ""}`
+           }
+         });
+     
+         
+         setAllUsers(response.data.data.data)
+       } catch (error) {
+         console.error('Error fetching users:', error);
+       }finally{
+         setLoadUsers(false);
+       }
+     };
+ 
+
+   
+ 
+ 
+   //for admin to filter users
+   const [currentUsersPage, setCurrentUsersPage] = useState(1);
+   const [usersSearchTerm, setUsersSearchTerm] = useState("");
+   const usersPerPage = 10;
+ 
+   // Filter users based on search term
+   const filteredUsers = allUsers && allUsers.filter((user) =>
+     `${user.firstName} ${user.lastName} ${user.email} ${user.phone}`
+       .toLowerCase()
+       .includes(usersSearchTerm.toLowerCase())
+   );
+ 
+   // Calculate total pages
+   const totalUsersPages = filteredUsers && Math.ceil(filteredUsers.length / usersPerPage);
+ 
+   // Get requests for the current page
+   const usersStartIndex = (currentUsersPage - 1) * usersPerPage;
+   const usersEndIndex = usersStartIndex + usersPerPage;
+   const currentUsers = filteredUsers && filteredUsers.slice(usersStartIndex, usersEndIndex).reverse();
+ 
+
+
+   // Handle page change
+   const handleUsersPageChange = (page) => {
+     if (page > 0 && page <= totalUsersPages) {
+       setCurrentUsersPage(page);
+     }
+   };
+
+
+
+
+   //active admin
+  const [activeAdmin, setActiveAdmin] = useState(null);
+
+  console.log("activeAdmin:", activeAdmin);
+
+  const toggleRemoveAdmin = async (index)=> {
+
+    window.scrollTo({ top: 0, behavior: "auto" });
+
+    setActiveAdmin((prev) => (prev === index ? null : index));
+  };
+ 
+
+  
+
+
+
+
+  //for admin to fetch all partners
+    
+  const [allPartners, setAllPartners] = useState([]);
+
+  console.log("allPartners:", allPartners);
+
+
+  const [loadPartners, setLoadPartners] = useState(false);
+  
+  const fetchPartners = async () => {
+    
+    try {
+      setLoadPartners(true);
+
+      const response = await axios.get(`${baseUrl}/api/partners`, {
+        headers: {
+          Authorization: `Bearer ${loginToken ? loginToken : ""}`
+        }
+      });
+  
+      
+      setAllPartners(response.data.data.data)
+    } catch (error) {
+      console.error('Error fetching partners:', error);
+    }finally{
+      setLoadPartners(false);
+    }
+  };
+
+
+//for admin to filter partners
+const [currentPartnersPage, setCurrentPartnersPage] = useState(1);
+const [partnersSearchTerm, setPartnersSearchTerm] = useState("");
+const partnersPerPage = 10;
+
+// Filter Partners based on search term
+const filteredPartners = allPartners && allPartners.filter((partner) =>
+  `${partner.partnerName}`
+    .toLowerCase()
+    .includes(partnersSearchTerm.toLowerCase())
+);
+
+// Calculate total pages
+const totalPartnersPages = filteredPartners && Math.ceil(filteredPartners.length / partnersPerPage);
+
+// Get requests for the current page
+const partnersStartIndex = (currentPartnersPage - 1) * partnersPerPage;
+const partnersEndIndex = partnersStartIndex + partnersPerPage;
+const currentPartners = filteredPartners && filteredPartners.slice(partnersStartIndex, partnersEndIndex).reverse();
+
+
+
+// Handle page change
+const handlePartnersPageChange = (page) => {
+  if (page > 0 && page <= totalPartnersPages) {
+    setCurrentPartnersPage(page);
+  }
+};
+
+
+
+
+
+//active Partner
+const [activePartner, setActivePartner] = useState(null);
+
+const togglePartner = async (index)=> {
+
+  window.scrollTo({ top: 0, behavior: "auto" });
+
+  setActivePartner((prev) => (prev === index ? null : index));
+};
+
+
+
+
+
+
+
+
+
+
+  //for admin to fetch all highDemand
+    
+  const [allHighDemand, setAllHighDemand] = useState([]);
+
+  console.log("allHighDemand:", allHighDemand);
+
+
+  const [loadAllHighDemand, setLoadAllHighDemand] = useState(false);
+  
+  const fetchAllHighDemand = async () => {
+    
+    try {
+      setLoadAllHighDemand(true);
+
+      const response = await axios.get(`${baseUrl}/api/program/high-demand/all`);
+  
+      
+      setAllHighDemand(response.data.data.data);
+
+    } catch (error) {
+      console.error('Error fetching all high demand:', error);
+    }finally{
+      setLoadAllHighDemand(false);
+    }
+  };
+
+  
+  //active high demand
+const [activeHighDemand, setActiveHighDemand] = useState(null);
+
+const toggleHighDemand = async (index)=> {
+
+  window.scrollTo({ top: 0, behavior: "auto" });
+
+  setActiveHighDemand((prev) => (prev === index ? null : index));
+};
 
 
 
@@ -966,6 +1168,9 @@ const toggleAdminBlogPostAction = async (index)=> {
   }, [currentProgramsPage, activeProgram, currentCourseRegsPage, activeWebinar]);
 
 
+
+
+
   //value to export
   const contextValue = {
     hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program, toggleAdminProgramAction, activeProgram, deletingProgram, deleteProgram, viewAllCourseRegs, allCourseRegs, currentCourseRegs,  handleCourseRegsPageChange, currentCourseRegsPage, totalCourseRegsPages,
@@ -975,8 +1180,19 @@ const toggleAdminBlogPostAction = async (index)=> {
   handleTestimonialsPageChange, allBlogPosts, viewAllBlogPosts, currentTestimonialsPage, totalTestimonialsPages, currentBlogPosts, handleBlogPostsPageChange,
   currentBlogPostsPage, deletingBlogPost, deleteBlogPost,
   totalBlogPostsPages,setBlogPostsSearchTerm,
-  blogPostsSearchTerm,
-  toggleAdminBlogPostAction,
+  blogPostsSearchTerm, fetchUsers,
+  toggleAdminBlogPostAction, loadUsers, fetchPartners,
+  currentUsers, setUsersSearchTerm, loadPartners,
+  currentPartners, partnersSearchTerm, setPartnersSearchTerm, setCurrentPartnersPage,
+  currentPartnersPage, activeHighDemand, toggleHighDemand,
+  totalPartnersPages, loadAllHighDemand,
+  handlePartnersPageChange,
+  allPartners, fetchAllHighDemand,
+  currentUsersPage, togglePartner,
+  activePartner,
+  totalUsersPages,
+  handleUsersPageChange,
+    allUsers, activeAdmin, toggleRemoveAdmin,
   activeBlogPost,
   };
 
