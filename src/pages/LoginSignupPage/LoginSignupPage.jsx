@@ -4,10 +4,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { CrossContext } from "../../Context/CrossContext";
-
+import { LuEyeClosed } from "react-icons/lu";
+import { LuEye } from "react-icons/lu";
 
 
 function LoginSignupPage() {
+
+  const [reveal, setReveal] = useState(false);
+
+  const toggle = () =>{
+    setReveal(!reveal);
+  }
 
   //to navigate to different page
   const navigate = useNavigate();
@@ -167,10 +174,12 @@ const loginFormData = {
           
         }
         if(response.data.data.user.role.toLowerCase().includes('admin')){
-          navigate("/admin-dashboard")
+          navigate("/")
+          // navigate("/admin-dashboard")
         }
         else{
-          navigate("/user-profile")
+          navigate("/")
+          // navigate("/user-profile")
         }
       } catch (error) {
        if(error){
@@ -264,13 +273,21 @@ const loginFormData = {
               <p className="text-vogueRed">{signupErrors.phone}</p>
             </div>
 
-            <div className="flex flex-col h-auto w-100">
+            <div className="relative flex flex-col h-auto w-100">
               <label htmlFor="">Password*</label>
 
-              <input type="text" className="p-1 border rounded h-40px w-100" 
+              <input type={reveal ? "text" : "password"} className="p-1 border rounded h-40px w-100" 
               onChange={(e)=>setPassword(e.target.value)}
               />
               <p className="text-vogueRed">{signupErrors.password}</p>
+
+              {reveal ?
+                <LuEyeClosed className="absolute text-gray-500 cursor-pointer top-3.5 right-1 text-20px"
+                  onClick={toggle}
+                /> :
+                <LuEye className="absolute text-gray-500 cursor-pointer top-3.5 right-1 text-20px"
+                  onClick={toggle}
+                />}
             </div>
 
             <button
@@ -310,14 +327,22 @@ const loginFormData = {
               <p className="text-vogueRed">{loginErrors.loginEmail}</p>
             </div>
 
-            <div className="flex flex-col h-auto w-100">
+            <div className="relative flex flex-col h-auto w-100">
               <label htmlFor="">Password*</label>
 
-              <input type="text" className="p-1 border rounded h-40px w-100" 
+              <input type={reveal ? "text" : "password"} className="p-1 border rounded h-40px w-100" 
               onChange={(e)=>setLoginPassword(e.target.value)}
               />
               <p className="text-vogueRed">{loginErrors.loginPassword}</p>
               <p className="text-vogueRed">{lastError}</p>
+
+              {reveal ?
+                <LuEyeClosed className="absolute text-gray-500 cursor-pointer top-3.5 right-1 text-20px"
+                  onClick={toggle}
+                /> :
+                <LuEye className="absolute text-gray-500 cursor-pointer top-3.5 right-1 text-20px"
+                  onClick={toggle}
+                />}
             </div>
 
             <button

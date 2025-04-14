@@ -24,11 +24,12 @@ function AboutUsPage() {
   const {allCourses, toggleDownloadScreen, downloadScreen} = useContext(CrossContext);
 
   const downloadUrl = "https://res.cloudinary.com/dnq0mhrjs/raw/upload/v1742100118/course_brochures/tl8unlrm6qlttpde4bnk.pdf";
+  
   const title = "Our Corporate Presentation";
 
   
   return (
-    <div className="relative flex flex-col items-center justify-start gap-3 large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
+    <div className="relative flex flex-col items-center justify-start gap-3 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
 
       <AboutHero />
 

@@ -139,11 +139,11 @@ const myEmail = document.getElementById('myEmail');
             <li><Link to="">Soft Skills Launchpad  Programme (SSLP)</Link></li>
         </ul>
 
-
+       
         <ul className="flex flex-col gap-2">
-            <Link className="text-crossFooterText"
-             to='/blog'
-            >Blog </Link>
+            <h5 className="text-crossFooterText">Resources & Others</h5>
+            
+            <li><Link to="/blog">Blog </Link></li>
             <li><Link to="/case-studies">Case Studies </Link></li>
             <li><Link to="">Terms of Service </Link></li>
             <li><Link to="">Careers</Link></li>

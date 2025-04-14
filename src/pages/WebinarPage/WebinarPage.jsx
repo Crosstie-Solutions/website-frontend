@@ -14,6 +14,8 @@ import { GrUserExpert } from "react-icons/gr";
 import { CrossContext } from "../../Context/CrossContext";
 import Webinar from "../../components/Webinar/Webinar";
 import { PastFilter, UpcomingFilter } from "../../components/WebinarFilter/WebinarFilter";
+import AboutHero from "../../components/AboutHero/AboutHero";
+import DownloadScreen from "../../components/DownloadScreen/DownloadScreen";
 
 
 
@@ -22,31 +24,20 @@ function WebinarPage() {
     const {upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, filteredUpcoming, filteredPast} = useContext(CrossContext);
 
     
+    const {downloadScreen} = useContext(CrossContext);
+    
+      const downloadUrl = "https://res.cloudinary.com/dnq0mhrjs/raw/upload/v1742100118/course_brochures/tl8unlrm6qlttpde4bnk.pdf";
+      
+      const title = "Our Corporate Presentation";
   
 
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 large:mt-8 text-15px large:w-100vw large:h-auto small:w-90vw small:h-auto small:mt-13">
+    <div className="relative flex flex-col items-center justify-start gap-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-90vw small:h-auto small:mt-13">
       
         
-      <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
-        <img src={PHOTOS.about3} alt="photos" className="w-100 h-100" />
-
-        <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw aboutOne small:h-200px small:pl-2">
-          <h1 class="large:text-35px large:w-60 large:leading-10 small:leading-5 font-extrabold small:w-80 small:text-17px">
-            ELEVATE YOUR LEADERSHIP SKILL, EXPAND YOUR IMPACT!
-          </h1>
-
-          <p className="font-extralight large:w-50 small:w-90 small:text-11px large:text-15px">
-            Discover new skills and interests with our extensive course
-            collection
-          </p>
-
-          {/* <Link className="flex items-center justify-center gap-1 px-1 font-semibold large:w-300px rounded-10 h-40px bg-buttonOverlay large:text-15px small:w-250px small:text-11px">
-            Download OEP course brochure{" "}
-            <RiFolderDownloadLine className="large:text-25px small:text-20px" />
-          </Link> */}
-        </div>
-      </div>
+      <AboutHero 
+        tag="Our Solutions"
+      />
 
       <div className="flex flex-col items-center h-auto w-100">
         <SolutionButtonSwiper />
@@ -148,6 +139,13 @@ function WebinarPage() {
           Explore Our Courses <HiArrowLongRight className="text-20px" />
         </Link>
       </div>
+
+
+      {downloadScreen && 
+      <DownloadScreen 
+        downloadUrl={downloadUrl && downloadUrl}
+        title={title && title}
+      />}
     </div>
   );
 }

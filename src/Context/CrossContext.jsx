@@ -833,10 +833,24 @@ const viewAllContactForms = async () => {
    const [downloadScreen, setDownloadScreen] = useState(false);
 
    const toggleDownloadScreen = ()=> { 
+    window.scrollTo({ top: 0, behavior: "auto" });
     setDownloadScreen(!downloadScreen);
    }
 
+   const downloadUrl = "https://res.cloudinary.com/dnq0mhrjs/raw/upload/v1742100118/course_brochures/tl8unlrm6qlttpde4bnk.pdf";
+      
+    const title = "Our Corporate Presentation";
+   
 
+    //program download
+    const [downloadProgramScreen, setDownloadProgramScreen] = useState(false);
+
+    const toggleDownloadProgramScreen = () => { 
+     window.scrollTo({ top: 0, behavior: "auto" });
+     setDownloadProgramScreen(!downloadProgramScreen);
+    }
+
+    
 
    //high demand programs
 
@@ -1200,15 +1214,14 @@ const [activeSearch, setActiveSearch] = useState(false)
   currentPartnersPage, activeHighDemand, toggleHighDemand,
   totalPartnersPages, loadAllHighDemand,
   handlePartnersPageChange, executiveCourse,
-  allPartners, fetchAllHighDemand,
+  allPartners, fetchAllHighDemand, downloadProgramScreen, toggleDownloadProgramScreen,
   currentUsersPage, togglePartner,
-  activePartner,
+  activePartner, downloadUrl, title,
   totalUsersPages, activeSearch, setActiveSearch,
-  handleUsersPageChange,
+  handleUsersPageChange,  setDownloadScreen, setDownloadProgramScreen,
     allUsers, activeAdmin, toggleRemoveAdmin,
   activeBlogPost,
   };
-
 
   
   return (

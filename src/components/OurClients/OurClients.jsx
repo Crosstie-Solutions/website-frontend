@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaBookOpen } from "react-icons/fa";
 import { MdOutlineChevronRight } from "react-icons/md";
 import { HiOutlineUsers } from "react-icons/hi2";
@@ -11,43 +11,18 @@ import { GiTeacher } from "react-icons/gi";
 import { GoArrowRight } from "react-icons/go";
 import { PHOTOS } from "../../assets/images";
 import { partnerData } from '../../assets/data';
+import { CrossContext } from '../../Context/CrossContext';
 
-
-
-
-// Group logos into sets of 8 per slide
-const groupedLogos = [];
-
-for (let i = 0; i < partnerData.length; i += 8) {
-  groupedLogos.push(partnerData.slice(i, i + 8));
-}
 
 
 
 function OurClients() {
 
-  const actualPartners = !window.location.pathname.includes("clients") ? partnerData.slice(0, 8) : partnerData;
+  const {allPartners, loadPartners} = useContext(CrossContext);
+
+  const actualPartners = !window.location.pathname.includes("clients") ? allPartners && allPartners.slice(0, 8) : allPartners;
 
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % groupedLogos.length);
-    }, 3000); // Change slide every 3 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + groupedLogos.length) % groupedLogos.length);
-  };
-
-  
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % groupedLogos.length);
-  };
 
     
   return (
@@ -78,13 +53,14 @@ function OurClients() {
                 >
                     
                     {
-                      actualPartners && actualPartners.map((partner, i)=>
-                        <img src={partner} alt="partner" className='py-1 bg-white border shadow-xl large:px-3 rounded-5 large:w-130px h-80px small:w-100px small:px-1'
+                     actualPartners && actualPartners.map((partner, i)=>
+                        <img src={partner.partnerLogo} alt="client's logo" className='py-1 bg-white border shadow-xl large:px-3 rounded-5 large:w-135px h-80px small:w-100px small:px-1'
                         key={i}
                         />
                       )
                     }
                       
+                      {loadPartners && <p>Loading partners...</p>}
                 </div>
 
                 

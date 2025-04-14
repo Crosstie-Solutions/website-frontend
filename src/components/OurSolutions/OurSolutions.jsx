@@ -11,6 +11,8 @@ import { GiTeacher } from "react-icons/gi";
 import { CrossContext } from '../../Context/CrossContext';
 
 
+
+
 function OurSolutions() {
 
     const [solution, setSolution] = useState("Training Programmes");
@@ -49,6 +51,8 @@ function OurSolutions() {
                 >High-demand Courses</button>
             </div>
   
+
+  
             <div className='flex flex-wrap items-center justify-between h-auto w-100'>
                 {/* Training Programmes */}
             
@@ -57,37 +61,39 @@ function OurSolutions() {
                     
                     <Link
                     to="/our-courses/"
-                    className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-300px text-15px rounded-20 small:w-100'>
+                    className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
                         
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaBookOpen className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Open Executive Programmes (OEP)</h3>
                         
-                        <p className='text-13px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
+                        <p className='text-15px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
                         
                     </Link>
 
+
+
                     <Link
                     to="/our-courses/executive-leadership"
-                    className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-300px text-15px rounded-20 small:w-100'>
+                    className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
                         
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaUserTie className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Executive Leadership 
                         Programmes (ELP)</h3>
                         
-                        <p className='text-13px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
+                        <p className='text-15px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
                         
                     </Link>
 
                     <Link
                         to="/our-courses/complete-employee"
-                    className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-300px text-15px rounded-20 small:w-100'>
+                    className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaUser className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Complete Employee Series (CES)</h3>
                         
-                        <p className='text-13px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
+                        <p className='text-15px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
                         
                        
                     </Link>
@@ -147,12 +153,14 @@ function OurSolutions() {
                 </div>}
             </div>
 
+
             {solution==="Training Programmes" &&
             <Link to='/our-courses/' className='flex items-center justify-center h-auto gap-1 w-150px text-crossLightPurple text-15px'>See More <MdOutlineChevronRight className='text-20px'/></Link>}
 
             {solution==="Consulting Services" &&
             <Link to='/our-solutions/management-consulting' className='flex items-center justify-center h-auto gap-1 w-150px text-crossLightPurple text-15px'>See More <MdOutlineChevronRight className='text-20px'/></Link>}
         </div>
+        
     </div>
   )
 }

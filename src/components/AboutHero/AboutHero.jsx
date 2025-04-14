@@ -3,8 +3,9 @@ import { TbFileTypePdf } from "react-icons/tb";
 import { CrossContext } from "../../Context/CrossContext";
 
 
+function AboutHero(props) {
 
-function AboutHero() {
+  const {tag, buttonText} = props;
 
     const {toggleDownloadScreen} = useContext(CrossContext);
     
@@ -13,15 +14,15 @@ function AboutHero() {
         
       <div className="flex flex-col items-start justify-center large:gap-2 small:pt-2 large:pl-0 large:h-100 large:w-50 small:h-auto small:w-90vw large:pt-0 small:gap-1">
         
-        <h1 class="large:text-35px large:w-90 large:leading-8 small:leading-5 font-semibold small:w-80 small:text-20px">
-          About Us
+        <h1 class="large:text-35px large:w-70 large:leading-tight small:leading-5 font-semibold small:w-80 small:text-20px">
+          {tag ? tag : "About Us"}
         </h1>
 
         <p className="font-light large:w-90 small:w-100 small:text-13px large:text-15px">
           Discover new skills and interests with our extensive course collection
         </p>
 
-        <h1 class="large:text-35px large:w-90 large:leading-8 small:leading-5 font-semibold small:w-100 small:text-20px">
+        <h1 class="large:text-25px large:w-90 large:leading-8 small:leading-5 font-semibold small:w-100 small:text-20px">
           We empower you to earn money, respect and peace of mind.
         </h1>
 
@@ -30,7 +31,7 @@ function AboutHero() {
           onClick={toggleDownloadScreen}
         >
           <TbFileTypePdf className="text-20px" />
-          Download Our Corporate Presentation
+          {buttonText ? buttonText : "Download Our Corporate Presentation"}
         </div>
       </div>
 

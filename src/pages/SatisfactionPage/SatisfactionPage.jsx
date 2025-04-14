@@ -20,7 +20,7 @@ function SatisfactionPage() {
         <MobileAboutButtonSwiper />
       </div>
 
-      <div className="flex h-auto large:flex-row large:pr-2 large:gap-5 large:justify-start large:items-center large:w-83vw bg-faintPink rounded-10 small:flex-col small:items-center small:w-90vw small:p-1 small:gap-2">
+      <div className="flex h-auto large:flex-row large:pr-2 large:py-2 large:gap-5 large:justify-start large:items-start large:w-83vw bg-faintPink rounded-10 small:flex-col small:items-center small:w-90vw small:p-1 small:gap-2">
         
         <img
           src={PHOTOS.how}
@@ -32,7 +32,7 @@ function SatisfactionPage() {
 
         <div className="flex flex-col gap-2 large:h-100 large:w-60 small:h-auto small:w-100">
           
-          <div className="flex gap-2 p-1 bg-white rounded large:items-center large:w-100 text-11px large:flex-row small:flex-col">
+          <div className="flex gap-2 p-1 bg-white rounded large:items-center large:w-100 text-15px large:flex-row small:flex-col">
             
             <div className="flex items-center justify-center rounded-full h-50px w-50px bg-faintPink">
               <FiUsers className="px-1 border rounded-full text-50px text-crossLightPurple" />
@@ -44,7 +44,7 @@ function SatisfactionPage() {
             </p>
           </div>
 
-          <div className="flex gap-2 p-1 bg-white rounded large:items-center large:w-100 text-11px large:flex-row small:flex-col">
+          <div className="flex gap-2 p-1 bg-white rounded large:items-center large:w-100 text-15px large:flex-row small:flex-col">
             
             <div className="flex items-center justify-center rounded-full h-50px w-50px bg-faintPink">
               <TbMedal2 className="px-1 border rounded-full text-50px text-crossLightPurple" />
@@ -56,7 +56,7 @@ function SatisfactionPage() {
             </p>
           </div>
 
-          <div className="flex gap-2 p-1 bg-white rounded large:items-center large:w-100 text-11px large:flex-row small:flex-col">
+          <div className="flex gap-2 p-1 bg-white rounded large:items-center large:w-100 text-15px large:flex-row small:flex-col">
             <div className="flex items-center justify-center rounded-full h-50px w-50px bg-faintPink">
               <IoMdPersonAdd className="px-1 border rounded-full text-50px text-crossLightPurple" />
             </div>
@@ -66,6 +66,7 @@ function SatisfactionPage() {
               vero eum deleniti,
             </p>
           </div>
+
         </div>
       </div>
 

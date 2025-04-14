@@ -1,0 +1,23 @@
+import React, { useContext } from 'react';
+import { Outlet, Navigate } from 'react-router-dom';
+import { CrossContext } from '../../Context/CrossContext';
+
+
+
+function ProtectedAdmin() {
+
+  const {me} = useContext(CrossContext)
+
+  const human = localStorage.getItem("loginToken") !== null;
+
+  // const authenticatedAdmin = me && me.role.toLowerCase().includes("admin");
+
+
+  
+return(
+  human && me && me.role.toLowerCase().includes("admin") ? <Outlet /> : <Navigate to="/login" /> 
+)
+};
+
+
+export { ProtectedAdmin };

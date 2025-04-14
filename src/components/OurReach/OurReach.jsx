@@ -62,7 +62,7 @@ function OurReach() {
       </div>
 
       <div
-        className="flex items-center justify-center gap-3 border border-gray-300 rounded-tr-3xl large:flex-row large:h-150px w-100 bg-crossIconBg small:flex-wrap small:h-auto small:py-2 large:py-0 rounded-bl-3xl"
+        className="flex items-center justify-center border border-gray-300 large:gap-6 small:gap-3 rounded-tr-3xl large:flex-row large:h-150px w-100 bg-crossIconBg small:flex-wrap small:h-auto small:py-2 large:py-0 rounded-bl-3xl"
         ref={counterRef}
       >
 

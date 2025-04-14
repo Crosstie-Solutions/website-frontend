@@ -10,6 +10,9 @@ import ProgramsFilter from "../../components/ProgramsFilter/ProgramsFilter";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { CgChevronLeft } from "react-icons/cg";
 import DownloadScreen from "../../components/DownloadScreen/DownloadScreen";
+import AboutHero from "../../components/AboutHero/AboutHero";
+
+
 
 
 function OpenExecutivePage() {
@@ -18,11 +21,11 @@ function OpenExecutivePage() {
     handleProgramsPageChange,
     currentProgramsPage,
     totalProgramsPages,
-    programsSearchTerm,
-    allPrograms, allCourses, downloadScreen,
+    allPrograms, allCourses, downloadScreen, downloadProgramScreen,
     toggleDownloadScreen
   } = useContext(CrossContext);
 
+  
   const downloadUrl = allCourses && allCourses.length > 0 ? allCourses[0].courseBrochure : "";
   const title = allCourses && allCourses.length > 0 && allCourses[0].courseTitle;
 
@@ -36,10 +39,10 @@ function OpenExecutivePage() {
 
 
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 large:mt-15 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
       
 
-      <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
+      {/* <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
         <img src={PHOTOS.about6} alt="photos" className="w-100 h-100" />
 
         <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw aboutOne small:h-200px small:pl-2">
@@ -61,7 +64,12 @@ function OpenExecutivePage() {
           </div>
           
         </div>
-      </div>
+      </div> */}
+
+      <AboutHero 
+        tag={title}
+        buttonText="Download OEP Course Brochure"
+      />
 
       <div className="flex flex-col items-center h-auto w-100">
         <CoursesButtonSwiper />
@@ -75,20 +83,27 @@ function OpenExecutivePage() {
       <div className="flex flex-row flex-wrap h-auto gap-3 small:justify-center small:w-100 large:w-83vw large:justify-between">
         {openPrograms &&
           openPrograms.map((program, i) => {
-
-            const slug = program.category.split(" ").slice(0, 2).join("-").toLowerCase();
             
             return (
-              <Program
-                key={i}
-                title={program.title}
-                duration={program.duration}
-                date={program.date}
-                time={program.time}
-                mode={program.mode}
-                id={program._id}
-                // slug={slug}
-              />
+              <div>
+                  <Program
+                  key={i}
+                  title={program.title}
+                  duration={program.duration}
+                  date={program.date}
+                  time={program.time}
+                  mode={program.mode}
+                  id={program._id}
+                  courseContent={program.courseContent}
+                  // slug={slug}
+                />
+
+                {downloadProgramScreen && 
+                    <DownloadScreen 
+                      downloadUrl={program.courseContent}
+                      title={program.title}
+                    />}
+              </div>
             )
           })}
       </div>

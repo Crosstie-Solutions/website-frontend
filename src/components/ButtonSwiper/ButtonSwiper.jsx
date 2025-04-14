@@ -43,7 +43,7 @@ const AboutButtonSwiper = () => {
     <div className="flex-row justify-center overflow-hidden small:mt-5 large:flex large:w-84vw large:text-15px small:w-90 small:text-10px small:hidden large:mt-2">
    
       
-      <div className="flex flex-row justify-between large:w-100 gap-2 px-1 py-0.5 border border-crossFooterText  rounded-20 small:w-100" 
+      <div className="flex flex-row justify-between gap-2 px-1 py-1 border large:w-100 border-crossFooterText rounded-20 small:w-100" 
      
       >
         {routes.map((item, index) => (
@@ -89,7 +89,7 @@ const CoursesButtonSwiper = () => {
     <div className="flex-row justify-center overflow-hidden large:mt-0 small:mt-5 large:flex large:w-83vw large:text-13px small:w-90 small:text-10px small:hidden">
    
       
-      <div className="flex flex-row justify-between large:w-100 gap-2 px-1 py-0.5 border border-crossFooterText  rounded-20 small:w-100" 
+      <div className="flex flex-row justify-between gap-2 px-1 py-1 border large:w-100 border-crossFooterText rounded-20 small:w-100" 
       >
         {routes.map((item, index) => (
           <NavLink to={`/our-courses/${item.route}`} key={index} 
@@ -135,10 +135,10 @@ const SolutionButtonSwiper = () => {
 
 
   return (
-    <div className="flex-row justify-center overflow-hidden border small:mt-5 large:flex large:w-84vw large:text-15px small:w-90 small:text-10px small:hidden large:mt-0">
+    <div className="flex-row justify-center overflow-hidden small:mt-5 large:flex large:w-84vw large:text-15px small:w-90 small:text-10px small:hidden large:mt-0">
    
       
-      <div className="flex flex-row justify-between large:w-100 gap-2 px-1 py-0.5 border border-crossFooterText  rounded-20 small:w-100" 
+      <div className="flex flex-row justify-between gap-2 px-1 py-1 border large:w-100 border-crossFooterText rounded-20 small:w-100" 
      
       >
         {routes.map((item, index) => (

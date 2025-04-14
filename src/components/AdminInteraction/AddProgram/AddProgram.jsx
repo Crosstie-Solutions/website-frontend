@@ -234,9 +234,9 @@ function AddProgram() {
             validationErrors.mode = "add training mode";
           }
 
-          if (!productData.time) {
-            validationErrors.time = "add product time";
-          }
+          // if (!productData.time) {
+          //   validationErrors.time = "add product time";
+          // }
 
           // if (date.length < 1) {
           //   validationErrors.date = "add product date";
@@ -433,6 +433,7 @@ function AddProgram() {
                     <option value="">-select-</option>
                     <option value="Online">Online</option>
                     <option value="Physical">Physical</option>
+                    <option value="Physical">Physical/Online</option>
                   </select>
                   {productErrors && (
                     <p className="text-13px text-vogueRed">
@@ -445,16 +446,16 @@ function AddProgram() {
                 <div className="flex flex-col w-40 h-auto">
                   <label htmlFor="title">Time</label>
                   <input
-                    type="time"
+                    type="text"
                     name="time"
                     className="p-0.5 border rounded-4"
                     onChange={handleChange}
                   />
-                  {productErrors && (
+                  {/* {productErrors && (
                     <p className="text-13px text-vogueRed">
                       {productErrors.time}
                     </p>
-                  )}
+                  )} */}
                 </div>
               </div>
 

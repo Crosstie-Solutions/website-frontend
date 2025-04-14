@@ -57,6 +57,8 @@ import BlogPage from "./pages/BlogPage/BlogPage";
 import BlogPostDetails from "./pages/BlogPostDetails/BlogPostDetails";
 import EditBlogPostPage from "./pages/EditBlogPostPage/EditBlogPostPage";
 import CaseStudyPage from "./pages/CaseStudyPage/CaseStudyPage";
+import { ProtectedAdmin } from "./components/ProtectedAdmin/ProtectedAdmin";
+import { ProtectedUser } from "./components/ProtectedUser/ProtectedUser";
 
 
 
@@ -70,7 +72,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, downloadScreen, viewAllHighDemands, bio, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, downloadScreen, viewAllHighDemands, bio, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, downloadUrl, title} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -230,10 +232,20 @@ function App() {
           
           <Route path="/our-solutions/webinars" element={<WebinarPage />} />
           
-          <Route path="/user-profile" element={<UserProfile />} />
-          <Route path="/admin-profile" element={<AdminProfile />} />
           
-          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          
+
+          <Route element={<ProtectedUser />}>
+            <Route path="/user-profile" element={<UserProfile />} />
+          </Route>
+
+          <Route element={<ProtectedAdmin />}>
+            <Route path="/admin-profile" element={<AdminProfile />} />
+            
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          </Route>
+          
+          
 
           <Route path="/verify-email" element={<VerifyEmail />} />
 

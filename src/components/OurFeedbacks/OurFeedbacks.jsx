@@ -26,11 +26,11 @@ function OurFeedbacks() {
       <div className="flex flex-col h-auto gap-0.5 w-100">
         <div className="flex items-center w-auto h-auto gap-1">
           <hr className="h-2px w-40px bg-crossLightPurple" />
-          <h5 className="text-crossLightPurple text-20px">
+          <h5 className="text-crossLightPurple text-17px">
             PARTICIPANTS & CLIENTS’ STORIES
           </h5>
         </div>
-        <h3 className="font-semibold text-30px">Real Stories, Real Impact</h3>
+        <h3 className="font-semibold text-25px">Real Stories, Real Impact</h3>
         <p className="text-15px text-crossTextGray">
           Hear how Crosstie’s training and consulting services transformed
           participants and organisations

@@ -22,18 +22,18 @@ function OurValues() {
             
             <div className='flex items-center justify-between h-auto w-100 large:flex-row small:flex-col small:gap-3 large:gap-0'>
 
-                {/* Experience */}
+                {/* Transformation */}
                 <div className='flex flex-col justify-center gap-2 p-2 bg-white border border-crossIconBg large:w-30 h-300px text-15px rounded-20 small:w-100'>
                     
-                    <div className='flex items-center justify-center h-40px w-40px'><img src={PHOTOS.experience} alt="mission icon" className='h-100 w-100'/></div>
+                    <div className='flex items-center justify-center h-40px w-40px'><img src={PHOTOS.transformation} alt="mission icon" className='h-100 w-100'/></div>
                     
-                    <h3 className='font-bold text-black'>Experience</h3>
+                    <h3 className='font-bold text-black'>Transformation</h3>
                     
-                    <p className='text-13px text-crossTextGray'>We prioritize providing an exceptional experience for our clients, employees, and partners, striving to exceed expectations and build long-lasting relationships based on trust and mutual respect.</p>                
+                    <p className='text-13px text-crossTextGray'>We are dedicated to transforming transformational change for our clients, helping them unlock their full potential and achieve their goals.</p>                
                 </div>
 
-                {/* Excellence */}
-                <div className='flex flex-col justify-center gap-2 p-2 bg-white border border-crossIconBg large:w-30 h-300px text-15px rounded-20 small:w-100'>
+                 {/* Excellence */}
+                 <div className='flex flex-col justify-center gap-2 p-2 bg-white border border-crossIconBg large:w-30 h-300px text-15px rounded-20 small:w-100'>
                     
                     <div className='flex items-center justify-center h-40px w-40px'><img src={PHOTOS.excellence} alt="mission icon" className='h-100 w-100'/></div>
                     
@@ -42,15 +42,15 @@ function OurValues() {
                     <p className='text-13px text-crossTextGray'>We strive for excellence in all aspects of our work, delivering high quality services that exceed client expectations.</p>                
                 </div>  
 
-                  {/* Transformation */}
-                  <div className='flex flex-col justify-center gap-2 p-2 bg-white border border-crossIconBg large:w-30 h-300px text-15px rounded-20 small:w-100'>
+                {/* Experience */}
+                <div className='flex flex-col justify-center gap-2 p-2 bg-white border border-crossIconBg large:w-30 h-300px text-15px rounded-20 small:w-100'>
                     
-                    <div className='flex items-center justify-center h-40px w-40px'><img src={PHOTOS.transformation} alt="mission icon" className='h-100 w-100'/></div>
+                    <div className='flex items-center justify-center h-40px w-40px'><img src={PHOTOS.experience} alt="mission icon" className='h-100 w-100'/></div>
                     
-                    <h3 className='font-bold text-black'>Transformation</h3>
+                    <h3 className='font-bold text-black'>Experience</h3>
                     
-                    <p className='text-13px text-crossTextGray'>We are dedicated to transforming transformational change for our clients, helping them unlock their full potential and achieve their goals.</p>                
-                </div>
+                    <p className='text-13px text-crossTextGray'>We prioritize providing an exceptional experience for our clients, employees, and partners, striving to exceed expectations and build long-lasting relationships based on trust and mutual respect.</p>                
+                </div>               
                 
                
             </div>
