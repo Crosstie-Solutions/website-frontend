@@ -10,7 +10,7 @@ import axios from 'axios';
 
 
 function CourseEnrollmentForm() {
-  const { toggleEnrollment, program, setLoading, baseUrl } = useContext(CrossContext);
+  const { toggleEnrollment, program, setLoading, baseUrl, executiveCourse} = useContext(CrossContext);
 
   
   const [activeForm, setActiveForm] = useState("courseDetails");
@@ -43,12 +43,6 @@ function CourseEnrollmentForm() {
     console.log("enrollmentData:", enrollmentData);
   };
 
-  
-
-  //to controll form look for different course categories
-  const executiveCourse = program && program.category=== "Open Executive Programmes (OEP)";
-
-  console.log("executiveCourse:", executiveCourse);
   
 
   //funtion for enrollment
@@ -110,10 +104,12 @@ function CourseEnrollmentForm() {
         </h3>
 
         <div className="flex gap-2 font-semibold large:px-2 w-100 large:flex-row small:flex-col">
-          <div className="flex items-center justify-start gap-1 border rounded h-30px px-0.5">
+          
+          
+          {/* <div className="flex items-center justify-start gap-1 border rounded h-30px px-0.5">
             <FaRegCalendarAlt className="text-15px text-crossLightPurple" />
-            {program && program.date[0]} Dec
-          </div>
+            {program && program.date[0]}
+          </div> */}
 
           <div className="flex items-center justify-start gap-1 border rounded h-30px px-0.5">
             <TbTimeDuration30 className="text-20px text-crossLightPurple" />
@@ -231,7 +227,7 @@ function CourseEnrollmentForm() {
               </div>
 
               <div className="flex items-center justify-between h-auto w-100">
-                <div className="flex flex-col h-auto w-45">
+                <div className={`flex flex-col h-auto ${executiveCourse ? "w-45" : "w-100"}`}>
                   <label htmlFor="">Designation</label>
 
                   <input
@@ -243,7 +239,7 @@ function CourseEnrollmentForm() {
                   />
                 </div>
 
-
+                {executiveCourse &&
                 <div className="flex flex-col h-auto w-45">
                   <label htmlFor="preferredDate">Preferred date</label>
                   
@@ -268,7 +264,7 @@ function CourseEnrollmentForm() {
                       }
                       
                   </select>
-                </div>
+                </div>}
               </div>
             </div>
 

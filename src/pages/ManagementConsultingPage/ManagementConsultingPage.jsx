@@ -15,7 +15,7 @@ import { GoArrowRight } from "react-icons/go";
 
 import { MdOutlineChevronRight } from "react-icons/md";
 
-import CaseStudy from "../../components/CaseStudy/CaseStudy";
+import {CaseStudy} from "../../components/CaseStudy/CaseStudy";
 import OurCaseStudy from "../../components/OurCaseStudy/OurCaseStudy";
 
 

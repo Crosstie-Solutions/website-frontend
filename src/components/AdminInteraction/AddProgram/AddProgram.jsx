@@ -14,7 +14,7 @@ function AddProgram() {
         loginToken,
         setLoading,
         activeScreen,
-        allCourses, setActiveScreen
+        allCourses, setActiveScreen, executiveCourse
       } = useContext(CrossContext);
 
 
@@ -210,46 +210,42 @@ function AddProgram() {
       
           //To ensure valid inputs
           if (!productData.title.trim()) {
-            validationErrors.title = "product title is required";
+            validationErrors.title = "program title is required";
           }
       
           if (!category.trim()) {
-            validationErrors.category = "specify product category";
+            validationErrors.category = "specify program category";
           }
       
           if (productData.cost < 1) {
-            validationErrors.cost = "add product cost";
+            validationErrors.cost = "add program cost";
           }
       
       
           if (!productData.targetAudience) {
-            validationErrors.targetAudience = "specify product target audience";
+            validationErrors.targetAudience = "specify program target audience";
           }
       
           if (!productData.duration) {
-            validationErrors.duration = "add product duration";
+            validationErrors.duration = "add program duration";
           }
 
           if (!productData.mode) {
-            validationErrors.mode = "add product mode";
+            validationErrors.mode = "add training mode";
           }
 
           if (!productData.time) {
             validationErrors.time = "add product time";
           }
 
-          if (date.length < 1) {
-            validationErrors.date = "add product date";
-          }
+          // if (date.length < 1) {
+          //   validationErrors.date = "add product date";
+          // }
 
           if (objectives.length < 1) {
             validationErrors.objectives = "add product objectives";
           }
       
-      
-          if (!productData.description.trim()) {
-            validationErrors.description = "add a brief description to the product";
-          }
       
           if (!productData.courseContent) {
             validationErrors.courseContent = "upload course content.";
@@ -319,7 +315,7 @@ function AddProgram() {
             <h4 className="font-semibold text-crossLightPurple">Add Program</h4>
 
             <div
-              className="flex flex-col h-auto gap-1 w-100 large:text-15px small:text-13px"
+              className="flex flex-col h-auto gap-2 w-100 large:text-15px small:text-13px"
             >
               <div className="flex items-center justify-start h-auto gap-5 w-100">
                 <div className="flex flex-col w-40 h-auto">
@@ -508,7 +504,7 @@ function AddProgram() {
 
 
               <div className="flex flex-col h-auto gap-1 w-100">
-                  <label htmlFor="title">Date</label>
+                  <label htmlFor="title">Date (Optional)</label>
                   {
                     date && date.map((day, index)=>
                       <div className='flex items-center gap-1' key={index}>

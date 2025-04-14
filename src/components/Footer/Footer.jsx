@@ -144,7 +144,7 @@ const myEmail = document.getElementById('myEmail');
             <Link className="text-crossFooterText"
              to='/blog'
             >Blog </Link>
-            <li><Link to="">Case Studies </Link></li>
+            <li><Link to="/case-studies">Case Studies </Link></li>
             <li><Link to="">Terms of Service </Link></li>
             <li><Link to="">Careers</Link></li>
             <li><Link to="">Privacy Policy </Link></li>

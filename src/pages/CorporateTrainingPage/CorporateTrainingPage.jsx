@@ -10,9 +10,11 @@ import { MdOutlineChevronRight } from "react-icons/md";
 import { FaUserTie } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { HiArrowLongRight } from "react-icons/hi2";
-import CaseStudy from "../../components/CaseStudy/CaseStudy";
+import {CaseStudy} from "../../components/CaseStudy/CaseStudy";
 import { GoArrowRight } from "react-icons/go";
 import OurCaseStudy from "../../components/OurCaseStudy/OurCaseStudy";
+
+
 
 
 function CorporateTrainingPage() {

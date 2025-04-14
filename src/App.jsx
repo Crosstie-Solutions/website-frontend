@@ -56,6 +56,7 @@ import Bio from "./components/Bio/Bio";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import BlogPostDetails from "./pages/BlogPostDetails/BlogPostDetails";
 import EditBlogPostPage from "./pages/EditBlogPostPage/EditBlogPostPage";
+import CaseStudyPage from "./pages/CaseStudyPage/CaseStudyPage";
 
 
 
@@ -214,6 +215,8 @@ function App() {
           <Route path="/login" element={<LoginSignupPage />} />
           
           <Route path="/blog" element={<BlogPage />} />
+          
+          <Route path="/case-studies" element={<CaseStudyPage />} />
           
           <Route path="/blog/:postId" element={<BlogPostDetails />} />
           <Route path="/blog/edit/:postId" element={<EditBlogPostPage />} />

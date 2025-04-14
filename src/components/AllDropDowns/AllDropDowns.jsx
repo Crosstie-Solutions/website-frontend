@@ -6,11 +6,11 @@ import { CrossContext } from '../../Context/CrossContext';
 
 function AboutDD() {
 
-    const {hideAboutDD, showAboutDD, dropdownRef, toggleNav} = useContext(CrossContext)
+    const {hideAboutDD, showAboutDD, dropdownRef, toggleNav, me} = useContext(CrossContext)
     
     
   return (
-    <div className='fixed z-20 flex flex-col h-auto gap-1 py-2 bg-white border-2 shadow-lg w-250px large:top-13 large:left-22vw text-15px small:top-15 small:left-2 border-t-crossLightPurple'
+    <div className={`fixed z-20 flex flex-col h-auto gap-1 py-2 bg-white border-2 shadow-lg w-250px large:top-13 ${me ? "large:left-23vw" : "large:left-22vw"} text-15px small:top-15 small:left-2 border-t-crossLightPurple`}
     ref={dropdownRef}
     onMouseEnter={showAboutDD}
     onMouseLeave={hideAboutDD}
@@ -71,10 +71,10 @@ function AboutDD() {
 
 function SolutionsDD() {
 
-  const {showSolutionsDD, hideSolutionsDD, dropdownRef, toggleNav} = useContext(CrossContext)
+  const {showSolutionsDD, hideSolutionsDD, dropdownRef, toggleNav, me, loginToken} = useContext(CrossContext)
   
 return (
-  <div className='fixed z-20 flex flex-col h-auto gap-1 py-2 bg-white border-2 rounded shadow-lg w-250px large:top-13 large:left-33vw text-15px small:top-19 small:left-2 border-t-crossLightPurple'
+  <div className={`fixed z-20 flex flex-col h-auto gap-1 py-2 bg-white border-2 rounded shadow-lg w-250px large:top-13 ${ me ? "large:left-35vw" : "large:left-33vw"} text-15px small:top-19 small:left-2 border-t-crossLightPurple`}
   ref={dropdownRef}
   onMouseEnter={showSolutionsDD}
   onMouseLeave={hideSolutionsDD}
@@ -110,10 +110,11 @@ return (
 
 function CoursesDD() {
 
-  const {showCoursesDD, hideCoursesDD, navCourses, dropdownRef, toggleNav} = useContext(CrossContext)
+  const {showCoursesDD, hideCoursesDD, navCourses, dropdownRef, toggleNav, me} = useContext(CrossContext);
+  
   
 return (
-  <div className={`fixed z-20 flex flex-col h-auto gap-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 large:left-44vw text-15px ${navCourses ? "small:top-13 small:left-10vw" : "small:top-24 small:left-2"} border-2 border-t-crossLightPurple`}
+  <div className={`fixed z-20 flex flex-col h-auto gap-1 py-2 bg-white border rounded shadow-lg w-250px large:top-13 ${me ? "large:left-46vw" : "large:left-44vw"} text-15px ${navCourses ? "small:top-13 small:left-10vw" : "small:top-24 small:left-2"} border-2 border-t-crossLightPurple`}
   ref={dropdownRef}
   onMouseEnter={showCoursesDD}
   onMouseLeave={hideCoursesDD}
@@ -141,39 +142,5 @@ return (
 )
 }
 
-// function MobileCategoriesDD({toggleNav}) {
-
-//   const {categoriesRef} = useContext(QxContext)
-  
-// return (
-//   <div className='relative flex flex-col h-auto px-1 py-1 bg-white w-100 text-15px bottom-3'
-//   ref={categoriesRef}
-//   >
-//     <Link to='/shop/lotion' className='flex items-center justify-between pl-1 hover:bg-qxDarkGreen'
-//     onClick={toggleNav}
-//     >Qx5 Lotion <MdChevronRight className='text-20px'/></Link>
-    
-//     <Link to='/shop/face-cream' className='flex items-center justify-between pl-1 hover:bg-qxDarkGreen'
-//     onClick={toggleNav}
-//     >Qx5 Face Cream <MdChevronRight className='text-20px'/></Link>
-    
-//     <Link to='/shop/soap' className='flex items-center justify-between pl-1 hover:bg-qxDarkGreen'
-//     onClick={toggleNav}
-//     >Qx5 Soap <MdChevronRight className='text-20px'/></Link>
-
-//     <Link to='/shop/scrub' className='flex items-center justify-between pl-1 hover:bg-qxDarkGreen'
-//     onClick={toggleNav}
-//     >Qx5 Scrub <MdChevronRight className='text-20px'/></Link>
-    
-//     <Link to='/shop/oil' className='flex items-center justify-between pl-1 hover:bg-qxDarkGreen'
-//     onClick={toggleNav}
-//     >Qx5 Oil <MdChevronRight className='text-20px'/></Link>
-    
-//     <Link to='/shop/serum' className='flex items-center justify-between pl-1 hover:bg-qxDarkGreen'
-//     onClick={toggleNav}
-//     >Qx5 Serum <MdChevronRight className='text-20px'/></Link>
-//   </div>
-// )
-// }
 
 export  { AboutDD, SolutionsDD, CoursesDD };

@@ -1,5 +1,5 @@
 import React from 'react';
-import CaseStudy from '../CaseStudy/CaseStudy';
+import { CaseStudy } from '../CaseStudy/CaseStudy';
 import { GoArrowRight } from "react-icons/go";
 import { Link } from 'react-router-dom';
 

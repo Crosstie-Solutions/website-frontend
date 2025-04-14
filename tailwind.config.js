@@ -74,6 +74,9 @@ export default {
         '60vw': '60vw',
         '50vw': '50vw',
         '40vw': '40vw',
+        '35vw': '35vw',
+        '34vw': '34vw',
+        '32vw': '32vw',
         '30vw': '30vw',
         '25vw': '25vw',
         '21vw': '21vw',
@@ -287,6 +290,7 @@ export default {
         '40vw': '40vw',
         '44vw': '44vw',
         '45vw': '45vw',
+        '46vw': '46vw',
         '50vw': '50vw',
       },
 

@@ -309,7 +309,13 @@ function ProgramDetailsPage() {
         
         <div className="flex flex-col gap-3 large:w-40 small:w-100 small:px-1 large:px-0 small:py-3 large:py-0">
 
-
+        <div className="flex flex-col gap-1 bg-white w-100">
+            <h4 className="p-1 text-white bg-crossLightPurple">About The Course</h4>
+            <p className="leading-loose small:p-1">
+            {program && program.description[0].toUpperCase()}
+            {program && program.description.slice(1)}.
+            </p>
+          </div>
 
         <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
             <h4 className="p-1 text-white bg-crossLightPurple w-100">Modules</h4>
@@ -355,13 +361,13 @@ function ProgramDetailsPage() {
 
         <div className="flex flex-col gap-3 border large:w-40 small:w-100">
           
-          <div className="flex flex-col gap-1 bg-white w-100">
+          {/* <div className="flex flex-col gap-1 bg-white w-100">
             <h4 className="p-1 text-white bg-crossLightPurple">About The Course</h4>
             <p className="leading-loose small:p-1">
             {program && program.description[0].toUpperCase()}
             {program && program.description.slice(1)}.
             </p>
-          </div>
+          </div> */}
 
           <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
             <h4 className="p-1 text-white bg-crossLightPurple w-100">Workshop Objectives</h4>

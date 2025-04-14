@@ -247,6 +247,12 @@ const[loading, setLoading] = useState(false);
 
   
 
+    //to controll form look for different course categories
+  // this is the only course that both companies and individuals can register and it has dates. The rest are strictly for HR person to register the staff and they have no dates
+  const executiveCourse = program && program.category==="Open Executive Programmes (OEP)";
+
+  console.log("executiveCourse:", executiveCourse);
+
 
 
   //to fetch a single program
@@ -1193,7 +1199,7 @@ const [activeSearch, setActiveSearch] = useState(false)
   currentPartners, partnersSearchTerm, setPartnersSearchTerm, setCurrentPartnersPage,
   currentPartnersPage, activeHighDemand, toggleHighDemand,
   totalPartnersPages, loadAllHighDemand,
-  handlePartnersPageChange,
+  handlePartnersPageChange, executiveCourse,
   allPartners, fetchAllHighDemand,
   currentUsersPage, togglePartner,
   activePartner,
