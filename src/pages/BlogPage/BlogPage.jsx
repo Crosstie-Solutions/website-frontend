@@ -25,7 +25,7 @@ function BlogPage() {
     <div className='flex flex-col items-start p-2 mt-20 bg-white w-83vw rounded-10'>
       
      <div className='flex flex-row items-start justify-between h-auto w-100'>
-        <div className='flex flex-col gap-3 w-70'>
+        <div className='flex flex-col items-center justify-center h-auto gap-3 w-70'>
           {
               currentBlogPosts && currentBlogPosts.map((post, i)=>
                   <SecondBlogPost 
@@ -40,6 +40,8 @@ function BlogPage() {
           }
 
           {loadingAllBlogPosts && <p>Loading articles</p>}
+          
+          {!loadingAllBlogPosts && currentBlogPosts && currentBlogPosts.length < 1 && <p className='mt-10'>No Article found.</p>}
         </div>
 
 

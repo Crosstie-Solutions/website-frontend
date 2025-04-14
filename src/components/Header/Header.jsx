@@ -18,9 +18,9 @@ function Header() {
 
   const navigate = useNavigate();
 
-    const {hideAboutDD, showAboutDD, showSolutionsDD, hideSolutionsDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, aboutDD, solutionsDD, coursesDD, toggleMobileSearch, me} = useContext(CrossContext);
+    const {hideAboutDD, showAboutDD, showSolutionsDD, hideSolutionsDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, aboutDD, solutionsDD, coursesDD, toggleMobileSearch, me, activeSearch, setActiveSearch, programsSearchTerm, setProgramsSearchTerm, setCurrentProgramsPage} = useContext(CrossContext);
 
-    const [activeSearch, setActiveSearch] = useState(false)
+   
 
     
     
@@ -243,10 +243,16 @@ function Header() {
           onFocus={()=>{
             setActiveSearch(true);
           }}
-
-          onBlur={()=>{
-            setActiveSearch(false);
+          
+          value={programsSearchTerm}
+          onChange={(e) => {
+            setProgramsSearchTerm(e.target.value);
+            setCurrentProgramsPage(1); // Reset to first page on search
           }}
+
+          // onBlur={()=>{
+          //   setActiveSearch(false);
+          // }}
           />
           <CiSearch className="rounded-full text-30px bg-crossLightPurple text-vogueWhite p-0.5"/>
         </div>

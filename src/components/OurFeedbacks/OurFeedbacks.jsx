@@ -61,6 +61,9 @@ function OurFeedbacks() {
         }
 
               {loadingAllTestimonials &&<p className="font-semibold text-20px">Loading testimonials...</p>}
+
+              {!loadingAllTestimonials && allTestimonials && allTestimonials.length < 1 &&
+            <p className="font-semibold text-15px">No Feedback Found</p>}
           </div>
 
           <Link 

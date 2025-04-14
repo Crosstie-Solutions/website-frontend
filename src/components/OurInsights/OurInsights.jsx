@@ -46,7 +46,9 @@ function OurInsights() {
             )
            }
             
-
+            {allBlogPosts && allBlogPosts.length < 1 &&
+            <p className="font-semibold text-15px">No Article Found</p>}
+            
           </div>
 
           <Link 

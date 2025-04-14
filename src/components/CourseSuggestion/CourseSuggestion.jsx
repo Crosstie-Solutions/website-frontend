@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { courseData } from '../../assets/data';
 import { Link } from 'react-router-dom';
 import { CrossContext } from '../../Context/CrossContext';
@@ -6,13 +6,44 @@ import { CrossContext } from '../../Context/CrossContext';
 
 
 function CourseSuggestion() {
+
+  const {currentPrograms, setActiveSearch} = useContext(CrossContext);
+
+  //Click outside to close drop down
+    let dropdownRef = useRef()
+  
+    useEffect(() =>{
+      let handler = (event) =>{
+        if(!dropdownRef.current?.contains(event.target)){
+          setActiveSearch(false)
+        }
+      }
+  
+      document.addEventListener("mousedown", handler);
+  
+      return ()=>{
+        document.removeEventListener("mousedown", handler);
+      }
+  
+    });
+
   return (
-    <div className='fixed z-30 flex flex-col items-start p-2 overflow-y-scroll bg-white top-13 w-30vw h-300px right-30vw text-15px rounded'>
+    <div className='fixed z-30 flex flex-col items-center h-auto px-2 py-5 overflow-y-scroll bg-white border-t-2 rounded top-13 w-30vw right-30vw text-15px border-crossLightPurple'
+    ref={dropdownRef}
+    >
       {
-        courseData && courseData.map((course, i)=>
-        <Link key={i} className='p-1 border-b w-100'>{course.title}</Link>
+        currentPrograms && currentPrograms.map((program, i)=>
+        <Link key={i}
+        onClick={()=>{
+          setActiveSearch(false);
+        }}
+        to={`/our-courses/${program.id}`}
+        className='p-1 border-b w-100 hover:bg-gray-200 hover:text-crossLightPurple'>{program.title}</Link>
         )
       }
+
+      {currentPrograms && currentPrograms.length < 1 &&
+      <p className='font-semibold'>No Result Found.</p>}
     </div>
   )
 }
@@ -20,17 +51,24 @@ function CourseSuggestion() {
 
 function MobileCourseSuggestion() {
 
-    const {toggleMobileSearch} = useContext(CrossContext);
+    const {toggleMobileSearch, currentPrograms} = useContext(CrossContext);
     
     return (
-      <div className='flex flex-col items-start p-2 overflow-y-scroll bg-white rounded w-80vw h-250px text-15px'>
+      <div className='flex flex-col items-center justify-center p-2 overflow-y-scroll bg-white border-t-2 rounded w-80vw h-250px text-15px border-crossLightPurple'>
         {
-          courseData && courseData.map((course, i)=>
-          <Link to="/about-us" key={i} className='p-1 border-b w-100'
+          currentPrograms && currentPrograms.map((program, i)=>
+          <Link 
+          to={`/our-courses/${program.id}`}
+          key={i} 
+          className='p-1 border-b w-100'
           onClick={toggleMobileSearch}
-          >{course.title}</Link>
+          >{program.title}</Link>
           )
         }
+
+        {currentPrograms && currentPrograms.length < 1 &&
+        <p className='font-semibold'>No Result Found.</p>}
+        
       </div>
     )
   }

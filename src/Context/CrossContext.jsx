@@ -80,6 +80,9 @@ const toggleCoursesDD = ()=>{
 
   });
 
+
+
+
   const [navBar, SetNavBar] = useState(false);
 
   const toggleNav = () =>{
@@ -1159,6 +1162,10 @@ const toggleHighDemand = async (index)=> {
 
 
 
+// for desktop search bar
+const [activeSearch, setActiveSearch] = useState(false)
+
+
 
   //scroll to top effect
   useEffect(() => {
@@ -1190,7 +1197,7 @@ const toggleHighDemand = async (index)=> {
   allPartners, fetchAllHighDemand,
   currentUsersPage, togglePartner,
   activePartner,
-  totalUsersPages,
+  totalUsersPages, activeSearch, setActiveSearch,
   handleUsersPageChange,
     allUsers, activeAdmin, toggleRemoveAdmin,
   activeBlogPost,

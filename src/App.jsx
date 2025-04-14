@@ -69,7 +69,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, downloadScreen, viewAllHighDemands, bio, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, downloadScreen, viewAllHighDemands, bio, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -177,7 +177,8 @@ function App() {
         {solutionsDD && <SolutionsDD />}
         {coursesDD && <CoursesDD />}
         {mobileSearch && <MobileSearchBar />}
-        {/* {courseData.length >  0 && <CourseSuggestion />} */}
+        {activeSearch && <CourseSuggestion />}
+        
         {enrollmentForm && <CourseEnrollmentForm />}
         {loading && <Loading />}
         {webinarEnrollment && <WebinarEnrollmentForm />}
