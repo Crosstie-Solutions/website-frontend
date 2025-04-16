@@ -462,15 +462,15 @@ const fetchMe = async () => {
     console.error('Error fetching user data:', error.response.data.message);
 
     
-    // if(error.response.data.message === 'jwt expired'){
-    //   localStorage.clear();
-    //  }
-    //  if(error.response.data.message === 'Your token has expired, please log in again.'){
-    //   localStorage.clear();
-    //  }  
-    //  if(error.response.data.message === 'User recently changed password! Please log in again.'){
-    //   localStorage.clear();
-    //  }   
+    if(error.response.data.message === 'jwt expired'){
+      localStorage.clear();
+     }
+     if(error.response.data.message === 'Your token has expired, please log in again.'){
+      localStorage.clear();
+     }  
+     if(error.response.data.message === 'User recently changed password! Please log in again.'){
+      localStorage.clear();
+     }   
 
   }
 };
