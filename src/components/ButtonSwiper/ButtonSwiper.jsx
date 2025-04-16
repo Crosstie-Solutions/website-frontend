@@ -80,7 +80,7 @@ const CoursesButtonSwiper = () => {
   },
 
   {
-    name: "Crosstie Team Bonding",
+    name: "Crosstie Team Bonding (CTB)",
     route: "team-bonding"
   }
 ]
