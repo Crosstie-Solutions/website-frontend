@@ -1339,6 +1339,7 @@ function EditProgramPage() {
                         <option value="">-select-</option>
                         <option value="Online">Online</option>
                         <option value="Physical">Physical</option>
+                        <option value="Physical/Online">Physical/Online</option>
                       </select>}
  
  
