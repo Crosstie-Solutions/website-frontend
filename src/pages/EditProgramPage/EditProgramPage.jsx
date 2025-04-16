@@ -1611,6 +1611,7 @@ function EditProgramPage() {
 
 
               {/*optional Modules */}
+              {optionalModules && optionalModules[0] !=="" &&
               <div className="flex flex-col self-start h-auto gap-1 large:w-85 small:w-85vw">
                   <label htmlFor="optionalModules">Optional Modules</label>
 
@@ -1672,11 +1673,12 @@ function EditProgramPage() {
                        {updatingOptionalModules && <UpdatingBtn />}
                    </div>
 
-              </div>
+              </div>}
 
 
 
                {/*Notes */}
+               {notes && notes[0] !=="" &&
                <div className="flex flex-col self-start h-auto gap-1 large:w-85 small:w-85vw">
                   <label htmlFor="notes">Notes</label>
 
@@ -1738,7 +1740,7 @@ function EditProgramPage() {
                        {updatingNotes && <UpdatingBtn />}
                    </div>
 
-              </div>
+              </div>}
               
 
               
