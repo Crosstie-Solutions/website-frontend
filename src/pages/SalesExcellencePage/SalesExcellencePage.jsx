@@ -61,7 +61,7 @@ function SalesExcellencePage() {
                           mode={program.mode}
                           id={program._id}
                           courseContent={program.courseContent}
-                          // slug={slug}
+                          category={program.category}
                         />
         
                         {downloadProgramScreen && 

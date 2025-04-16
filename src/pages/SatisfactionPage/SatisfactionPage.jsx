@@ -28,7 +28,7 @@ function SatisfactionPage() {
           className="w-250px h-300px rounded-10"
         />
 
-        <hr className="bg-gray-500 large:h-250px large:w-2px small:w-80 small:h-2px" />
+        <hr className="bg-gray-500 large:h-500px large:w-2px small:w-80 small:h-2px" />
 
         <div className="flex flex-col gap-2 large:h-100 large:w-60 small:h-auto small:w-100">
           
@@ -37,10 +37,8 @@ function SatisfactionPage() {
             <div className="flex items-center justify-center rounded-full h-50px w-50px bg-faintPink">
               <FiUsers className="px-1 border rounded-full text-50px text-crossLightPurple" />
             </div>
-            <p className="text-crossTextGray">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit
-              eaque ad maiores tenetur doloribus. Voluptatem, quas similique
-              vero eum deleniti,
+            <p className="">
+            At <span className="font-semibold">Crosstie Solutions</span>, your growth and satisfaction come first. That is why we stand behind every solution we deliver with a firm commitment to quality, impact, and care. When you partner with us, you are not just choosing a service, you are also choosing a <span className="font-semibold">guaranteed commitment to your success.</span>
             </p>
           </div>
 
@@ -49,10 +47,8 @@ function SatisfactionPage() {
             <div className="flex items-center justify-center rounded-full h-50px w-50px bg-faintPink">
               <TbMedal2 className="px-1 border rounded-full text-50px text-crossLightPurple" />
             </div>
-            <p className="text-crossTextGray">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit
-              eaque ad maiores tenetur doloribus. Voluptatem, quas similique
-              vero eum deleniti,
+            <p className="">
+            We know that satisfaction feels different for everyone, but at Crosstie, we believe it begins with one thing: <span className="font-semibold">meeting your expectations with excellence.</span> Our guarantee is simple… <span className="font-semibold">You deserve transformational service,</span> and we are committed to delivering nothing less.
             </p>
           </div>
 
@@ -60,10 +56,8 @@ function SatisfactionPage() {
             <div className="flex items-center justify-center rounded-full h-50px w-50px bg-faintPink">
               <IoMdPersonAdd className="px-1 border rounded-full text-50px text-crossLightPurple" />
             </div>
-            <p className="text-crossTextGray">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit
-              eaque ad maiores tenetur doloribus. Voluptatem, quas similique
-              vero eum deleniti,
+            <p className="">
+            Because satisfaction does not depend on how we feel but how you feel, should we not meet up to your expectations, we will do what it takes to make it right. Your success and satisfaction is our priority, and we stand by that, every step of the way.
             </p>
           </div>
 

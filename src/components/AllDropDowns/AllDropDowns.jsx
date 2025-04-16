@@ -138,6 +138,14 @@ return (
     // onClick={toggleCategories}
     >Complete  Employee Series  (CES)</Link>
 
+
+      <Link 
+      to='/' 
+      // to='/our-courses/team-bonding' 
+      className='flex items-center justify-between py-1 pl-1 text-black hover:bg-gray-200 hover:text-crossLightPurple'
+    // onClick={toggleCategories}
+    >Crosstie Team Bonding (CTB)</Link>
+
   </div>
 )
 }

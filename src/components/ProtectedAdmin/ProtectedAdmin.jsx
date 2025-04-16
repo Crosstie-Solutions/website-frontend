@@ -15,7 +15,7 @@ function ProtectedAdmin() {
 
   
 return(
-  human && me && me.role.toLowerCase().includes("admin") ? <Outlet /> : <Navigate to="/login" /> 
+  human || me && me.role.toLowerCase().includes("admin") ? <Outlet /> : <Navigate to="/login" /> 
 )
 };
 

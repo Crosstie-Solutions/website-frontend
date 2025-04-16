@@ -80,7 +80,7 @@ function OpenExecutivePage() {
       <ProgramsFilter />
       
 
-      <div className="flex flex-row flex-wrap h-auto gap-3 small:justify-center small:w-100 large:w-83vw large:justify-between">
+      <div className="flex flex-row flex-wrap h-auto gap-3 small:justify-center small:w-100 large:w-83vw large:justify-start">
         {openPrograms &&
           openPrograms.map((program, i) => {
             
@@ -95,7 +95,7 @@ function OpenExecutivePage() {
                   mode={program.mode}
                   id={program._id}
                   courseContent={program.courseContent}
-                  // slug={slug}
+                  category={program.category}
                 />
 
                 {downloadProgramScreen && 

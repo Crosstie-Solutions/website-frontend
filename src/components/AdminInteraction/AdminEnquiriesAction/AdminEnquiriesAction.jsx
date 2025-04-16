@@ -43,8 +43,8 @@ function AdminEnquiriesAction(enquiry) {
           {userType==="corporate" &&
           <div>No. of participants: <span className='font-semibold'>{participants}</span></div>}
           
-          <div>Location: <span className='font-semibold'>{city}, {country}</span></div>
-          <div>Preferred Date: <span className='font-semibold'>{preferredDate}</span></div>
+          {/* <div>Location: <span className='font-semibold'>{city}, {country}</span></div> */}
+          <div>Preferred Start Date: <span className='font-semibold'>{preferredDate}</span></div>
 
           {userType==="corporate" &&
           <div>Designation: <span className='font-semibold'>{designation}</span></div>}

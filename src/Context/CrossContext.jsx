@@ -17,11 +17,11 @@ function CrossContextProvider(props) {
 
 
 
-const [aboutDD, setAboutDD] = useState(false);
+  const [aboutDD, setAboutDD] = useState(false);
 
-const showAboutDD = ()=>{
-  setAboutDD(true);
-}
+  const showAboutDD = ()=>{
+    setAboutDD(true);
+  }
 
 const hideAboutDD = ()=>{
   setAboutDD(false);
@@ -218,6 +218,7 @@ const[loading, setLoading] = useState(false);
   const [program, setProgram] = useState(null);
 
 
+  //for other courses aside open executive
   const toggleEnrollment = async (index)=> {
 
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -233,6 +234,53 @@ const[loading, setLoading] = useState(false);
     }
 
   }
+
+
+
+  //for users to enroll once they click on "enroll now" on open executive programs
+  const [openEnrollmentForm, setOpenEnrollmentForm] = useState(null);
+
+  const toggleOpenEnrollment = async (index)=> {
+
+    window.scrollTo({ top: 0, behavior: "auto" });
+    // setEnrollmentForm(!enrollmentForm);
+    setOpenEnrollmentForm((prev) => (prev === index ? null : index));
+
+    try {
+      const response = await axios.get(`${baseUrl}/api/program/${index}`);
+      setProgram(response.data.data.data);
+
+    } catch (error) {
+      console.error('Error fetching program:', error);
+    }
+
+  }
+
+
+  //for users to enroll after reading more details about open executive programs
+  const [secondOpenEnrollmentForm, setSecondOpenEnrollmentForm] = useState(null);
+  
+
+  const toggleSecondOpenEnrollment = async (index)=> {
+
+    window.scrollTo({ top: 0, behavior: "auto" });
+    // setEnrollmentForm(!enrollmentForm);
+    setSecondOpenEnrollmentForm((prev) => (prev === index ? null : index));
+
+
+    try {
+      const response = await axios.get(`${baseUrl}/api/program/${index}`);
+      setProgram(response.data.data.data);
+
+    } catch (error) {
+      console.error('Error fetching program:', error);
+    }
+
+  }
+
+
+
+
 
 
   //active program
@@ -1113,6 +1161,8 @@ const currentPartners = filteredPartners && filteredPartners.slice(partnersStart
 
 
 
+
+
 // Handle page change
 const handlePartnersPageChange = (page) => {
   if (page > 0 && page <= totalPartnersPages) {
@@ -1183,7 +1233,98 @@ const toggleHighDemand = async (index)=> {
 
 
 // for desktop search bar
-const [activeSearch, setActiveSearch] = useState(false)
+const [activeSearch, setActiveSearch] = useState(false);
+
+
+
+
+
+  //states for open executive enrollment
+  const [trainingMode, setTrainingMode] = useState("Online");
+
+
+  const [executiveEnrollmentData, setExecutiveEnrollmentData] = useState({
+
+    program: "",
+    nameOfOrg: "",
+    mode: trainingMode,
+    duration: "",
+    participants: "",
+    // country: "",
+    // city: "",
+    // userType: "",
+    preferredDate: "",
+    designation: "",
+    title: "",
+    fullName: "",
+    email: "",
+    phone: "",
+    message: ""
+
+  });
+
+  
+
+  const handleExecutiveChange = (e)=>{
+    const { name, value } = e.target;
+      
+    setExecutiveEnrollmentData({ ...executiveEnrollmentData, [name]: value });
+
+    console.log("executiveEnrollmentData:", executiveEnrollmentData);
+  }
+
+
+
+
+
+
+
+  //for admin to fetch all Events
+    
+  const [allEvents, setAllEvents] = useState([]);
+
+  console.log("allEvents:", allEvents);
+
+
+  const [loadEvents, setLoadEvents] = useState(false);
+  
+  const fetchEvents = async () => {
+    
+    try {
+      setLoadEvents(true);
+
+      const response = await axios.get(`${baseUrl}/api/event`);
+  
+      
+      setAllEvents(response.data.data.data)
+    } catch (error) {
+      console.error('Error fetching Events:', error);
+    }finally{
+      setLoadEvents(false);
+    }
+  };
+
+
+//for admin to filter Events
+const [currentEventsPage, setCurrentEventsPage] = useState(1);
+const [eventsSearchTerm, setEventsSearchTerm] = useState("");
+const eventsPerPage = 10;
+
+// Filter Events based on search term
+const filteredEvents = allEvents && allEvents.filter((event) =>
+  `${event.title} ${event.client}`
+    .toLowerCase()
+    .includes(eventsSearchTerm.toLowerCase())
+);
+
+// Calculate total pages
+const totalEventsPages = filteredEvents && Math.ceil(filteredEvents.length / eventsPerPage);
+
+// Get requests for the current page
+const eventsStartIndex = (currentEventsPage - 1) * eventsPerPage;
+const eventsEndIndex = eventsStartIndex + eventsPerPage;
+const currentEvents = filteredEvents && filteredEvents.slice(eventsStartIndex, eventsEndIndex).reverse();
+
 
 
 
@@ -1220,7 +1361,7 @@ const [activeSearch, setActiveSearch] = useState(false)
   totalUsersPages, activeSearch, setActiveSearch,
   handleUsersPageChange,  setDownloadScreen, setDownloadProgramScreen,
     allUsers, activeAdmin, toggleRemoveAdmin,
-  activeBlogPost,
+  activeBlogPost, toggleOpenEnrollment, openEnrollmentForm, executiveEnrollmentData, handleExecutiveChange, trainingMode, setTrainingMode, setExecutiveEnrollmentData, toggleSecondOpenEnrollment, secondOpenEnrollmentForm, currentEvents, allEvents, fetchEvents, loadEvents
   };
 
   

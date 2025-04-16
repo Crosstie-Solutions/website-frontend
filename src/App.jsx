@@ -59,6 +59,7 @@ import EditBlogPostPage from "./pages/EditBlogPostPage/EditBlogPostPage";
 import CaseStudyPage from "./pages/CaseStudyPage/CaseStudyPage";
 import { ProtectedAdmin } from "./components/ProtectedAdmin/ProtectedAdmin";
 import { ProtectedUser } from "./components/ProtectedUser/ProtectedUser";
+import {OpenCourseEnrollment, SecondOpenCourseEnrollment} from "./components/OpenCourseEnrollment/OpenCourseEnrollment";
 
 
 
@@ -72,7 +73,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, downloadScreen, viewAllHighDemands, bio, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, downloadUrl, title} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, downloadScreen, viewAllHighDemands, bio, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -160,7 +161,11 @@ function App() {
     fetchAllHighDemand();
   }, []);
 
+  useEffect(()=>{
+    fetchEvents();
+  }, []);
 
+   
   
   
   return (
@@ -183,6 +188,12 @@ function App() {
         {activeSearch && <CourseSuggestion />}
         
         {enrollmentForm && <CourseEnrollmentForm />}
+        
+        {openEnrollmentForm && <OpenCourseEnrollment />}
+        
+        {secondOpenEnrollmentForm && <SecondOpenCourseEnrollment />}
+
+        
         {loading && <Loading />}
         {webinarEnrollment && <WebinarEnrollmentForm />}
         {bio && <Bio />}

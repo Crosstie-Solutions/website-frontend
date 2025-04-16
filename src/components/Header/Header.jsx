@@ -244,6 +244,7 @@ function Header() {
             setActiveSearch(true);
           }}
           
+          
           value={programsSearchTerm}
           onChange={(e) => {
             setProgramsSearchTerm(e.target.value);
@@ -253,6 +254,7 @@ function Header() {
           // onBlur={()=>{
           //   setActiveSearch(false);
           // }}
+          
           />
           <CiSearch className="rounded-full text-30px bg-crossLightPurple text-vogueWhite p-0.5"/>
         </div>

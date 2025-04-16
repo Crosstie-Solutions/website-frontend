@@ -62,7 +62,7 @@ function AdminProgramAction(program) {
       <div className='flex flex-col items-center justify-center h-auto px-2 py-3 bg-white large:gap-3 large:w-30vw rounded-10 small:w-90vw small:gap-1'>
 
         {!deletingProgram &&
-          <h4 className='text-center'>Are you sure you want to delete <span className='font-bold'>{title}?</span></h4>}
+          <h4 className='text-center'>Are you sure you want to delete <span className='font-bold'>{title}?</span> If it is a high demand program, ensure to delete it from the <span className='font-bold'>High Demand Programs</span>  table, to avoid error on the interface.</h4>}
 
         {!deletingProgram &&
         <div className='text-vogueRed'>This action can not be reversed</div>}

@@ -45,7 +45,7 @@ function AllProgramsTable() {
             <div className='large:relative large:right-3'>Title</div>
             <div className='large:relative large:right-2'>Mode</div>
             <div className='large:relative large:right-2'>Duration</div>
-            <div className='large:relative large:right-2'>Cost</div>
+           
             <div className='large:relative large:right-3'>Time</div>
         </div>
 
@@ -65,8 +65,6 @@ function AllProgramsTable() {
                     
                     <div className='relative large:right-5 small:right-2'>{program.mode}</div>
                     <div className='relative large:right-4 small:right-1'>{program.duration}</div>
-                    
-                    <div className={`relative large:right-3 small:right-1`}>&#8358;{program.cost}</div>
 
                     <div className={`relative large:right-3 small:right-1`}>{program.time}</div>
                     

@@ -13,9 +13,9 @@ import DownloadScreen from '../DownloadScreen/DownloadScreen';
 
 function Program(program) {
 
-    const {formatDate, toggleEnrollment, toggleDownloadScreen,  toggleDownloadProgramScreen} = useContext(CrossContext);
+    const {formatDate, toggleEnrollment, toggleDownloadScreen,  toggleDownloadProgramScreen, toggleOpenEnrollment} = useContext(CrossContext);
 
-    const {title, duration, date, time, mode, id, courseContent} = program;
+    const {title, duration, date, time, mode, id, courseContent, category} = program;
 
     const [moreDates, setMoreDates] = useState(null);
 
@@ -25,7 +25,7 @@ function Program(program) {
     
     
   return (
-    <div className='flex flex-col items-center gap-1 px-1 py-2 bg-white border border-crossLightPurple small:w-250px large:w-230px rounded-10 text-13px hover:shadow-lg'>
+    <div className='flex flex-col items-center gap-1 px-1 py-2 bg-white border border-crossLightPurple small:w-250px large:w-270px rounded-10 text-13px hover:shadow-lg'>
       
       <Link to={`/our-courses/${id}`} className='font-semibold text-center hover:underline large:text-17px small:text-15px'>{title}</Link>
 
@@ -67,6 +67,8 @@ function Program(program) {
 
             <div className='flex items-center justify-center gap-1 text-white cursor-pointer w-200px h-30px rounded-10 bg-crossLightPurple'
             onClick={()=>{
+
+              category && category.toLowerCase().includes("open executive") ? toggleOpenEnrollment(id) :
               toggleEnrollment(id)
             }}
             >Enroll Now</div>

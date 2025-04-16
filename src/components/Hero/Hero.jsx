@@ -13,9 +13,11 @@ function Hero() {
         
         
         <div className="flex items-center w-auto gap-1 pr-2 large:pl-0.5 rounded-20 bg-crossYellow large:h-30px small:h-20px large:text-13px small:text-13px">
+          
           <div className="flex items-center justify-center px-1 bg-white rounded-20 text-crossYellow">
             NEW
           </div>
+          
           <div className="">BRINGING THE BEST OF</div>
         </div>
 
@@ -25,12 +27,12 @@ function Hero() {
           PEOPLE DEVELOPMENT & MANAGEMENT CONSULTING
         </h1>
 
-        <p className="font-extralight large:w-30 small:w-100 small:text-11px large:text-15px">
-          Discover new skills and interests with our extensive course collection
+        <p className="font-extralight large:w-40 small:w-100 small:text-11px large:text-17px">
+          Your trusted partner in all-around organisation development
         </p>
 
         <Link to='/about-us/' className="flex items-center justify-center w-auto gap-1 px-1 mt-2 font-bold rounded-10 h-40px bg-buttonOverlay text-15px">
-          More About Us <BsArrowRight />
+          More About Us <BsArrowRight className="text-20px"/>
         </Link>
 
 

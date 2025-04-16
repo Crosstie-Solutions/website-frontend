@@ -150,6 +150,8 @@ function OurSolutions() {
                         )
                     }
 
+                    {allHighDemands && allHighDemands.length < 1 &&
+                    <p className='font-semibold'>No Result Found</p>}
                 </div>}
             </div>
 

@@ -340,52 +340,52 @@ function EditProgramPage() {
 
 
   //change program cost
-  const [editCost, setEditCost] = useState(false);
-  const [updatingCost, setUpdatingCost] = useState(false);
+  // const [editCost, setEditCost] = useState(false);
+  // const [updatingCost, setUpdatingCost] = useState(false);
 
-  const [cost, setCost] = useState("");
+  // const [cost, setCost] = useState("");
 
-  const toggleCost = () => {
-    setEditCost(!editCost);
-  };
+  // const toggleCost = () => {
+  //   setEditCost(!editCost);
+  // };
 
-  const changeCost = async () => {
-    const validationErrors = {};
+  // const changeCost = async () => {
+  //   const validationErrors = {};
 
-    //To ensure valid inputs
+  //   //To ensure valid inputs
 
-    if (!cost) {
-      validationErrors.cost = "program cost is required.";
-    }
+  //   if (!cost) {
+  //     validationErrors.cost = "program cost is required.";
+  //   }
 
-    setEditErrors(validationErrors);
+  //   setEditErrors(validationErrors);
 
-    const noError = Object.keys(validationErrors).length === 0;
+  //   const noError = Object.keys(validationErrors).length === 0;
 
-    if (noError) {
-      try {
-        setUpdatingCost(true);
-        setEditCost(false);
-        const response = await axios.patch(
-          `${baseUrl}/api/program/${programId && programId}`,
-          {
-            cost: cost,
-          },
-        );
+  //   if (noError) {
+  //     try {
+  //       setUpdatingCost(true);
+  //       setEditCost(false);
+  //       const response = await axios.patch(
+  //         `${baseUrl}/api/program/${programId && programId}`,
+  //         {
+  //           cost: cost,
+  //         },
+  //       );
 
-        console.log("program update response:", response.data);
-        if ((response.data.status = "success")) {
-          toast.success(
-            "Program updated successfully. Refresh to see changes."
-          );
-        }
-      } catch (error) {
-        console.error("Error updating program:", error);
-      } finally {
-        setUpdatingCost(false);
-      }
-    }
-  };
+  //       console.log("program update response:", response.data);
+  //       if ((response.data.status = "success")) {
+  //         toast.success(
+  //           "Program updated successfully. Refresh to see changes."
+  //         );
+  //       }
+  //     } catch (error) {
+  //       console.error("Error updating program:", error);
+  //     } finally {
+  //       setUpdatingCost(false);
+  //     }
+  //   }
+  // };
 
 
   // Description
@@ -1044,7 +1044,7 @@ function EditProgramPage() {
 
   
   return (
-    <div className="flex flex-col items-start h-auto gap-2 mt-17 w-90vw">
+    <div className="flex flex-col items-start h-auto gap-2 small:mt-17 w-90vw large:mt-20">
             <div className='flex'>
                <Link to='/admin-dashboard' className="flex items-center text-crossLightPurple"> <LuMoveLeft className="flex text-25px"/></Link>
               <h4 className="font-semibold pl-9 text-crossLightPurple">Edit Program</h4>
@@ -1101,7 +1101,7 @@ function EditProgramPage() {
 
 
                   {/* cost */}
-                <div className="flex flex-col h-auto w-100">
+                {/* <div className="flex flex-col h-auto w-100">
                   <label htmlFor="cost">Cost</label>
                   
                   <div className='flex flex-col h-auto gap-1 w-100'>
@@ -1140,7 +1140,7 @@ function EditProgramPage() {
                       {updatingCost && <UpdatingBtn />}
                   </div>
                   
-                </div>
+                </div> */}
               </div>
 
 
@@ -1374,7 +1374,7 @@ function EditProgramPage() {
                    
                   {editTime &&
                     <input
-                      type="time"
+                      type="text"
                       placeholder="Enter program time"
                       name="time"
                       className="p-0.5 border rounded-4"

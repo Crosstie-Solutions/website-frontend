@@ -15,12 +15,19 @@ import axios from "axios";
 import { LuMoveLeft } from "react-icons/lu";
 import { CiEdit } from "react-icons/ci";
 import { toast } from 'react-toastify';
+import './ProgramDetailsPage.css'
+import { GrWorkshop } from "react-icons/gr";
+import { MdOutlineDescription } from "react-icons/md";
+import { MdOutlineViewModule } from "react-icons/md";
+
+
 
 
 
 function ProgramDetailsPage() {
+  
   const {
-    toggleEnrollment, baseUrl, me, setLoading
+    toggleEnrollment, baseUrl, me, setLoading, executiveEnrollmentData, handleExecutiveChange, setExecutiveEnrollmentData, trainingMode, setTrainingMode, toggleSecondOpenEnrollment, secondOpenEnrollmentForm
   } = useContext(CrossContext);
 
   const programId = useParams().programId;
@@ -62,8 +69,8 @@ function ProgramDetailsPage() {
   const [messageMode, setMessageMode] = useState("individual");
 
   
-  const [trainingMode, setTrainingMode] = useState("Online");
-//   corporate
+  
+
 
 
   
@@ -122,7 +129,7 @@ function ProgramDetailsPage() {
   
   const makeEnquiry = async () => {
    
-    window.scrollTo({ top: 0, behavior: "auto" });
+    // window.scrollTo({ top: 0, behavior: "auto" });
    
    const validationErrors = {};
   
@@ -175,6 +182,26 @@ function ProgramDetailsPage() {
    }
   };
 
+
+
+
+
+  // to split paragraph
+  function splitParagraphByFullStops(text, limit = 3) {
+    const sentences = text.split('.').map(s => s.trim()).filter(Boolean);
+    const paragraphs = [];
+  
+    for (let i = 0; i < sentences.length; i += limit) {
+      const chunk = sentences.slice(i, i + limit).join('. ') + '.';
+      paragraphs.push(chunk);
+    }
+  
+    return paragraphs;
+  }
+  
+
+  const summary = program && splitParagraphByFullStops(program.description);
+
   
 
   return (
@@ -183,15 +210,18 @@ function ProgramDetailsPage() {
       <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
         <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw small:w-100vw small:h-200px small:pl-2 bg-crossLightPurple">         
           
-          <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-semibold small:w-80 small:text-17px">
+          <h1 className="font-semibold large:text-35px large:w-60 large:leading-8 small:leading-5 small:w-80 small:text-17px">
             {program && program.title.toUpperCase()}
             {loadingProgram && "Loading Course Details..."}
           </h1>
 
           <p className="font-extralight large:w-50 small:w-90 small:text-11px large:text-15px">
-          {program && program.description[0].toUpperCase()}
-          {program && program.description.slice(1)}
+          {/* {program && program.description[0].toUpperCase()}
+          {program && program.description.slice(1, 100)}... */}
+          {summary && summary[0][0].toUpperCase()}
+          {summary && summary[0].slice(1)}
           </p>
+
 
           {loadingProgram &&
           <p className="font-bold large:w-50 small:w-90 small:text-11px large:text-20px">
@@ -216,6 +246,7 @@ function ProgramDetailsPage() {
         </div>
       </div>
 
+      {executiveProgram &&
       <div className="flex flex-col items-center pb-5 bg-white border large:gap-5 rounded-tl-20 large:w-83vw rounded-tr-20 small:w-90vw small:gap-3">
         
         <div className="flex items-center justify-center text-white rounded-tl-20 rounded-tr-20 large:h-50px w-100 bg-crossLightPurple small:h-auto large:text-20px small:text-13px large:flex-row small:flex-col small:text-center small:py-1">
@@ -236,8 +267,14 @@ function ProgramDetailsPage() {
 
           <div className="flex items-center justify-center w-auto h-auto gap-2">
             <hr className="rotate-45 large:h-20px large:w-20px small:w-10px small:h-10px bg-crossLightPurple"/>
-            <div>Per Participant</div>
+            <div>Physical - <span className="text-black">&#8358;{program && program.physicalCost}</span> Per Participant</div>
           </div>
+
+          <div className="flex items-center justify-center w-auto h-auto gap-2">
+            <hr className="rotate-45 large:h-20px large:w-20px small:w-10px small:h-10px bg-crossLightPurple"/>
+            <div>Online - <span className="text-black">&#8358;{program && program.onlineCost}</span> Per Participant</div>
+          </div>
+
         </div>
 
         <hr className="bg-gray-300 h-2px w-100"/>
@@ -249,58 +286,82 @@ function ProgramDetailsPage() {
           <div className="flex w-auto h-auto gap-2">
             <button className={`flex items-center justify-center w-auto px-2  h-40px rounded-20 ${trainingMode==="Online" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray"}`}
             
-            onClick={()=>setTrainingMode('Online')}
+            onClick={()=>{
+              setTrainingMode('Online')
+                            
+              setExecutiveEnrollmentData(prev => ({
+                ...prev,
+                mode: 'Online',
+              }));
+            }}
             >Online</button>
+            
             <button 
             className={`flex items-center justify-center w-auto px-2  h-40px rounded-20 ${trainingMode==="Physical" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray"}`}
             
-             onClick={()=>setTrainingMode('Physical')}
+             onClick={()=>{
+              setTrainingMode('Physical')
+              setExecutiveEnrollmentData(prev => ({
+                ...prev,
+                mode: 'Physical',
+              }));
+             }}
             >Physical</button>
           </div>
 
           
           <div className="flex flex-col gap-2 overflow-y-scroll bg-white h-200px w-100">
             
-            {program && program.date.map((day, i)=>
-             <div className="flex items-center justify-between large:px-2 py-1 bg-[#F9F9F9]"
-             key={i}
-             >
-              
-             <div className="flex flex-col w-auto gap-1">
-               <div className="flex items-center justify-start gap-1">
-                 <FaRegCalendarAlt className="text-15px"/>
-                 {day}
-               </div>
+            
+            {program && program.date.map((day, i)=>            
 
-               <div className="flex items-center justify-start gap-1">
-                 <IoMdLaptop className="text-15px"/>
-                 Online/Physical
-               </div>
-             </div>
+              <label key={i} className="flex large:w-50 small:w-100 h-auto option-label items-center justify-between large:px-2 py-2 pr-2 border border-crossFooterText bg-[#F9F9F9] flex-row">
+                <input
+                  type="radio"
+                  name='preferredDate'
+                  value={day}
+                  checked={executiveEnrollmentData.preferredDate === day}
+                  onChange={handleExecutiveChange}
+                  className="hidden-radio"
+                />
+                <span className="custom-radio"></span>
 
-             <div className="flex items-center justify-center w-auto border large:gap-1">
-               <TbTimeDuration30 className="text-20px"/>
-               {program && program.time}
-             </div>
-           </div>
+                <div className="flex flex-col w-auto gap-1">
+                  <div className="flex items-center justify-start gap-1">
+                    <FaRegCalendarAlt className="text-15px"/>
+                    {day}
+                  </div>
+
+                  {/* <div className="flex items-center justify-start gap-1">
+                    <IoMdLaptop className="text-15px"/>
+                    Online/Physical
+                  </div> */}
+                </div>
+
+                <div className="flex items-center self-end justify-center w-auto large:gap-1">
+                  <TbTimeDuration30 className="text-20px"/>
+                  {program && program.time}
+                </div>
+              </label>
           )}
 
           </div>
 
           <div className="flex items-center justify-between large:pr-10 w-100 large:flex-row small:flex-col small:gap-2 large:gap-0">
-            <div className="flex items-center w-auto h-auto gap-1 font-bold">
-              <CiFaceSmile className="text-20px text-crossYellow"/>
+            <Link to='/about-us/satisfaction' className="flex items-center w-auto h-auto gap-1 font-bold hover:text-crossLightPurple">
+              <CiFaceSmile className="text-20px text-crossYellow hover:text-crossYellow"/>
               Satisfaction guaranteed?
-            </div>
+            </Link>
 
             <button className="flex items-center justify-center w-auto px-2 text-white h-40px bg-crossLightPurple rounded-20"
             onClick={()=>{
+              executiveProgram ? toggleSecondOpenEnrollment(programId) :
               toggleEnrollment(programId)
             }}
             >Enroll Now</button>
           </div>
         </div>
-      </div>
+      </div>}
 
 
 
@@ -309,16 +370,16 @@ function ProgramDetailsPage() {
         
         <div className="flex flex-col gap-3 large:w-40 small:w-100 small:px-1 large:px-0 small:py-3 large:py-0">
 
-        <div className="flex flex-col gap-1 bg-white w-100">
-            <h4 className="p-1 text-white bg-crossLightPurple">About The Course</h4>
+          <div className="flex flex-col gap-1 bg-white w-100">
+            <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple"><MdOutlineDescription className="text-20px" /> About The Course</h4>
             <p className="leading-loose small:p-1">
             {program && program.description[0].toUpperCase()}
             {program && program.description.slice(1)}.
             </p>
           </div>
 
-        <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
-            <h4 className="p-1 text-white bg-crossLightPurple w-100">Modules</h4>
+          <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
+            <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple w-100"><MdOutlineViewModule className="text-20px" /> Modules</h4>
               <ul className="flex flex-col gap-0.5 list-disc w-100 items-start pl-3 py-1">
                 
               {
@@ -332,7 +393,7 @@ function ProgramDetailsPage() {
 
 
           <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
-            <h4 className="p-1 text-white bg-crossLightPurple w-100">Optional Modules</h4>
+            <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple w-100"><MdOutlineViewModule className="text-20px" /> Optional Modules</h4>
               <ul className="flex flex-col gap-0.5 list-disc w-100 items-start pl-3 py-1">
                 
               {
@@ -345,7 +406,7 @@ function ProgramDetailsPage() {
 
 
           <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
-            <h4 className="p-1 text-white bg-crossLightPurple w-100">Notes</h4>
+            <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple w-100"><MdOutlineViewModule className="text-20px" /> Notes</h4>
               <ul className="flex flex-col gap-0.5 list-disc w-100 items-start pl-3 py-1">
                 
               {
@@ -369,8 +430,10 @@ function ProgramDetailsPage() {
             </p>
           </div> */}
 
+
           <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
-            <h4 className="p-1 text-white bg-crossLightPurple w-100">Workshop Objectives</h4>
+          
+            <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple w-100"><GrWorkshop className="text-20px" /> Workshop Objectives</h4>
               <ul className="flex flex-col gap-0.5 list-disc w-100 items-start pl-3 py-1">
                 
                 {
@@ -381,7 +444,7 @@ function ProgramDetailsPage() {
               </ul>
           </div>
 
-
+          
           <div className="flex flex-col gap-1 bg-white w-100">
             <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple"><FaRegUser className="text-20px"/> Who Should Attend?</h4>
             <p className="leading-loose small:p-1">{program && program.targetAudience[0].toUpperCase()}
@@ -391,10 +454,10 @@ function ProgramDetailsPage() {
       </div>
 
 
-      {/* Request More Information */}
+      {/* Schedule this training */}
       <div className="flex flex-col items-center gap-3 py-5 bg-white rounded large:w-83vw small:w-90vw">
         
-        {executiveProgram &&
+        
         <div className="flex items-center w-auto h-auto">
           
           <button className={`flex items-center justify-center w-auto p-2  border h-40px ${messageMode==="individual" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray"} rounded-tl-20 rounded-bl-20`}
@@ -404,13 +467,13 @@ function ProgramDetailsPage() {
           <button className={`flex items-center justify-center w-auto p-2 h-40px rounded-tr-20 rounded-br-20 ${messageMode==="corporate" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray"}`}
           onClick={()=>setMessageMode("corporate")}
           >Corporate</button>
-        </div>}
+        </div>
 
         
         
         <div className="flex flex-col items-center h-auto small:gap-2 large:gap-3 w-100">
           
-          <h5 className="font-bold large:text-20px small:text-15px">Request More Information</h5>
+          <h5 className="font-bold large:text-20px small:text-15px">Schedule This Training</h5>
           
           {/* whatsapp and email */}
           <div className="flex items-center h-auto gap-2 large:w-auto small:w-100 small:justify-center">
@@ -418,7 +481,7 @@ function ProgramDetailsPage() {
               href="mailto:info@crosstie.com"
               className="flex items-center justify-center w-auto gap-1 px-1 border border-black rounded h-40px"
             >
-              <MdOutlineMail className="text-15px" /> Email
+              <MdOutlineMail className="text-20px" /> Email
             </a>
 
             <a
@@ -452,18 +515,20 @@ function ProgramDetailsPage() {
 
                     {executiveProgram &&
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="preferredDate">Preferred Date</label>
-                        {/* <input type="date" className="p-1 border rounded h-40px w-100"/> */}
-                        <select name="preferredDate" id="" className="p-1 border rounded h-40px w-100"
-                        onChange={(e)=>setPreferredDate(e.target.value)}
-                        >
-                          {
-                            program && program.date.map((day,i)=>
-                              <option value={day} key={i}>{day}</option>
-                            )
-                          }
+                        <label htmlFor="preferredDate">Preferred Start Date</label>
+                        <input type="date" className="p-1 border rounded h-40px w-100"
+                          onChange={(e)=>setPreferredDate(e.target.value)}
+                        />
+                        {/* <select name="preferredDate" id="" className="p-1 border rounded h-40px w-100"
+                            onChange={(e)=>setPreferredDate(e.target.value)}
+                            >
+                              {
+                                program && program.date.map((day,i)=>
+                                  <option value={day} key={i}>{day}</option>
+                                )
+                              }
                            
-                        </select>
+                        </select> */}
 
                         {/* <p className="text-vogueRed">{enrollmentErrors && enrollmentErrors.preferredDate}</p> */}
                     </div>}
@@ -564,6 +629,8 @@ function ProgramDetailsPage() {
                         <input type="text" name="fullName" className="p-1 border rounded h-40px w-100"
                         onChange={(e)=>setFullName(e.target.value)}
                         />
+
+                        <p className="text-vogueRed">{enrollmentErrors && enrollmentErrors.fullName}</p>
                     </div>
                 </div>
 
@@ -580,7 +647,7 @@ function ProgramDetailsPage() {
                     
 
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="message">Additional Information</label>
+                        <label htmlFor="message">Additional Information (Optional)</label>
                         
                         <input type="text" name="message" className="p-1 border rounded h-40px w-100" placeholder="Anything else we should know about you?"
                         onChange={(e)=>setMessage(e.target.value)}
@@ -588,24 +655,6 @@ function ProgramDetailsPage() {
                     </div>
                 </div>}
 
-
-                <div className="flex items-center justify-between h-auto w-100">
-                    
-                    <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="country">Country</label>
-                        
-                        <input type="text" name="country" className="p-1 border rounded h-40px w-100"
-                        onChange={(e)=>setCountry(e.target.value)}
-                        />
-                    </div>
-
-                    <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="city">City</label>
-                        <input type="text" name="city" className="p-1 border rounded h-40px w-100"
-                        onChange={(e)=>setCity(e.target.value)}
-                        />
-                    </div>
-                </div>
 
                 <div className="flex items-center justify-between h-auto w-100">
                     

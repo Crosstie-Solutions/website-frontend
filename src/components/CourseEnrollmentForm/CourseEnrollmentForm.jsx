@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { TbTimeDuration30 } from "react-icons/tb";
@@ -42,6 +42,18 @@ function CourseEnrollmentForm() {
 
     console.log("enrollmentData:", enrollmentData);
   };
+
+
+  //update program title in form
+    useEffect(() => {
+      if (program) {
+        setEnrollmentData(prev => ({
+          ...prev,
+          program: program.title,
+          duration: program.duration,
+        }));
+      }
+    }, [program]);
 
   
 
@@ -99,11 +111,11 @@ function CourseEnrollmentForm() {
         <h3 className="font-semibold large:text-17px small:text-13px">
           Purchase Course -{" "}
           <span className="text-crossLightPurple">
-            {program && program.title.slice(0, 50)}...
+            {program && program.title}
           </span>
         </h3>
 
-        <div className="flex gap-2 font-semibold large:px-2 w-100 large:flex-row small:flex-col">
+        <div className="flex gap-2 font-semibold large:px-2 w-100 large:flex-row small:flex-col large:justify-center">
           
           
           {/* <div className="flex items-center justify-start gap-1 border rounded h-30px px-0.5">
@@ -113,13 +125,13 @@ function CourseEnrollmentForm() {
 
           <div className="flex items-center justify-start gap-1 border rounded h-30px px-0.5">
             <TbTimeDuration30 className="text-20px text-crossLightPurple" />
-            {program && program.time}
+            {program && program.duration}
           </div>
 
-          <div className="flex items-center justify-start gap-1 border rounded h-30px px-0.5">
+          {/* <div className="flex items-center justify-start gap-1 border rounded h-30px px-0.5">
             <TbMoneybag className="text-20px text-crossLightPurple" />
             &#8358;{program && program.cost.toLocaleString()}
-          </div>
+          </div> */}
         </div>
 
         <IoIosCloseCircleOutline
@@ -142,35 +154,6 @@ function CourseEnrollmentForm() {
 
               <div className="flex items-center justify-between h-auto w-100">
                 <div className="flex flex-col h-auto w-45">
-                  <label htmlFor="">Course</label>
-
-                  <select
-                    name="program"
-                    id="program"
-                    className="p-1 border rounded cursor-pointer h-40px w-100"
-                    onChange={handleChange}
-                  >
-                    <option value="">-select-</option>
-                    <option value={program && program.title}>
-                      {program && program.title}
-                    </option>
-                  </select>
-                </div>
-
-                <div className="flex flex-col h-auto w-45">
-                  <label htmlFor="">Name Of Organization</label>
-                  <input
-                    type="text"
-                    name="nameOfOrg"
-                    className="p-1 border rounded h-40px w-100"
-                    placeholder="Enter name of organization"
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between h-auto w-100">
-                <div className="flex flex-col h-auto w-45">
                   <label htmlFor="">Mode of training</label>
 
                   <select
@@ -187,6 +170,21 @@ function CourseEnrollmentForm() {
                 </div>
 
                 <div className="flex flex-col h-auto w-45">
+                  <label htmlFor="">Name Of Organization</label>
+                  <input
+                    type="text"
+                    name="nameOfOrg"
+                    className="p-1 border rounded h-40px w-100"
+                    placeholder="Enter name of organization"
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between h-auto w-100">
+                
+
+                {/* <div className="flex flex-col h-auto w-45">
                   <label htmlFor="">Duration</label>
 
                   <select
@@ -198,7 +196,7 @@ function CourseEnrollmentForm() {
                     <option value="">-select-</option>
                     <option value={program && program.duration}>{program && program.duration}</option>
                   </select>
-                </div>
+                </div> */}
               </div>
 
 
@@ -241,29 +239,16 @@ function CourseEnrollmentForm() {
 
                 {executiveCourse &&
                 <div className="flex flex-col h-auto w-45">
-                  <label htmlFor="preferredDate">Preferred date</label>
+                  <label htmlFor="preferredDate">Preferred Start Date</label>
                   
-                  {/* <input
+                  <input
                     type="date"
                     className="p-1 border rounded h-40px w-100"
                     name="preferredDate"
                     onChange={handleChange}
-                  /> */}
+                  />
 
-                    <select
-                      name="preferredDate"
-                      id=""
-                      className="p-1 border rounded cursor-pointer h-40px w-100"
-                      onChange={handleChange}
-                          >
-                      <option value="">-select-</option>
-                      {
-                        program && program.date.map((day, i)=>
-                          <option value={day} key={i}>{day}</option>
-                        )
-                      }
-                      
-                  </select>
+                    
                 </div>}
               </div>
             </div>
@@ -342,7 +327,7 @@ function CourseEnrollmentForm() {
               </div>
 
               <div className="flex flex-col h-auto w-100">
-                <label htmlFor="">Additional information</label>
+                <label htmlFor="">Additional information (Optional)</label>
 
                 <textarea
                   name="message"

@@ -145,7 +145,9 @@ function AddProgram() {
       //to add product
         const [productData, setProductData] = useState({
           title: "",
-          cost: 0,
+          physicalCost: 0,
+          onlineCost: 0,
+          youAndICost: 0,
           description: "",
           courseContent: null,
           targetAudience: "",
@@ -258,7 +260,9 @@ function AddProgram() {
       
           const formData = new FormData();
           formData.append("title", productData.title);
-          formData.append("cost", Number(productData.cost));
+          formData.append("physicalCost", Number(productData.physicalCost));
+          formData.append("onlineCost", Number(productData.onlineCost));
+          formData.append("youAndICost", Number(productData.youAndICost));
           formData.append("targetAudience", productData.targetAudience);
           formData.append("mode", productData.mode);
           formData.append("time", productData.time);
@@ -334,12 +338,54 @@ function AddProgram() {
                   )}
                 </div>
 
+                
+
                 <div className="flex flex-col w-40 h-auto">
-                  <label htmlFor="cost">Cost</label>
+                  <label htmlFor="category">Category</label>
+                  <select name="category" id=""
+                  className="p-0.5 border rounded-4 cursor-pointer"
+                  onChange={handleCategoryChange}
+                  >
+                     <option value="">-select category-</option>
+                    {
+                      allCourses && allCourses.map((course, i)=>
+                        <option value={`${course.courseTitle}-${course.id}`} key={i}>{course.courseTitle}</option>
+                      )
+                    }
+                
+                  </select>
+                  
+                  {productErrors && (
+                    <p className="text-13px text-vogueRed">
+                      {productErrors.category}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex items-center justify-start h-auto gap-5 w-100">
+                <div className="flex flex-col w-40 h-auto">
+                  <label htmlFor="onlineCost">Online Cost (For OEP)</label>
                   <input
                     type="number"
-                    placeholder="Enter program cost"
-                    name="cost"
+                    placeholder="Enter online training cost"
+                    name="onlineCost"
+                    className="p-0.5 border rounded-4"
+                    onChange={handleChange}
+                  />
+                  {productErrors && (
+                    <p className="text-13px text-vogueRed">
+                      {productErrors.price}
+                    </p>
+                  )}
+                </div>
+
+                <div className="flex flex-col w-40 h-auto">
+                  <label htmlFor="youAndICost">You And I Cost (For OEP)</label>
+                  <input
+                    type="number"
+                    placeholder="Enter personalized training cost"
+                    name="youAndICost"
                     className="p-0.5 border rounded-4"
                     onChange={handleChange}
                   />
@@ -352,21 +398,21 @@ function AddProgram() {
               </div>
 
               <div className="flex items-center justify-start h-auto gap-5 w-100">
-                <div className="flex flex-col w-40 h-auto">
-                  <label htmlFor="description">About</label>
-                  <textarea
-                    type="text"
-                    name="description"
+              <div className="flex flex-col w-40 h-auto">
+                  <label htmlFor="physicalCost">Physical Cost (For OEP)</label>
+                  <input
+                    type="number"
+                    placeholder="Enter physical training cost"
+                    name="physicalCost"
                     className="p-0.5 border rounded-4"
                     onChange={handleChange}
                   />
                   {productErrors && (
                     <p className="text-13px text-vogueRed">
-                      {productErrors.description}
+                      {productErrors.price}
                     </p>
                   )}
                 </div>
-
                 <div className="flex flex-col w-40 h-auto">
                   <label htmlFor="courseContent">Course content</label>
                   <input
@@ -461,31 +507,11 @@ function AddProgram() {
 
 
               <div className="flex items-center justify-start h-auto gap-5 w-100">
-                <div className="flex flex-col h-auto w-100">
-                  <label htmlFor="category">category</label>
-                  <select name="category" id=""
-                  className="p-0.5 border rounded-4 cursor-pointer"
-                  onChange={handleCategoryChange}
-                  >
-                     <option value="">-select category-</option>
-                    {
-                      allCourses && allCourses.map((course, i)=>
-                        <option value={`${course.courseTitle}-${course.id}`} key={i}>{course.courseTitle}</option>
-                      )
-                    }
-                
-                  </select>
-                  
-                  {productErrors && (
-                    <p className="text-13px text-vogueRed">
-                      {productErrors.category}
-                    </p>
-                  )}
-                </div>
+               
 
                 {/* to be hidden */}
                 
-                <div className="hidden">
+                {/* <div className="hidden">
                   <label htmlFor="course">course</label>
                   <select name="course" id=""
                   className="p-0.5 border rounded-4 cursor-pointer"
@@ -500,12 +526,26 @@ function AddProgram() {
                 
                   </select>
                   
-                </div>                
+                </div>                 */}
+                <div className="flex flex-col h-auto w-100">
+                  <label htmlFor="description">About</label>
+                  <textarea
+                    type="text"
+                    name="description"
+                    className="p-0.5 border rounded-4 h-100px"
+                    onChange={handleChange}
+                  />
+                  {productErrors && (
+                    <p className="text-13px text-vogueRed">
+                      {productErrors.description}
+                    </p>
+                  )}
+                </div>
               </div>
 
 
               <div className="flex flex-col h-auto gap-1 w-100">
-                  <label htmlFor="title">Date (Optional)</label>
+                  <label htmlFor="title">Date (Only required for OEP)</label>
                   {
                     date && date.map((day, index)=>
                       <div className='flex items-center gap-1' key={index}>

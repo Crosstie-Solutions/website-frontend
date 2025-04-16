@@ -15,7 +15,7 @@ function ProtectedUser() {
 
   
 return(
-  human && me && me.role.toLowerCase().includes("user") ? <Outlet /> : <Navigate to="/login" /> 
+  human || me && me.role.toLowerCase().includes("user") ? <Outlet /> : <Navigate to="/login" /> 
 )
 };
 

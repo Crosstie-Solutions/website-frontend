@@ -13,7 +13,7 @@ function OurValues() {
             <h5 className='text-crossLightPurple text-17px'>CROSSTIE SOLUTIONS</h5>
         </div>
         <h3 className='font-bold text-25px'>Our Values</h3>
-        <p className='text-15px text-crossTextGray'>INSPIRED BY WORLD-CLASS PROFESSIONAL SERVICE</p>
+        <p className='text-15px text-crossTextGray'>Who we are as professionals… What we give as partners</p>
       </div>
 
     
@@ -29,7 +29,7 @@ function OurValues() {
                     
                     <h3 className='font-bold text-black'>Transformation</h3>
                     
-                    <p className='text-13px text-crossTextGray'>We are dedicated to transforming transformational change for our clients, helping them unlock their full potential and achieve their goals.</p>                
+                    <p className='text-13px text-crossTextGray'>We are dedicated to providing transformational change for our clients, helping them attain growth that seems unreachable and achieve their goals.</p>                
                 </div>
 
                  {/* Excellence */}

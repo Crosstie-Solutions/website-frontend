@@ -57,7 +57,7 @@ function OurReach() {
         </div>
         <h3 className="font-bold text-25px">Our Reach & Impact</h3>
         <p className="text-15px text-crossTextGray">
-          Empowering People, Delivering Results
+          Transforming Individuals, Building Organizations… Delivering Results
         </p>
       </div>
 

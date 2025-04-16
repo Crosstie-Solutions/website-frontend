@@ -174,12 +174,12 @@ const loginFormData = {
           
         }
         if(response.data.data.user.role.toLowerCase().includes('admin')){
-          navigate("/")
-          // navigate("/admin-dashboard")
+          // navigate("/")
+          navigate("/admin-dashboard")
         }
         else{
-          navigate("/")
-          // navigate("/user-profile")
+          // navigate("/")
+          navigate("/user-profile")
         }
       } catch (error) {
        if(error){
