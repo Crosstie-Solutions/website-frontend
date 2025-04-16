@@ -449,7 +449,7 @@ console.log("me:", me);
 const fetchMe = async () => {
   
   try {
-    setLoading(true)
+    // setLoading(true)
     const response = await axios.get(`${baseUrl}/api/users/owner/me`, {
       headers: {
         Authorization: `Bearer ${loginToken ? loginToken : ""}`,
@@ -473,8 +473,6 @@ const fetchMe = async () => {
       localStorage.clear();
      }   
 
-  }finally{
-    setLoading(false)
   }
 };
 
