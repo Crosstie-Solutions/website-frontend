@@ -391,7 +391,7 @@ function ProgramDetailsPage() {
           </div>
 
 
-
+          {program && program.optionalModules[0] !== '' &&
           <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
             <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple w-100"><MdOutlineViewModule className="text-20px" /> Optional Modules</h4>
               <ul className="flex flex-col gap-0.5 list-disc w-100 items-start pl-3 py-1">
@@ -402,9 +402,9 @@ function ProgramDetailsPage() {
                   )
                 }          
               </ul>
-          </div>
+          </div>}
 
-
+          {program && program.notes[0] !== '' &&
           <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
             <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple w-100"><MdOutlineViewModule className="text-20px" /> Notes</h4>
               <ul className="flex flex-col gap-0.5 list-disc w-100 items-start pl-3 py-1">
@@ -415,7 +415,7 @@ function ProgramDetailsPage() {
                   )
                 }         
               </ul>
-          </div>         
+          </div>}
           
         </div>
 
