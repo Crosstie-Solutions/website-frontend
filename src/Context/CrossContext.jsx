@@ -1347,6 +1347,25 @@ const eventsEndIndex = eventsStartIndex + eventsPerPage;
 const currentEvents = filteredEvents && filteredEvents.slice(eventsStartIndex, eventsEndIndex).reverse();
 
 
+const handleEventsPageChange = (page) => {
+  if (page > 0 && page <= totalEventsPages) {
+    setCurrentEventsPage(page);
+  }
+};
+
+
+
+//active Event
+const [activeEvent, setActiveEvent] = useState(null);
+
+const toggleEvent = async (index)=> {
+
+  window.scrollTo({ top: 0, behavior: "auto" });
+
+  setActiveEvent((prev) => (prev === index ? null : index));
+};
+
+
 
 
   //scroll to top effect
@@ -1382,7 +1401,14 @@ const currentEvents = filteredEvents && filteredEvents.slice(eventsStartIndex, e
   totalUsersPages, activeSearch, setActiveSearch,
   handleUsersPageChange, setDownloadProgramScreen,
     allUsers, activeAdmin, toggleRemoveAdmin,
-  activeBlogPost, toggleOpenEnrollment, openEnrollmentForm, executiveEnrollmentData, handleExecutiveChange, trainingMode, setTrainingMode, setExecutiveEnrollmentData, toggleSecondOpenEnrollment, secondOpenEnrollmentForm, currentEvents, allEvents, fetchEvents, loadEvents, togglePresentationDownloadScreen, toggleCourseContentDownloadScreen, presentationDownloadScreen, courseContentDownloadScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen
+  activeBlogPost, toggleOpenEnrollment, openEnrollmentForm, executiveEnrollmentData, handleExecutiveChange, trainingMode, setTrainingMode, setExecutiveEnrollmentData, toggleSecondOpenEnrollment, secondOpenEnrollmentForm, currentEvents, allEvents, fetchEvents, loadEvents, togglePresentationDownloadScreen, toggleCourseContentDownloadScreen, presentationDownloadScreen, courseContentDownloadScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen, eventsSearchTerm, setEventsSearchTerm, setCurrentEventsPage, loadEvents,
+  currentEvents,
+  currentEventsPage,
+  totalEventsPages,
+  handleEventsPageChange,
+  allEvents,
+
+  activeEvent, toggleEvent
   };
 
   

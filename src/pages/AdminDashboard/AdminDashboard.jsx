@@ -41,7 +41,10 @@ import AllPartnersTable from "../../components/AdminInteraction/AllPartnersTable
 import AddPartner from "../../components/AdminInteraction/AddPartner/AddPartner";
 import AllHighDemandTable from "../../components/AdminInteraction/AllHighDemandTable/AllHighDemandTable";
 import AddHighDemand from "../../components/AdminInteraction/AddHighDemand/AddHighDemand";
-
+import { MdOutlineEventAvailable } from "react-icons/md";
+import AllEventsTable from "../../components/AdminInteraction/AllEventsTable/AllEventsTable";
+import AddEvent from "../../components/AdminInteraction/AddEvent/AddEvent";
+import { GrGallery } from "react-icons/gr";
 
 
 
@@ -63,6 +66,13 @@ function AdminDashboard() {
    const togglePartnersDD = ()=>{
      setPartnersDD(!partnersDD);
    }
+
+    //events dropdown
+    const [eventsDD, setEventsDD] = useState(false);
+
+    const toggleEventsDD = ()=>{
+      setEventsDD(!eventsDD);
+    }
 
 
   //Programs dropdown
@@ -257,7 +267,7 @@ function AdminDashboard() {
 
 
          {/* manage Partners */}
-         <div
+        <div
           className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
         >
           
@@ -283,6 +293,38 @@ function AdminDashboard() {
             <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
              onClick={() => setActiveScreen("addPartner")}
             >Add Partner</div>
+
+          </div>}
+        </div>
+
+        {/* Manage Event */}
+        <div
+          className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+        >
+          
+          <div className={`${ activeScreen === "addEvent" || activeScreen === "allEvents" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
+          onClick={toggleEventsDD}
+          >            
+            <div className="flex gap-1">
+              <GrGallery className="text-20px" />
+              Crosstie Photos
+            </div>
+            
+            
+            <IoChevronDown className={`text-20px ${eventsDD ? "rotate-180" : ""}`}/>
+          </div>
+
+          {eventsDD &&
+          <div className="flex flex-col items-center gap-1 w-100">
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("allEvents")}
+            >All Events</div>
+            
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("addEvent")}
+            >Add Event</div>
 
           </div>}
         </div>
@@ -492,7 +534,11 @@ function AdminDashboard() {
         
         {activeScreen === "allPartners" && <AllPartnersTable />}
         
+        {activeScreen === "allEvents" && <AllEventsTable />}
+        
         {activeScreen === "addPartner" && <AddPartner />}
+        
+        {activeScreen === "addEvent" && <AddEvent />}
         
         {activeScreen === "addAdmin" && <AddNewAdmin />}
 
@@ -721,14 +767,59 @@ function AdminDashboard() {
                 }
                 >All Partners</div>
                 
-                {me && me.role.includes("super") &&
+                
                 <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
                 onClick={() => {
                   setActiveScreen("add Partner");
                   toggleSideBar();
                   togglePartnersDD();
                 }}
-                >Add Partner</div>}
+                >Add Partner</div>
+                
+              </div>}
+            </div>
+
+            
+
+             {/* events */}
+             <div
+                className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-13px`}
+              >
+          
+              <div className={`h-40px w-100 flex justify-between items-center pl-1 large:pr-2 small:pr-1`}
+            onClick={toggleEventsDD}
+            >
+              <div className="flex gap-1">
+                <GrGallery className="text-20px" />
+                Crosstie Photos
+              </div>
+
+              <IoChevronDown className={`large:text-20px small:text-15px ${eventsDD ? "rotate-180" : ""}`}/>
+              </div>
+
+
+              {eventsDD &&
+              <div className="flex flex-col items-center gap-1 w-100">
+                {/* onClick={toggleSideBar} */}
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={
+                  () => {
+                    setActiveScreen("all Events");
+                    toggleSideBar();
+                    toggleEventsDD();
+                  }
+                  
+                }
+                >All Events</div>
+                
+                
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={() => {
+                  setActiveScreen("add Event");
+                  toggleSideBar();
+                  toggleEventsDD();
+                }}
+                >Add Event</div>
                 
               </div>}
             </div>
@@ -994,6 +1085,10 @@ function AdminDashboard() {
         {activeScreen === "all Posts" && <AllBlogPostsTable />}
         
         {activeScreen === "all Partners" && <AllPartnersTable />}
+        
+        {activeScreen === "all Events" && <AllEventsTable />}
+        
+        {activeScreen === "add Event" && <AddEvent />}
         
         {activeScreen === "add Partner" && <AddPartner />}
         

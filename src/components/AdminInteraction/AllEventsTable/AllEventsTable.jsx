@@ -6,6 +6,8 @@ import { MdOutlineDownload } from "react-icons/md";
 import { CrossContext } from "../../../Context/CrossContext";
 import DeletePartner from "../../DeletePartner/DeletePartner";
 import PartnersFilter from "../../PartnersFilter/PartnersFilter";
+import EventsFilter from "../../EventsFilter/EventsFilter";
+import DeleteEvent from "../../DeleteEvent/DeleteEvent";
 
 
 
@@ -21,9 +23,18 @@ function AllEventsTable() {
     totalPartnersPages,
     handlePartnersPageChange,
     allPartners,
-    me,
 
-    activePartner, togglePartner
+    activePartner, togglePartner,
+
+
+    loadEvents,
+        currentEvents,
+        currentEventsPage,
+        totalEventsPages,
+        handleEventsPageChange,
+        allEvents,
+    
+        activeEvent, toggleEvent
   } = useContext(CrossContext);
 
   
@@ -32,9 +43,9 @@ function AllEventsTable() {
     <div className="flex flex-col items-center justify-center h-auto gap-3 py-3 large:px-2 bg-vogueWhite w-100 rounded-10 large:text-15px small:text-10px">
 
       <div className='flex items-center justify-between h-auto gap-5 w-100'>
-        <h4 className="self-start font-bold text-crossLightPurple small:hidden large:block">All Partners({allPartners && allPartners.length})</h4>
+        <h4 className="self-start font-bold text-crossLightPurple small:hidden large:block">All Partners({allEvents && allEvents.length})</h4>
         <div className='large:w-70 h-40px small:w-100'>
-            <PartnersFilter />
+            <EventsFilter />
         </div>
       </div>
       
@@ -43,38 +54,43 @@ function AllEventsTable() {
         <div className="flex flex-row items-center justify-between h-auto font-bold border-b border-blue-300 text-crossBlue w-100">
           
           <div className="w-10">S/N</div>
-          <div className="w-30">Name</div>
-          <div className="w-30">Image</div>
+          <div className="w-20">Event</div>
+          <div className="w-20">Client</div>
+          <div className="w-20">Date</div>
+          <div className="w-20">Image</div>
         </div>
 
-        {currentPartners &&
-          currentPartners.map((partner, i) => {
+        {currentEvents &&
+          currentEvents.map((event, i) => {
             return (
               <div
                 key={i}
                 className={`${i % 2 === 0 ? "bg-gray-100" : "bg-white"} flex items-center w-100 h-auto justify-between`}
               >
                 <div className="w-10">{i + 1}.</div>
-                <div className={`flex flex-col gap-0.5 w-30`}>
-                  {partner.partnerName}
+                <div className={`flex flex-col gap-0.5 w-20`}>
+                  {event.title}
                   
                  
                   <div  
                     className='flex items-center justify-center text-white rounded cursor-pointer h-30px w-100px bg-vogueRed text-11px'
-                    onClick={()=>togglePartner(i)}
-                    >Delete Partner</div>
+                    onClick={()=>toggleEvent(i)}
+                    >Delete Event</div>
                 </div>
 
-                <div className="w-30"><img src={partner.partnerLogo} alt="partner logo" className="rounded h-50px w-50px"/></div>
+                <div className="w-20">{event.client}</div>
 
-                {activePartner === i && (
+                <div className="w-20">{event.date}</div>
+
+                <div className="w-20"><img src={event.eventImages[0]} alt="partner logo" className="rounded h-50px w-50px"/></div>
+
+                {activeEvent === i && (
                     <div>
-                      <DeletePartner 
-                      adminNo={i + 1}
-                      adminEnd={allPartners.length + 1}
-                      partnerId={partner.id}
-                      partnerName={partner.partnerName}
-                      partnerLogo={partner.partnerLogo}
+                      <DeleteEvent 
+                      eventNo={i + 1}
+                      eventEnd={allEvents.length + 1}
+                      eventId={event.id}
+                      client={event.client}
                       />
                     </div>)}
               </div>
@@ -84,24 +100,24 @@ function AllEventsTable() {
 
 
       {/* Pagination */}
-      {!loadPartners && currentPartners && currentPartners.length > 0 && (
+      {!loadEvents && currentEvents && currentEvents.length > 0 && (
         <div className="flex items-center justify-between w-auto h-auto gap-3 mt-4">
           <button
             className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
-            disabled={currentPartnersPage === 1}
-            onClick={() => handlePartnersPageChange(currentPartnersPage - 1)}
+            disabled={currentEventsPage === 1}
+            onClick={() => handleEventsPageChange(currentEventsPage - 1)}
           >
             <CgChevronLeft className="text-20px" />
           </button>
 
           <div className="text-sm">
-            Page {currentPartnersPage} of {totalPartnersPages}
+            Page {currentEventsPage} of {totalEventsPages}
           </div>
 
           <button
             className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
-            disabled={currentPartnersPage === totalPartnersPages}
-            onClick={() => handlePartnersPageChange(currentPartnersPage + 1)}
+            disabled={currentEventsPage === totalEventsPages}
+            onClick={() => handleEventsPageChange(currentEventsPage + 1)}
           >
             <HiOutlineChevronRight className="text-20px" />
           </button>
@@ -109,12 +125,12 @@ function AllEventsTable() {
       )}
 
 
-      {loadPartners && (
-        <p className="mt-5 font-bold text-center w-100">Loading partners...</p>
+      {loadEvents && (
+        <p className="mt-5 font-bold text-center w-100">Loading events...</p>
       )}
 
-      {!loadPartners && currentPartners && currentPartners.length < 1 && (
-        <p className="mt-5 font-bold text-center w-100">Partner not found.</p>
+      {!loadEvents && currentEvents && currentEvents.length < 1 && (
+        <p className="mt-5 font-bold text-center w-100">Event not found.</p>
       )}
     </div>
   );
