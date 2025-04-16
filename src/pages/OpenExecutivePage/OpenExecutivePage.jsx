@@ -9,8 +9,8 @@ import { CrossContext } from "../../Context/CrossContext";
 import ProgramsFilter from "../../components/ProgramsFilter/ProgramsFilter";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { CgChevronLeft } from "react-icons/cg";
-import DownloadScreen from "../../components/DownloadScreen/DownloadScreen";
 import AboutHero from "../../components/AboutHero/AboutHero";
+import { CourseBrochureDownloadScreen, CourseContentDownloadScreen } from "../../components/DownloadScreen/DownloadScreen";
 
 
 
@@ -21,10 +21,11 @@ function OpenExecutivePage() {
     handleProgramsPageChange,
     currentProgramsPage,
     totalProgramsPages,
-    allPrograms, allCourses, downloadScreen, downloadProgramScreen,
+    allPrograms, allCourses, downloadScreen, downloadProgramScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen,
     toggleDownloadScreen
   } = useContext(CrossContext);
 
+  // toggleCourseContentDownloadScreen,  courseContentDownloadScreen
   
   const downloadUrl = allCourses && allCourses.length > 0 ? allCourses[0].courseBrochure : "";
   const title = allCourses && allCourses.length > 0 && allCourses[0].courseTitle;
@@ -39,7 +40,7 @@ function OpenExecutivePage() {
 
 
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
       
 
       {/* <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
@@ -76,8 +77,8 @@ function OpenExecutivePage() {
         <MobileCoursesButtonSwiper />
       </div>
 
-      
-      <ProgramsFilter />
+      {openPrograms && openPrograms.length > 0 &&
+      <ProgramsFilter />}
       
 
       <div className="flex flex-row flex-wrap h-auto gap-3 small:justify-center small:w-100 large:w-83vw large:justify-start">
@@ -99,7 +100,7 @@ function OpenExecutivePage() {
                 />
 
                 {downloadProgramScreen && 
-                    <DownloadScreen 
+                    <CourseContentDownloadScreen 
                       downloadUrl={program.courseContent}
                       title={program.title}
                     />}
@@ -141,8 +142,8 @@ function OpenExecutivePage() {
       )}
 
 
-      {downloadScreen && 
-      <DownloadScreen 
+      {courseBrochureDownloadScreen && 
+      <CourseBrochureDownloadScreen 
         downloadUrl={downloadUrl && downloadUrl}
         title={title && title}
       />}

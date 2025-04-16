@@ -51,7 +51,7 @@ import EditWebinarPage from "./pages/EditWebinarPage/EditWebinarPage";
 import WebinarEnrollmentForm from "./components/WebinarEnrollmentForm/WebinarEnrollmentForm";
 import EditTestimonialPage from "./pages/EditTestimonialPage/EditTestimonialPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
-import DownloadScreen from "./components/DownloadScreen/DownloadScreen";
+import { PresentationDownloadScreen } from "./components/DownloadScreen/DownloadScreen";
 import Bio from "./components/Bio/Bio";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import BlogPostDetails from "./pages/BlogPostDetails/BlogPostDetails";
@@ -60,6 +60,7 @@ import CaseStudyPage from "./pages/CaseStudyPage/CaseStudyPage";
 import { ProtectedAdmin } from "./components/ProtectedAdmin/ProtectedAdmin";
 import { ProtectedUser } from "./components/ProtectedUser/ProtectedUser";
 import {OpenCourseEnrollment, SecondOpenCourseEnrollment} from "./components/OpenCourseEnrollment/OpenCourseEnrollment";
+import TeamBondingPage from "./pages/TeamBondingPage/TeamBondingPage";
 
 
 
@@ -73,7 +74,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, downloadScreen, viewAllHighDemands, bio, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, bio, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -218,6 +219,9 @@ function App() {
           
           <Route path="/our-courses/sales-excellence" element={<SalesExcellencePage />} />
           <Route path="/our-courses/complete-employee" element={<CompleteEmployee />} />
+          <Route path="/our-courses/team-bonding" element={<TeamBondingPage />} />
+
+          
           <Route path="/our-courses/:programId" element={<ProgramDetailsPage />} />
           <Route path="/our-courses/edit/:programId" element={<EditProgramPage />} />
           <Route path="/our-solutions/webinars/edit/:webinarId" element={<EditWebinarPage />} />
@@ -285,6 +289,12 @@ function App() {
         <Footer />
         
       </Router>
+
+       {presentationDownloadScreen && 
+        <PresentationDownloadScreen 
+          downloadUrl={downloadUrl && downloadUrl}
+          title={title && title}
+        />}
     </div>
   );
 }

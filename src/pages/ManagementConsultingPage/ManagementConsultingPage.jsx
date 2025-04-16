@@ -14,7 +14,7 @@ import { HiArrowLongRight } from "react-icons/hi2";
 import {CaseStudy} from "../../components/CaseStudy/CaseStudy";
 import OurCaseStudy from "../../components/OurCaseStudy/OurCaseStudy";
 import AboutHero from "../../components/AboutHero/AboutHero";
-import DownloadScreen from "../../components/DownloadScreen/DownloadScreen";
+
 
 
 
@@ -137,11 +137,11 @@ function ManagementConsultingPage() {
       </div>
 
 
-      {downloadScreen && 
+      {/* {downloadScreen && 
       <DownloadScreen 
         downloadUrl={downloadUrl && downloadUrl}
         title={title && title}
-      />}
+      />} */}
     </div>
   );
 }

@@ -12,7 +12,6 @@ import { AiOutlineDesktop } from "react-icons/ai";
 import { TbChartHistogram } from "react-icons/tb";
 import { GrUserExpert } from "react-icons/gr";
 import AboutHero from "../../components/AboutHero/AboutHero";
-import DownloadScreen from "../../components/DownloadScreen/DownloadScreen";
 import { CrossContext } from "../../Context/CrossContext";
 
 
@@ -223,11 +222,11 @@ function CustomizedTrainingPage() {
       </div>
 
 
-      {downloadScreen && 
+      {/* {downloadScreen && 
         <DownloadScreen 
           downloadUrl={downloadUrl && downloadUrl}
           title={title && title}
-        />}
+        />} */}
     </div>
   );
 }

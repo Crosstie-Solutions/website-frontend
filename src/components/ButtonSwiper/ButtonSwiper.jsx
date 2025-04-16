@@ -77,6 +77,11 @@ const CoursesButtonSwiper = () => {
   {
     name: "Complete Employee Series (CES)",
     route: "complete-employee"
+  },
+
+  {
+    name: "Crosstie Team Bonding",
+    route: "team-bonding"
   }
 ]
 
@@ -94,7 +99,7 @@ const CoursesButtonSwiper = () => {
         {routes.map((item, index) => (
           <NavLink to={`/our-courses/${item.route}`} key={index} 
           className={`${location.pathname===`/our-courses/${item.route}` ? "bg-crossLightPurple text-white" : "bg-[#E7E7E7] text-[#959595]"
-          } flex items-center justify-center w-auto large:px-1 large:h-40px rounded-20 small:px-1 small:h-30px`}
+          } flex items-center justify-center w-auto large:px-1 large:h-50px rounded-20 small:px-1 small:h-30px text-center py-1`}
           >{item.name}</NavLink>
         ))}
       </div>

@@ -15,7 +15,7 @@ import { CrossContext } from "../../Context/CrossContext";
 import Webinar from "../../components/Webinar/Webinar";
 import { PastFilter, UpcomingFilter } from "../../components/WebinarFilter/WebinarFilter";
 import AboutHero from "../../components/AboutHero/AboutHero";
-import DownloadScreen from "../../components/DownloadScreen/DownloadScreen";
+
 
 
 
@@ -141,11 +141,11 @@ function WebinarPage() {
       </div>
 
 
-      {downloadScreen && 
+      {/* {downloadScreen && 
       <DownloadScreen 
         downloadUrl={downloadUrl && downloadUrl}
         title={title && title}
-      />}
+      />} */}
     </div>
   );
 }

@@ -9,15 +9,15 @@ import { CrossContext } from "../../Context/CrossContext";
 import ProgramsFilter from "../../components/ProgramsFilter/ProgramsFilter";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { CgChevronLeft } from "react-icons/cg";
-import DownloadScreen from "../../components/DownloadScreen/DownloadScreen";
 import AboutHero from "../../components/AboutHero/AboutHero";
+import { CourseBrochureDownloadScreen, CourseContentDownloadScreen } from "../../components/DownloadScreen/DownloadScreen";
 
 
 
 
 function CompleteEmployee() {
 
-    const {currentPrograms, handleProgramsPageChange, currentProgramsPage, totalProgramsPages, programsSearchTerm, toggleDownloadScreen, downloadScreen, allCourses, downloadProgramScreen} = useContext(CrossContext);
+    const {currentPrograms, handleProgramsPageChange, currentProgramsPage, totalProgramsPages, programsSearchTerm, toggleDownloadScreen, downloadScreen, allCourses, downloadProgramScreen, courseBrochureDownloadScreen} = useContext(CrossContext);
     
     
     const downloadUrl = allCourses && allCourses.length > 0 ? allCourses[3].courseBrochure : "";
@@ -30,7 +30,7 @@ function CompleteEmployee() {
 
     
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
       
       <AboutHero 
         tag={title}
@@ -43,8 +43,10 @@ function CompleteEmployee() {
         <MobileCoursesButtonSwiper />
       </div>
 
+
+      {completeEmployeePrograms && completeEmployeePrograms.length > 0 &&
+       <ProgramsFilter />}
        
-       <ProgramsFilter />
      
 
         <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
@@ -66,7 +68,7 @@ function CompleteEmployee() {
                           />
           
                           {downloadProgramScreen && 
-                              <DownloadScreen 
+                              <CourseContentDownloadScreen 
                                 downloadUrl={program.courseContent}
                                 title={program.title}
                               />}
@@ -112,8 +114,8 @@ function CompleteEmployee() {
         <p className="mt-5 text-center w-100 text-15px">No result found.</p>
       )}
 
-      {downloadScreen && 
-        <DownloadScreen 
+      {courseBrochureDownloadScreen && 
+        <CourseBrochureDownloadScreen 
         downloadUrl={downloadUrl && downloadUrl}
         title={title && title}
         />}

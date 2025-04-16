@@ -7,7 +7,7 @@ import { IoIosLaptop } from "react-icons/io";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { data, Link } from 'react-router-dom';
 import { CrossContext } from '../../Context/CrossContext';
-import DownloadScreen from '../DownloadScreen/DownloadScreen';
+
 
 
 

@@ -7,7 +7,7 @@ function AboutHero(props) {
 
   const {tag, buttonText} = props;
 
-    const {toggleDownloadScreen} = useContext(CrossContext);
+    const {togglePresentationDownloadScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen} = useContext(CrossContext);
 
    
     const videoId = 'BdWLMvrkidU'
@@ -33,7 +33,7 @@ function AboutHero(props) {
 
         <div
           className="flex items-center justify-center gap-1 px-1 mt-2 text-center text-white cursor-pointer large:w-auto large:rounded-5 bg-buttonOverlay large:text-15px h-40px bg-crossLightPurple small:text-13px small:w-100 small:rounded-10"
-          onClick={toggleDownloadScreen}
+          onClick={window.location.pathname.includes('courses') ? toggleCourseBrochureDownloadScreen : togglePresentationDownloadScreen}
         >
           <TbFileTypePdf className="text-20px" />
           {buttonText ? buttonText : "Download Our Corporate Presentation"}

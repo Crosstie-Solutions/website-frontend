@@ -14,7 +14,6 @@ import {CaseStudy} from "../../components/CaseStudy/CaseStudy";
 import { GoArrowRight } from "react-icons/go";
 import OurCaseStudy from "../../components/OurCaseStudy/OurCaseStudy";
 import AboutHero from "../../components/AboutHero/AboutHero";
-import DownloadScreen from "../../components/DownloadScreen/DownloadScreen";
 
 
 
@@ -136,11 +135,11 @@ function CorporateTrainingPage() {
         </Link>
       </div>
 
-      {downloadScreen && 
+      {/* {downloadScreen && 
       <DownloadScreen 
         downloadUrl={downloadUrl && downloadUrl}
         title={title && title}
-      />}
+      />} */}
     </div>
   );
 }

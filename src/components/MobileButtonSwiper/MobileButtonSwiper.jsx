@@ -14,7 +14,7 @@ function MobileAboutButtonSwiper() {
       route: "",
     },
     {
-      name: "Our story",
+      name: "Our Story",
       route: "our-story",
     },
     {
@@ -22,7 +22,7 @@ function MobileAboutButtonSwiper() {
       route: "leadership",
     },
     {
-      name: "Our clients",
+      name: "Our Clients",
       route: "our-clients",
     },
     {
@@ -34,7 +34,7 @@ function MobileAboutButtonSwiper() {
       route: "satisfaction",
     },
     {
-      name: "Crosstie photos",
+      name: "Crosstie Photos",
       route: "crosstie-photos",
     },
   ];
@@ -64,25 +64,32 @@ function MobileAboutButtonSwiper() {
   );
 }
 
+
+
 function MobileCoursesButtonSwiper() {
   
   const routes = [
     {
-    name: "Open executive programmes (OEP)",
+    name: "Open Executive Programmes (OEP)",
     route: ""
   },
   {
-    name: "Executive Leadership programmes (ELP)",
+    name: "Executive Leadership Programmes (ELP)",
     route: "executive-leadership"
   },
   {
-    name: "Sales excellence series (SES)",
+    name: "Sales Excellence Series (SES)",
     route: "sales-excellence"
   },
   {
-    name: "Complete employee series (CES)",
+    name: "Complete Employee Series (CES)",
     route: "complete-employee"
-  }
+  },
+
+  {
+    name: "Crosstie Team Bonding (CTB)",
+    route: "team-bonding",
+  },
 ]
 
   return (

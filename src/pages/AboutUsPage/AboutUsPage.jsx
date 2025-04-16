@@ -10,7 +10,6 @@ import OurReach from "../../components/OurReach/OurReach";
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 import { RiFolderDownloadLine } from "react-icons/ri";
 import { CrossContext } from "../../Context/CrossContext";
-import DownloadScreen from "../../components/DownloadScreen/DownloadScreen";
 import { TbFileTypePdf } from "react-icons/tb";
 import OurValues from "../../components/OurValues/OurValues";
 import AboutHero from "../../components/AboutHero/AboutHero";
@@ -23,9 +22,9 @@ function AboutUsPage() {
 
   const {allCourses, toggleDownloadScreen, downloadScreen} = useContext(CrossContext);
 
-  const downloadUrl = "https://res.cloudinary.com/dnq0mhrjs/raw/upload/v1742100118/course_brochures/tl8unlrm6qlttpde4bnk.pdf";
+  // const downloadUrl = "https://res.cloudinary.com/dnq0mhrjs/raw/upload/v1742100118/course_brochures/tl8unlrm6qlttpde4bnk.pdf";
   
-  const title = "Our Corporate Presentation";
+  // const title = "Our Corporate Presentation";
 
   
   return (
@@ -67,11 +66,11 @@ function AboutUsPage() {
       <WhyChooseUs />
 
 
-      {downloadScreen && 
+      {/* {downloadScreen && 
       <DownloadScreen 
         downloadUrl={downloadUrl && downloadUrl}
         title={title && title}
-      />}
+      />} */}
     </div>
   );
 }

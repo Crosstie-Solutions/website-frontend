@@ -877,17 +877,38 @@ const viewAllContactForms = async () => {
 
 
 
-   //downloadScreen
-   const [downloadScreen, setDownloadScreen] = useState(false);
+   //downloadScreens
+   const [presentationDownloadScreen, setPresentationDownloadScreen] = useState(false);
 
-   const toggleDownloadScreen = ()=> { 
+   const togglePresentationDownloadScreen = ()=> { 
     window.scrollTo({ top: 0, behavior: "auto" });
-    setDownloadScreen(!downloadScreen);
+    setPresentationDownloadScreen(!presentationDownloadScreen);
    }
 
-   const downloadUrl = "https://res.cloudinary.com/dnq0mhrjs/raw/upload/v1742100118/course_brochures/tl8unlrm6qlttpde4bnk.pdf";
+
+   const [courseContentDownloadScreen, setCourseContentDownloadScreen] = useState(false);
+
+   const toggleCourseContentDownloadScreen = ()=> { 
+    window.scrollTo({ top: 0, behavior: "auto" });
+    setCourseContentDownloadScreen(!courseContentDownloadScreen);
+   }
+
+
+
+   const [courseBrochureDownloadScreen, setCourseBrochureDownloadScreen] = useState(false);
+
+   
+
+   const toggleCourseBrochureDownloadScreen = ()=> { 
+    window.scrollTo({ top: 0, behavior: "auto" });
+    setCourseBrochureDownloadScreen(!courseBrochureDownloadScreen);
+   }
+
+   const downloadUrl = "https://res.cloudinary.com/dnq0mhrjs/image/upload/v1744802770/Crosstie_Corporate_Profile_2025_sap8fs.pdf";
       
     const title = "Our Corporate Presentation";
+
+
    
 
     //program download
@@ -1344,7 +1365,7 @@ const currentEvents = filteredEvents && filteredEvents.slice(eventsStartIndex, e
     hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program, toggleAdminProgramAction, activeProgram, deletingProgram, deleteProgram, viewAllCourseRegs, allCourseRegs, currentCourseRegs,  handleCourseRegsPageChange, currentCourseRegsPage, totalCourseRegsPages,
     courseRegsSearchTerm, allCourseRegs, activeCourseReg, toggleAdminCourseRegAction,   activeWebinar, toggleAdminWebinarAction, deletingWebinar, deleteWebinar, currentUpcoming, handleUpcomingPageChange, totalUpcomingPages, currentUpcomingPage,
     currentPast, handlePastPageChange, currentPastPage, totalPastPages, pastSearchTerm,
-  pastWebinars, activeWebinar, toggleActiveWebinarView, activeWebinarView, webinarEnrollment, toggleWebinarEnrollment, webinar, setWebinarEnrollment, loadingWebinar, viewAllEnquiries, toggleAdminEnquiryAction, activeEnquiry, allEnquiries, setActiveEnquiry, viewAllNewsletters, allNewsletters, viewAllTestimonials, allTestimonials, loadingAllTestimonials,  activeTestimonial, toggleAdminTestimonialAction, deletingTestimonial, deleteTestimonial,   activeContactForm, toggleAdminContactFormAction, viewAllContactForms, allContactForms, loadingAllContactForms, toggleDownloadScreen, downloadScreen, viewAllHighDemands, allHighDemands, toggleBio, bio, currentTestimonials,
+  pastWebinars, activeWebinar, toggleActiveWebinarView, activeWebinarView, webinarEnrollment, toggleWebinarEnrollment, webinar, setWebinarEnrollment, loadingWebinar, viewAllEnquiries, toggleAdminEnquiryAction, activeEnquiry, allEnquiries, setActiveEnquiry, viewAllNewsletters, allNewsletters, viewAllTestimonials, allTestimonials, loadingAllTestimonials,  activeTestimonial, toggleAdminTestimonialAction, deletingTestimonial, deleteTestimonial,   activeContactForm, toggleAdminContactFormAction, viewAllContactForms, allContactForms, loadingAllContactForms, viewAllHighDemands, allHighDemands, toggleBio, bio, currentTestimonials,
   handleTestimonialsPageChange, allBlogPosts, viewAllBlogPosts, currentTestimonialsPage, totalTestimonialsPages, currentBlogPosts, handleBlogPostsPageChange,
   currentBlogPostsPage, deletingBlogPost, deleteBlogPost,
   totalBlogPostsPages,setBlogPostsSearchTerm,
@@ -1359,9 +1380,9 @@ const currentEvents = filteredEvents && filteredEvents.slice(eventsStartIndex, e
   currentUsersPage, togglePartner,
   activePartner, downloadUrl, title,
   totalUsersPages, activeSearch, setActiveSearch,
-  handleUsersPageChange,  setDownloadScreen, setDownloadProgramScreen,
+  handleUsersPageChange, setDownloadProgramScreen,
     allUsers, activeAdmin, toggleRemoveAdmin,
-  activeBlogPost, toggleOpenEnrollment, openEnrollmentForm, executiveEnrollmentData, handleExecutiveChange, trainingMode, setTrainingMode, setExecutiveEnrollmentData, toggleSecondOpenEnrollment, secondOpenEnrollmentForm, currentEvents, allEvents, fetchEvents, loadEvents
+  activeBlogPost, toggleOpenEnrollment, openEnrollmentForm, executiveEnrollmentData, handleExecutiveChange, trainingMode, setTrainingMode, setExecutiveEnrollmentData, toggleSecondOpenEnrollment, secondOpenEnrollmentForm, currentEvents, allEvents, fetchEvents, loadEvents, togglePresentationDownloadScreen, toggleCourseContentDownloadScreen, presentationDownloadScreen, courseContentDownloadScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen
   };
 
   

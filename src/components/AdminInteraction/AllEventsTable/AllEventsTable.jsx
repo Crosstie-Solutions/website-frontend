@@ -10,7 +10,7 @@ import PartnersFilter from "../../PartnersFilter/PartnersFilter";
 
 
 
-function AllPartnersTable() {
+function AllEventsTable() {
 
   
   const {
@@ -120,4 +120,4 @@ function AllPartnersTable() {
   );
 }
 
-export default AllPartnersTable;
+export default AllEventsTable;
