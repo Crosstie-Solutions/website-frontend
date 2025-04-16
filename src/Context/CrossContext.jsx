@@ -1369,6 +1369,104 @@ const toggleEvent = async (index)=> {
 
 
 
+
+
+// case study
+const [allCaseStudies, setAllCaseStudies] = useState([]);
+const [loadingAllCaseStudies, setLoadingAllCaseStudies] = useState(false);
+
+console.log("allCaseStudies:", allCaseStudies)
+
+
+const viewAllCaseStudies = async () => {
+  try {
+    setLoadingAllCaseStudies(true)
+    const response = await axios.get(`${baseUrl}/api/case-study`);
+
+    setAllCaseStudies(response.data.data.data);
+  } catch (dupError) {
+    console.log("error fetching all CaseStudies:", dupError);
+  }finally{
+    setLoadingAllCaseStudies(false)
+  }
+};
+
+
+//for admin to filter CaseStudies
+const [currentCaseStudiesPage, setCurrentCaseStudiesPage] = useState(1);
+const [CaseStudiesSearchTerm, setCaseStudiesSearchTerm] = useState("");
+const caseStudiesPerPage = 10;
+
+console.log("currentCaseStudiesPage:", currentCaseStudiesPage);
+
+// // Filter CaseStudies based on search term
+const filteredCaseStudies = allCaseStudies && allCaseStudies.filter((caseStudy) =>
+  `${caseStudy.title} ${caseStudy.author}`
+    .toLowerCase()
+    .includes(CaseStudiesSearchTerm.toLowerCase())
+);
+
+
+
+// // Calculate total pages
+const totalCaseStudiesPages = filteredCaseStudies && Math.ceil(filteredCaseStudies.length / caseStudiesPerPage);
+
+// Get requests for the current page
+const caseStudiesStartIndex = (currentCaseStudiesPage - 1) * caseStudiesPerPage;
+const caseStudiesEndIndex = caseStudiesStartIndex + caseStudiesPerPage;
+const currentCaseStudies = filteredCaseStudies && filteredCaseStudies.slice(caseStudiesStartIndex, caseStudiesEndIndex).reverse();
+
+
+// Handle page change
+const handleCaseStudiesPageChange = (page) => {
+  window.scrollTo({ top: 0, behavior: "auto" });
+  if (page > 0 && page <= totalCaseStudiesPages) {
+    setCurrentCaseStudiesPage(page);
+  }
+};
+
+
+
+//active CaseStudy
+const [activeCaseStudy, setActiveCaseStudy] = useState(null);
+
+console.log("activeCaseStudy:", activeCaseStudy);
+
+const toggleAdminCaseStudyAction = async (index)=> {
+
+  setActiveCaseStudy((prev) => (prev === index ? null : index));
+}
+
+
+
+ //for admin to delete case study
+ const [deletingCaseStudy, setDeletingCaseStudy] = useState(false);
+
+ const deleteCaseStudy = async (postId) => {
+   
+   try {
+     setDeletingCaseStudy(true);
+ 
+     const response = await axios.delete(`${baseUrl}/api/case-study/${postId && postId}`);
+ 
+     console.log('case study delete response:', response.data);
+     if(response.status === 200){
+       toast.success('Case study deleted successfully.');
+       toggleAdminCaseStudyAction("exit")
+     }
+     
+   } catch (error) {
+     console.error('Error deleting case study:', error);
+   }finally{
+     setDeletingCaseStudy(false);
+   }
+ };
+
+
+
+
+
+
   //scroll to top effect
   useEffect(() => {
     if (currentProgramsPage > 0) {
@@ -1403,8 +1501,10 @@ const toggleEvent = async (index)=> {
   handleUsersPageChange, setDownloadProgramScreen,
     allUsers, activeAdmin, toggleRemoveAdmin,
   activeBlogPost, toggleOpenEnrollment, openEnrollmentForm, executiveEnrollmentData, handleExecutiveChange, trainingMode, setTrainingMode, setExecutiveEnrollmentData, toggleSecondOpenEnrollment, secondOpenEnrollmentForm, currentEvents, allEvents, fetchEvents, loadEvents, togglePresentationDownloadScreen, toggleCourseContentDownloadScreen, presentationDownloadScreen, courseContentDownloadScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen, eventsSearchTerm, setEventsSearchTerm, setCurrentEventsPage, loadEvents,
-  currentEvents,
-  currentEventsPage,
+  currentEvents, viewAllCaseStudies, allCaseStudies,
+  currentEventsPage,  handleCaseStudiesPageChange,
+  currentCaseStudiesPage, loadingAllCaseStudies,
+  totalCaseStudiesPages,
   totalEventsPages,
   handleEventsPageChange,
   allEvents,

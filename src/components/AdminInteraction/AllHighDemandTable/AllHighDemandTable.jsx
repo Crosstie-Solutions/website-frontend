@@ -52,7 +52,7 @@ function AllHighDemandTable() {
               >
                 <div className="w-10">{i + 1}.</div>
                 <div className={`flex flex-col gap-0.5 w-30`}>
-                  {program.program[0].title}
+                  {program.program && program.program.length >0 && program.program[0].title}
                   
                  
                   <div  
@@ -70,7 +70,7 @@ function AllHighDemandTable() {
                       programNo={i + 1}
                       programEnd={allHighDemands.length + 1}
                       programId={program.id}
-                      title={program.program[0].title}
+                      title={program.program && program.program.length >0 && program.program[0].title}
                       priorityIndex={program.priorityIndex}
                       />
                     </div>)}

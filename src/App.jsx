@@ -61,8 +61,7 @@ import { ProtectedAdmin } from "./components/ProtectedAdmin/ProtectedAdmin";
 import { ProtectedUser } from "./components/ProtectedUser/ProtectedUser";
 import {OpenCourseEnrollment, SecondOpenCourseEnrollment} from "./components/OpenCourseEnrollment/OpenCourseEnrollment";
 import TeamBondingPage from "./pages/TeamBondingPage/TeamBondingPage";
-
-
+import ViewCaseStudy from "./pages/ViewCaseStudy/ViewCaseStudy";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -74,7 +73,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, bio, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, bio, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -84,6 +83,10 @@ function App() {
   
   useEffect(()=>{
     viewAllBlogPosts();
+  },[]);
+
+  useEffect(()=>{
+    viewAllCaseStudies();
   },[]);
 
   
@@ -234,6 +237,8 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           
           <Route path="/case-studies" element={<CaseStudyPage />} />
+          
+          <Route path="/case-studies/:postId" element={<ViewCaseStudy />} />
           
           <Route path="/blog/:postId" element={<BlogPostDetails />} />
           <Route path="/blog/edit/:postId" element={<EditBlogPostPage />} />

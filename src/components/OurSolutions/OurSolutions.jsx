@@ -104,32 +104,32 @@ function OurSolutions() {
                 {solution==="Consulting Services" &&
                 <div className='flex items-center justify-between h-auto large:flex-row w-100 small:flex-col small:gap-3 large:gap-0'>
                     
-                    <div className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-300px text-15px rounded-20 small:w-100'>
+                    <div className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><HiOutlineUsers className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Culture Assessment and Transformation</h3>
                         
-                        <p className='text-13px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
+                        <p className='text-15px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
                         
                     </div>
 
 
-                    <div className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-300px text-15px rounded-20 small:w-100'>
+                    <div className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><GiTeamIdea className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Strategy Development and Execution</h3>
                         
-                        <p className='text-13px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
+                        <p className='text-15px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
                         
                     </div>
 
 
-                    <div className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-300px text-15px rounded-20 small:w-100'>
+                    <div className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><LiaBusinessTimeSolid className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Business Process Documentation and Improvement</h3>
                         
-                        <p className='text-13px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
+                        <p className='text-15px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
                         
                     </div>
                     
@@ -142,10 +142,10 @@ function OurSolutions() {
                     
                     {
                         allHighDemands && allHighDemands.map((program, i)=>
-                            <Link to={`/our-courses/${program.program[0].id}`} className='flex items-center justify-center gap-1 py-1 font-semibold text-black h-80px lareg:w-230px large:text-15px rounded-5 small:text-13px bg-crossIconBg hover:text-crossLightPurple small:w-150px'
+                            <Link to={`/our-courses/${program.program && program.program.length >0 && program.program[0].id}`} className='flex items-center justify-center gap-1 py-1 font-semibold text-black h-80px lareg:w-230px large:text-15px rounded-5 small:text-13px bg-crossIconBg hover:text-crossLightPurple small:w-150px'
                             key={i}
                             >
-                                <div className='flex items-center justify-center px-1 border-l-4 h-50 border-crossLightPurple w-100 hover:h-90'>{program.program[0].title}</div>
+                                <div className='flex items-center justify-center px-1 border-l-4 h-50 border-crossLightPurple w-100 hover:h-90'>{program.program && program.program.length >0 && program.program[0].title}</div>
                             </Link>
                         )
                     }
