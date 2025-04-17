@@ -1394,7 +1394,7 @@ const viewAllCaseStudies = async () => {
 
 //for admin to filter CaseStudies
 const [currentCaseStudiesPage, setCurrentCaseStudiesPage] = useState(1);
-const [CaseStudiesSearchTerm, setCaseStudiesSearchTerm] = useState("");
+const [caseStudiesSearchTerm, setCaseStudiesSearchTerm] = useState("");
 const caseStudiesPerPage = 10;
 
 console.log("currentCaseStudiesPage:", currentCaseStudiesPage);
@@ -1403,7 +1403,7 @@ console.log("currentCaseStudiesPage:", currentCaseStudiesPage);
 const filteredCaseStudies = allCaseStudies && allCaseStudies.filter((caseStudy) =>
   `${caseStudy.title} ${caseStudy.author}`
     .toLowerCase()
-    .includes(CaseStudiesSearchTerm.toLowerCase())
+    .includes(caseStudiesSearchTerm.toLowerCase())
 );
 
 
@@ -1432,7 +1432,9 @@ const [activeCaseStudy, setActiveCaseStudy] = useState(null);
 
 console.log("activeCaseStudy:", activeCaseStudy);
 
-const toggleAdminCaseStudyAction = async (index)=> {
+const toggleCaseStudy = async (index)=> {
+
+  window.scrollTo({ top: 0, behavior: "auto" });
 
   setActiveCaseStudy((prev) => (prev === index ? null : index));
 }
@@ -1440,27 +1442,29 @@ const toggleAdminCaseStudyAction = async (index)=> {
 
 
  //for admin to delete case study
- const [deletingCaseStudy, setDeletingCaseStudy] = useState(false);
+//  const [deletingCaseStudy, setDeletingCaseStudy] = useState(false);
 
- const deleteCaseStudy = async (postId) => {
+//  const deleteCaseStudy = async (postId) => {
    
-   try {
-     setDeletingCaseStudy(true);
+//    try {
+//      setDeletingCaseStudy(true);
  
-     const response = await axios.delete(`${baseUrl}/api/case-study/${postId && postId}`);
+//      const response = await axios.delete(`${baseUrl}/api/case-study/${postId && postId}`);
  
-     console.log('case study delete response:', response.data);
-     if(response.status === 200){
-       toast.success('Case study deleted successfully.');
-       toggleAdminCaseStudyAction("exit")
-     }
+//      console.log('case study delete response:', response.data);
+//      if(response.status === 200){
+//        toast.success('Case study deleted successfully.');
+//        toggleCaseStudy("exit")
+//      }
      
-   } catch (error) {
-     console.error('Error deleting case study:', error);
-   }finally{
-     setDeletingCaseStudy(false);
-   }
- };
+//    } catch (error) {
+//      console.error('Error deleting case study:', error);
+//    }finally{
+//      setDeletingCaseStudy(false);
+//    }
+//  };
+
+
 
 
 
@@ -1484,7 +1488,12 @@ const toggleAdminCaseStudyAction = async (index)=> {
     courseRegsSearchTerm, allCourseRegs, activeCourseReg, toggleAdminCourseRegAction,   activeWebinar, toggleAdminWebinarAction, deletingWebinar, deleteWebinar, currentUpcoming, handleUpcomingPageChange, totalUpcomingPages, currentUpcomingPage,
     currentPast, handlePastPageChange, currentPastPage, totalPastPages, pastSearchTerm,
   pastWebinars, activeWebinar, toggleActiveWebinarView, activeWebinarView, webinarEnrollment, toggleWebinarEnrollment, webinar, setWebinarEnrollment, loadingWebinar, viewAllEnquiries, toggleAdminEnquiryAction, activeEnquiry, allEnquiries, setActiveEnquiry, viewAllNewsletters, allNewsletters, viewAllTestimonials, allTestimonials, loadingAllTestimonials,  activeTestimonial, toggleAdminTestimonialAction, deletingTestimonial, deleteTestimonial,   activeContactForm, toggleAdminContactFormAction, viewAllContactForms, allContactForms, loadingAllContactForms, viewAllHighDemands, allHighDemands, toggleBio, bio, currentTestimonials,
-  handleTestimonialsPageChange, allBlogPosts, viewAllBlogPosts, currentTestimonialsPage, totalTestimonialsPages, currentBlogPosts, handleBlogPostsPageChange,
+  handleTestimonialsPageChange, allBlogPosts, viewAllBlogPosts, currentTestimonialsPage, totalTestimonialsPages, currentBlogPosts, handleBlogPostsPageChange,  loadingAllCaseStudies,
+  currentCaseStudies,  caseStudiesSearchTerm, setCaseStudiesSearchTerm, setCurrentCaseStudiesPage,
+  currentCaseStudiesPage,
+  totalCaseStudiesPages,
+  handleCaseStudiesPageChange,
+  allCaseStudies, activeCaseStudy, toggleCaseStudy,
   currentBlogPostsPage, deletingBlogPost, deleteBlogPost,
   totalBlogPostsPages,setBlogPostsSearchTerm,
   blogPostsSearchTerm, fetchUsers,

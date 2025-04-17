@@ -45,6 +45,10 @@ import { MdOutlineEventAvailable } from "react-icons/md";
 import AllEventsTable from "../../components/AdminInteraction/AllEventsTable/AllEventsTable";
 import AddEvent from "../../components/AdminInteraction/AddEvent/AddEvent";
 import { GrGallery } from "react-icons/gr";
+import { GiArchiveResearch } from "react-icons/gi";
+import AllCaseStudiesTable from "../../components/AdminInteraction/AllCaseStudiesTable/AllCaseStudiesTable";
+import AddCaseStudy from "../../components/AdminInteraction/AddCaseStudy/AddCaseStudy.jsx";
+
 
 
 
@@ -66,6 +70,13 @@ function AdminDashboard() {
    const togglePartnersDD = ()=>{
      setPartnersDD(!partnersDD);
    }
+
+    //case study dropdown
+    const [caseStudiesDD, setCaseStudiesDD] = useState(false);
+
+    const toggleCaseStudiesDD = ()=>{
+      setCaseStudiesDD(!caseStudiesDD);
+    }
 
     //events dropdown
     const [eventsDD, setEventsDD] = useState(false);
@@ -427,6 +438,36 @@ function AdminDashboard() {
         </div>
 
 
+        {/* manage Case studies */}
+        <div
+          className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+        >
+          
+          <div className={`${ activeScreen === "addCaseStudy" || activeScreen === "allCaseStudies" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
+          onClick={toggleCaseStudiesDD}
+          >            
+            <div className="flex gap-1">
+              <GiArchiveResearch className="text-20px" />
+              Case Studies
+            </div>
+
+            <IoChevronDown className={`text-20px ${caseStudiesDD ? "rotate-180" : ""}`}/>
+          </div>
+
+          {caseStudiesDD &&
+          <div className="flex flex-col items-center gap-1 w-100">
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("allCaseStudies")}
+            >All Case Studies</div>
+            
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("addCaseStudy")}
+            >Add Case Study</div>
+
+          </div>}
+        </div>
         
 
         <Link
@@ -545,6 +586,10 @@ function AdminDashboard() {
         {activeScreen === "allHighDemand" && <AllHighDemandTable />}
         
         {activeScreen === "addHighDemand" && <AddHighDemand />}
+        
+        {activeScreen === "allCaseStudies" && <AllCaseStudiesTable />}
+        
+        {activeScreen === "addCaseStudy" && <AddCaseStudy />}
         
         
       </div>

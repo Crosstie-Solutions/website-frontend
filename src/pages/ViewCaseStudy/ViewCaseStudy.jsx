@@ -8,7 +8,7 @@ import { Link, useParams } from 'react-router-dom';
 function ViewCaseStudy() {
 
     const {
-    baseUrl, me, formatDate,
+    baseUrl, me, formatDate, setLoading
     } = useContext(CrossContext);
 
     const postId = useParams().postId;
@@ -26,6 +26,7 @@ function ViewCaseStudy() {
 
         try {
         setLoadingPost(true)
+        setLoading(true)
         const response = await axios.get(`${baseUrl}/api/case-study/${postId}`);
         setPost(response.data.data.data);
     
@@ -33,6 +34,7 @@ function ViewCaseStudy() {
         console.error('Error fetching case study:', error);
         }finally{
         setLoadingPost(false);
+        setLoading(false)
         }
     
     }
