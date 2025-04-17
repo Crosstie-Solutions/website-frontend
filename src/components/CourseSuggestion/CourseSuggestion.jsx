@@ -28,7 +28,7 @@ function CourseSuggestion() {
     });
 
   return (
-    <div className='fixed z-30 flex flex-col items-center h-auto px-2 py-5 overflow-y-scroll bg-white border-t-2 rounded top-13 w-30vw right-30vw text-15px border-crossLightPurple'
+    <div className='fixed z-30 flex flex-col items-center px-2 py-5 overflow-y-scroll bg-white border border-t-2 rounded shadow-lg h-400px top-13 w-30vw right-30vw text-15px border-crossLightPurple'
     ref={dropdownRef}
     >
       {

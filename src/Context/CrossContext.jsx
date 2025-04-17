@@ -1441,31 +1441,148 @@ const toggleCaseStudy = async (index)=> {
 
 
 
- //for admin to delete case study
-//  const [deletingCaseStudy, setDeletingCaseStudy] = useState(false);
 
-//  const deleteCaseStudy = async (postId) => {
+
+
+// careers
+const [allJobs, setAllJobs] = useState();
+const [loadingAllJobs, setLoadingAllJobs] = useState(false);
+
+console.log("allJobs:", allJobs)
+
+
+const viewAllJobs = async () => {
+  try {
+    setLoadingAllJobs(true)
+    const response = await axios.get(`${baseUrl}/api/job`);
+
+    setAllJobs(response.data.data.data);
+  } catch (dupError) {
+    console.log("error fetching all Jobs:", dupError);
+  }finally{
+    setLoadingAllJobs(false)
+  }
+};
+
+
+//for admin to filter Jobs
+const [currentJobsPage, setCurrentJobsPage] = useState(1);
+const [jobsSearchTerm, setJobsSearchTerm] = useState("");
+const jobsPerPage = 10;
+
+console.log("currentJobsPage:", currentJobsPage);
+
+// // Filter Jobs based on search term
+const filteredJobs = allJobs && allJobs.filter((job) =>
+  `${job.role}`
+    .toLowerCase()
+    .includes(jobsSearchTerm.toLowerCase())
+);
+
+
+
+// // Calculate total pages
+const totalJobsPages = filteredJobs && Math.ceil(filteredJobs.length / jobsPerPage);
+
+// Get requests for the current page
+const jobsStartIndex = (currentJobsPage - 1) * jobsPerPage;
+const jobsEndIndex = jobsStartIndex + jobsPerPage;
+const currentJobs = filteredJobs && filteredJobs.slice(jobsStartIndex, jobsEndIndex).reverse();
+
+
+// Handle page change
+const handleJobsPageChange = (page) => {
+  window.scrollTo({ top: 0, behavior: "auto" });
+  if (page > 0 && page <= totalJobsPages) {
+    setCurrentJobsPage(page);
+  }
+};
+
+
+
+//active Job
+const [activeJob, setActiveJob] = useState(null);
+
+console.log("activeJob:", activeJob);
+
+const toggleJob = async (index)=> {
+
+  setActiveJob((prev) => (prev === index ? null : index));
+}
+
+
+
+ //for admin to delete blog post
+ const [deletingJob, setDeletingJob] = useState(false);
+
+ const deleteJob = async (jobId) => {
    
-//    try {
-//      setDeletingCaseStudy(true);
+   try {
+     setDeletingJob(true);
  
-//      const response = await axios.delete(`${baseUrl}/api/case-study/${postId && postId}`);
+     const response = await axios.delete(`${baseUrl}/api/job/${jobId && jobId}`);
  
-//      console.log('case study delete response:', response.data);
-//      if(response.status === 200){
-//        toast.success('Case study deleted successfully.');
-//        toggleCaseStudy("exit")
-//      }
+     console.log('job delete response:', response.data);
+     if(response.status === 200){
+       toast.success('Job deleted successfully.');
+       toggleJob("exit")
+     }
      
-//    } catch (error) {
-//      console.error('Error deleting case study:', error);
-//    }finally{
-//      setDeletingCaseStudy(false);
-//    }
-//  };
+   } catch (error) {
+     console.error('Error deleting job:', error);
+   }finally{
+     setDeletingJob(false);
+   }
+ };
+
+ //to apply for job
+  const [apply, setApply] = useState(false);
+
+     const applyNow = ()=>{
+         window.scrollTo({ top: 0, behavior: "auto" });
+         setApply(true)
+     }
 
 
 
+     
+     
+
+
+
+ //To calculate time a document was created
+const timeAgo = (timestamp) => {
+  const now = new Date();
+  const postTime = new Date(timestamp);
+  const secondsAgo = Math.floor((now - postTime) / 1000);
+
+  if (secondsAgo < 60) {
+    return `${secondsAgo} seconds ago`;
+  }
+
+  const minutesAgo = Math.floor(secondsAgo / 60);
+  if (minutesAgo < 60) {
+    return `${minutesAgo} minutes ago`;
+  }
+
+  const hoursAgo = Math.floor(minutesAgo / 60);
+  if (hoursAgo < 24) {
+    return `${hoursAgo} hours ago`;
+  }
+
+  const daysAgo = Math.floor(hoursAgo / 24);
+  if (daysAgo < 30) {
+    return `${daysAgo} days ago`;
+  }
+
+  const monthsAgo = Math.floor(daysAgo / 30);
+  if (monthsAgo < 12) {
+    return `${monthsAgo} months ago`;
+  }
+
+  const yearsAgo = Math.floor(monthsAgo / 12);
+  return `${yearsAgo} years ago`;
+}
 
 
 
@@ -1502,7 +1619,7 @@ const toggleCaseStudy = async (index)=> {
   currentPartners, partnersSearchTerm, setPartnersSearchTerm, setCurrentPartnersPage,
   currentPartnersPage, activeHighDemand, toggleHighDemand,
   totalPartnersPages, loadAllHighDemand,
-  handlePartnersPageChange, executiveCourse,
+  handlePartnersPageChange, executiveCourse, allJobs,
   allPartners, fetchAllHighDemand, downloadProgramScreen, toggleDownloadProgramScreen,
   currentUsersPage, togglePartner,
   activePartner, downloadUrl, title,
@@ -1513,12 +1630,17 @@ const toggleCaseStudy = async (index)=> {
   currentEvents, viewAllCaseStudies, allCaseStudies,
   currentEventsPage,  handleCaseStudiesPageChange,
   currentCaseStudiesPage, loadingAllCaseStudies,
-  totalCaseStudiesPages,
-  totalEventsPages,
-  handleEventsPageChange,
-  allEvents,
-
-  activeEvent, toggleEvent
+  totalCaseStudiesPages, viewAllJobs,
+  totalEventsPages, timeAgo, apply, applyNow, setApply,
+  handleEventsPageChange, jobsSearchTerm, setJobsSearchTerm, setCurrentJobsPage,
+  allEvents, activeEvent, toggleEvent, loadingAllJobs,
+  currentJobs, deletingJob,
+  currentJobsPage,
+  totalJobsPages,
+  handleJobsPageChange,
+  allJobs,
+  deleteJob,
+  activeJob, toggleJob
   };
 
   

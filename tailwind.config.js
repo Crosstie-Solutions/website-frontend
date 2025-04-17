@@ -22,6 +22,7 @@ export default {
         '15px': '15px',
         '14px': '14px',
         '13px': '13px',
+        '12px': '12px',
         '10px': '10px',
         '11px': '11px',
         '8px': '8px',
@@ -35,6 +36,8 @@ export default {
 
       width: {
         '2px': '2px',
+        '3px': '3px',
+        '4px': '4px',
         '5px': '5px',
         '10px': '10px',
         '20px': '20px',
@@ -112,6 +115,7 @@ export default {
       height: {
         '2px': '2px',
         '3px': '3px',
+        '4px': '4px',
         '10px': '10px',
         '20px': '20px',
         '30px': '30px',

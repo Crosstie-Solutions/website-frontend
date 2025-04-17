@@ -62,6 +62,8 @@ import { ProtectedUser } from "./components/ProtectedUser/ProtectedUser";
 import {OpenCourseEnrollment, SecondOpenCourseEnrollment} from "./components/OpenCourseEnrollment/OpenCourseEnrollment";
 import TeamBondingPage from "./pages/TeamBondingPage/TeamBondingPage";
 import ViewCaseStudy from "./pages/ViewCaseStudy/ViewCaseStudy";
+import CareersPage from "./pages/CareersPage/CareersPage";
+import JobDetailsPage from "./pages/JobDetailsPage/JobDetailsPage";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -73,7 +75,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, bio, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, bio, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies, viewAllJobs} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -169,6 +171,12 @@ function App() {
     fetchEvents();
   }, []);
 
+  useEffect(()=>{
+    viewAllJobs();
+  }, []);
+
+  
+
    
   
   
@@ -237,6 +245,11 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           
           <Route path="/case-studies" element={<CaseStudyPage />} />
+          
+          <Route path="/careers" element={<CareersPage />} />
+          
+          <Route path="/careers/job/:jobId" element={<JobDetailsPage />} />
+          
           
           <Route path="/case-studies/:postId" element={<ViewCaseStudy />} />
           

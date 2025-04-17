@@ -48,6 +48,9 @@ import { GrGallery } from "react-icons/gr";
 import { GiArchiveResearch } from "react-icons/gi";
 import AllCaseStudiesTable from "../../components/AdminInteraction/AllCaseStudiesTable/AllCaseStudiesTable";
 import AddCaseStudy from "../../components/AdminInteraction/AddCaseStudy/AddCaseStudy.jsx";
+import { MdOutlineWork } from "react-icons/md";
+import AllJobsTable from "../../components/AdminInteraction/AllJobsTable/AllJobsTable.jsx";
+import AddJob from "../../components/AdminInteraction/AddJob/AddJob.jsx";
 
 
 
@@ -83,6 +86,13 @@ function AdminDashboard() {
 
     const toggleEventsDD = ()=>{
       setEventsDD(!eventsDD);
+    }
+
+    //jobs dropdown
+    const [jobsDD, setJobsDD] = useState(false);
+
+    const toggleJobsDD = ()=>{
+      setJobsDD(!jobsDD);
     }
 
 
@@ -364,6 +374,39 @@ function AdminDashboard() {
         </div>
 
 
+        {/* Manage Jobs */}
+        <div
+          className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+        >
+          
+          <div className={`${ activeScreen === "addJob" || activeScreen === "allJobs" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
+          onClick={toggleJobsDD}
+          >            
+            <div className="flex gap-1">
+              <MdOutlineWork className="text-20px" />
+              Manage Careers
+            </div>
+            
+            
+            <IoChevronDown className={`text-20px ${jobsDD ? "rotate-180" : ""}`}/>
+          </div>
+
+          {jobsDD &&
+          <div className="flex flex-col items-center gap-1 w-100">
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("allJobs")}
+            >All Jobs</div>
+            
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("addJob")}
+            >Add Job</div>
+
+          </div>}
+        </div>
+
+
         {/* testimonials */}
         
         <div
@@ -536,15 +579,7 @@ function AdminDashboard() {
 
 
 
-        {/* savedItems */}
-        {/* {activeScreen === "savedItems" ? <SavedItem /> : ""} */}
-
-        {/* All products */}
-        {/* {activeScreen === "allProducts" ? <AllProductsTable /> : ""} */}
-
-
-
-        {/* add product */}
+        {/* add program */}
         {activeScreen === "addProgram" ? <AddProgram /> : ""}
 
         {activeScreen === "allPrograms" && <AllProgramsTable />}
@@ -590,6 +625,11 @@ function AdminDashboard() {
         {activeScreen === "allCaseStudies" && <AllCaseStudiesTable />}
         
         {activeScreen === "addCaseStudy" && <AddCaseStudy />}
+        
+        {activeScreen === "allJobs" && <AllJobsTable />}
+        
+        {activeScreen === "addJob" && <AddJob />}
+        
         
         
       </div>
