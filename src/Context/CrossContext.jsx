@@ -11,6 +11,7 @@ export const CrossContext = createContext(null);
 
 function CrossContextProvider(props) {
 
+
   //base URL for API calls
   // const baseUrl = "http://127.0.0.1:8000";
   const baseUrl = "https://server.crosstiesolutions.com";
@@ -440,6 +441,7 @@ const getLoginToken = () =>{
 
 
   //fetch logged in user
+const[loadMe, setLoadMe] = useState(false);
 const[me, setMe] = useState(null);
 
 console.log("me:", me);
@@ -449,7 +451,7 @@ console.log("me:", me);
 const fetchMe = async () => {
   
   try {
-    // setLoading(true)
+    setLoadMe(true)
     const response = await axios.get(`${baseUrl}/api/users/owner/me`, {
       headers: {
         Authorization: `Bearer ${loginToken ? loginToken : ""}`,
@@ -472,7 +474,8 @@ const fetchMe = async () => {
      if(error.response.data.message === 'User recently changed password! Please log in again.'){
       localStorage.clear();
      }   
-
+  }finally{
+    setLoadMe(false);
   }
 };
 
@@ -1634,7 +1637,7 @@ const timeAgo = (timestamp) => {
   totalEventsPages, timeAgo, apply, applyNow, setApply,
   handleEventsPageChange, jobsSearchTerm, setJobsSearchTerm, setCurrentJobsPage,
   allEvents, activeEvent, toggleEvent, loadingAllJobs,
-  currentJobs, deletingJob,
+  currentJobs, deletingJob, loadMe,
   currentJobsPage,
   totalJobsPages,
   handleJobsPageChange,

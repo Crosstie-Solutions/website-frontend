@@ -923,7 +923,7 @@ function AdminDashboard() {
 
             <MdKeyboardArrowRight className="text-20px" />
           </div>
-            
+          
 
              {/* Newsletter */}
           <div
@@ -937,6 +937,49 @@ function AdminDashboard() {
 
             <MdKeyboardArrowRight className="text-20px" />
           </div>
+
+           {/* jobs */}
+           <div
+                className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-13px`}
+              >
+          
+              <div className={`h-40px w-100 flex justify-between items-center pl-1 large:pr-2 small:pr-1`}
+            onClick={toggleJobsDD}
+            >
+              <div className="flex gap-1">
+                <MdOutlineWork className="text-20px" />
+                Manage Careers
+              </div>
+
+              <IoChevronDown className={`large:text-20px small:text-15px ${jobsDD ? "rotate-180" : ""}`}/>
+              </div>
+
+
+              {jobsDD &&
+              <div className="flex flex-col items-center gap-1 w-100">
+                {/* onClick={toggleSideBar} */}
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={
+                  () => {
+                    setActiveScreen("all Jobs");
+                    toggleSideBar();
+                    toggleJobsDD();
+                  }
+                  
+                }
+                >All Jobs</div>
+                
+                
+                <div className="flex justify-center h-auto bg-gray-200 border cursor-pointer w-90"
+                onClick={() => {
+                  setActiveScreen("add Job");
+                  toggleSideBar();
+                  toggleJobsDD();
+                }}
+                >Add Job</div>
+                
+              </div>}
+            </div>
 
 
           {/* Testimonials */}
@@ -1180,6 +1223,10 @@ function AdminDashboard() {
         {activeScreen === "add HighDemand" && <AddHighDemand />}
         
         {activeScreen === "all HighDemands" && <AllHighDemandTable />}
+        
+        {activeScreen === "all Jobs" && <AllJobsTable />}
+        
+        {activeScreen === "add Job" && <AddJob />}
 
         
         </div>
