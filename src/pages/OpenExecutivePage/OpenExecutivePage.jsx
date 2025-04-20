@@ -77,8 +77,8 @@ function OpenExecutivePage() {
         <MobileCoursesButtonSwiper />
       </div>
 
-      {openPrograms && openPrograms.length > 0 &&
-      <ProgramsFilter />}
+     
+      <ProgramsFilter />
       
 
       <div className="flex flex-row flex-wrap h-auto gap-3 small:justify-center small:w-100 large:w-83vw large:justify-start">

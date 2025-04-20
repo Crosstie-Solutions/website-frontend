@@ -17,7 +17,7 @@ function JobsFilter() {
           
           <input
             type="text"
-            placeholder="Search jobs by role"
+            placeholder="Search by role"
             value={jobsSearchTerm}
             onChange={(e) => {
               setJobsSearchTerm(e.target.value);

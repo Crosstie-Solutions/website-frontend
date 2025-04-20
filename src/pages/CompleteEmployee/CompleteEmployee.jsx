@@ -44,8 +44,8 @@ function CompleteEmployee() {
       </div>
 
 
-      {completeEmployeePrograms && completeEmployeePrograms.length > 0 &&
-       <ProgramsFilter />}
+      
+       <ProgramsFilter />
        
      
 

@@ -45,8 +45,8 @@ function TeamBondingPage() {
         <MobileCoursesButtonSwiper />
       </div>
 
-       {teamBondingPrograms && teamBondingPrograms.length > 0 &&
-       <ProgramsFilter />}
+      
+       <ProgramsFilter />
        
 
         <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
