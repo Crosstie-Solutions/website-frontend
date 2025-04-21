@@ -21,7 +21,7 @@ function LeadershipPage() {
       <div className="flex flex-col items-start h-auto gap-4 large:w-83vw small:w-90vw">
         
         <div className="flex flex-col items-start h-auto gap-1 w-100">
-          <h2 className="font-bold text-left large:text-30px small:text-20px">The Crosstie Leadership</h2>
+          <h2 className="font-bold text-left large:text-30px small:text-20px">The Crosstie Professionals</h2>
           <p className="text-left large:w-70">Crosstie’s Leadership team consists of Industry veterans who have a passion for educational innovation and customers.</p>
         </div>
 
@@ -62,7 +62,7 @@ function LeadershipPage() {
 
           {/* faculty */}
           <div className="flex flex-col items-center h-auto gap-2 w-100">
-            <h4 className="py-1 pl-1 font-semibold text-white border-l-4 bg-crossTextGray text-20px w-100 border-crossYellow">OUR TEAM</h4>
+            <h4 className="py-1 pl-1 font-semibold text-white border-l-4 bg-crossTextGray text-20px w-100 border-crossYellow">OUR FACULTY/CONSULTANTS</h4>
             <p>Our faculty and consultant team is made up of seasoned professionals and certified facilitators recognised as the best in their respective professional fields. See below some of them:</p>
             
             <div className="flex flex-row flex-wrap justify-start h-auto large:gap-3 w-100 small:gap-5">
