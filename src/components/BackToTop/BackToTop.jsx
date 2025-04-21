@@ -26,7 +26,7 @@ function BackToTop() {
     
 
   return (
-    <div className={`fixed z-30 ${showButton ? "flex" : "hidden"} items-center justify-center text-white rounded cursor-pointer top-80vh right-5 h-50px w-50px bg-crossFooterText hover:bg-white hover:border hover:border-black hover:text-black`}
+    <div className={`fixed z-30 ${showButton ? "flex" : "hidden"} items-center justify-center text-white rounded cursor-pointer top-80vh large:right-5 h-50px small:right-3 w-50px bg-crossFooterText hover:bg-white hover:border hover:border-black hover:text-black`}
     onClick={backToTop}
     ><IoIosArrowRoundUp className='text-35px'/></div>
   )

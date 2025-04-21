@@ -15,7 +15,7 @@ function AboutHero(props) {
 
     
   return (
-    <div className="flex justify-center text-black large:items-center large:flex-row bg-purple-50 large:gap-5 large:w-100vw large:h-400px small:px-0 large:py-2 small:gap-2 small:h-auto small:w-90vw small:flex-col small:mt-5 small:items-start large:mt-0 large:px-3">
+    <div className="flex justify-center text-black large:items-center large:flex-row bg-purple-50 large:gap-5 large:w-100vw large:h-400px small:px-0 large:py-2 small:gap-3 small:h-auto small:w-90vw small:flex-col-reverse small:mt-5 small:items-start large:mt-0 large:px-3">
         
       <div className="flex flex-col items-start justify-center large:gap-2 small:pt-2 large:pl-0 large:h-100 large:w-50 small:h-auto small:w-90vw large:pt-0 small:gap-1">
         

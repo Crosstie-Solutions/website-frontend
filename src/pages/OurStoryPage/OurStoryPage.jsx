@@ -10,7 +10,7 @@ import AboutHero from "../../components/AboutHero/AboutHero";
 
 function OurStoryPage() {
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
       
      <AboutHero />
 
@@ -36,9 +36,9 @@ function OurStoryPage() {
         </div>
       </div> */}
 
-      <div className="flex items-center justify-center large:h-380px large:mt-4 large:gap-0 small:flex-col-reverse large:flex-row small:w-90vw large:w-83vw small:gap-1 small:h-auto">
+      <div className="flex items-center justify-center large:h-380px large:mt-4 large:gap-0 small:flex-col-reverse large:flex-row small:w-90vw large:w-83vw small:gap-3 small:h-auto">
       
-        <img src={PHOTOS.how} alt="logo"  className="border-2 border-t-crossLightPurple large:w-25 large:h-100 small:h-300px small:w-80 border-l-crossLightPurple border-b-crossLightPurple"/>
+        <img src={PHOTOS.how} alt="logo"  className="border-2 border-t-crossLightPurple large:w-25 large:h-auto small:h-auto small:w-80 border-l-crossLightPurple border-b-crossLightPurple"/>
         
         <div className="flex flex-col justify-center gap-2 shadow-xl large:p-3 h-100 large:w-75 small:w-90vw bg-purple-50 rounded-10 small:p-1 ">
           <p className="leading-loose">Founded in 2013, <span className="font-semibold">Crosstie Solutions</span> is a trusted partner in <span className="font-semibold">people development, organizational growth</span>, and management consulting.
@@ -55,12 +55,12 @@ function OurStoryPage() {
 
       </div>
 
-      <div className="flex flex-col h-auto gap-1 p-2 border rounded w-83vw border-crossFooterText">
+      <div className="flex flex-col h-auto gap-1 p-2 border rounded large:w-83vw border-crossFooterText small:w-90vw">
         <h3 className="font-bold text-20px">
           Crosstie’s Story Of Destination Training
         </h3>
 
-        <ul className="h-auto pl-2 list-disc w-80">
+        <ul className="h-auto pl-2 list-disc large:w-80 small:w-100">
           <li>
             Lorem ipsum dolor sit amet aliqua. Ut enim ad minim veniam, quis
             nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -75,7 +75,7 @@ function OurStoryPage() {
       </div>
 
       <div className="flex flex-col h-auto gap-1 p-2 border rounded w-83vw border-crossFooterText">
-        <ul className="h-auto pl-2 list-disc w-80">
+        <ul className="h-auto pl-2 list-disc large:w-80 small:w-100">
           <li>
             Lorem ipsum dolor sit amet aliqua. Ut enim ad minim veniam, quis
             nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

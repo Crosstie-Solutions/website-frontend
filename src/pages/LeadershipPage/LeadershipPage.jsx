@@ -9,7 +9,7 @@ import AboutHero from "../../components/AboutHero/AboutHero";
 
 function LeadershipPage() {
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
         
         <AboutHero />
 
@@ -18,10 +18,10 @@ function LeadershipPage() {
         <MobileAboutButtonSwiper />
       </div>
 
-      <div className="flex flex-col items-start h-auto gap-4 w-83vw">
+      <div className="flex flex-col items-start h-auto gap-4 large:w-83vw small:w-90vw">
         
         <div className="flex flex-col items-start h-auto gap-1 w-100">
-          <h2 className="font-bold text-left text-30px">The Crosstie Leadership</h2>
+          <h2 className="font-bold text-left large:text-30px small:text-20px">The Crosstie Leadership</h2>
           <p className="text-left large:w-70">Crosstie’s Leadership team consists of Industry veterans who have a passion for educational innovation and customers.</p>
         </div>
 
@@ -30,7 +30,7 @@ function LeadershipPage() {
           {/* directors */}
           <div className="flex flex-col items-center h-auto gap-2 w-100">
             <h4 className="py-1 pl-1 font-semibold text-white border-l-4 bg-crossTextGray text-20px w-100 border-crossYellow">Directors</h4>
-            <div className="flex flex-row justify-center h-auto gap-3 w-100">
+            <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
               <Leader />
               <Leader />
               <Leader />
@@ -40,7 +40,7 @@ function LeadershipPage() {
           {/* The Crosstie Team */}
           <div className="flex flex-col items-center h-auto gap-2 w-100">
             <h4 className="py-1 pl-1 font-semibold text-white border-l-4 bg-crossTextGray text-20px w-100 border-crossYellow">The Crosstie Team</h4>
-            <div className="flex flex-row justify-center h-auto gap-3 w-100">
+            <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
               <Leader />
               <Leader />
               <Leader />
@@ -52,7 +52,7 @@ function LeadershipPage() {
           {/* Board of Advisory */}
           <div className="flex flex-col items-center h-auto gap-2 w-100">
             <h4 className="py-1 pl-1 font-semibold text-white border-l-4 bg-crossTextGray text-20px w-100 border-crossYellow">Board of Advisory</h4>
-            <div className="flex flex-row justify-center h-auto gap-3 w-100">
+            <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
               <Leader />
               <Leader />
               <Leader />
@@ -65,44 +65,46 @@ function LeadershipPage() {
             <h4 className="py-1 pl-1 font-semibold text-white border-l-4 bg-crossTextGray text-20px w-100 border-crossYellow">OUR TEAM</h4>
             <p>Our faculty and consultant team is made up of seasoned professionals and certified facilitators recognised as the best in their respective professional fields. See below some of them:</p>
             
-            <div className="flex flex-row flex-wrap justify-start h-auto gap-3 w-100">
+            <div className="flex flex-row flex-wrap justify-start h-auto large:gap-3 w-100 small:gap-5">
               
-              <div className="flex flex-col h-auto pb-1 border-b-2 w-25">
+              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
                 <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
                 <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
               </div>
 
-              <div className="flex flex-col h-auto pb-1 border-b-2 w-25">
+
+              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
                 <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
                 <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
               </div>
 
-              <div className="flex flex-col h-auto pb-1 border-b-2 w-25">
+
+              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
                 <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
                 <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
               </div>
 
-              <div className="flex flex-col h-auto pb-1 border-b-2 w-25">
+              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
                 <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
                 <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
               </div>
 
-              <div className="flex flex-col h-auto pb-1 border-b-2 w-25">
+              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
                 <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
                 <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
               </div>
 
-              <div className="flex flex-col h-auto pb-1 border-b-2 w-25">
+              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
                 <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
                 <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
               </div>
 
-              <div className="flex flex-col h-auto pb-1 border-b-2 w-25">
+              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
                 <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
                 <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
               </div>
 
-              <div className="flex flex-col h-auto pb-1 border-b-2 w-25">
+              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
                 <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
                 <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
               </div>

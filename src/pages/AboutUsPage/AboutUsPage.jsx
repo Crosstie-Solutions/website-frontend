@@ -28,7 +28,7 @@ function AboutUsPage() {
 
   
   return (
-    <div className="relative flex flex-col items-center justify-start gap-3 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12">
+    <div className="relative flex flex-col items-center justify-start gap-3 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
 
       <AboutHero />
 
@@ -38,11 +38,11 @@ function AboutUsPage() {
         <MobileAboutButtonSwiper />
       </div>
 
-      <div className="flex items-center justify-center large:h-350px large:mt-4 large:gap-0 small:flex-col-reverse large:flex-row small:w-90vw large:w-83vw small:gap-1 small:h-auto">
+      <div className="flex items-center justify-center large:h-350px large:mt-4 large:gap-0 small:flex-col-reverse large:flex-row small:w-90vw large:w-83vw small:gap-3 small:h-auto">
 
-        <img src={PHOTOS.how} alt="logo"  className="border-2 border-t-crossLightPurple large:w-25 large:h-100 small:h-300px small:w-80 border-l-crossLightPurple border-b-crossLightPurple"/>
+        <img src={PHOTOS.how} alt="logo"  className="border-2 border-t-crossLightPurple large:w-25 large:h-auto small:h-auto small:w-80 border-l-crossLightPurple border-b-crossLightPurple"/>
        
-        <div className="flex flex-col justify-center gap-1 shadow-xl large:p-3 h-380px large:w-75 small:w-90vw bg-purple-50 rounded-10 small:p-1">
+        <div className="flex flex-col justify-center gap-1 shadow-xl large:p-3 large:h-380px large:w-75 small:w-90vw bg-purple-50 rounded-10 small:p-1">
           
         <p className="leading-loose">Founded in 2013, <span className="font-semibold">Crosstie Solutions</span> is a trusted partner in <span className="font-semibold">people development, organizational growth</ span>, and management consulting.  From inception, our resilience has come from one clear belief: <span className="font-semibold">transformational change begins with people</span>, and we are committed to helping individuals and organizations understand the possibility of this change.
           Our vision is to optimize talents and strategies, contributing to a future where business growth is sustainable and human-centered. </p>

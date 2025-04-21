@@ -99,7 +99,7 @@ return (
     onClick={toggleNav}
     >Soft Skills  Launchpad  Programme (SSLP)</Link>
     
-    <Link to='/our-solutions/resource/vault' className='flex items-center justify-between py-1 pl-1 text-black hover:bg-gray-200 hover:text-crossLightPurple'
+    <Link to='/our-solutions/resource-vault' className='flex items-center justify-between py-1 pl-1 text-black hover:bg-gray-200 hover:text-crossLightPurple'
     onClick={toggleNav}
     >The Resource Vault</Link>
 
