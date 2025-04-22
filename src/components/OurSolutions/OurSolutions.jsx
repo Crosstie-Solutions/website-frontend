@@ -61,13 +61,13 @@ function OurSolutions() {
                     
                     <Link
                     to="/our-courses/"
-                    className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
+                    className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
                         
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaBookOpen className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Open Executive Programmes (OEP)</h3>
                         
-                        <p className='text-15px text-crossTextGray'>A program built for growth, networking, and transformation. Crosstie’s Open Executive Programmes unite professionals to learn, network, and grow. In 2–4 days, you will get new insights, practical knowledge, and a recognised certificate to accelerate your next growth phase.</p>
+                        <p className='text-15px text-crossTextGray'>A program built for growth, connection, and transformation. In just 2–4 days, get new insights, practical knowledge, and a recognised certificate to accelerate your personal and professional growth with confidence.</p>
                         
                     </Link>
 
@@ -75,7 +75,7 @@ function OurSolutions() {
 
                     <Link
                     to="/our-courses/executive-leadership"
-                    className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
+                    className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
                         
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaUserTie className='text-crossLightPurple text-50px'/></div>
                         
@@ -88,7 +88,8 @@ function OurSolutions() {
 
                     <Link
                         to="/our-courses/complete-employee"
-                    className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
+                    className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
+                        
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaUser className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Complete Employee Series (CES)</h3>

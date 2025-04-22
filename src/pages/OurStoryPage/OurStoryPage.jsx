@@ -19,58 +19,67 @@ function OurStoryPage() {
         <MobileAboutButtonSwiper />
       </div>
 
-      {/* <div className="flex items-center justify-center h-auto large:mt-5 large:gap-5 small:flex-col-reverse large:flex-row w-100 small:gap-1">
-        <img
-          src={PHOTOS.story}
-          alt="logo"
-          className="large:w-350px large:h-400px small:h-40px small:w-150px rounded-5"
-        />
-
-        <div className="large:w-40 h-auto bg-[#F9F9F9] p-2 rounded small:w-90vw">
-          <p className="leading-loose">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius
-            excepturi labore magnam odit, magni quo eos, ipsa quis cupiditate
-            porro similique deserunt voluptatibus iure laudantium perspiciatis
-            rerum ea eum autem!
-          </p>
-        </div>
-      </div> */}
 
       <div className="flex items-center justify-center large:h-380px large:mt-4 large:gap-0 small:flex-col-reverse large:flex-row small:w-90vw large:w-83vw small:gap-3 small:h-auto">
       
         <img src={PHOTOS.how} alt="logo"  className="border-2 border-t-crossLightPurple large:w-25 large:h-auto small:h-auto small:w-80 border-l-crossLightPurple border-b-crossLightPurple"/>
         
-        <div className="flex flex-col justify-center gap-2 shadow-xl large:p-3 h-100 large:w-75 small:w-90vw bg-purple-50 rounded-10 small:p-1 ">
-          <p className="leading-loose">Founded in 2013, <span className="font-semibold">Crosstie Solutions</span> is a trusted partner in <span className="font-semibold">people development, organizational growth</span>, and management consulting.
-          From inception, our resilience has come from one clear belief: <span className="font-semibold">transformational change begins with people</span>, and we are committed to helping individuals and organizations understand the possibility of this change.
-          Our vision is to optimize talents and strategies, contributing to a future where business growth is sustainable and human-centered. </p>
+        <div className="flex flex-col justify-center h-auto gap-2 shadow-xl large:p-3 large:w-75 small:w-90vw bg-purple-50 rounded-10 small:p-1 ">
+          
+        <h3 className="font-bold text-20px">Our Beginnings</h3>
+        
+          <p className="text-crossTextGray">On July <span className="font-semibold">13th, 2013, Crosstie Solutions</span> was born… not in a sleek office with a large vision board, but in a room with a single person. Adebayo Adegun, our CEO, was the visionary, the dreamer, and, for many years, the only person in the company.</p>
 
 
-          <p className="leading-loose">Our passionate team brings expertise and a personal touch to every engagement, creating real impact through learning, coaching, and strategy.
-          We believe that real and constant success is found in <span className="font-semibold">Transformation, Experience, and Excellence,</span> and we work to achieve that for both our clients and our team.
-          These values are the heart of the <span className="font-semibold">Crosstie's existence</span>, guiding how we work, serve, and grow together.
-          We are committed to <span className="font-semibold">continuous improvement</span> in ourselves, in our work, and in the results we deliver.
+          <p className="text-crossTextGray">Armed with a strong background in <span className="font-semibold">organizational growth and development</span>, he wore every hat: CEO, salesperson, and learning & development expert.
+          From day one, our mission was simple: to support organisations to become and stay productive. Not just by offering services, but by becoming the invisible part that holds their structure together.
+          </p>
+
+          <p className="text-crossTextGray">As our CEO searched for the right business name, he thought, “What else means support?”
+          </p>
+
+          <p className="text-crossTextGray">A Google search led him to a powerful word: <span className="font-semibold">Crosstie</span>. In engineering, a crosstie is what holds structures in place: beams, columns, the framework that keeps everything standing. Once plastered, it disappears. You don’t see it, but without it, nothing holds.
+          </p>
+
+          <p className="text-crossTextGray">That was it! <span className="font-semibold">We are the crosstie</span>, the quiet framework behind lasting organisations.
           </p>
         </div>
 
       </div>
 
-      <div className="flex flex-col h-auto gap-1 p-2 border rounded large:w-83vw border-crossFooterText small:w-90vw">
+      <div className="flex flex-col h-auto gap-2 p-2 mt-3 border rounded large:w-83vw border-crossFooterText small:w-90vw">
         <h3 className="font-bold text-20px">
-          Crosstie’s Story Of Destination Training
+        Our Identity
         </h3>
 
-        <ul className="h-auto pl-2 list-disc large:w-80 small:w-100">
+          <p>With no budget for a graphic designer, Adebayo took things into his own hands and designed our first logo himself. It was a time when he had just completed a training program with Google on Doing Business the Google Way. This gave him just enough knowledge to create our first logo using colours pulled from Google.
+              The colours in our logo stand for something deeper than just colours.
+          </p>
+
+
+        <ul className="flex flex-col h-auto gap-1 pl-2 list-disc large:w-80 small:w-100">
+          
+          
           <li>
-            Lorem ipsum dolor sit amet aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+              <span className="font-semibold">The black dot before the “C”</span> represents confusion, stagnation, and the frustration many organisations face; the starting point.
           </li>
+
           <li>
-            Lorem ipsum dolor aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+              <span className="font-semibold">Green</span> stands for the knowledge that we bring to help shift organisations out of the dark when they come in contact with us.
           </li>
+
+          <li>
+              <span className="font-semibold">Orange</span> symbolises clarity, the result of applying new knowledge that we have brought.
+          </li>
+
+          <li>
+              <span className="font-semibold">Blue</span>  reflects growth, balance, and sustainable progress for organisations that have encountered us.
+          </li>
+
+          <li>
+              <span className="font-semibold">Purple</span> is for distinction, stability, and excellence, which is the pinnacle of transformation by us… and the growth continues.
+          </li>
+         
         </ul>
       </div>
 

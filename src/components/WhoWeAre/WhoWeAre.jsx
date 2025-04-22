@@ -13,7 +13,7 @@ function WhoWeAre() {
             <h5 className='text-crossLightPurple text-17px'>CROSSTIE SOLUTIONS</h5>
         </div>
         <h3 className='font-bold text-25px'>Who We Are</h3>
-        <p className='text-15px text-crossTextGray large:w-50 small:w-100'>Inspired by a passion to provide the highest level of people and organizational transformation</p>
+        <p className='text-15px text-crossTextGray large:w-50 small:w-100'>Driven by a commitment to help organisations achieve sustainable growth through expert, competency-based solutions.</p>
       </div>
 
     
