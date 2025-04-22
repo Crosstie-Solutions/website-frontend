@@ -81,22 +81,41 @@ function OurStoryPage() {
           </li>
          
         </ul>
+
+        <p>This colour journey represents the path we walk with our clients. From being stuck to clarity and significance.
+          </p>
+      </div>
+
+
+      <div className="flex flex-col h-auto gap-1 p-2 border rounded w-83vw border-crossFooterText">
+        
+        <h3 className="font-bold text-20px">Our Journey</h3>
+        
+        <p className="text-crossTextGray">The early years weren’t easy. In fact, the first three years nearly broke us. <span className="font-semibold">Crosstie Solutions</span> fought a constant battle to survive as financial pressure threatened to shut us down more than once. Resources were scarce, but the dream stayed alive.
+        For the first few years, we worked mostly with schools. No major deals.
+        From inception, we had five different arms, but we needed focus. A brand audit revealed what people knew us for: <span className="font-semibold">training</span>.</p>
+
+        <p className="text-crossTextGray">This insight helped us refine our identity and opened new doors. One of our first breakthroughs came in 2016 with a training engagement for the Nigerian Mortgage Refinance Company (NMRC), followed by Cambridge University Press. That same year, triumph started to feel real - we collaborated with training firms to deliver training sessions to GTBank, Stanbic IBTC, Seplat Petroleum and a few more.</p>
+
+        <p className="text-crossTextGray">By <span className="font-semibold">2018</span>, our reach expanded. In partnership with ICF Nigeria, we brought <span className="font-semibold">Tamiko Sher</span> to the country and hosted our very first leadership conference featuring <span className="font-semibold">Brigette Hyacinth</span>, with over <span className="font-semibold">150 top HR professionals and business leaders</span> in attendance. A milestone that proved we were no longer small players.</p>
+        
+        
+        <p className="text-crossTextGray">In 2019, we developed our first professional certificate program <span className="font-semibold">2018</span> and endorsed it with the International Federation of Training and Development Organisations <span className="font-semibold">(IFTDO)</span>.</p>
+        
+        <p className="text-crossTextGray">In 2020, during the COVID year, we got a major engagement with <span className="font-semibold">TVC Communications</span>, the first engagement for the <span className="font-semibold">CES</span>, to train the entire workforce on this program, from the leaders to mid-level and junior-level.</p>
+
+        <p className="text-crossTextGray">Then, in <span className="font-semibold">2024</span> , A decade of growth had come full circle. Emotional, no doubt. We rebranded from the inside out…new logo, new identity, new energy. But the heart? Still the same. It was a celebration of everything we had overcome and everything that still lay ahead.</p>
       </div>
 
       <div className="flex flex-col h-auto gap-1 p-2 border rounded w-83vw border-crossFooterText">
-        <ul className="h-auto pl-2 list-disc large:w-80 small:w-100">
-          <li>
-            Lorem ipsum dolor sit amet aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </li>
-          <li>
-            Lorem ipsum dolor aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </li>
-        </ul>
+        
+        <h3 className="font-bold text-20px">Our Present</h3>
+        
+        <p className="text-crossTextGray">Today,<span className="font-semibold">Crosstie Solutions</span> stands tall. From our modest beginnings in that visionary room, we have expanded our reach and impact across <span className="font-semibold">10 states in Nigeria</span>, into <span className="font-semibold">10 states in Nigeria</span> 3 African countries, and even extended our presence into the U.S. and the U.K. with a team of highly skilled consultants, dedicated L&D experts, and a growing workforce.</p>
+        
       </div>
+
+
 
       <div className="flex items-center justify-center h-auto large:mt-2 large:gap-2 small:flex-col-reverse large:flex-col w-83vw small:gap-1">
 
