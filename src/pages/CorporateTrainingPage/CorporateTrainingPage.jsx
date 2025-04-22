@@ -51,9 +51,7 @@ function CorporateTrainingPage() {
           </h3>
 
           <p className="text-center text-13px text-crossTextGray">
-            The business landscape is evolving, and staying ahead requires more
-            than just experience—it demands strategic thinking, innovation, and
-            executive-level expertise.
+          A program built for growth, networking, and transformation. Crosstie’s Open Executive Programmes unite professionals to learn, network, and grow. In 2–4 days, you will get new insights, practical knowledge, and a recognised certificate to accelerate your next growth phase.
           </p>
 
           {/* <Link
@@ -74,9 +72,7 @@ function CorporateTrainingPage() {
           </h3>
 
           <p className="text-center text-13px text-crossTextGray">
-            The business landscape is evolving, and staying ahead requires more
-            than just experience—it demands strategic thinking, innovation, and
-            executive-level expertise.
+          Designed for leaders at all levels, these premium two—to three-day programs explore strategy, influence, and decision-making. They blend expert-led sessions with real case studies and optional coaching to reinforce lasting, effective leadership.
           </p>
 
           {/* <Link
@@ -97,11 +93,11 @@ function CorporateTrainingPage() {
           </h3>
 
           <p className="text-center text-13px text-crossTextGray">
-            The business landscape is evolving, and staying ahead requires more
-            than just experience—it demands strategic thinking, innovation, and
-            executive-level expertise.
+          The Complete Employee Series (CES) equips employees at all levels with the knowledge, skills, and attributes needed to grow, perform better, and contribute meaningfully across your entire organisation.
           </p>
         </Link>
+
+
 
         <Link to='/sales-excellence' className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
@@ -113,9 +109,21 @@ function CorporateTrainingPage() {
           </h3>
 
           <p className="text-center text-13px text-crossTextGray">
-            The business landscape is evolving, and staying ahead requires more
-            than just experience—it demands strategic thinking, innovation, and
-            executive-level expertise.
+          The Sales Excellence Series (SES) transforms sales professionals at every level, building skills in prospecting, negotiation, and relationship-building with practical tools, proven techniques, and a mindset for consistent, sustainable results.
+          </p>
+        </Link>
+
+        <Link to='/sales-excellence' className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+          <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
+            <FaUser className="text-crossLightPurple text-30px" />
+          </div>
+
+          <h3 className="font-bold text-center text-crossLightPurple">
+          Crosstie Team Bonding (CTB)
+          </h3>
+
+          <p className="text-center text-13px text-crossTextGray">
+          Crosstie Team Bonding strengthens collaboration through customised bonding experiences. Organisations choose the duration, and we deliver meaningful activities that boost connection, trust, and teamwork across every level.
           </p>
         </Link>
       </div>

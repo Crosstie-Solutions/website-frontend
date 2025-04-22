@@ -67,7 +67,7 @@ function OurSolutions() {
                         
                         <h3 className='font-bold text-crossLightPurple'>Open Executive Programmes (OEP)</h3>
                         
-                        <p className='text-15px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
+                        <p className='text-15px text-crossTextGray'>A program built for growth, networking, and transformation. Crosstie’s Open Executive Programmes unite professionals to learn, network, and grow. In 2–4 days, you will get new insights, practical knowledge, and a recognised certificate to accelerate your next growth phase.</p>
                         
                     </Link>
 
@@ -82,7 +82,7 @@ function OurSolutions() {
                         <h3 className='font-bold text-crossLightPurple'>Executive Leadership 
                         Programmes (ELP)</h3>
                         
-                        <p className='text-15px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
+                        <p className='text-15px text-crossTextGray'>Designed for leaders at all levels, these premium two—to three-day programs explore strategy, influence, and decision-making. They blend expert-led sessions with real case studies and optional coaching to reinforce lasting, effective leadership.</p>
                         
                     </Link>
 
@@ -93,7 +93,7 @@ function OurSolutions() {
                         
                         <h3 className='font-bold text-crossLightPurple'>Complete Employee Series (CES)</h3>
                         
-                        <p className='text-15px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
+                        <p className='text-15px text-crossTextGray'>The Complete Employee Series (CES) equips employees at all levels with the knowledge, skills, and attributes needed to grow, perform better, and contribute meaningfully across your entire organisation.</p>
                         
                        
                     </Link>
