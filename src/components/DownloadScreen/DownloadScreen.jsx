@@ -307,7 +307,7 @@ return (
 
 function CourseContentDownloadScreen(props) {
 
-  const {downloadUrl, title} = props;
+  const {downloadUrl, title, id} = props;
 
   const [screen, setScreen] = useState("form");
 
@@ -386,7 +386,9 @@ return (
       
       
       <VscClose className='absolute text-white cursor-pointer large:top-5 large:right-10 text-30px small:right-5 small:top-3'
-      onClick={toggleDownloadProgramScreen}
+      onClick={()=>{
+        toggleDownloadProgramScreen(id)
+      }}
       />
       
     <div className="flex flex-col items-center justify-center w-100 h-100">

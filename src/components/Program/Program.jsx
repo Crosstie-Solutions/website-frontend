@@ -30,7 +30,9 @@ function Program(program) {
       <Link to={`/our-courses/${id}`} className='font-semibold text-center hover:underline large:text-17px small:text-15px'>{title}</Link>
 
         <div className='flex items-center justify-center w-auto gap-1 px-1 border cursor-pointer text-crossLightPurple border-crossLightPurple h-30px rounded-10'
-        onClick={toggleDownloadProgramScreen}
+        onClick={()=>{
+          toggleDownloadProgramScreen(id)
+        }}
         >
             <RxDownload /> Course Content</div>
 
@@ -48,8 +50,8 @@ function Program(program) {
               )
             }
             
-
-            <div className='items-center gap-1 large:flex small:hidden w-100'><GoClock className='text-20px text-crossLightPurple'/> {time}</div>
+            {!time=='' &&
+            <div className='items-center gap-1 large:flex small:hidden w-100'><GoClock className='text-20px text-crossLightPurple'/> {time}</div>}
 
             <div className='items-center gap-1 large:flex small:hidden w-100'><IoIosLaptop className='text-20px text-crossLightPurple'/> {mode}</div>
         </div>

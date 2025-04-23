@@ -928,12 +928,17 @@ const viewAllContactForms = async () => {
    
 
     //program download
-    const [downloadProgramScreen, setDownloadProgramScreen] = useState(false);
+    const [downloadProgramScreen, setDownloadProgramScreen] = useState(null);
 
-    const toggleDownloadProgramScreen = () => { 
+    console.log('downloadProgramScreen:', downloadProgramScreen);
+
+    const toggleDownloadProgramScreen = async (index) => { 
      window.scrollTo({ top: 0, behavior: "auto" });
-     setDownloadProgramScreen(!downloadProgramScreen);
+    //  setDownloadProgramScreen(!downloadProgramScreen);
+
+     setDownloadProgramScreen((prev) => (prev === index ? null : index));
     }
+
 
     
 
@@ -1646,7 +1651,7 @@ const timeAgo = (timestamp) => {
   totalJobsPages, currentTestimonials,
   handleTestimonialsPageChange, headerProgramsSearchTerm, setHeaderProgramsSearchTerm,
   currentTestimonialsPage, filteredHeaderPrograms,
-  totalTestimonialsPages,
+  totalTestimonialsPages, loadingAllPrograms,
   handleJobsPageChange,
   allJobs,
   deleteJob,

@@ -87,10 +87,11 @@ function TeamBondingPage() {
                           category={program.category}
                         />
         
-                          {downloadProgramScreen && 
+                           {downloadProgramScreen === program._id && 
                             <CourseContentDownloadScreen 
                               downloadUrl={program.courseContent}
                               title={program.title}
+                              id={program.id}
                             />}
                     </div>
                   )

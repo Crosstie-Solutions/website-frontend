@@ -17,7 +17,7 @@ import { CourseBrochureDownloadScreen, CourseContentDownloadScreen } from "../..
 
 function OpenExecutivePage() {
   const {
-    currentPrograms,
+    currentPrograms, loadingAllPrograms,
     handleProgramsPageChange,
     currentProgramsPage,
     totalProgramsPages,
@@ -100,12 +100,12 @@ function OpenExecutivePage() {
 
       <div className="flex flex-row flex-wrap h-auto gap-3 small:justify-center small:w-100 large:w-83vw large:justify-center">
         {openPrograms &&
-          openPrograms.map((program, i) => {
+          openPrograms.map((program, i) => 
             
-            return (
-              <div>
+            
+              <div key={i}>
+                  
                   <Program
-                  key={i}
                   title={program.title}
                   duration={program.duration}
                   date={program.date}
@@ -116,14 +116,20 @@ function OpenExecutivePage() {
                   category={program.category}
                 />
 
-                {downloadProgramScreen && 
-                    <CourseContentDownloadScreen 
-                      downloadUrl={program.courseContent}
-                      title={program.title}
-                    />}
+
+
+                  {downloadProgramScreen === program._id && 
+                      <CourseContentDownloadScreen 
+                       downloadUrl={program.courseContent}
+                       title={program.title}
+                       id={program.id}
+                      />}
               </div>
-            )
-          })}
+            
+          )}
+
+
+       
       </div>
 
 
@@ -158,6 +164,13 @@ function OpenExecutivePage() {
           No result found.
         </p>
       )}
+
+        {loadingAllPrograms && 
+        <p className="text-center w-100 text-15px">
+          Loading Programs....
+        </p>}
+
+       
 
 
       {courseBrochureDownloadScreen && 

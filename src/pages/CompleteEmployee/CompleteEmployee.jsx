@@ -88,11 +88,12 @@ function CompleteEmployee() {
                             category={program.category}
                           />
           
-                          {downloadProgramScreen && 
-                              <CourseContentDownloadScreen 
-                                downloadUrl={program.courseContent}
-                                title={program.title}
-                              />}
+                          {downloadProgramScreen === program._id && 
+                            <CourseContentDownloadScreen 
+                              downloadUrl={program.courseContent}
+                              title={program.title}
+                              id={program.id}
+                            />}
                       </div>
                   )
                 })
