@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PHOTOS } from "../../assets/images";
 import { MobileCoursesButtonSwiper } from "../../components/MobileButtonSwiper/MobileButtonSwiper";
@@ -22,7 +22,7 @@ function OpenExecutivePage() {
     currentProgramsPage,
     totalProgramsPages,
     allPrograms, allCourses, downloadScreen, downloadProgramScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen,
-    toggleDownloadScreen
+    toggleDownloadScreen, programsSearchTerm
   } = useContext(CrossContext);
 
   // toggleCourseContentDownloadScreen,  courseContentDownloadScreen
@@ -32,9 +32,29 @@ function OpenExecutivePage() {
 
   // const executiveProgram = program && program.course.courseTitle === "Open Executive Programmes (OEP)";
 
-  const openPrograms = currentPrograms && currentPrograms.filter((program)=> {
-    return program.course.courseTitle.includes("Open Executive");
-  });
+  const [openPrograms, setOpenPrograms] = useState([]);
+
+  useEffect(()=>{
+    
+
+    if(programsSearchTerm ==''){
+      const open = allPrograms && allPrograms.filter((program)=> {
+        return program.category.toLowerCase().includes("open");
+      })
+
+      setOpenPrograms(open)
+    }else{
+      const open = currentPrograms && currentPrograms.filter((program)=> {
+        return program.category.toLowerCase().includes("open");
+      })
+
+      setOpenPrograms(open)
+    }
+
+    
+  })
+
+  
 
     // console.log("openPrograms:", openPrograms);
 

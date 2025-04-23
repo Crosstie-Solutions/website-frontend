@@ -20,17 +20,39 @@ function AboutHero(props) {
         
       <div className="flex flex-col items-start justify-center large:gap-2 small:pt-2 large:pl-0 large:h-100 large:w-50 small:h-auto small:w-90vw large:pt-0 small:gap-1">
         
+      {!window.location.pathname.includes('satisfaction') &&
         <h1 class="large:text-35px large:w-70 large:leading-tight small:leading-5 font-semibold small:w-80 small:text-20px">
           {tag ? tag : "About Us"}
-        </h1>
+        </h1>}
 
+        {!window.location.pathname.includes('satisfaction') &&
         <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px">
           We Train. We Advise. We Transform
-        </p>
+        </p>}
 
+        {!window.location.pathname.includes('satisfaction') &&
         <h1 class="large:text-25px large:w-90 large:leading-8 small:leading-5 font-semibold small:w-100 small:text-20px">
            We transform talents and organizations to improve performance.
-        </h1>
+        </h1>}
+
+        
+
+        {window.location.pathname.includes('satisfaction') &&
+        <h1 class="large:text-35px large:w-100 large:leading-tight small:leading-5 font-semibold small:w-80 small:text-20px">
+        Satisfaction Guaranteed
+        </h1>}
+
+        {window.location.pathname.includes('satisfaction') &&
+        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px">
+        Zero Risk. Total Confidence. Guaranteed Peace of Mind.
+        </p>}
+
+        {window.location.pathname.includes('satisfaction') &&
+        <h1 class="large:text-25px large:w-70 large:leading-8 small:leading-5 font-semibold small:w-100 small:text-20px">
+        We stand behind everything we offer. No hassles, just our commitment to your satisfaction.
+        </h1>}
+
+
 
         {!window.location.pathname.includes('satisfaction') &&
         <div
@@ -42,6 +64,7 @@ function AboutHero(props) {
         </div>}
         
       </div>
+
 
 
       {!window.location.pathname.includes('satisfaction') &&
