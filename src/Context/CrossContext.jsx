@@ -13,8 +13,8 @@ function CrossContextProvider(props) {
 
 
   //base URL for API calls
-  const baseUrl = "http://127.0.0.1:8000";
-  // const baseUrl = "https://server.crosstiesolutions.com";
+  // const baseUrl = "http://127.0.0.1:8000";
+  const baseUrl = "https://server.crosstiesolutions.com";
 
 
 
@@ -183,16 +183,27 @@ const[loading, setLoading] = useState(false);
   //for admin to filter programs
   const [currentProgramsPage, setCurrentProgramsPage] = useState(1);
   const [programsSearchTerm, setProgramsSearchTerm] = useState("");
+  const [headerProgramsSearchTerm, setHeaderProgramsSearchTerm] = useState("");
   const programsPerPage = 10;
 
   console.log("currentProgramsPage:", currentProgramsPage);
 
   // // Filter programs based on search term
   const filteredPrograms = allPrograms && allPrograms.filter((program) =>
-    `${program.title} ${program.category}`
-      .toLowerCase()
-      .includes(programsSearchTerm.toLowerCase())
+    
+      `${program.title} ${program.category}`
+    .toLowerCase()
+    .includes(programsSearchTerm.toLowerCase())
+    
   );
+
+  const filteredHeaderPrograms = allPrograms && allPrograms.filter((program) =>
+    
+  `${program.title} ${program.category}`
+  .toLowerCase()
+  .includes(headerProgramsSearchTerm.toLowerCase())
+  
+);
 
 
   // // Calculate total pages
@@ -1631,10 +1642,10 @@ const timeAgo = (timestamp) => {
   handleEventsPageChange, jobsSearchTerm, setJobsSearchTerm, setCurrentJobsPage,
   allEvents, activeEvent, toggleEvent, loadingAllJobs,
   currentJobs, deletingJob, loadMe,
-  currentJobsPage,
+  currentJobsPage, headerProgramsSearchTerm, setHeaderProgramsSearchTerm,
   totalJobsPages, currentTestimonials,
-  handleTestimonialsPageChange,
-  currentTestimonialsPage,
+  handleTestimonialsPageChange, headerProgramsSearchTerm, setHeaderProgramsSearchTerm,
+  currentTestimonialsPage, filteredHeaderPrograms,
   totalTestimonialsPages,
   handleJobsPageChange,
   allJobs,

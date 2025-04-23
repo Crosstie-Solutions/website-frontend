@@ -205,12 +205,13 @@ function ProgramDetailsPage() {
   
 
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 large:mt-15 large:text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13 small:text-13px">
+    <div className="relative flex flex-col items-center justify-start gap-5 large:mt-15 large:text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-17 small:text-13px">
       
       <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
-        <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw small:w-100vw small:h-200px small:pl-2 bg-crossLightPurple">         
+        
+        <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw small:w-100vw small:h-auto small:pl-2 bg-crossLightPurple small:py-2 large:py-0">         
           
-          <h1 className="font-semibold large:text-35px large:w-60 large:leading-8 small:leading-5 small:w-80 small:text-17px">
+          <h1 className="font-semibold large:text-35px large:w-60 large:leading-normal small:leading-5 small:w-80 small:text-17px">
             {program && program.title.toUpperCase()}
             {loadingProgram && "Loading Course Details..."}
           </h1>
@@ -246,8 +247,9 @@ function ProgramDetailsPage() {
         </div>
       </div>
 
+
       {executiveProgram &&
-      <div className="flex flex-col items-center pb-5 bg-white border large:gap-5 rounded-tl-20 large:w-83vw rounded-tr-20 small:w-90vw small:gap-3">
+      <div className="flex flex-col items-center pb-5 bg-white border large:gap-5 rounded-tl-20 large:w-83vw rounded-tr-20 small:w-90vw small:gap-3 small:mt-3 large:mt-0">
         
         <div className="flex items-center justify-center text-white rounded-tl-20 rounded-tr-20 large:h-50px w-100 bg-crossLightPurple small:h-auto large:text-20px small:text-13px large:flex-row small:flex-col small:text-center small:py-1">
           Purchase this course -  <span className="font-bold">  {program && program.title}</span>
@@ -310,12 +312,12 @@ function ProgramDetailsPage() {
           </div>
 
           
-          <div className="flex flex-col gap-2 overflow-y-scroll bg-white h-200px w-100">
+          <div className="flex flex-col h-auto gap-2 bg-white w-100">
             
             
             {program && program.date.map((day, i)=>            
 
-              <label key={i} className="flex large:w-50 small:w-100 h-auto option-label items-center justify-between large:px-2 py-2 pr-2 border border-crossFooterText bg-[#F9F9F9] flex-row">
+              <label key={i} className="flex large:w-50 small:w-100 h-auto option-label items-center justify-between large:px-2 py-2 pr-2 border border-crossFooterText bg-[#F9F9F9] flex-row small:px-1">
                 <input
                   type="radio"
                   name='preferredDate'

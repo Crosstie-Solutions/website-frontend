@@ -7,7 +7,7 @@ import { CrossContext } from '../../Context/CrossContext';
 
 function CourseSuggestion() {
 
-  const {currentPrograms, setActiveSearch} = useContext(CrossContext);
+  const {setActiveSearch, filteredHeaderPrograms} = useContext(CrossContext);
 
   //Click outside to close drop down
     let dropdownRef = useRef()
@@ -32,7 +32,7 @@ function CourseSuggestion() {
     ref={dropdownRef}
     >
       {
-        currentPrograms && currentPrograms.map((program, i)=>
+        filteredHeaderPrograms && filteredHeaderPrograms.map((program, i)=>
         <Link key={i}
         onClick={()=>{
           setActiveSearch(false);
@@ -42,7 +42,7 @@ function CourseSuggestion() {
         )
       }
 
-      {currentPrograms && currentPrograms.length < 1 &&
+      {filteredHeaderPrograms && filteredHeaderPrograms.length < 1 &&
       <p className='font-semibold'>No Result Found.</p>}
     </div>
   )
@@ -51,22 +51,22 @@ function CourseSuggestion() {
 
 function MobileCourseSuggestion() {
 
-    const {toggleMobileSearch, currentPrograms} = useContext(CrossContext);
+    const {toggleMobileSearch, filteredHeaderPrograms} = useContext(CrossContext);
     
     return (
-      <div className='flex flex-col items-center justify-center p-2 overflow-y-scroll bg-white border-t-2 rounded w-80vw h-250px text-15px border-crossLightPurple'>
+      <div className='flex flex-col items-center justify-center px-2 py-5 overflow-y-scroll bg-white border-t-2 rounded w-80vw h-250px text-15px border-crossLightPurple'>
         {
-          currentPrograms && currentPrograms.map((program, i)=>
+          filteredHeaderPrograms && filteredHeaderPrograms.map((program, i)=>
           <Link 
           to={`/our-courses/${program.id}`}
           key={i} 
-          className='p-1 border-b w-100'
+          className='p-1 mt-1 border-b w-100'
           onClick={toggleMobileSearch}
           >{program.title}</Link>
           )
         }
 
-        {currentPrograms && currentPrograms.length < 1 &&
+        {filteredHeaderPrograms && filteredHeaderPrograms.length < 1 &&
         <p className='font-semibold'>No Result Found.</p>}
         
       </div>

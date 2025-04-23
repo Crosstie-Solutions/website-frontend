@@ -109,9 +109,10 @@ function OpenExecutivePage() {
           })}
       </div>
 
+
       {/* Pagination */}
-      {openPrograms && openPrograms.length > 0 && (
-        <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
+      {/* {openPrograms && openPrograms.length > 0 && ()} */}
+        {/* <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
             className="flex items-center justify-center text-white large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
             disabled={currentProgramsPage === 1}
@@ -122,7 +123,7 @@ function OpenExecutivePage() {
 
           <div className="text-sm">
             Page {currentProgramsPage} of {totalProgramsPages}
-            {/* Showing { programsStartIndex} to {currentPrograms.length} of {allPrograms.length} Courses */}
+           
           </div>
 
           <button
@@ -132,8 +133,8 @@ function OpenExecutivePage() {
           >
             <HiOutlineChevronRight className="text-20px" />
           </button>
-        </div>
-      )}
+        </div> */}
+      
 
       {openPrograms && openPrograms.length < 1 && (
         <p className="mt-5 text-center w-100 text-15px">

@@ -18,7 +18,7 @@ function Header() {
 
   const navigate = useNavigate();
 
-    const {hideAboutDD, showAboutDD, showSolutionsDD, hideSolutionsDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, aboutDD, solutionsDD, coursesDD, toggleMobileSearch, me, activeSearch, setActiveSearch, programsSearchTerm, setProgramsSearchTerm, setCurrentProgramsPage, loadMe, loginToken} = useContext(CrossContext);
+    const {hideAboutDD, showAboutDD, showSolutionsDD, hideSolutionsDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, aboutDD, solutionsDD, coursesDD, toggleMobileSearch, me, activeSearch, setActiveSearch, programsSearchTerm, setProgramsSearchTerm, setCurrentProgramsPage, loadMe, loginToken, headerProgramsSearchTerm, setHeaderProgramsSearchTerm} = useContext(CrossContext);
 
    
 
@@ -245,10 +245,10 @@ function Header() {
           }}
           
           
-          value={programsSearchTerm}
+          value={headerProgramsSearchTerm}
           onChange={(e) => {
-            setProgramsSearchTerm(e.target.value);
-            setCurrentProgramsPage(1); // Reset to first page on search
+            setHeaderProgramsSearchTerm(e.target.value);
+            // setCurrentProgramsPage(1); // Reset to first page on search
           }}
 
           // onBlur={()=>{
