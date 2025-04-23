@@ -27,7 +27,7 @@ function Program(program) {
   return (
     <div className='flex flex-col items-center gap-1 px-1 py-2 bg-white border border-crossLightPurple small:w-250px large:w-270px rounded-10 text-13px hover:shadow-lg'>
       
-      <Link to={`/our-courses/${id}`} className='font-semibold text-center hover:underline large:text-17px small:text-15px'>{title}</Link>
+      <Link to={`/our-courses/program/${id}`} className='font-semibold text-center hover:underline large:text-17px small:text-15px'>{title}</Link>
 
         <div className='flex items-center justify-center w-auto gap-1 px-1 border cursor-pointer text-crossLightPurple border-crossLightPurple h-30px rounded-10'
         onClick={toggleDownloadProgramScreen}
@@ -73,7 +73,7 @@ function Program(program) {
             }}
             >Enroll Now</div>
             
-            <Link to={`/our-courses/${id}`} className='flex items-center justify-center gap-1 text-black border w-200px border-crossLightPurple h-30px rounded-10'>More details</Link>
+            <Link to={`/our-courses/program/${id}`} className='flex items-center justify-center gap-1 text-black border w-200px border-crossLightPurple h-30px rounded-10'>More details</Link>
         </div>
 
 

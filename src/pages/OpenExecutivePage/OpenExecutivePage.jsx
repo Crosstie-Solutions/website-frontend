@@ -49,10 +49,8 @@ function OpenExecutivePage() {
       })
 
       setOpenPrograms(open)
-    }
-
-    
-  })
+    } 
+  },[]);
 
   
 

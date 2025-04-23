@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PHOTOS } from "../../assets/images";
 import { MobileCoursesButtonSwiper } from "../../components/MobileButtonSwiper/MobileButtonSwiper";
@@ -18,7 +18,7 @@ import { CourseBrochureDownloadScreen, CourseContentDownloadScreen } from "../..
 
 function ExecutiveLeadership() {
 
-    const {currentPrograms, handleProgramsPageChange, currentProgramsPage, totalProgramsPages, programsSearchTerm, allCourses, downloadScreen, toggleDownloadScreen, downloadProgramScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen,} = useContext(CrossContext);
+    const {currentPrograms, handleProgramsPageChange, currentProgramsPage, totalProgramsPages, programsSearchTerm, allCourses, downloadScreen, toggleDownloadScreen, downloadProgramScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen, allPrograms} = useContext(CrossContext);
 
 
     
@@ -26,9 +26,31 @@ function ExecutiveLeadership() {
     const downloadUrl = allCourses && allCourses.length > 0 ? allCourses[1].courseBrochure : "";
   const title = allCourses && allCourses.length > 0 && allCourses[1].courseTitle;
 
-    const executiveLeadershipPrograms = currentPrograms && currentPrograms.filter((program)=> {
-      return program.course.courseTitle.includes("Executive Leadership");
-    });
+    // const executiveLeadershipPrograms = currentPrograms && currentPrograms.filter((program)=> {
+    //   return program.course.courseTitle.includes("Executive Leadership");
+    // });
+
+    const [executiveLeadershipPrograms, setExecutiveLeadershipPrograms] = useState([]);
+    
+      useEffect(()=>{
+        
+    
+        if(programsSearchTerm ==''){
+          const open = allPrograms && allPrograms.filter((program)=> {
+            return program.category.toLowerCase().includes("leadership");
+          })
+    
+          setExecutiveLeadershipPrograms(open)
+        }else{
+          const open = currentPrograms && currentPrograms.filter((program)=> {
+            return program.category.toLowerCase().includes("leadership");
+          })
+    
+          setExecutiveLeadershipPrograms(open)
+        } 
+      },[]);
+
+    
     
     
   return (
@@ -82,7 +104,7 @@ function ExecutiveLeadership() {
         
 
           {/* Pagination */}
-      {executiveLeadershipPrograms && executiveLeadershipPrograms.length > 0 && (
+      {/* {executiveLeadershipPrograms && executiveLeadershipPrograms.length > 0 && (
         <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
             className="flex items-center justify-center text-white large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
@@ -94,7 +116,7 @@ function ExecutiveLeadership() {
 
           <div className="text-sm">
             Page {currentProgramsPage} of {totalProgramsPages}
-            {/* Showing { programsStartIndex} to {currentPrograms.length} of {allPrograms.length} Courses */}
+           
 
             
           </div>
@@ -107,7 +129,7 @@ function ExecutiveLeadership() {
             <HiOutlineChevronRight className="text-20px" />
           </button>
         </div>
-      )}
+      )} */}
             
             
             {executiveLeadershipPrograms && executiveLeadershipPrograms.length < 1 && (
