@@ -42,7 +42,7 @@ function AboutUsPage() {
 
         <img src={PHOTOS.how} alt="logo"  className="border-2 border-t-crossLightPurple large:w-25 large:h-auto small:h-auto small:w-80 border-l-crossLightPurple border-b-crossLightPurple"/>
        
-        <div className="flex flex-col justify-center gap-1 shadow-xl large:p-3 large:h-380px large:w-75 small:w-90vw bg-purple-50 rounded-10 small:p-1">
+        <div className="flex flex-col justify-center gap-1 shadow-xl large:p-3 large:h-380px large:w-75 small:w-90vw bg-purple-50 rounded-10 small:p-1 text-crossTextGray">
           
         <p className="leading-loose">Founded in 2013, <span className="font-semibold">Crosstie Solutions</span> is a trusted partner in <span className="font-semibold">people development, organizational growth</ span>, and management consulting.  From inception, our resilience has come from one clear belief: <span className="font-semibold">transformational change begins with people</span>, and we are committed to helping individuals and organizations understand the possibility of this change.
           Our vision is to optimize talents and strategies, contributing to a future where business growth is sustainable and human-centered. </p>

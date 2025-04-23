@@ -54,7 +54,8 @@ function OurClients() {
                     
                     {
                      actualPartners && actualPartners.map((partner, i)=>
-                        <img src={partner.partnerLogo} alt="client's logo" className='py-1 bg-white border shadow-xl large:px-3 rounded-5 large:w-135px h-80px small:w-100px small:px-1'
+                        <img src={partner.partnerLogo} alt="client's logo" 
+                     className='h-auto py-1 bg-white border shadow-xl large:px-3 rounded-5 large:w-135px small:w-100px small:px-1'
                         key={i}
                         />
                       )

@@ -70,7 +70,7 @@ function AllTestimonialsTable() {
                     </div>
                    
                     <div className={`w-20`}>{testimony.jobRole}</div>
-                    <div className={`w-20`}>{testimony.program[0].title}</div>
+                    <div className={`w-20`}>{testimony.program}</div>
                     <div className={`w-20 small:hidden large:flex`}>{testimony.testimony.slice(0, 30)}...</div>
                     <div className={`w-20 small:hidden large:flex`}>{testimony.date}</div>
 
@@ -84,7 +84,7 @@ function AllTestimonialsTable() {
                         priorityIndex={testimony.priorityIndex}
                         name={testimony.name}
                         jobRole={testimony.jobRole}
-                        program={testimony.program[0].title}
+                        program={testimony.program}
                         testimony={testimony.testimony}
                         date={testimony.date}
                         />

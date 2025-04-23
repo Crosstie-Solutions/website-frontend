@@ -194,7 +194,7 @@ function AddTestimonial() {
                 <div className="flex flex-col h-auto w-100">
                   <label htmlFor="category">Program</label>
 
-                  <select name="program" id="" className="p-0.5 border rounded-4 cursor-pointer"
+                  {/* <select name="program" id="" className="p-0.5 border rounded-4 cursor-pointer"
                     onChange={handleChange}
                     >
                       <option value="">-select-</option>
@@ -206,7 +206,15 @@ function AddTestimonial() {
                         )
                       }
                       
-                  </select>
+                  </select> */}
+
+                  <input
+                    type="text"
+                    name="program"
+                    className="p-0.5 border rounded-4"
+                    onChange={handleChange}
+                    placeholder='Enter program name'
+                  />
                   
                   {testimonialErrors && (
                     <p className="text-13px text-vogueRed">

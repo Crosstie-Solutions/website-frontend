@@ -139,14 +139,14 @@ function OurSolutions() {
 
                 {/* High-demand Courses */}
                 {solution==="High-demand Courses" &&
-                <div className='flex flex-row flex-wrap items-center h-auto lareg:justify-between small:justify-around small:gap-1 large:gap-2 w-100'>
+                <div className='flex flex-row flex-wrap items-center h-auto border lareg:justify-center small:justify-center small:gap-1 large:gap-2 w-100'>
                     
                     {
                         allHighDemands && allHighDemands.map((program, i)=>
-                            <Link to={`/our-courses/${program.program && program.program.length >0 && program.program[0].id}`} className='flex items-center justify-center gap-1 py-1 font-semibold text-black h-80px lareg:w-230px large:text-15px rounded-5 small:text-13px bg-crossIconBg hover:text-crossLightPurple small:w-150px'
+                            <Link to={`/our-courses/${program.program && program.program.length >0 && program.program[0].id}`} className='flex items-center justify-center gap-1 py-1 font-semibold text-black h-80px lareg:w-auto large:text-15px rounded-5 small:text-13px bg-crossIconBg hover:text-crossLightPurple small:w-auto'
                             key={i}
                             >
-                                <div className='flex items-center justify-center px-1 border-l-4 h-50 border-crossLightPurple w-100 hover:h-90'>{program.program && program.program.length >0 && program.program[0].title}</div>
+                                <div className='flex items-center justify-center px-1 border-l-4 w-250px h-100 border-crossLightPurple hover:h-90'>{program.program && program.program.length >0 && program.program[0].title}</div>
                             </Link>
                         )
                     }

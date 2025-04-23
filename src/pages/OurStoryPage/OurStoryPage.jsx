@@ -87,7 +87,7 @@ function OurStoryPage() {
       </div>
 
 
-      <div className="flex flex-col h-auto gap-1 p-2 border rounded w-83vw border-crossFooterText">
+      <div className="flex flex-col h-auto gap-2 p-2 border rounded w-83vw border-crossFooterText">
         
         <h3 className="font-bold text-20px">Our Journey</h3>
         
@@ -107,11 +107,22 @@ function OurStoryPage() {
         <p className="text-crossTextGray">Then, in <span className="font-semibold">2024</span> , A decade of growth had come full circle. Emotional, no doubt. We rebranded from the inside out…new logo, new identity, new energy. But the heart? Still the same. It was a celebration of everything we had overcome and everything that still lay ahead.</p>
       </div>
 
-      <div className="flex flex-col h-auto gap-1 p-2 border rounded w-83vw border-crossFooterText">
+      <div className="flex flex-col h-auto gap-2 p-2 border rounded w-83vw border-crossFooterText">
         
         <h3 className="font-bold text-20px">Our Present</h3>
         
-        <p className="text-crossTextGray">Today,<span className="font-semibold">Crosstie Solutions</span> stands tall. From our modest beginnings in that visionary room, we have expanded our reach and impact across <span className="font-semibold">10 states in Nigeria</span>, into <span className="font-semibold">10 states in Nigeria</span> 3 African countries, and even extended our presence into the U.S. and the U.K. with a team of highly skilled consultants, dedicated L&D experts, and a growing workforce.</p>
+        <p className="text-crossTextGray">Today, <span className="font-semibold">Crosstie Solutions</span> stands tall. From our modest beginnings in that visionary room, we have expanded our reach and impact across <span className="font-semibold">10 states in Nigeria</span>, into <span className="font-semibold">10 states in Nigeria</span> 3 African countries, and even extended our presence into the U.S. and the U.K. with a team of highly skilled consultants, dedicated L&D experts, and a growing workforce.</p>
+        
+
+        <p className="text-crossTextGray">We have crossed the shores of Lagos to bring our consulting services and training programs to over <span className="font-semibold">12 industries nationwide.</span> Every step, every inch of growth has been earned through perseverance and an unwavering commitment to <span className="font-semibold">transforming professional spaces.</span></p>
+
+        <p className="text-crossTextGray">But we’re not finished yet. We know we are not where we want to be. <span className="font-semibold">Growth is constant</span> and <span className="font-semibold">Growth is constant</span>, and we are still learning, evolving, and expanding. We have more goals to accomplish, more lives to impact, and more stories to tell. Slowly, but surely, we are unveiling them, one step at a time.</p>
+
+        <p className="text-crossTextGray">We haven’t told our story as often as we should… <span className="font-semibold">on social media, in press releases, or grand announcements</span>. But that’s changing now. <span className="font-semibold">Every day</span> we’re building on the foundation we’ve laid, taking pride in how far we’ve come, and excited about where we’re headed.</p>
+
+        <p className="text-crossTextGray">This is <span className="font-semibold">our story</span>… of grit, passion, and transformation. From the room where it all started to the many lives we are impacting today, <span className="font-semibold">Crosstie Solutions</span> is a proof of persistence, the importance of people, and the belief that real change begins from within.
+        And we are just getting started.
+        </p>
         
       </div>
 

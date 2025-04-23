@@ -33,7 +33,7 @@ function Feedback(testimonial) {
       {/* 70 */}
       <p className="flex-grow text-center text-crossTextGray">
         {/* {testimony.slice(0, 70)} {more && testimony.slice(71)} */}
-        {isExpanded ? testimony : `${testimony.slice(0, 70)}...`}
+        {isExpanded ? testimony : `${testimony.slice(0, 70)}${testimony.length > 100 ? "..." : ""}`}
       </p>
 
       {testimony.length > 100 &&
@@ -48,7 +48,7 @@ function Feedback(testimonial) {
 
       <div className="flex flex-col items-center h-auto">
         <p className="text-center text-crossTextGray">
-          {program[0].title}
+          {program}
         </p>
 
         <div className="text-[#B56DEE]">{date}</div>

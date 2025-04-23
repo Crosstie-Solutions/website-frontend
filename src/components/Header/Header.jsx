@@ -270,7 +270,7 @@ function Header() {
             <Link to={`/${me && me.role==="user" ? "user-profile" : "admin-dashboard"}`} className="flex items-center justify-center text-white bg-black border rounded-full w-40px h-40px text-13px"> </Link>}
             
             
-            {!loadMe && !me && !loginToken &&
+            {!loadMe && !me && 
              <NavLink to='/login' className="flex items-center justify-center w-auto px-2 border h-40px border-crossLightPurple text-crossLightPurple rounded-20 hover:bg-crossLightPurple hover:text-vogueWhite">Log In</NavLink>}
         
 
