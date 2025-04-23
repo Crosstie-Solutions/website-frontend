@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { TbFileTypePdf } from "react-icons/tb";
 import { CrossContext } from "../../Context/CrossContext";
+import { PHOTOS } from "../../assets/images";
 
 
 function AboutHero(props) {
@@ -31,23 +32,28 @@ function AboutHero(props) {
            We transform talents and organizations to improve performance.
         </h1>
 
+        {!window.location.pathname.includes('satisfaction') &&
         <div
           className="flex items-center justify-center gap-1 px-1 mt-2 text-center text-white cursor-pointer large:w-auto large:rounded-5 bg-buttonOverlay large:text-15px h-40px bg-crossLightPurple small:text-13px small:w-100 small:rounded-10"
           onClick={window.location.pathname.includes('courses') ? toggleCourseBrochureDownloadScreen : togglePresentationDownloadScreen}
         >
           <TbFileTypePdf className="text-20px" />
           {buttonText ? buttonText : "Download Our Corporate Presentation"}
-        </div>
+        </div>}
+        
       </div>
 
 
-
+      {!window.location.pathname.includes('satisfaction') &&
         <iframe
         className="bg-gray-400 large:h-95 large:w-35 large:rounded-10 small:h-300px small:w-100 small:rounded-5"
         src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}`} title="YouTube video player" frameborder="0" 
          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen 
         allow="autoplay; encrypted-media"
-        ></iframe>
+        ></iframe>}
+
+        {window.location.pathname.includes('satisfaction') &&
+        <img src={PHOTOS.about5} alt="image" className="bg-gray-400 large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-100 small:rounded-5"/>}
 
     </div>
   );

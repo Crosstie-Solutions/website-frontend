@@ -13,8 +13,8 @@ function CrossContextProvider(props) {
 
 
   //base URL for API calls
-  // const baseUrl = "http://127.0.0.1:8000";
-  const baseUrl = "https://server.crosstiesolutions.com";
+  const baseUrl = "http://127.0.0.1:8000";
+  // const baseUrl = "https://server.crosstiesolutions.com";
 
 
 
@@ -778,6 +778,7 @@ console.log("allTestimonials:", allTestimonials);
 
 
 
+  
 
   
   // Handle page change
@@ -1631,7 +1632,10 @@ const timeAgo = (timestamp) => {
   allEvents, activeEvent, toggleEvent, loadingAllJobs,
   currentJobs, deletingJob, loadMe,
   currentJobsPage,
-  totalJobsPages,
+  totalJobsPages, currentTestimonials,
+  handleTestimonialsPageChange,
+  currentTestimonialsPage,
+  totalTestimonialsPages,
   handleJobsPageChange,
   allJobs,
   deleteJob,

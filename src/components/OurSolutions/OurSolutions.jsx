@@ -139,7 +139,7 @@ function OurSolutions() {
 
                 {/* High-demand Courses */}
                 {solution==="High-demand Courses" &&
-                <div className='flex flex-row flex-wrap items-center h-auto border lareg:justify-center small:justify-center small:gap-1 large:gap-2 w-100'>
+                <div className='flex flex-row flex-wrap items-center h-auto lareg:justify-center small:justify-center small:gap-1 large:gap-2 w-100'>
                     
                     {
                         allHighDemands && allHighDemands.map((program, i)=>

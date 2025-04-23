@@ -20,11 +20,17 @@ function AllTestimonialsTable() {
         currentProgramsPage,
         totalProgramsPages,
 
-        allNewsletters,
+        
         allTestimonials,
 
         activeTestimonial,
-        toggleAdminTestimonialAction
+        toggleAdminTestimonialAction,
+
+
+        currentTestimonials,
+  handleTestimonialsPageChange,
+  currentTestimonialsPage,
+  totalTestimonialsPages,
       } = useContext(CrossContext);
     
     
@@ -52,7 +58,7 @@ function AllTestimonialsTable() {
         </div>
 
         {
-            allTestimonials && allTestimonials.map((testimony, i)=>
+            currentTestimonials && currentTestimonials.map((testimony, i)=>
                 <div className={`flex items-center h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-5`}
                 key={i}
                 >
@@ -98,31 +104,31 @@ function AllTestimonialsTable() {
       </div>
 
       {/* Pagination */}
-      {allTestimonials && allTestimonials.length > 0 && (
+      {currentTestimonials && currentTestimonials.length > 0 && (
         <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
             className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-qxDarkGreen disabled:bg-gray-300 disabled:cursor-not-allowed"
             disabled={currentProgramsPage === 1}
-            onClick={() => handleProgramsPageChange(currentProgramsPage - 1)}
+            onClick={() => handleTestimonialsPageChange(currentTestimonialsPage - 1)}
           >
             <CgChevronLeft className="text-20px" />
           </button>
 
           <div className="text-sm">
-            Page {currentProgramsPage} of {totalProgramsPages}
+            Page {currentTestimonialsPage} of {totalTestimonialsPages}
           </div>
 
           <button
             className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-qxDarkGreen disabled:bg-gray-300 disabled:cursor-not-allowed"
-            disabled={currentProgramsPage === totalProgramsPages}
-            onClick={() => handleProgramsPageChange(currentProgramsPage + 1)}
+            disabled={currentTestimonialsPage === totalTestimonialsPages}
+            onClick={() => handleProgramsPageChange(currentTestimonialsPage + 1)}
           >
             <HiOutlineChevronRight className="text-20px" />
           </button>
         </div>
       )}
 
-    {allTestimonials && allTestimonials.length < 1 && (
+    {currentTestimonials && currentTestimonials.length < 1 && (
         <p className="mt-5 text-center w-100 text-15px">No result found.</p>
       )}
     </div>
