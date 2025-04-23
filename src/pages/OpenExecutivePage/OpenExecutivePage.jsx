@@ -35,7 +35,6 @@ function OpenExecutivePage() {
   const [openPrograms, setOpenPrograms] = useState([]);
 
   useEffect(()=>{
-    
 
     if(programsSearchTerm ==''){
       const open = allPrograms && allPrograms.filter((program)=> {
@@ -50,7 +49,7 @@ function OpenExecutivePage() {
 
       setOpenPrograms(open)
     } 
-  },[]);
+  }, []);
 
   
 
@@ -99,7 +98,7 @@ function OpenExecutivePage() {
       <ProgramsFilter />
       
 
-      <div className="flex flex-row flex-wrap h-auto gap-3 small:justify-center small:w-100 large:w-83vw large:justify-start">
+      <div className="flex flex-row flex-wrap h-auto gap-3 small:justify-center small:w-100 large:w-83vw large:justify-center">
         {openPrograms &&
           openPrograms.map((program, i) => {
             

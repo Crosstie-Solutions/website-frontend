@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PHOTOS } from "../../assets/images";
 import { MobileCoursesButtonSwiper } from "../../components/MobileButtonSwiper/MobileButtonSwiper";
@@ -17,15 +17,36 @@ import { CourseBrochureDownloadScreen, CourseContentDownloadScreen } from "../..
 
 function CompleteEmployee() {
 
-    const {currentPrograms, handleProgramsPageChange, currentProgramsPage, totalProgramsPages, programsSearchTerm, toggleDownloadScreen, downloadScreen, allCourses, downloadProgramScreen, courseBrochureDownloadScreen} = useContext(CrossContext);
+    const {currentPrograms, handleProgramsPageChange, currentProgramsPage, totalProgramsPages, programsSearchTerm, toggleDownloadScreen, downloadScreen, allCourses, downloadProgramScreen, courseBrochureDownloadScreen, allPrograms} = useContext(CrossContext);
     
     
     const downloadUrl = allCourses && allCourses.length > 0 ? allCourses[3].courseBrochure : "";
   const title = allCourses && allCourses.length > 0 && allCourses[3].courseTitle;
 
-    const completeEmployeePrograms = currentPrograms && currentPrograms.filter((program)=> {
-      return program.course.courseTitle.includes("Complete Employee");
-    });
+    // const completeEmployeePrograms = currentPrograms && currentPrograms.filter((program)=> {
+    //   return program.course.courseTitle.includes("Complete Employee");
+    // });
+
+
+    const [completeEmployeePrograms, setCompleteEmployeePrograms] = useState([]);
+    
+    
+      useEffect(()=>{
+    
+        if(programsSearchTerm ==''){
+          const open = allPrograms && allPrograms.filter((program)=> {
+            return program.category.toLowerCase().includes("employee");
+          })
+    
+          setCompleteEmployeePrograms(open)
+        }else{
+          const open = currentPrograms && currentPrograms.filter((program)=> {
+            return program.category.toLowerCase().includes("employee");
+          })
+    
+          setCompleteEmployeePrograms(open)
+        } 
+      },[]);
     
 
     
@@ -49,7 +70,7 @@ function CompleteEmployee() {
        
      
 
-        <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
+        <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-83vw">
             
             {
                 completeEmployeePrograms && completeEmployeePrograms.map((program, i)=>{
@@ -82,7 +103,7 @@ function CompleteEmployee() {
         
 
           {/* Pagination */}
-      {completeEmployeePrograms && completeEmployeePrograms.length > 0 && (
+      {/* {completeEmployeePrograms && completeEmployeePrograms.length > 0 && (
         <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
             className="flex items-center justify-center text-white large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
@@ -94,8 +115,6 @@ function CompleteEmployee() {
 
           <div className="text-sm">
             Page {currentProgramsPage} of {totalProgramsPages}
-            {/* Showing { programsStartIndex} to {currentPrograms.length} of {allPrograms.length} Courses */}
-
             
           </div>
 
@@ -107,7 +126,7 @@ function CompleteEmployee() {
             <HiOutlineChevronRight className="text-20px" />
           </button>
         </div>
-      )}
+      )} */}
             
             
       {completeEmployeePrograms && completeEmployeePrograms.length < 1 && (

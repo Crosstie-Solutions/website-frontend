@@ -232,7 +232,7 @@ function App() {
           <Route path="/our-courses/team-bonding" element={<TeamBondingPage />} />
 
           
-          <Route path="/our-courses/program/:programId" element={<ProgramDetailsPage />} />
+          <Route path="/our-courses/:programId" element={<ProgramDetailsPage />} />
           <Route path="/our-courses/edit/:programId" element={<EditProgramPage />} />
           <Route path="/our-solutions/webinars/edit/:webinarId" element={<EditWebinarPage />} />
           

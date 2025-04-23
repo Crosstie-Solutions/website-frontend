@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PHOTOS } from "../../assets/images";
 import { MobileCoursesButtonSwiper } from "../../components/MobileButtonSwiper/MobileButtonSwiper";
@@ -22,9 +22,29 @@ function SalesExcellencePage() {
     const downloadUrl = allCourses && allCourses.length > 0 ? allCourses[2].courseBrochure : "";
   const title = allCourses && allCourses.length > 0 && allCourses[2].courseTitle;
     
-    const salesSeriesPrograms = currentPrograms && currentPrograms.filter((program)=> {
-      return program.course.courseTitle.includes("Sales Excellence");
-    });
+    // const salesSeriesPrograms = currentPrograms && currentPrograms.filter((program)=> {
+    //   return program.course.courseTitle.includes("Sales Excellence");
+    // });
+
+
+    const [salesSeriesPrograms, setSalesSeriesPrograms] = useState([]);
+    
+      useEffect(()=>{
+    
+        if(programsSearchTerm ==''){
+          const open = allPrograms && allPrograms.filter((program)=> {
+            return program.category.toLowerCase().includes("sales");
+          })
+    
+          setSalesSeriesPrograms(open)
+        }else{
+          const open = currentPrograms && currentPrograms.filter((program)=> {
+            return program.category.toLowerCase().includes("sales");
+          })
+    
+          setSalesSeriesPrograms(open)
+        } 
+      }, []);
 
     
   return (
@@ -79,7 +99,7 @@ function SalesExcellencePage() {
         
 
           {/* Pagination */}
-      {salesSeriesPrograms && salesSeriesPrograms.length > 0 && (
+      {/* {salesSeriesPrograms && salesSeriesPrograms.length > 0 && (
         <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
             className="flex items-center justify-center text-white large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
@@ -90,10 +110,7 @@ function SalesExcellencePage() {
           </button>
 
           <div className="text-sm">
-            Page {currentProgramsPage} of {totalProgramsPages}
-            {/* Showing { programsStartIndex} to {currentPrograms.length} of {allPrograms.length} Courses */}
-
-            
+            Page {currentProgramsPage} of {totalProgramsPages}            
           </div>
 
           <button
@@ -104,7 +121,7 @@ function SalesExcellencePage() {
             <HiOutlineChevronRight className="text-20px" />
           </button>
         </div>
-      )}
+      )} */}
             
             
             {salesSeriesPrograms && salesSeriesPrograms.length < 1 && (
