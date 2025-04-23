@@ -19,6 +19,7 @@ import './ProgramDetailsPage.css'
 import { GrWorkshop } from "react-icons/gr";
 import { MdOutlineDescription } from "react-icons/md";
 import { MdOutlineViewModule } from "react-icons/md";
+import { CourseContentDownloadScreen } from "../../components/DownloadScreen/DownloadScreen";
 
 
 
@@ -27,7 +28,7 @@ import { MdOutlineViewModule } from "react-icons/md";
 function ProgramDetailsPage() {
   
   const {
-    toggleEnrollment, baseUrl, me, setLoading, executiveEnrollmentData, handleExecutiveChange, setExecutiveEnrollmentData, trainingMode, setTrainingMode, toggleSecondOpenEnrollment, secondOpenEnrollmentForm
+    toggleEnrollment, baseUrl, me, setLoading, executiveEnrollmentData, handleExecutiveChange, setExecutiveEnrollmentData, trainingMode, setTrainingMode, toggleSecondOpenEnrollment, secondOpenEnrollmentForm, downloadProgramScreen, toggleDownloadProgramScreen
   } = useContext(CrossContext);
 
   const programId = useParams().programId;
@@ -231,10 +232,14 @@ function ProgramDetailsPage() {
 
           {
             !loadingProgram &&
-          <Link className="flex items-center justify-center gap-1 px-1 large:w-300px rounded-10 h-40px bg-buttonOverlay large:text-15px small:w-250px small:text-11px">
-            Download course content{" "}
+          <div className="flex items-center justify-center gap-1 px-1 cursor-pointer large:w-300px rounded-10 h-40px bg-buttonOverlay large:text-15px small:w-250px small:text-11px"
+          onClick={()=>{
+              toggleDownloadProgramScreen(program && program._id)
+            }}
+          >
+            Download Course Content{" "}
             <RiFolderDownloadLine className="large:text-25px small:text-20px" />
-          </Link>}
+          </div>}
 
             {me && me.role !=="user" &&
           
@@ -698,6 +703,15 @@ function ProgramDetailsPage() {
                 Explore Our Courses <HiArrowLongRight className="text-20px" />
               </Link>
         </div>
+
+        {program && program.id === downloadProgramScreen &&
+          <CourseContentDownloadScreen 
+            downloadUrl={program && program.courseContent}
+            title={program && program.title}
+            id={program && program.id}
+          />}
+
+          
     </div>
   );
 }
