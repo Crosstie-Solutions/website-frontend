@@ -74,5 +74,9 @@ const partnerImages = [
     new URL("./client5.jpg", import.meta.url).href,
 ];
 
+const leadersImages = [
+    new URL("./adebayo.jpeg", import.meta.url).href,
+];
 
-export {PHOTOS, shopBannerImages, heroImages, partnerImages};
+
+export {PHOTOS, shopBannerImages, heroImages, partnerImages, leadersImages};

@@ -964,11 +964,13 @@ const viewAllHighDemands = async () => {
   }
 };
 
-const [bio, setBio] = useState(false);
+const [userBio, setBio] = useState(null);
 
-const toggleBio = ()=>{
-  setBio(!bio);
+const toggleBio = async (index)=>{
+  setBio((prev) => (prev === index ? null : index));;
 }
+
+
 
 
 
@@ -1624,7 +1626,7 @@ const timeAgo = (timestamp) => {
     hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program, toggleAdminProgramAction, activeProgram, deletingProgram, deleteProgram, viewAllCourseRegs, allCourseRegs, currentCourseRegs,  handleCourseRegsPageChange, currentCourseRegsPage, totalCourseRegsPages,
     courseRegsSearchTerm, allCourseRegs, activeCourseReg, toggleAdminCourseRegAction,   activeWebinar, toggleAdminWebinarAction, deletingWebinar, deleteWebinar, currentUpcoming, handleUpcomingPageChange, totalUpcomingPages, currentUpcomingPage,
     currentPast, handlePastPageChange, currentPastPage, totalPastPages, pastSearchTerm,
-  pastWebinars, activeWebinar, toggleActiveWebinarView, activeWebinarView, webinarEnrollment, toggleWebinarEnrollment, webinar, setWebinarEnrollment, loadingWebinar, viewAllEnquiries, toggleAdminEnquiryAction, activeEnquiry, allEnquiries, setActiveEnquiry, viewAllNewsletters, allNewsletters, viewAllTestimonials, allTestimonials, loadingAllTestimonials,  activeTestimonial, toggleAdminTestimonialAction, deletingTestimonial, deleteTestimonial,   activeContactForm, toggleAdminContactFormAction, viewAllContactForms, allContactForms, loadingAllContactForms, viewAllHighDemands, allHighDemands, toggleBio, bio, currentTestimonials, handleTestimonialsPageChange, allBlogPosts, viewAllBlogPosts, handleBlogPostsPageChange, currentBlogPostsPage, deletingBlogPost, deleteBlogPost, blogPostsSearchTerm, activeBlogPost, currentBlogPosts, totalBlogPostsPages,setBlogPostsSearchTerm, toggleAdminBlogPostAction, currentTestimonialsPage, totalTestimonialsPages, loadingAllCaseStudies,
+  pastWebinars, activeWebinar, toggleActiveWebinarView, activeWebinarView, webinarEnrollment, toggleWebinarEnrollment, webinar, setWebinarEnrollment, loadingWebinar, viewAllEnquiries, toggleAdminEnquiryAction, activeEnquiry, allEnquiries, setActiveEnquiry, viewAllNewsletters, allNewsletters, viewAllTestimonials, allTestimonials, loadingAllTestimonials,  activeTestimonial, toggleAdminTestimonialAction, deletingTestimonial, deleteTestimonial,   activeContactForm, toggleAdminContactFormAction, viewAllContactForms, allContactForms, loadingAllContactForms, viewAllHighDemands, allHighDemands, toggleBio, userBio, currentTestimonials, handleTestimonialsPageChange, allBlogPosts, viewAllBlogPosts, handleBlogPostsPageChange, currentBlogPostsPage, deletingBlogPost, deleteBlogPost, blogPostsSearchTerm, activeBlogPost, currentBlogPosts, totalBlogPostsPages,setBlogPostsSearchTerm, toggleAdminBlogPostAction, currentTestimonialsPage, totalTestimonialsPages, loadingAllCaseStudies,
   currentCaseStudies,  caseStudiesSearchTerm, setCaseStudiesSearchTerm, setCurrentCaseStudiesPage, currentCaseStudiesPage, totalCaseStudiesPages,
   handleCaseStudiesPageChange, allCaseStudies, activeCaseStudy, toggleCaseStudy, fetchUsers, loadUsers, fetchPartners,
   currentUsers, setUsersSearchTerm, loadPartners,

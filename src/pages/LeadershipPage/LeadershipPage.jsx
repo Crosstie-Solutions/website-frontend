@@ -6,8 +6,16 @@ import { Link } from "react-router-dom";
 import { PHOTOS } from "../../assets/images";
 import { HiArrowLongRight } from "react-icons/hi2";
 import AboutHero from "../../components/AboutHero/AboutHero";
+import { leaders } from "../../assets/data";
+import Bio from "../../components/Bio/Bio";
+
+
 
 function LeadershipPage() {
+
+  const teamMembers = leaders && leaders.filter(leader => leader.type.includes('teamMember'));
+  
+
   return (
     <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
         
@@ -22,42 +30,60 @@ function LeadershipPage() {
         
         <div className="flex flex-col items-start h-auto gap-1 w-100">
           <h2 className="font-bold text-left large:text-30px small:text-20px">The Crosstie Professionals</h2>
-          <p className="text-left large:w-70">Crosstie’s Leadership team consists of Industry veterans who have a passion for educational innovation and customers.</p>
+          <p className="text-left large:w-70">Crosstie professionals are industry veterans, passionate innovators, and certified experts, building excellence in education and customer service.
+          </p>
         </div>
 
         <div className="flex flex-col items-center h-auto gap-5 w-100">
           
           {/* directors */}
-          <div className="flex flex-col items-center h-auto gap-2 w-100">
+          {/* <div className="flex flex-col items-center h-auto gap-2 w-100">
             <h4 className="py-1 pl-1 font-semibold text-white border-l-4 bg-crossTextGray text-20px w-100 border-crossYellow">Directors</h4>
             <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
               <Leader />
               <Leader />
               <Leader />
             </div>
-          </div>
+          </div> */}
 
           {/* The Crosstie Team */}
           <div className="flex flex-col items-center h-auto gap-2 w-100">
             <h4 className="py-1 pl-1 font-semibold text-white border-l-4 bg-crossTextGray text-20px w-100 border-crossYellow">The Crosstie Team</h4>
             <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
-              <Leader />
-              <Leader />
-              <Leader />
-              <Leader />
+
+              {
+                teamMembers && teamMembers.map((member, i)=>{
+                  return(
+                    <Leader 
+                    key={i}
+                    name={member.name}
+                    role={member.role}
+                    image={member.image}
+                    type={member.type}
+                    bio={member.bio}
+                    link={member.link}
+                    index = {i + 1}
+                  />
+                  )
+                })
+
+                
+              }
+              
+              
             </div>
           </div>
 
           
           {/* Board of Advisory */}
-          <div className="flex flex-col items-center h-auto gap-2 w-100">
+          {/* <div className="flex flex-col items-center h-auto gap-2 w-100">
             <h4 className="py-1 pl-1 font-semibold text-white border-l-4 bg-crossTextGray text-20px w-100 border-crossYellow">Board of Advisory</h4>
             <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
               <Leader />
               <Leader />
               <Leader />
             </div>
-          </div>
+          </div> */}
 
 
           {/* faculty */}
@@ -110,6 +136,7 @@ function LeadershipPage() {
               </div>
             </div>
           </div>
+          
           
         </div>
       </div>

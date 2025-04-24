@@ -186,8 +186,8 @@ if (noError) {
         </div>
 
         <div className='flex flex-col h-auto w-100'>
-            <label htmlFor="date">Date</label>
-            <input type="date" name='date' id='dateField' className='pl-1 border rounded h-40px w-100'
+            <label htmlFor="date">Date (Month & Year)</label>
+            <input type="text" name='date' id='dateField' className='pl-1 border rounded h-40px w-100' placeholder='Enter date'
              onChange={(e) => setDate(e.target.value)}
             />
             <p className='text-vogueRed'>{caseStudyErrors && caseStudyErrors.date}</p>

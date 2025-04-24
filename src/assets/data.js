@@ -1,4 +1,4 @@
-import { partnerImages } from "./images"
+import { leadersImages, partnerImages } from "./images"
 
 const courseData = [
     {
@@ -154,4 +154,54 @@ const partnerData = [
      partnerImages[2],
 ]
 
-  export {courseData, partnerData}
+
+const leaders = [
+  {
+    name: "Adebayo Adegun",
+    image: leadersImages[0],
+    role: "Lead Partner & CEO",
+    type: "teamMember",
+    bio: `Adebayo Adegun, known as "The Impacter," is a seasoned Trainer and OD Consultant with 15+ years of experience. He’s led major consulting projects and trained over 5,000 employees across industries. As CEO of Crosstie Solutions, Adebayo partners with top organisations. His expertise includes leadership development, succession planning, and culture transformation. He holds advanced degrees in Managerial Psychology and Organisational Leadership.`,
+    link: `https://www.google.com`
+  },
+
+  {
+    name: "Peter Bello",
+    image: leadersImages[0],
+    role: "Associate, Learning & Development",
+    type: "teamMember",
+    bio: ``,
+    link: `https://www.google.com`
+  },
+
+  {
+    name: "Promise Essien",
+    image: leadersImages[0],
+    role: "Associate, Business Development & Client Relations",
+    type: "teamMember",
+    bio: `Promise Essien is a versatile Business Development and Client Relationship Professional with experience across consulting, healthcare, education, and real estate in Nigeria and the UK. With a B.Sc. in Microbiology, she transitioned from the medical field to marketing and sales. She’s our Associate, Business Development and Client Relations, responsible for lead generation, prospect management and client relations. She contributes to digital marketing, strategic planning, and content creation.`,
+    link: `https://www.google.com`
+  },
+
+  {
+    name: "Jacob Abua",
+    image: leadersImages[0],
+    role: "Analyst, Organisational Development",
+    type: "teamMember",
+    bio: ``,
+    link: `https://www.google.com`
+  },
+
+  {
+    name: "Ademide Adegboye",
+    image: leadersImages[0],
+    role: "HR/ L&D Support",
+    type: "teamMember",
+    bio: ``,
+    link: `https://www.google.com`
+  }
+]
+
+
+
+  export {courseData, partnerData, leaders}

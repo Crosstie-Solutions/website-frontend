@@ -4,7 +4,9 @@ import { CrossContext } from '../../Context/CrossContext';
 import { PHOTOS } from '../../assets/images';
 
 
-function Bio() {
+function Bio(member) {
+
+  const {name, image, bio, index} = member;
 
     const {toggleBio} = useContext(CrossContext);
 
@@ -13,17 +15,21 @@ function Bio() {
       
       <div className='flex flex-col items-center gap-2 bg-white large:p-3 w-70 h-60 rounded-10 text-15px'>
         <div className='flex items-center justify-between h-auto w-100'>
-            <h3 className='font-semibold text-black text-20px'>Sakshi Gaba Dhawan</h3>
+            <h3 className='font-semibold text-black text-20px'>{name}</h3>
             <GrFormClose className='text-black cursor-pointer text-30px'
-            onClick={toggleBio}
+              onClick={()=>{
+                toggleBio('exit');
+              }}
             />
         </div>
 
         <div className='flex items-start h-auto gap-3 w-100'>
-            <img src={PHOTOS.adebayo} alt="user" className='w-25 h-250px rounded-10'/>
-            <p className='w-70'>Sakshi Gaba Dhawan, our Head of HR, leverages 18+ years of experience, 11+ of which have been dedicated to Koenig. Starting in HR, Sakshi now adeptly manages Accounts Payable and Receivables, along with leading initiatives in lead generation and freelancer management. Beyond the corporate realm, she finds balance in exercising and travelling with her family.</p>
+            <img src={image} alt="user" className='w-auto h-250px rounded-10'/>
+            <p className='w-70'>{bio}</p>
         </div>
       </div>
+
+    
     </div>
   )
 }
