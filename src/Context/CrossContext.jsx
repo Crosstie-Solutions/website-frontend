@@ -967,6 +967,8 @@ const viewAllHighDemands = async () => {
 const [userBio, setBio] = useState(null);
 
 const toggleBio = async (index)=>{
+  window.scrollTo({ top: 0, behavior: "auto" });
+
   setBio((prev) => (prev === index ? null : index));;
 }
 

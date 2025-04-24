@@ -170,7 +170,7 @@ const leaders = [
     image: leadersImages[0],
     role: "Associate, Learning & Development",
     type: "teamMember",
-    bio: ``,
+    bio: `No Bio`,
     link: `https://www.google.com`
   },
 
@@ -188,7 +188,7 @@ const leaders = [
     image: leadersImages[0],
     role: "Analyst, Organisational Development",
     type: "teamMember",
-    bio: ``,
+    bio: `No Bio`,
     link: `https://www.google.com`
   },
 
@@ -197,9 +197,226 @@ const leaders = [
     image: leadersImages[0],
     role: "HR/ L&D Support",
     type: "teamMember",
-    bio: ``,
+    bio: `No Bio`,
     link: `https://www.google.com`
-  }
+  },
+
+  {
+    name: "Dr. Solomon Avbioroko",
+    image: '',
+    role: "Transformational Leadership Expert | Executive Coach | Facilitator",
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Tinuke Bosun-Okusaga",
+    image: '',
+    role: "HR Practitioner|Certified Management Trainer |Accredited Management	Consultant",
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Ayo-Bankole	Akintujoye, PMP",
+    image: '',
+    role: `Strategy & Transformation Expert | Change Management	Trainer | Facilitator`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Dr. Anino Emuwa",
+    image: '',
+    role: `Business Strategist | Women Leadership Expert | Business Succession Planner`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Tosin Babasanya-Craig",
+    image: '',
+    role: `Corporate Soft	Skills Trainer & Coach | Communication	Expert	| Customer Service Trainer`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Adeyemi Ajayi",
+    image: '',
+    role: `Risk Manager | HR Expert | Facilitator	| People Analytics Expert | Accountant`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Ify Emeka-Onu",
+    image: '',
+    role: `Business Communication Expert | Personal Branding Trainer`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Oludare Shobajo",
+    image: '',
+    role: `HR Expert | Performance Management Expert | Strategy Professional`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Adekunle Agbaje",
+    image: '',
+    role: `Leadership Coach | Management Consultant | Administrator`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Adeshola Aliogo",
+    image: '',
+    role: `Hr Professional | Employee Engagement & Talent Management Trainer`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Oluwatoyin Ademola (FCMI)",
+    image: '',
+    role: `Certified Business Coach | Life Strategist & Motivator`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Lauretta Usiade (ACIPM, FIMC)",
+    image: '',
+    role: `Certified Human Resources Expert and Coach`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Remi Dairo (CPC)",
+    image: '',
+    role: `Productivity Expert | Business Innovator | Life Coach & Strategist`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Elegbede Bayonle",
+    image: '',
+    role: `Project Management Trainer | Microsoft Office Specialist.`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Dorothy Tunde-Ajala",
+    image: '',
+    role: `HR Leader | John C. Maxwell Coach | Trainer | Speaker`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Anne Dirkling",
+    image: '',
+    role: `Organisational Development Consultant and Trainer`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Ayodolapo Ajao",
+    image: '',
+    role: `Strategist | Negotiation Expert | Business Coach`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Jumoke Aleoke-Malachi",
+    image: '',
+    role: `HR Professional | EQ Certified Specialist | Trainer`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Olusola Rodney Adewole",
+    image: '',
+    role: `Leadership Development & OD Consultant | Trainer`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Farah Akbar",
+    image: '',
+    role: `Leadership Development & Talent Strategist | Trainer`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Victoria Ajayi",
+    image: '',
+    role: `Strategic Finance Leader | Women’s Leadership Advocate | ACCA Global Council Member | Board Advisor`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Olufunmilayo Olaniyi",
+    image: '',
+    role: `Senior Vice President of Business Development at Flutterwave`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Kunle Awolowo",
+    image: '',
+    role: ` Management Consultant | Organisation Advisory Leader`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
+  {
+    name: "Oladosu Dipo",
+    image: '',
+    role: `Agile Project Manager | Talent Acquisition & Development | QHSE`,
+    type: "facultyMember",
+    bio: ``,
+    link: ``
+  },
+
 ]
 
 

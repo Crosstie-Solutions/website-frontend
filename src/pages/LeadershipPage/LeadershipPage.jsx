@@ -14,6 +14,8 @@ import Bio from "../../components/Bio/Bio";
 function LeadershipPage() {
 
   const teamMembers = leaders && leaders.filter(leader => leader.type.includes('teamMember'));
+
+  const facultyMembers = leaders && leaders.filter(leader => leader.type.includes('faculty'));
   
 
   return (
@@ -93,47 +95,18 @@ function LeadershipPage() {
             
             <div className="flex flex-row flex-wrap justify-start h-auto large:gap-3 w-100 small:gap-5">
               
-              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
-                <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
-                <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
-              </div>
+              
 
-
-              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
-                <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
-                <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
-              </div>
-
-
-              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
-                <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
-                <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
-              </div>
-
-              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
-                <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
-                <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
-              </div>
-
-              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
-                <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
-                <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
-              </div>
-
-              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
-                <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
-                <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
-              </div>
-
-              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
-                <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
-                <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
-              </div>
-
-              <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto">
-                <h3 className="font-semibold text-crossLightPurple">OLUDARE SHOBAJO</h3>
-                <div className="text-gray-600">Organisational Strategy Development and Execution Expert</div>
-              </div>
+              {
+                facultyMembers && facultyMembers.map((member, i)=>
+                  <div className="flex flex-col h-auto pb-1 border-b-2 large:w-25 small:w-auto"
+                  key={i}
+                  >
+                    <h3 className="font-semibold text-crossLightPurple">{member.name}</h3>
+                    <div className="text-gray-600">{member.role}</div>
+                  </div>
+                )
+              }
             </div>
           </div>
           

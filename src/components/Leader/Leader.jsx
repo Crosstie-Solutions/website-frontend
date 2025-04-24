@@ -14,7 +14,7 @@ function Leader(member) {
 
   
   return (
-    <div className='flex flex-col items-center justify-between h-auto gap-2 border shadow-lg large:w-250px rounded-10 large:text-15px small:w-70vw small:text-11px rounded-tl-10 rounded-tr-10'>
+    <div className='flex flex-col items-center justify-between h-auto gap-2 border shadow-lg large:w-250px rounded-10 large:text-15px small:w-40vw small:text-11px rounded-tl-10 rounded-tr-10'>
         
       <img src={image} alt="adebayo" className='rounded-tl-10 large:h-auto w-100 rounded-tr-10 small:h-auto'/>
 
