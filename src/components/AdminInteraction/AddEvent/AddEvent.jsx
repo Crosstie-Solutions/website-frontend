@@ -103,7 +103,9 @@ if (noError) {
     }
   } catch (error) {
     
-    console.log("Error adding event:", error);
+    if(error){
+      console.log("Error adding event:", error);
+    }
   
   } finally {
     setLoading(false);
@@ -138,8 +140,9 @@ if (noError) {
         </div>
 
         <div className='flex flex-col h-auto w-100'>
-            <label htmlFor="date">Date</label>
-            <input type="date" name='date' id='dateField' className='pl-1 border rounded h-40px w-100'
+            <label htmlFor="date">Date (Month and Year only)</label>
+            <input type="text" name='date' id='dateField' className='pl-1 border rounded h-40px w-100'
+            placeholder='Enter date in the proper format'
              onChange={(e) => setDate(e.target.value)}
             />
             <p className='text-vogueRed'>{eventErrors && eventErrors.date}</p>
@@ -156,7 +159,7 @@ if (noError) {
             <div className='flex flex-wrap items-center justify-center h-auto gap-2 mt-1 w-100'>
               {
                 previews && previews.map((src, i)=>
-                  <img src={src} alt={`image preview ${i + 1}`} className='w-auto rounded h-50px'/>
+                  <img key={i} src={src} alt={`image preview ${i + 1}`} className='w-auto rounded h-50px'/>
                 )
               }
               
@@ -168,7 +171,7 @@ if (noError) {
 
         <button className='flex items-center justify-center text-white rounded h-40px w-100 bg-crossLightPurple'
         onClick={addEvent}
-        >Add Partner</button>
+        >Add Event</button>
       </div>
     </div>
   )
