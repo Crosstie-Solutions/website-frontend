@@ -44,9 +44,11 @@ function ConsultingCaseStudy() {
               <p className='self-center mt-3 font-semibold text-17px'>No Article Found.</p>}
             </div>
 
+            {posts && posts.length > 0 &&
             <Link to='/case-studies' className="flex flex-row items-center justify-center w-auto gap-1 p-2 text-white h-30px rounded-10 bg-crossLightPurple">
               Show All <GoArrowRight className="text-25px" />
-            </Link>
+            </Link>}
+            
           </div>
         </div>
       </div>
