@@ -11,6 +11,7 @@ function AddCaseStudy() {
 
 
       const [title, setTitle] = useState('');
+      const [category, setCategory] = useState('');
       const [author, setAuthor] = useState('');
       const [date, setDate] = useState('');   
       const [challenge, setChallenge] = useState('');   
@@ -49,6 +50,10 @@ if (!title.trim()) {
   validationErrors.title = "title is required";
 }
 
+if (!category.trim()) {
+  validationErrors.category = "category is required";
+}
+
 if (!author.trim()) {
   validationErrors.author = "author name is required";
 }
@@ -81,6 +86,7 @@ const noError = Object.keys(validationErrors).length === 0;
 
     const formData = new FormData();
     formData.append("title", title);
+    formData.append("category", category);
     formData.append("author", author);
     formData.append("challenge", challenge);
     formData.append("result", result);
@@ -133,6 +139,18 @@ if (noError) {
              onChange={(e) => setTitle(e.target.value)}
             />
             <p className='text-vogueRed'>{caseStudyErrors && caseStudyErrors.title}</p>
+        </div>
+
+        <div className='flex flex-col h-auto w-100'>
+            <label htmlFor="category">Category</label>
+          
+            <select name="category" id="categoryField" className='pl-1 border rounded h-40px w-100' onChange={(e) => setCategory(e.target.value)}>
+              <option value="">-select-</option>
+              <option value="training">Training</option>
+              <option value="consulting">Consulting</option>
+            </select>
+            
+            <p className='text-vogueRed'>{caseStudyErrors && caseStudyErrors.category}</p>
         </div>
 
         <div className='flex flex-col h-auto w-100'>

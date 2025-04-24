@@ -39,6 +39,9 @@ function ConsultingCaseStudy() {
               date={post.date}
               postId={post._id}
               />)}
+
+              {posts && posts.length < 1 &&
+              <p className='self-center mt-3 font-semibold text-17px'>No Article Found.</p>}
             </div>
 
             <Link to='/case-studies' className="flex flex-row items-center justify-center w-auto gap-1 p-2 text-white h-30px rounded-10 bg-crossLightPurple">
