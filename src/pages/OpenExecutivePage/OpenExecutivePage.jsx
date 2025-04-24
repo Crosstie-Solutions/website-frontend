@@ -49,7 +49,7 @@ function OpenExecutivePage() {
 
       setOpenPrograms(open)
     } 
-  }, []);
+  }, [allPrograms]);
 
   
 

@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { CaseStudy } from '../CaseStudy/CaseStudy';
 import { GoArrowRight } from "react-icons/go";
 import { Link } from 'react-router-dom';
+import { CrossContext } from '../../Context/CrossContext';
 
 
-function OurCaseStudy() {
+function ConsultingCaseStudy() {
 
-    const posts = [1, 2, 3];
+  const {allCaseStudies} = useContext(CrossContext);
+
+    const posts = allCaseStudies && allCaseStudies.filter(post => post.category.toLowerCase().includes('consulting'));
+
 
   return (
     <div className="flex flex-col h-auto gap-3 small:w-90vw large:w-83vw">
@@ -24,10 +28,20 @@ function OurCaseStudy() {
         <div className="flex flex-row h-auto small:p-2 w-100 rounded-10 text-13px large:p-0">
           <div className="flex flex-col items-center h-auto gap-4 w-100">
             <div className="flex h-auto gap-3 small:justify-center small:flex-col large:flex-wrap large:flex-row w-100 large:justify-between">
-              {posts && posts.map((post, i) => <CaseStudy key={i} />)}
+              {posts && posts.map((post, i) => <CaseStudy 
+              key={i} 
+              title={post.title}
+              caseStudyImage={post.caseStudyImage}
+              author={post.author}
+              challenge={post.challenge}
+              solution={post.solution}
+              result={post.result}
+              date={post.date}
+              postId={post._id}
+              />)}
             </div>
 
-            <Link to='/our-solutions/case-study' className="flex flex-row items-center justify-center w-auto gap-1 p-2 text-white h-30px rounded-10 bg-crossLightPurple">
+            <Link to='/case-studies' className="flex flex-row items-center justify-center w-auto gap-1 p-2 text-white h-30px rounded-10 bg-crossLightPurple">
               Show All <GoArrowRight className="text-25px" />
             </Link>
           </div>
@@ -36,4 +50,4 @@ function OurCaseStudy() {
   )
 }
 
-export default OurCaseStudy
+export default ConsultingCaseStudy

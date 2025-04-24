@@ -47,7 +47,7 @@ function TeamBondingPage() {
     
           setTeamBondingPrograms(open)
         } 
-      }, []);
+      }, [allPrograms]);
 
     
   return (

@@ -12,7 +12,7 @@ import { FaUser } from "react-icons/fa";
 import { HiArrowLongRight } from "react-icons/hi2";
 
 import {CaseStudy} from "../../components/CaseStudy/CaseStudy";
-import OurCaseStudy from "../../components/OurCaseStudy/OurCaseStudy";
+import ConsultingCaseStudy from "../../components/ConsultingCaseStudy/ConsultingCaseStudy";
 import AboutHero from "../../components/AboutHero/AboutHero";
 
 
@@ -121,7 +121,7 @@ function ManagementConsultingPage() {
 
 
       {/* case study */}
-      <OurCaseStudy />
+      <ConsultingCaseStudy />
 
             {/* explore */}
       <div className="flex flex-col items-center h-auto gap-1 w-100">

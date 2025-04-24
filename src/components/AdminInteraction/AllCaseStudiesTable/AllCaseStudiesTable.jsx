@@ -121,7 +121,7 @@ function AllCaseStudiesTable() {
           <button
             className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
             disabled={currentCaseStudiesPage === totalCaseStudiesPages}
-            onClick={() => handlePartnersPageChange(currentCaseStudiesPage + 1)}
+            onClick={() => handleCaseStudiesPageChange(currentCaseStudiesPage + 1)}
           >
             <HiOutlineChevronRight className="text-20px" />
           </button>

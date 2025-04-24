@@ -12,7 +12,7 @@ import { FaUser } from "react-icons/fa";
 import { HiArrowLongRight } from "react-icons/hi2";
 import {CaseStudy} from "../../components/CaseStudy/CaseStudy";
 import { GoArrowRight } from "react-icons/go";
-import OurCaseStudy from "../../components/OurCaseStudy/OurCaseStudy";
+import TrainingCaseStudy from "../../components/TrainingCaseStudy/TrainingCaseStudy";
 import AboutHero from "../../components/AboutHero/AboutHero";
 
 
@@ -129,7 +129,7 @@ function CorporateTrainingPage() {
       </div>
 
       {/* case study */}
-      <OurCaseStudy />
+      <TrainingCaseStudy />
 
       <div className="flex flex-col items-center h-auto gap-1 mt-3 w-100">
         <h4 className="font-bold large:text-20px small:text-17px">

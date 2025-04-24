@@ -48,7 +48,7 @@ function ExecutiveLeadership() {
     
           setExecutiveLeadershipPrograms(open)
         } 
-      },[]);
+      },[allPrograms]);
 
     
     

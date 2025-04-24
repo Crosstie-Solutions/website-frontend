@@ -44,7 +44,7 @@ function SalesExcellencePage() {
     
           setSalesSeriesPrograms(open)
         } 
-      }, []);
+      }, [allPrograms]);
 
     
   return (

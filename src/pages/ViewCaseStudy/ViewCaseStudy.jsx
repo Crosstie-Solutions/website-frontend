@@ -131,7 +131,7 @@ function ViewCaseStudy() {
 
                 <div className='flex flex-row flex-wrap items-center justify-center h-auto gap-5 w-100'>
                     {
-                        relatedCaseStudies && relatedCaseStudies.slice(0, 3).map((post, i)=>
+                        relatedCaseStudies && relatedCaseStudies.slice(0, 10).map((post, i)=>
                             <Link 
                                 to={`/case-studies/${post._id}`}
                                  className='relative h-auto rounded w-350px'>

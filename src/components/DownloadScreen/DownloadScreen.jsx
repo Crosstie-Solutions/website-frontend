@@ -142,6 +142,7 @@ function PresentationDownloadScreen(props) {
         {screen==="download" &&
             <div className="flex items-center justify-center bg-white rounded h-150px w-300px">
                 <a 
+                target="_blank"
                 href={downloadUrl}
                 className="flex items-center justify-center w-auto gap-2 px-2 text-white rounded bg-crossLightPurple h-40px"
                 download="material.pdf"
@@ -291,6 +292,7 @@ return (
       {screen==="download" &&
           <div className="flex items-center justify-center bg-white rounded h-150px w-300px">
               <a 
+              target="_blank"
               href={downloadUrl}
               className="flex items-center justify-center w-auto gap-2 px-2 text-white rounded bg-crossLightPurple h-40px"
               download="material.pdf"
@@ -442,6 +444,7 @@ return (
       {screen==="download" &&
           <div className="flex items-center justify-center bg-white rounded h-150px w-300px">
               <a 
+              target="_blank"
               href={downloadUrl}
               className="flex items-center justify-center w-auto gap-2 px-2 text-white rounded bg-crossLightPurple h-40px"
               download="material.pdf"

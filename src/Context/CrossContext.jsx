@@ -13,8 +13,8 @@ function CrossContextProvider(props) {
 
 
   //base URL for API calls
-  // const baseUrl = "http://127.0.0.1:8000";
-  const baseUrl = "https://server.crosstiesolutions.com";
+  const baseUrl = "http://127.0.0.1:8000";
+  // const baseUrl = "https://server.crosstiesolutions.com";
 
 
 

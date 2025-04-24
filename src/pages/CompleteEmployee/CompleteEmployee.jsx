@@ -46,7 +46,7 @@ function CompleteEmployee() {
     
           setCompleteEmployeePrograms(open)
         } 
-      },[]);
+      },[allPrograms]);
     
 
     
