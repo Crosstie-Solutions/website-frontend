@@ -28,7 +28,7 @@ function TrainingCaseStudy() {
         <div className="flex flex-row h-auto small:p-2 w-100 rounded-10 text-13px large:p-0">
           <div className="flex flex-col items-center h-auto gap-4 w-100">
             <div className="flex h-auto gap-3 small:justify-center small:flex-col large:flex-wrap large:flex-row w-100 large:justify-between">
-              {posts && posts.map((post, i) => <CaseStudy 
+              {posts && posts.slice(0, 3).map((post, i) => <CaseStudy 
               key={i} 
               title={post.title}
               caseStudyImage={post.caseStudyImage}
