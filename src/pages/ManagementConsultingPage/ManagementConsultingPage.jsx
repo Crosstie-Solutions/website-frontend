@@ -27,7 +27,7 @@ function ManagementConsultingPage() {
     const title = "Our Corporate Presentation";
 
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13">
+    <div className="relative flex flex-col items-center justify-start gap-5 py-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13">
       
       <AboutHero 
         tag="Our Solutions"
@@ -41,6 +41,7 @@ function ManagementConsultingPage() {
       <div className="flex items-center h-auto large:justify-center large:flex-row large:w-70vw small:flex-col small:gap-3 large:gap-5 large:flex-wrap">
         
         <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+          
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaBookOpen className="text-crossLightPurple text-30px" />
           </div>
@@ -50,9 +51,7 @@ function ManagementConsultingPage() {
           </h3>
 
           <p className="text-center text-13px text-crossTextGray">
-            The business landscape is evolving, and staying ahead requires more
-            than just experience—it demands strategic thinking, innovation, and
-            executive-level expertise.
+          Your strategy depends on culture. Using our Six-Dimension Framework, we assess, identify gaps, and guide transformation, building a culture aligned with your goals, industry, and growth stage, with hands-on support throughout.
           </p>
 
           {/* <Link
@@ -73,9 +72,7 @@ function ManagementConsultingPage() {
           </h3>
 
           <p className="text-center text-13px text-crossTextGray">
-            The business landscape is evolving, and staying ahead requires more
-            than just experience—it demands strategic thinking, innovation, and
-            executive-level expertise.
+          As businesses grow, instinct must give way to strategy. We diagnose key pillars, co-create actionable plans, and support execution, helping you shift from founder-driven decisions to intentional, scalable strategy.
           </p>
 
           {/* <Link
@@ -96,9 +93,7 @@ function ManagementConsultingPage() {
           </h3>
 
           <p className="text-center text-13px text-crossTextGray">
-            The business landscape is evolving, and staying ahead requires more
-            than just experience—it demands strategic thinking, innovation, and
-            executive-level expertise.
+          High-performing organisations know operational excellence is intentional, built on well-designed, documented, and improved processes. We capture core workflows, create process maps, and support systems that can run smoothly and scale with structure.
           </p>
         </div>
 
@@ -112,9 +107,7 @@ function ManagementConsultingPage() {
           </h3>
 
           <p className="text-center text-13px text-crossTextGray">
-            The business landscape is evolving, and staying ahead requires more
-            than just experience—it demands strategic thinking, innovation, and
-            executive-level expertise.
+          Aligning strategy with execution drives sustainable growth. We integrate planning, performance metrics, budgeting, forecasting, and analytics, designing dashboards, defining KPIs, and enhancing capabilities through process redesign and effective change management.
           </p>
         </div>
       </div>

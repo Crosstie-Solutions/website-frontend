@@ -48,11 +48,11 @@ function ContactForm() {
       setService(service)
 
       if(service==="Training"){
-        setAdminEmail("adminfortraining@gmail.com")
+        setAdminEmail("training@crosstiesolutions.com")
       }else if(service==="Consulting"){
-        setAdminEmail("promiseokpoto5050@gmail.com")
+        setAdminEmail("consulting@crosstiesolutions.com")
       }else if(service==="General Enquiries"){
-        setAdminEmail("adminforgeneralenquiries@gmail.com")
+        setAdminEmail("enquiries@crosstiesolutions.com")
       }
     }
     
@@ -118,20 +118,19 @@ function ContactForm() {
     <div className="flex items-center justify-between h-auto text-white small:px-2 large:pl-8 bg-crossLightPurple large:w-100vw large:flex-row small:flex-col small:py-3 large:py-0 large:px-0 small:gap-3 large:gap-0">
       
       <div className="flex flex-col large:gap-3 large:w-35 small:w-100 small:gap-1">
-        <h1 className="large:text-20px small:text-15px">
-          OUR TEAM IS READY
-          <br />{" "}
-          <span className="font-bold text-crossYellow large:text-50px small:text-25px">TO HELP</span>
+        <h1 className="font-bold text-crossYellow large:text-50px small:text-25px">
+          Visit Us At:
         </h1>
 
         <hr className="w-40 bg-white h-1px" />
 
         <div className="flex flex-col items-start h-auto gap-2 w-100">
           <address>
+           <span className="text-crossYellow">Head Office:</span> <br />
             Mulliner Towers, 7th Floor, 39 Alfred Rewane Road, Ikoyi Lagos.
           </address>
 
-          <a
+          {/* <a
             href={`tel:07056517470`}
             className="flex items-center justify-center large:gap-1 small:gap-1"
           >
@@ -143,14 +142,25 @@ function ContactForm() {
             className="flex items-center justify-center large:gap-1 small:gap-1"
           >
             <FaPhone className="rotate-90 text-15px text-crossYellow" /> 08035190430
-          </a>
+          </a> */}
 
-          <a
+          {/* <a
             href="mailto:info@crosstie.com"
             className="flex items-center justify-center large:gap-1 small:gap-1"
           >
             <MdOutlineMail className="text-20px text-crossYellow" /> info@crosstiesolutions.com
-          </a>
+          </a> */}
+        </div>
+
+        <h1 className="font-bold text-crossYellow large:text-50px small:text-25px">
+        Call Us:         
+        </h1>
+
+        <hr className="w-40 bg-white h-1px" />
+
+        <div className="flex flex-col items-start h-auto w-100">
+          <div>09160901017</div>         
+          <div>07056517470</div>         
         </div>
       </div>
 

@@ -485,14 +485,16 @@ function ProgramDetailsPage() {
           {/* whatsapp and email */}
           <div className="flex items-center h-auto gap-2 large:w-auto small:w-100 small:justify-center">
             <a
-              href="mailto:info@crosstie.com"
+            target="_blank"
+              href="mailto:training@crosstiesolutions.com"
               className="flex items-center justify-center w-auto gap-1 px-1 border border-black rounded h-40px"
             >
               <MdOutlineMail className="text-20px" /> Email
             </a>
-
+            
             <a
-              href="https://wa.me/2348138957283"
+              target="_blank"
+              href="https://wa.me/2349160901017"
               className="flex items-center justify-center w-auto gap-1 px-1 border border-black rounded h-40px"
             >
               <FaWhatsapp className="text-whatsAppGreen text-20px" /> Whatsapp

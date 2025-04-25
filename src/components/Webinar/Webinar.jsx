@@ -5,6 +5,9 @@ import { TbTimeDuration45 } from "react-icons/tb";
 import { FiUsers } from "react-icons/fi";
 import { Link } from 'react-router-dom';
 import { CrossContext } from '../../Context/CrossContext';
+import { AiOutlineClockCircle } from "react-icons/ai";
+
+
 
 
 function Webinar(webinar) {
@@ -26,7 +29,7 @@ function Webinar(webinar) {
 
         {/* upcoming */}
         {webinarType==='upcoming' &&
-      <div className='flex flex-col items-start h-auto gap-2 px-2 py-2 w-100'>
+      <div className='flex flex-col items-start h-auto gap-1 px-2 py-2 w-100'>
         <div className='text-crossTextGray'>Presenter: {presenter}</div>
 
         <h4 className='font-semibold'>{topic}</h4>
@@ -42,7 +45,7 @@ function Webinar(webinar) {
             <MdKeyboardArrowDown className={`text-25px ${showMore ? "rotate-180" : ""}`}/>
         </div>
 
-        <div className='flex justify-between font-semibold text-13px w-100 text-crossTextGray'>
+        {/* <div className='flex justify-between font-semibold text-13px w-100 text-crossTextGray'>
             <div className='flex items-center w-auto gap-1'>
                 <RiCalendar2Line className='text-20px'/>
                 {date} | {time}
@@ -52,7 +55,13 @@ function Webinar(webinar) {
                 <TbTimeDuration45 className='text-20px'/>
                 {duration}
             </div>
-        </div>
+        </div> */}
+
+        <div className='flex items-center gap-1 w-100'><RiCalendar2Line className='text-15px'/> {date}</div>
+
+        <div className='flex items-center gap-1 w-100'><AiOutlineClockCircle className='text-15px'/> {time}</div>
+
+        <div className='flex items-center gap-1 w-100'><TbTimeDuration45 className='text-15px'/> {duration}</div>
 
         <div className='flex items-center gap-1 w-100'><FiUsers className='text-15px'/> {totalAttendees} Registered</div>
 

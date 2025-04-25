@@ -105,32 +105,33 @@ function OurSolutions() {
                 {solution==="Consulting Services" &&
                 <div className='flex items-center justify-between h-auto large:flex-row w-100 small:flex-col small:gap-3 large:gap-0'>
                     
-                    <div className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
+                    <div className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><HiOutlineUsers className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Culture Assessment and Transformation</h3>
                         
-                        <p className='text-15px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
+                        <p className='text-15px text-crossTextGray'>Your strategy depends on culture. Using our Six-Dimension Framework, we assess, identify gaps, and guide transformation, building a culture aligned with your goals, industry, and growth stage, with hands-on support throughout.</p>
                         
                     </div>
 
 
-                    <div className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
+                    <div className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><GiTeamIdea className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Strategy Development and Execution</h3>
                         
-                        <p className='text-15px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
+                        <p className='text-15px text-crossTextGray'>As businesses grow, instinct must give way to strategy. We diagnose key pillars, co-create actionable plans, and support execution, helping you shift from founder-driven decisions to intentional, scalable strategy.</p>
                         
                     </div>
 
 
-                    <div className='flex flex-col justify-center gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
+                    <div className='flex flex-col justify-between h-auto gap-2 p-1 border border-crossIconBg large:w-25 text-15px rounded-20 small:w-100'>
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><LiaBusinessTimeSolid className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Business Process Documentation and Improvement</h3>
                         
-                        <p className='text-15px text-crossTextGray'>The business landscape is evolving, and staying ahead requires more than just experience—it demands strategic thinking, innovation, and executive-level expertise.</p>
+                        <p className='text-15px text-crossTextGray'>High-performing organisations know operational excellence is intentional, built on well-designed, documented, and improved processes. We capture core workflows, create process maps, and support systems that can run smoothly and scale with structure.
+                        </p>
                         
                     </div>
                     
