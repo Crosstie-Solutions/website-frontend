@@ -23,6 +23,16 @@ const PHOTOS = {
     excellence: new URL("./excellence.jpg", import.meta.url).href,
     transformation: new URL("./transformation.jpg", import.meta.url).href,
 
+    Corporate_Training: new URL("./Corporate_Training.jpg", import.meta.url).href,
+    Management_Consulting: new URL("./Management_Consulting.jpg", import.meta.url).href,
+    Customized_Training: new URL("./Customized_Training.jpg", import.meta.url).href,
+    webinar: new URL("./webinar.jpg", import.meta.url).href,
+    Open_Executive: new URL("./Open_Executive.jpg", import.meta.url).href,
+    Executive_Leadership: new URL("./Executive_Leadership.jpg", import.meta.url).href,
+    Sales_Excellence: new URL("./Sales_Excellence.jpg", import.meta.url).href,
+    Complete_Employee: new URL("./Complete_Employee.jpg", import.meta.url).href,
+    Team_Bonding: new URL("./Team_Bonding.jpg", import.meta.url).href,
+
     contact: new URL("./contact.jpg", import.meta.url).href,
 
     story: new URL("./story.jpg", import.meta.url).href,
@@ -44,7 +54,6 @@ const PHOTOS = {
     satisfaction2: new URL("./satisfaction2.jpg", import.meta.url).href,
     
 
-   
     noPage: new URL("./404.png", import.meta.url).href,
     
 };
@@ -70,6 +79,7 @@ const heroImages = [
     new URL("./5.jpg", import.meta.url).href,
     new URL("./6.jpg", import.meta.url).href,
 ];
+
 
 const partnerImages = [
     new URL("./client1.png", import.meta.url).href,

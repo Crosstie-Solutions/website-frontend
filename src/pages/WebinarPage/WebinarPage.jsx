@@ -32,7 +32,7 @@ function WebinarPage() {
   
 
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 py-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-90vw small:h-auto small:mt-13">
+    <div className="relative flex flex-col items-center justify-start gap-5 py-5 bg-white large:mt-12 text-15px large:w-100vw large:h-auto small:w-90vw small:h-auto small:mt-13">
       
         
       <AboutHero 
