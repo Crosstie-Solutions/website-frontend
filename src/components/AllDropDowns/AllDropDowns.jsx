@@ -34,7 +34,7 @@ function AboutDD() {
         toggleNav();
         hideAboutDD()
        }}
-      >Leadership</Link>
+      >Crosstiens</Link>
 
       <Link to='/about-us/our-clients' className='flex items-center justify-between py-1 pl-1 text-black hover:bg-gray-200 hover:text-crossLightPurple'
        onClick={()=>{

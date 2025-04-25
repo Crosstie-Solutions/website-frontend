@@ -167,7 +167,7 @@ const leaders = [
 
   {
     name: "Peter Bello",
-    image: leadersImages[0],
+    image: leadersImages[1],
     role: "Associate, Learning & Development",
     type: "teamMember",
     bio: `No Bio`,
@@ -176,7 +176,7 @@ const leaders = [
 
   {
     name: "Promise Essien",
-    image: leadersImages[0],
+    image: leadersImages[2],
     role: "Associate, Business Development & Client Relations",
     type: "teamMember",
     bio: `Promise Essien is a versatile Business Development and Client Relationship Professional with experience across consulting, healthcare, education, and real estate in Nigeria and the UK. With a B.Sc. in Microbiology, she transitioned from the medical field to marketing and sales. She’s our Associate, Business Development and Client Relations, responsible for lead generation, prospect management and client relations. She contributes to digital marketing, strategic planning, and content creation.`,
@@ -185,7 +185,7 @@ const leaders = [
 
   {
     name: "Jacob Abua",
-    image: leadersImages[0],
+    image: leadersImages[3],
     role: "Analyst, Organisational Development",
     type: "teamMember",
     bio: `No Bio`,
@@ -194,7 +194,7 @@ const leaders = [
 
   {
     name: "Ademide Adegboye",
-    image: leadersImages[0],
+    image: leadersImages[4],
     role: "HR/ L&D Support",
     type: "teamMember",
     bio: `No Bio`,

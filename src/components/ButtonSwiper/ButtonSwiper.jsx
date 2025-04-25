@@ -13,7 +13,7 @@ const AboutButtonSwiper = () => {
     route: "our-story"
   },
   {
-    name: "Leadership",
+    name: "Crosstiens",
     route: "leadership"
   },
   {
