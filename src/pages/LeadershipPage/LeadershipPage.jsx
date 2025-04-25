@@ -13,7 +13,11 @@ import Bio from "../../components/Bio/Bio";
 
 function LeadershipPage() {
 
-  const teamMembers = leaders && leaders.filter(leader => leader.type.includes('teamMember'));
+  const boardOfDirectors = leaders && leaders.filter(leader => leader.type.includes('director') || leader.name.includes('Adebayo'));
+
+  const boardOfAdvisory = leaders && leaders.filter(leader => leader.type.includes('advisor') || leader.name.includes('Adebayo'));
+
+  const teamMembers = leaders && leaders.filter(leader => leader.type.includes('teamMember') || leader.name.includes('Adebayo'));
 
   const facultyMembers = leaders && leaders.filter(leader => leader.type.includes('faculty'));
   
@@ -39,14 +43,28 @@ function LeadershipPage() {
         <div className="flex flex-col items-center h-auto gap-5 w-100">
           
           {/* directors */}
-          {/* <div className="flex flex-col items-center h-auto gap-2 w-100">
+          <div className="flex flex-col items-center h-auto gap-2 w-100">
             <h4 className="py-1 pl-1 font-semibold text-white border-l-4 bg-crossTextGray text-20px w-100 border-crossYellow">Directors</h4>
             <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
-              <Leader />
-              <Leader />
-              <Leader />
+            {
+                boardOfDirectors && boardOfDirectors.map((member, i)=>{
+                  return(
+                    <Leader 
+                    key={i}
+                    name={member.name}
+                    role={member.role}
+                    image={member.image}
+                    type={member.type}
+                    bio={member.bio}
+                    link={member.link}
+                    index = {i + 1}
+                  />
+                  )
+                })
+                
+              }
             </div>
-          </div> */}
+          </div>
 
           {/* The Crosstie Team */}
           <div className="flex flex-col items-center h-auto gap-2 w-100">
@@ -78,14 +96,29 @@ function LeadershipPage() {
 
           
           {/* Board of Advisory */}
-          {/* <div className="flex flex-col items-center h-auto gap-2 w-100">
+          <div className="flex flex-col items-center h-auto gap-2 w-100">
             <h4 className="py-1 pl-1 font-semibold text-white border-l-4 bg-crossTextGray text-20px w-100 border-crossYellow">Board of Advisory</h4>
             <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
-              <Leader />
-              <Leader />
-              <Leader />
+            {
+                boardOfAdvisory && boardOfAdvisory.map((member, i)=>{
+                  return(
+                    <Leader 
+                    key={i}
+                    name={member.name}
+                    role={member.role}
+                    image={member.image}
+                    type={member.type}
+                    bio={member.bio}
+                    link={member.link}
+                    index = {i + 1}
+                  />
+                  )
+                })
+
+                
+              }
             </div>
-          </div> */}
+          </div>
 
 
           {/* faculty */}
