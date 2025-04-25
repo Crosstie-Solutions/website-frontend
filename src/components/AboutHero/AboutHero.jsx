@@ -100,28 +100,29 @@ function AboutHero(props) {
         {window.location.pathname.includes('webinars') &&
         <img src={PHOTOS.webinar} alt="image" className="bg-gray-400 large:h-auto large:w-40 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center"/>}
 
+
         {/* open executive */}
         {window.location.pathname==='/our-courses/' &&
-        <img src={PHOTOS.Open_Executive} alt="image" className="bg-gray-400 large:h-auto large:w-40 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center small:relative large:static small:top-3"/>}
+        <img src={PHOTOS.Open_Executive} alt="image" className="bg-gray-400 border-t-8 border-r-8 border-crossLightPurple large:h-auto large:w-40 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center small:relative large:static small:top-3"/>} 
 
 
          {/* executive leadership*/}
          {window.location.pathname.includes('executive-leadership') &&
-        <img src={PHOTOS.Executive_Leadership} alt="image" className="bg-gray-400 large:h-auto large:w-40 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center small:relative large:static small:top-3"/>}
+        <img src={PHOTOS.Executive_Leadership} alt="image" className="bg-gray-400 border-t-8 border-r-8 border-crossLightPurple large:h-auto large:w-40 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center small:relative large:static small:top-3"/>}
 
         {/* Sales_Excellence*/}
         {window.location.pathname.includes('sales-excellence') &&
-        <img src={PHOTOS.Sales_Excellence} alt="image" className="bg-gray-400 large:h-auto large:w-40 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center small:relative large:static small:top-3"/>}
+        <img src={PHOTOS.Sales_Excellence} alt="image" className="bg-gray-400 border-t-8 border-r-8 border-crossLightPurple large:h-auto large:w-40 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center small:relative large:static small:top-3"/>}
 
         {/* Complete_Employee */}
 
         {window.location.pathname.includes('complete-employee') &&
-        <img src={PHOTOS.Complete_Employee} alt="image" className="bg-gray-400 large:h-auto large:w-40 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center small:relative large:static small:top-3"/>}
+        <img src={PHOTOS.Complete_Employee} alt="image" className="bg-gray-400 border-t-8 border-r-8 border-crossLightPurple large:h-auto large:w-40 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center small:relative large:static small:top-3"/>}
         
         {/* Team_Bonding */}
 
         {window.location.pathname.includes('team-bonding') &&
-        <img src={PHOTOS.Team_Bonding} alt="image" className="bg-gray-400 large:h-auto large:w-40 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center small:relative large:static small:top-3"/>}
+        <img src={PHOTOS.Team_Bonding} alt="image" className="bg-gray-400 border-t-8 border-r-8 border-crossLightPurple large:h-auto large:w-40 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center small:relative large:static small:top-3"/>}
 
     </div>
   );
