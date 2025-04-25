@@ -69,7 +69,7 @@ function AboutHero(props) {
 
 
 
-      {!window.location.pathname.includes('satisfaction') || !window.location.pathname.includes('solutions') &&
+      {!window.location.pathname.includes('satisfaction') && !window.location.pathname.includes('solutions') && !window.location.pathname.includes('courses') &&
         <iframe
         className="bg-gray-400 large:h-95 large:w-35 large:rounded-10 small:h-300px small:w-100 small:rounded-5"
         src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}`} title="YouTube video player" frameborder="0" 
