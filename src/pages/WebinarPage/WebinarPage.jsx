@@ -64,11 +64,11 @@ function WebinarPage() {
         </div>
 
             { webinarType==='past' ? <h3 className="font-bold text-center large:text-25px small:text-15px">View Our Past Webinars</h3> :
-        <div className="flex flex-col items-center h-auto gap-2 w-100">
-          <h3 className="font-bold text-center large:text-25px small:text-15px">FREE Learning Experience. FREE Skill Development. At Your Comfort</h3>
+            <div className="flex flex-col items-center h-auto gap-2 w-100">
+              <h3 className="font-bold text-center large:text-25px small:text-15px">FREE Learning Experience. FREE Skill Development. At Your Comfort</h3>
 
-          <p className="text-center large:w-60 small:w-90">Engage with and learn from industry leaders at NO COST through our line up of webinars to build basic competencies and skills at your convenience.</p>
-      </div>}
+              <p className="text-center large:w-60 small:w-90">Engage with and learn from industry leaders at NO COST through our line up of webinars to build basic competencies and skills at your convenience.</p>
+          </div>}
         
 
         

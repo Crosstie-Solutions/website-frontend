@@ -14,7 +14,7 @@ import { MdOutlineSignalWifiStatusbarNull } from "react-icons/md";
 
 function SatisfactionPage() {
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto large:mt-17 small:mt-12">
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto large:mt-17 small:mt-8">
       <AboutHero />
 
       <div className="flex flex-col items-center h-auto w-100">
@@ -24,9 +24,9 @@ function SatisfactionPage() {
 
       <div className="flex h-auto large:flex-row large:pr-2 large:py-2 large:gap-5 large:justify-start large:items-start large:w-83vw bg-faintPink rounded-10 small:flex-col small:items-center small:w-90vw small:p-1 small:gap-2">
         <img
-          src={PHOTOS.how}
+          src={PHOTOS.satisfaction2}
           alt="photo"
-          className="w-250px h-300px rounded-10"
+          className="h-auto large:w-300px rounded-10 small:w-100"
         />
 
         <hr className="bg-gray-500 large:h-500px large:w-2px small:w-80 small:h-2px" />
@@ -149,7 +149,7 @@ function SatisfactionPage() {
           <img
             src={PHOTOS.adebayo}
             alt="CEO"
-            className="h-350px w-300px rounded-tl-3xl rounded-br-3xl large:z-10"
+            className="large:h-350px large:w-auto rounded-tl-3xl rounded-br-3xl large:z-10 small:w-90 small:h-auto"
           />
 
           <div className="flex flex-col gap-2 border large:w-95 bg-crossIconBg large:pr-2 large:py-2 large:pl-5 small:p-2 small:rounded large:relative large:right-2">

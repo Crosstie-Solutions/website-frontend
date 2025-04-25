@@ -24,7 +24,7 @@ function CaseStudy(post) {
 
       <div className="flex flex-row justify-between h-auto w-100 text-crossTextGray">
         <div>Case Study</div>
-        <div>{formatDate(date)}</div>
+        <div>{date}</div>
       </div>
 
       <h3 className="font-semibold">

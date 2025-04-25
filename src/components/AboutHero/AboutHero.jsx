@@ -76,7 +76,7 @@ function AboutHero(props) {
         ></iframe>}
 
         {window.location.pathname.includes('satisfaction') &&
-        <img src={PHOTOS.about5} alt="image" className="bg-gray-400 large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-100 small:rounded-5"/>}
+        <img src={PHOTOS.satisfaction1} alt="image" className="bg-gray-400 large:h-auto large:w-30 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center"/>}
 
     </div>
   );

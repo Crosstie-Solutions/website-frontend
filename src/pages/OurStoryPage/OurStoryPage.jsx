@@ -22,7 +22,7 @@ function OurStoryPage() {
 
       <div className="flex items-center justify-center large:h-380px large:mt-4 large:gap-0 small:flex-col-reverse large:flex-row small:w-90vw large:w-83vw small:gap-3 small:h-auto">
       
-        <img src={PHOTOS.how} alt="logo"  className="border-2 border-t-crossLightPurple large:w-25 large:h-auto small:h-auto small:w-80 border-l-crossLightPurple border-b-crossLightPurple"/>
+        <img src={PHOTOS.story} alt="logo"  className="large:w-25 large:h-auto small:h-auto small:w-80"/>
         
         <div className="flex flex-col justify-center h-auto gap-2 shadow-xl large:p-3 large:w-75 small:w-90vw bg-purple-50 rounded-10 small:p-1 ">
           

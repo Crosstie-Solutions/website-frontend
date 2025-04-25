@@ -14,7 +14,7 @@ function ContactHero() {
       </div>
 
       <div className='flex items-center justify-center large:h-auto large:w-50 small:h-auto small:w-100'>
-        <img src={PHOTOS.contact} alt="customer service agent image" className='h-auto w-100'/>
+        <img src={PHOTOS.contact} alt="customer service agent image" className='w-auto h-100 large:pt-3'/>
       </div>
     </div>
   )
