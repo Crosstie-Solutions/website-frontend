@@ -63,11 +63,12 @@ const shopBannerImages = [
 
 
 const heroImages = [
-    new URL("./hero_1.jpg", import.meta.url).href,
-    new URL("./hero_2.jpg", import.meta.url).href,
-    new URL("./hero_3.jpg", import.meta.url).href,
-    new URL("./hero_4.jpg", import.meta.url).href,
-    new URL("./hero_5.jpg", import.meta.url).href,
+    new URL("./1.jpeg", import.meta.url).href,
+    new URL("./2.jpg", import.meta.url).href,
+    new URL("./3.jpeg", import.meta.url).href,
+    new URL("./4.jpg", import.meta.url).href,
+    new URL("./5.jpg", import.meta.url).href,
+    new URL("./6.jpg", import.meta.url).href,
 ];
 
 const partnerImages = [
@@ -77,6 +78,7 @@ const partnerImages = [
     new URL("./client4.png", import.meta.url).href,
     new URL("./client5.jpg", import.meta.url).href,
 ];
+
 
 const leadersImages = [
     new URL("./adebayo2.jpg", import.meta.url).href,

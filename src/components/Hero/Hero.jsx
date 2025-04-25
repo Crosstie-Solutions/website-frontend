@@ -2,14 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import "./Hero.css";
+import HeroSlider from "../HeroSlider/HeroSlider";
 
 
 
 function Hero() {
   return (
-    <div className="flex flex-col items-start justify-center text-white large:pl-10 large:w-100vw large:h-500px hero small:w-100vw small:h-65vh">
+    <div className="relative flex flex-col items-center justify-center text-white large:pl-0 large:w-100vw large:h-500px hero small:w-100vw small:h-65vh large:mt-4">
+
+      <HeroSlider />
       
-      <div className="z-10 flex flex-col items-start justify-center large:gap-1 w-100 h-100 small:px-2 large:p-0 small:gap-2">
+      <div className="absolute z-10 flex flex-col items-start large:justify-start large:gap-1 w-100 h-100 small:px-2 large:pl-10 large:pt-3 small:gap-2 small:justify-center">
         
         
         <div className="flex items-center w-auto gap-1 pr-2 large:pl-0.5 rounded-20 bg-crossYellow large:h-30px small:h-20px large:text-13px small:text-13px">
@@ -23,11 +26,11 @@ function Hero() {
 
 
 
-        <h1 className="font-extrabold large:text-35px large:w-50 large:leading-8 small:leading-5 small:w-100 small:text-20px">
+        <h1 className="font-extrabold large:text-35px large:w-50 large:leading-8 small:leading-5 small:w-100 small:text-20px large:mt-2">
           PEOPLE DEVELOPMENT & MANAGEMENT CONSULTING
         </h1>
 
-        <p className="font-extralight large:w-40 small:w-100 small:text-11px large:text-17px">
+        <p className="font-normal large:w-40 small:w-100 small:text-11px large:text-17px">
           Your trusted partner in all-around organisation development
         </p>
 
