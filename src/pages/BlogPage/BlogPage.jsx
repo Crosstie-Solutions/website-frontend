@@ -29,12 +29,13 @@ function BlogPage() {
           {
               currentBlogPosts && currentBlogPosts.map((post, i)=>
                   <SecondBlogPost 
-                  key={i}
-                  title={post.title}
-                  blogImage={post.blogImage}
-                  mainContent={post.mainContent}
-                  createdAt={post.createdAt}
-                  postId={post._id}
+                    key={i}
+                    title={post.title}
+                    blogImage={post.blogImage}
+                    preview={post.preview}
+                    content={post.content}
+                    createdAt={post.createdAt}
+                    postId={post._id}
                   />
               )
           }

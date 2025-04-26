@@ -39,7 +39,8 @@ function OurInsights() {
               key={i}
               title={post.title}
               blogImage={post.blogImage}
-              mainContent={post.mainContent}
+              preview={post.preview}
+              content={post.content}
               createdAt={post.createdAt}
               postId={post._id}
               />

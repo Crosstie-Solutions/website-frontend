@@ -5,6 +5,42 @@ import CreateBlog from "../CreateBlog/CreateBlog";
 
 const IPGeolocation = () => {
 
+  const mixedArray = [1, 2, 3, 'King', 4, 'Apple', 'Queen', 5, 6, 7, 8, 'Orange', 9, 10]
+
+  
+  const numbers = mixedArray.filter(item => typeof item === 'number');
+ 
+
+  const evenNumbers = numbers.filter(item => item % 2 ===0);
+  
+
+  const oddNumbers = numbers.filter(item => item % 2 !==0);
+  
+
+  
+  const strings = mixedArray.filter(item => typeof item === 'string');
+  
+
+  const newArray = [...evenNumbers, ...oddNumbers];
+
+ 
+
+  const ascendingNumbers = newArray.sort((a, b) => a - b);
+  
+ 
+  
+  const descendingNumbers = newArray.sort((a, b) => b - a);
+  
+ 
+
+  const sortedStrings = strings.sort((a, b) => a.localeCompare(b));
+  
+
+  const finalArray = [...newArray, ...sortedStrings]
+
+
+  
+  
     //for location
     
   const [location, setLocation] = useState(null);

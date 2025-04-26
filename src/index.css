@@ -6,3 +6,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+/* not sure of this */
+.btn {
+    @apply px-3 py-1 transition bg-gray-200 rounded hover:bg-crossLightPurple hover:text-white;
+  }
+  

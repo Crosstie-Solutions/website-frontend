@@ -51,6 +51,7 @@ import AddCaseStudy from "../../components/AdminInteraction/AddCaseStudy/AddCase
 import { MdOutlineWork } from "react-icons/md";
 import AllJobsTable from "../../components/AdminInteraction/AllJobsTable/AllJobsTable.jsx";
 import AddJob from "../../components/AdminInteraction/AddJob/AddJob.jsx";
+import AddPostWithEditor from "../../components/AddPostWithEditor/AddPostWithEditor.jsx";
 
 
 
@@ -602,7 +603,9 @@ function AdminDashboard() {
         
         {activeScreen === "contact" && <AllContactFormsTable />}
         
-        {activeScreen === "addPost" && <AddPost />}
+        {/* {activeScreen === "addPost" && <AddPost />} */}
+        
+        {activeScreen === "addPost" && <AddPostWithEditor />}
         
         {activeScreen === "allPosts" && <AllBlogPostsTable />}
         
@@ -1208,7 +1211,9 @@ function AdminDashboard() {
         
         {activeScreen === "contact" && <AllContactFormsTable />}
         
-        {activeScreen === "add Post" && <AddPost />}
+        {/* {activeScreen === "add Post" && <AddPost />} */}
+        
+        {activeScreen === "add Post" && <AddPostWithEditor />}
         
         {activeScreen === "all Posts" && <AllBlogPostsTable />}
         

@@ -7,7 +7,9 @@ import { CrossContext } from "../../Context/CrossContext";
 
 function BlogPost(post) {
 
-  const {title, blogImage, mainContent, postId, createdAt} = post
+  const {formatDate} = useContext(CrossContext)
+
+  const {title, blogImage, content, postId, createdAt, preview} = post
   
   return (
     <div className="flex flex-col items-start h-auto gap-1 px-1 py-1 bg-white border large:w-30 border-crossIconBg rounded-10 small:w-100">
@@ -19,7 +21,7 @@ function BlogPost(post) {
 
       <div className="flex flex-row justify-between h-auto w-100 text-crossTextGray">
         <div>Article</div>
-        <div>24 Feb 2025</div>
+        <div>{formatDate(createdAt)}</div>
       </div>
 
       <h3 className="font-semibold">
@@ -27,7 +29,7 @@ function BlogPost(post) {
       </h3>
 
       <p className="text-crossTextGray">
-        {mainContent && mainContent.slice(0, 70)}...
+        {preview}...
       </p>
 
       <Link className="flex flex-row items-center justify-center w-auto text-crossLightPurple"
@@ -43,7 +45,7 @@ function BlogPost(post) {
 
 function SecondBlogPost(post) {
 
-  const {title, blogImage, mainContent, postId, createdAt} = post;
+  const {title, blogImage, content, postId, createdAt, preview} = post;
 
   const {formatDate} = useContext(CrossContext);
   
@@ -67,7 +69,7 @@ function SecondBlogPost(post) {
         </h3>
 
         <p className="text-crossTextGray">
-          {mainContent.slice(0, 80)}...
+          {preview}...
         </p>
 
         <Link className="flex flex-row items-center justify-center w-auto gap-1 text-crossLightPurple"

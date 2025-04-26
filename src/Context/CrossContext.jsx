@@ -150,14 +150,21 @@ const[loading, setLoading] = useState(false);
 
 
   //to format date
-  function formatDate(dateString) {
-    const date = new Date(dateString);
-    // const options = { day: '2-digit', month: 'short' };
-    // return date.toLocaleDateString('en-GB', options);
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return date.toLocaleDateString('en-US', options);
+//   function formatDate(dateString) {
+//     const date = new Date(dateString);
+//     const options = { year: 'numeric', month: 'long', day: 'numeric' };
+//   return date.toLocaleDateString('en-US', options);
 
+// }
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // Months are zero-indexed
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
 }
+
 
 
   const [allPrograms, setAllPrograms] = useState();
