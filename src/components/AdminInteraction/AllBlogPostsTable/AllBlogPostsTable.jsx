@@ -55,7 +55,7 @@ function AllBlogPostsTable() {
                         >Action</div>
                     </div>
                     
-                    <div className='relative large:w-30'>{post.mainContent.slice(0, 50)}...</div>
+                    <div className='relative large:w-30'>{post.preview.slice(0, 50)}...</div>
                     
                     <div className='w-auto h-auto'>
                       <img src={post.blogImage} alt="blog image"  className='w-50px h-50px'/>
