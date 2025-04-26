@@ -51,7 +51,7 @@ import AddCaseStudy from "../../components/AdminInteraction/AddCaseStudy/AddCase
 import { MdOutlineWork } from "react-icons/md";
 import AllJobsTable from "../../components/AdminInteraction/AllJobsTable/AllJobsTable.jsx";
 import AddJob from "../../components/AdminInteraction/AddJob/AddJob.jsx";
-import AddPostWithEditor from "../../components/AddPostWithEditor/AddPostWithEditor.jsx";
+import AddPostWithEditor from "../../components/AdminInteraction/AddPostWithEditor/AddPostWithEditor.jsx";
 
 
 

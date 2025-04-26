@@ -64,6 +64,7 @@ import ViewCaseStudy from "./pages/ViewCaseStudy/ViewCaseStudy";
 import CareersPage from "./pages/CareersPage/CareersPage";
 import JobDetailsPage from "./pages/JobDetailsPage/JobDetailsPage";
 import ViewBlogPost from "./pages/ViewBlogPost/ViewBlogPost";
+import EditPostWithEditor from "./pages/EditPostWithEditor/EditPostWithEditor";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -255,7 +256,8 @@ function App() {
           
           <Route path="/blog/:postId" element={<BlogPostDetails />} />
           {/* <Route path="/blog/:postId" element={<ViewBlogPost />} /> */}
-          <Route path="/blog/edit/:postId" element={<EditBlogPostPage />} />
+          {/* <Route path="/blog/edit/:postId" element={<EditBlogPostPage />} /> */}
+          <Route path="/blog/edit/:postId" element={<EditPostWithEditor />} />
 
           
 

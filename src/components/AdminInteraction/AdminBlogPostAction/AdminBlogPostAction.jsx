@@ -46,11 +46,11 @@ function AdminBlogPostAction(post) {
         >View Post</Link>
         
         
-        {/* <Link 
+        <Link 
         to={`/blog/edit/${postId}`}
         className='flex items-center justify-center font-bold text-[#662d91] rounded w-70 h-40px'
         onClick={()=> toggleAdminBlogPostAction(postEnd)}
-        >Edit Post</Link> */}
+        >Edit Post</Link>
 
        
         <button className='flex items-center justify-center font-bold rounded w-70 h-40px text-vogueRed'

@@ -3,7 +3,7 @@ import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
 import axios from 'axios';
 import { useContext, useState } from 'react';
-import { CrossContext } from '../../Context/CrossContext';
+import { CrossContext } from '../../../Context/CrossContext';
 import { toast } from 'react-toastify';
 
 
