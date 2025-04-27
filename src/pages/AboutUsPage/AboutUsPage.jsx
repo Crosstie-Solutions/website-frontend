@@ -38,19 +38,19 @@ function AboutUsPage() {
         <MobileAboutButtonSwiper />
       </div>
 
-      <div className="flex items-center justify-center large:h-350px large:mt-4 large:gap-0 small:flex-col-reverse large:flex-row small:w-90vw large:w-83vw small:gap-3 small:h-auto">
+      <div className="flex items-center justify-center large:h-350px large:mt-5 large:gap-0 small:flex-col-reverse large:flex-row small:w-90vw large:w-83vw small:gap-3 small:h-auto">
 
         <img src={PHOTOS.story} alt="logo"  className="shadow-lg large:w-25 large:h-auto small:h-auto small:w-80 "/>
        
-        <div className="flex flex-col justify-center gap-1 shadow-xl large:p-3 large:h-380px large:w-75 small:w-90vw bg-purple-50 rounded-10 small:p-1 text-crossTextGray">
+        <div className="flex flex-col justify-center gap-1 shadow-xl large:p-3 large:h-auto large:w-75 small:w-90vw bg-purple-50 rounded-10 small:p-1 text-crossTextGray">
           
-        <p className="leading-loose">Founded in 2013, <span className="font-semibold">Crosstie Solutions</span> is a trusted partner in <span className="font-semibold">people development, organizational growth</ span>, and management consulting.  From inception, our resilience has come from one clear belief: <span className="font-semibold">transformational change begins with people</span>, and we are committed to helping individuals and organizations understand the possibility of this change.
+        <p className="leading-loose">Founded in 2013, <span className="font-semibold">Crosstie Solutions</span> is a trusted partner in <span className="font-semibold">people development, organizational growth</ span>, and management consulting. <br />  From inception, our resilience has come from one clear belief: <span className="font-semibold">transformational change begins with people</span>, and we are committed to helping individuals and organizations understand the possibility of this change. <br />
           Our vision is to optimize talents and strategies, contributing to a future where business growth is sustainable and human-centered. </p>
 
 
           <p className="leading-loose">Our passionate team brings expertise and a personal touch to every engagement, creating real impact through learning, coaching, and strategy.
           We believe that real and constant success is found in <span className="font-semibold">Transformation, Experience, and Excellence,</span> and we work to achieve that for both our clients and our team.
-          These values are the heart of the <span className="font-semibold">Crosstie's existence</span>, guiding how we work, serve, and grow together.
+          These values are the heart of the <span className="font-semibold">Crosstie's existence</span>, guiding how we work, serve, and grow together. <br />
           We are committed to <span className="font-semibold">continuous improvement</span> in ourselves, in our work, and in the results we deliver.
           </p>
         </div>
