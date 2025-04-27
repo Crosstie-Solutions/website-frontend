@@ -19,7 +19,7 @@ function OurInsights() {
         <div className="flex items-center w-auto h-auto gap-1">
           <hr className="h-2px w-40px bg-crossLightPurple" />
           <h5 className="text-crossLightPurple text-17px">
-          Our Insights
+          OUR INSIGHTS
           </h5>
         </div>
         <h3 className="font-bold text-25px">Expert Knowledge Shared</h3>
