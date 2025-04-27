@@ -26,10 +26,12 @@ function CustomizedTrainingPage() {
   
 
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 py-5 bg-white large:mt-12 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13">
+    <div className="relative flex flex-col items-center justify-start gap-5 py-5 bg-white large:mt-12 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13 small:pt-0">
         
         <AboutHero 
-        tag="Our Solutions"
+        tag="Customized Training"
+        line1="Training Programs to Bridge ALL YOUR Skill Gaps"
+        line2="We provide bespoke training programs that address your specific organization’s needs, aligning employee development with your company’s goals for measurable, sustainable growth."
       />
 
       <div className="flex flex-col items-center h-auto w-100">

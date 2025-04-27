@@ -234,7 +234,7 @@ function CourseBrochureDownloadScreen(props) {
   
   
 return (
-  <div className={`absolute left-0 z-20 flex flex-col items-center justify-center py-10 ${window.location.pathname.includes("about") || window.location.pathname.includes("solutions") || window.location.pathname.includes("courses") ? "-top-17" : "-top-8"} min-h-100vh w-100vw bg-overlay`}>
+  <div className={`absolute left-0 z-20 flex flex-col items-center justify-center py-10 ${window.location.pathname.includes("about") || window.location.pathname.includes("solutions") || window.location.pathname.includes("courses") ? "large:-top-17" : "large:-top-8"} large:min-h-100vh w-100vw bg-overlay small:h-100vh small:-top-8`}>
       
       
       <VscClose className='absolute text-white cursor-pointer large:top-5 large:right-10 text-30px small:right-5 small:top-3'

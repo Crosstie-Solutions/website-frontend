@@ -23,7 +23,7 @@ const PHOTOS = {
     excellence: new URL("./excellence.jpg", import.meta.url).href,
     transformation: new URL("./transformation.jpg", import.meta.url).href,
 
-    Corporate_Training: new URL("./Corporate_Training.jpg", import.meta.url).href,
+    Corporate_Training: new URL("./Corporate_Training.jpeg", import.meta.url).href,
     Management_Consulting: new URL("./Management_Consulting.jpg", import.meta.url).href,
     Customized_Training: new URL("./Customized_Training.jpg", import.meta.url).href,
     webinar: new URL("./webinar.jpg", import.meta.url).href,
@@ -33,7 +33,7 @@ const PHOTOS = {
     Complete_Employee: new URL("./Complete_Employee.jpg", import.meta.url).href,
     Team_Bonding: new URL("./Team_Bonding.jpg", import.meta.url).href,
 
-    contact: new URL("./contact.jpg", import.meta.url).href,
+    contact: new URL("./contact.jfif", import.meta.url).href,
 
     story: new URL("./story.jpg", import.meta.url).href,
     journey: new URL("./journey.png", import.meta.url).href,
@@ -50,8 +50,8 @@ const PHOTOS = {
     mission: new URL("./mission.png", import.meta.url).href,
     vision: new URL("./vision.png", import.meta.url).href,
 
-    satisfaction1: new URL("./satisfaction1.jpg", import.meta.url).href,
-    satisfaction2: new URL("./satisfaction2.jpg", import.meta.url).href,
+    satisfaction1: new URL("./satisfaction1.jfif", import.meta.url).href,
+    satisfaction2: new URL("./satisfaction2.jfif", import.meta.url).href,
     
 
     noPage: new URL("./404.png", import.meta.url).href,
@@ -72,12 +72,13 @@ const shopBannerImages = [
 
 
 const heroImages = [
-    new URL("./1.jpeg", import.meta.url).href,
+    new URL("./1.jpg", import.meta.url).href,
     new URL("./2.jpg", import.meta.url).href,
     new URL("./3.jpeg", import.meta.url).href,
-    new URL("./4.jpg", import.meta.url).href,
+    new URL("./4.jpeg", import.meta.url).href,
     new URL("./5.jpg", import.meta.url).href,
-    new URL("./6.jpg", import.meta.url).href,
+    new URL("./6.jpeg", import.meta.url).href,
+    new URL("./7.jpg", import.meta.url).href,
 ];
 
 

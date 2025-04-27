@@ -30,13 +30,15 @@ function WebinarPage() {
       
       const title = "Our Corporate Presentation";
   
+      
 
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 py-5 bg-white large:mt-12 text-15px large:w-100vw large:h-auto small:w-90vw small:h-auto small:mt-13">
-      
+    <div className="relative flex flex-col items-center justify-start gap-5 py-5 bg-white large:mt-12 text-15px large:w-100vw large:h-auto small:w-90vw small:h-auto small:mt-13 small:pt-0">
         
       <AboutHero 
-        tag="Our Solutions"
+        tag="Webinars"
+        line1="FREE Learning Experience. FREE Skill Development. At Your Comfort"
+        line2="Engage with and learn from industry leaders at NO COST through our line up of webinars to build basic competencies and skills at your convenience."
       />
 
       <div className="flex flex-col items-center h-auto w-100">
@@ -65,9 +67,8 @@ function WebinarPage() {
 
             { webinarType==='past' ? <h3 className="font-bold text-center large:text-25px small:text-15px">View Our Past Webinars</h3> :
             <div className="flex flex-col items-center h-auto gap-2 w-100">
-              <h3 className="font-bold text-center large:text-25px small:text-15px">FREE Learning Experience. FREE Skill Development. At Your Comfort</h3>
+              <h3 className="font-bold text-center large:text-25px small:text-15px">Register For Our Upcoming Webinars</h3>
 
-              <p className="text-center large:w-60 small:w-90">Engage with and learn from industry leaders at NO COST through our line up of webinars to build basic competencies and skills at your convenience.</p>
           </div>}
         
 

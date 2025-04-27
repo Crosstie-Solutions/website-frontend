@@ -31,7 +31,9 @@ function CorporateTrainingPage() {
     <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13">
       
       <AboutHero 
-      tag="Our Solutions"
+      tag="Corporate Training"
+      line1="Transformational Upskilling for Leverage in the Professional Space."
+      line2="Learn technical and soft skills important for growth in the corporate world. Network with fellow professionals or get tailored content specific to your industry, organisation, role and level."
       />
 
       <div className="flex flex-col items-center h-auto w-100">

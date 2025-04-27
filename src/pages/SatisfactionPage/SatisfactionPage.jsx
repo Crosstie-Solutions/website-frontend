@@ -22,7 +22,7 @@ function SatisfactionPage() {
         <MobileAboutButtonSwiper />
       </div>
 
-      <div className="flex h-auto large:flex-row large:pr-2 large:py-2 large:gap-5 large:justify-start large:items-start large:w-83vw bg-faintPink rounded-10 small:flex-col small:items-center small:w-90vw small:p-1 small:gap-2">
+      <div className="flex h-auto large:flex-row large:pr-1 large:py-2 large:gap-5 large:justify-center large:items-start large:w-83vw bg-faintPink rounded-10 small:flex-col small:items-center small:w-90vw small:p-1 small:gap-2">
         <img
           src={PHOTOS.satisfaction2}
           alt="photo"

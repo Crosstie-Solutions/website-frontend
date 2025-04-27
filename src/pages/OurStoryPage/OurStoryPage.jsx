@@ -135,7 +135,7 @@ function OurStoryPage() {
         <img
           src={PHOTOS.journey}
           alt="logo"
-          className="border large:w-100 large:h-400px small:h-40px small:w-150px rounded-5 border-crossFooterText"
+          className="border large:w-100 large:h-auto small:h-auto small:w-100 rounded-5 border-crossFooterText small:mt-3 large:mt-0"
         />
 
         <div className="flex flex-col items-center h-auto gap-1 mt-3 w-100">

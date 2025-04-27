@@ -437,7 +437,7 @@ function ProgramDetailsPage() {
             </p>
           </div> */}
 
-
+        {program && program.objectives[0] !== '' &&
           <div className="flex flex-col items-center justify-center h-auto bg-white w-100">
           
             <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple w-100"><GrWorkshop className="text-20px" /> Workshop Objectives</h4>
@@ -449,7 +449,7 @@ function ProgramDetailsPage() {
                   )
                 }            
               </ul>
-          </div>
+          </div>}
 
           
           <div className="flex flex-col gap-1 bg-white w-100">

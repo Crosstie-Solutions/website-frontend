@@ -27,10 +27,12 @@ function ManagementConsultingPage() {
     const title = "Our Corporate Presentation";
 
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 py-5 bg-white large:mt-12 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13">
+    <div className="relative flex flex-col items-center justify-start gap-5 py-5 bg-white large:mt-12 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13 small:pt-0">
       
       <AboutHero 
-        tag="Our Solutions"
+        tag="Management Consulting"
+        line1="People. Strategy. Performance. Process. Finance"
+      line2="Walk with us to reinvent ideas, refine operations, and create resilient strategies through tailored organisation development practices."
       />
 
       <div className="flex flex-col items-center h-auto w-100">

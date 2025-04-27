@@ -6,7 +6,7 @@ import { PHOTOS } from "../../assets/images";
 
 function AboutHero(props) {
 
-  const {tag, buttonText} = props;
+  const {tag, buttonText, line1, line2} = props;
 
     const {togglePresentationDownloadScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen} = useContext(CrossContext);
 
@@ -28,12 +28,13 @@ function AboutHero(props) {
 
         {!window.location.pathname.includes('satisfaction') &&
         <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px">
-          We Train. We Advise. We Transform
+          {line1 ? line1 : "We Train. We Advise. We Transform"}
         </p>}
 
         {!window.location.pathname.includes('satisfaction') &&
         <h1 class="large:text-25px large:w-90 large:leading-8 small:leading-5 font-semibold small:w-100 small:text-20px">
-           We transform talents and organizations to improve performance.
+          
+           {line2 ? line2 : "We transform talents and organizations to improve performance."}
         </h1>}
 
         
@@ -76,6 +77,7 @@ function AboutHero(props) {
          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen 
         allow="autoplay; encrypted-media"
         ></iframe>}
+
 
         {/* satisfaction */}
         {window.location.pathname.includes('satisfaction') &&
