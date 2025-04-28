@@ -59,6 +59,7 @@ function ExecutiveLeadership() {
       <AboutHero 
         tag={title}
         buttonText="Download ELP Course Brochure"
+        line2= "Develop leaders at all levels of your organisation through our core-centred approach that aligns leadership development with your organisation’s values and strategic goals."
       />
 
 

@@ -56,6 +56,8 @@ function TeamBondingPage() {
     <AboutHero 
       tag={title}
       buttonText="Download CTB Course Brochure"
+      line2 = "We create opportunities for your team to connect on a deeper level, improving teamwork, problem-solving, and overall performance in the workplace."
+      line1="Stronger Teams. Better Connections. Real Results."
     />
       
 
