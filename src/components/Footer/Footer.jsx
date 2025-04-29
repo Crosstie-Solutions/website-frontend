@@ -236,7 +236,7 @@ const myLastName = document.getElementById('myLastName');
             <li> Crosstie Solutions is an accredited member of the Chartered Institute of Management Consultants (CIMC).</li>
         </ul>
 
-        <p>We embrace the philosophy, "To err is human, to admit is divine." While we strive for excellence, you might occasionally spot a blunder here.  But rest assured, we’re always striving to do better. Keep visiting our website, and you’ll see the improvements!</p>
+        <p className="mt-2">We embrace the philosophy, "To err is human, to admit is divine." While we strive for excellence, you might occasionally spot a blunder here.  But rest assured, we’re always striving to do better. Keep visiting our website, and you’ll see the improvements!</p>
       </div>
     </footer>
   );

@@ -11,18 +11,23 @@ import { HiOutlineChevronRight } from "react-icons/hi";
 import { CgChevronLeft } from "react-icons/cg";
 import AboutHero from "../../components/AboutHero/AboutHero";
 import { CourseBrochureDownloadScreen, CourseContentDownloadScreen } from "../../components/DownloadScreen/DownloadScreen";
+import ProgramsMonthFilter from "../../components/ProgramsMonthFilter/ProgramsMonthFilter";
+import OpenProgramsFilter from "../../components/OpenProgramsFilter/OpenProgramsFilter";
 
 
 
 
 function OpenExecutivePage() {
+
+  
+
   const {
     currentPrograms, loadingAllPrograms,
     handleProgramsPageChange,
     currentProgramsPage,
     totalProgramsPages,
     allPrograms, allCourses, downloadScreen, downloadProgramScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen,
-    toggleDownloadScreen, programsSearchTerm
+    toggleDownloadScreen, allOpenPrograms
   } = useContext(CrossContext);
 
   // toggleCourseContentDownloadScreen,  courseContentDownloadScreen
@@ -30,59 +35,15 @@ function OpenExecutivePage() {
   const downloadUrl = allCourses && allCourses.length > 0 ? allCourses[0].courseBrochure : "";
   const title = allCourses && allCourses.length > 0 && allCourses[0].courseTitle;
 
-  // const executiveProgram = program && program.course.courseTitle === "Open Executive Programmes (OEP)";
-
-  const [openPrograms, setOpenPrograms] = useState([]);
-
-  useEffect(()=>{
-
-    if(programsSearchTerm ==''){
-      const open = allPrograms && allPrograms.filter((program)=> {
-        return program.category.toLowerCase().includes("open");
-      })
-
-      setOpenPrograms(open)
-    }else{
-      const open = currentPrograms && currentPrograms.filter((program)=> {
-        return program.category.toLowerCase().includes("open");
-      })
-
-      setOpenPrograms(open)
-    } 
-  }, [allPrograms]);
-
   
 
-    // console.log("openPrograms:", openPrograms);
+  const [filteredPrograms, setFilteredPrograms] = useState(allOpenPrograms);
+
 
 
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
-      
-
-      {/* <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
-        <img src={PHOTOS.about6} alt="photos" className="w-100 h-100" />
-
-        <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw aboutOne small:h-200px small:pl-2">
-          
-          <h1 class="large:text-35px large:w-60 large:leading-8 small:leading-5 font-extrabold small:w-80 small:text-17px">
-            ELEVATE YOUR LEADERSHIP SKILL, EXPAND YOUR IMPACT!
-          </h1>
-
-          <p className="font-extralight large:w-50 small:w-90 small:text-11px large:text-15px">
-            Discover new skills and interests with our extensive course
-            collection
-          </p>
-
-          <div className="flex items-center justify-center gap-1 px-1 font-semibold cursor-pointer large:w-300px rounded-10 h-40px bg-buttonOverlay large:text-15px small:w-250px small:text-11px"
-          onClick={toggleDownloadScreen}
-          >
-            Download OEP course brochure{" "}
-            <RiFolderDownloadLine className="large:text-25px small:text-20px" />
-          </div>
-          
-        </div>
-      </div> */}
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-12 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
+    
 
       <AboutHero 
         tag={title}
@@ -97,12 +58,17 @@ function OpenExecutivePage() {
       </div>
 
      
-      <ProgramsFilter />
+      
+      <div className="small:w-90vw large:w-83vw h-auto flex justify-between">
+        
+        <OpenProgramsFilter programs={allOpenPrograms} onFilter={setFilteredPrograms} />
+
+      </div>
       
 
       <div className="flex flex-row flex-wrap h-auto gap-3 small:justify-center small:w-100 large:w-83vw large:justify-center">
-        {openPrograms &&
-          openPrograms.map((program, i) => 
+        {filteredPrograms &&
+          filteredPrograms.map((program, i) => 
             
             
               <div key={i}>
@@ -161,7 +127,7 @@ function OpenExecutivePage() {
         </div> */}
       
 
-      {openPrograms && openPrograms.length < 1 && (
+      {filteredPrograms && filteredPrograms.length < 1 && (
         <p className="mt-5 text-center w-100 text-15px">
           No result found.
         </p>

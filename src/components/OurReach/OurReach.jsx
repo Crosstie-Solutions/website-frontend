@@ -8,6 +8,7 @@ function OurReach() {
 
   const counters = [
     { label: "Employees Trained", end: 6000 },
+    { label: "Clients", end: 60 },
     { label: "Participants Trained Monthly", end: 40 },
     { label: "Consulting Projects", end: 40 },
     { label: "Trainers And Consultants", end: 30 },
@@ -61,8 +62,10 @@ function OurReach() {
         </p>
       </div>
 
+
+
       <div
-        className="flex items-center justify-center border border-gray-300 large:gap-6 small:gap-3 rounded-tr-3xl large:flex-row large:h-150px w-100 bg-crossIconBg small:flex-wrap small:h-auto small:py-2 large:py-0 rounded-bl-3xl"
+        className="flex items-center justify-center border border-gray-300 large:gap-2 small:gap-5 rounded-tr-3xl large:flex-row large:h-150px w-100 bg-crossIconBg small:flex-wrap small:h-auto small:py-4 large:py-0 rounded-bl-3xl"
         ref={counterRef}
       >
 
@@ -77,15 +80,20 @@ function OurReach() {
           return (
 
             <div
-              className={`flex flex-col justify-start large:h-70 border-crossLightPurple large:w-150px ${index === 4 ? "" : "border-r"} small:w-100px small:h-100px `}
+              className={`flex flex-col justify-start large:h-70 border-crossLightPurple large:w-150px ${index === 0 ? "" : "border-l"} small:w-120px small:h-100px `}
               key={index}
             >
-              <h3 className="font-bold text-center text-30px text-crossLightPurple w-90">
+              <h3 className="font-bold text-center text-30px text-crossLightPurple w-100 px-1">
               {value}+
               </h3>
-              <p className="text-center text-15px w-90">{counter.label}</p>
+
+              <p className="text-center text-15px w-100 px-1">{counter.label}</p>
+
             </div>
             
+
+            // https://drive.google.com/file/d/1NE1Q99QWisrQKDsaIwRDsGL07POdx3VK/view?usp=sharing
+            // batch40-fullname
           );
         })}
 

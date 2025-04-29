@@ -10,7 +10,7 @@ import AboutHero from "../../components/AboutHero/AboutHero";
 
 function OurStoryPage() {
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-12 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
       
      <AboutHero />
 
@@ -47,7 +47,7 @@ function OurStoryPage() {
 
       </div>
 
-      <div className="flex flex-col h-auto gap-2 p-2 mt-3 border rounded large:w-83vw border-crossFooterText small:w-90vw">
+      <div className="flex flex-col h-auto gap-2 p-2 mt-3 border rounded large:w-83vw border-crossFooterText small:w-90vw text-crossTextGray">
         <h3 className="font-bold text-20px">
         Our Identity
         </h3>

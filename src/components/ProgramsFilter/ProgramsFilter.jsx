@@ -7,7 +7,7 @@ import { CrossContext } from '../../Context/CrossContext';
 
 function ProgramsFilter() {
 
-    const {setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage } = useContext(CrossContext);
+    const {setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage  } = useContext(CrossContext);
     
     
   return (
@@ -23,6 +23,7 @@ function ProgramsFilter() {
             onChange={(e) => {
               setProgramsSearchTerm(e.target.value);
               setCurrentProgramsPage(1); // Reset to first page on search
+              // setProgramsMonthSearchTerm("")
             }}
             className="px-1 py-2 bg-transparent rounded large:w-90 focus:outline-none h-100 small:w-80"
           />
@@ -33,16 +34,21 @@ function ProgramsFilter() {
 
         {/* <div className='flex items-center justify-center border rounded border-crossTextGray w-30 h-40px small:text-15px large:text-15px'>
           <select className='px-1 rounded cursor-pointer h-100 focus:border-none focus:outline-none w-100'
-           onChange={(e) => {
-            setProgramsSearchTerm(e.target.value);
-            setCurrentProgramsPage(1); // Reset to first page on search
-          }}
+           onChange={(e)=> setProgramsMonthSearchTerm(e.target.value)}
           >
-            <option value="" className='text-crossTextGray'>Filter</option>
-            <option value="Open executive programmes (OEP)">Open executive programmes (OEP)</option>
-            <option value="Executive Leadership programmes (ELP)">Executive Leadership programmes (ELP)</option>
-            <option value="Sales excellence series (SES)">Sales excellence series (SES)</option>
-            <option value="Complete employee series (CES)">Complete employee series (CES)</option>
+            <option value="" className='text-crossTextGray'>Filter By Month</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
           </select>
         </div> */}
         

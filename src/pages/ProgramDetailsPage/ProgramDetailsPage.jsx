@@ -274,12 +274,12 @@ function ProgramDetailsPage() {
 
           <div className="flex items-center justify-center w-auto h-auto gap-2">
             <hr className="rotate-45 large:h-20px large:w-20px small:w-10px small:h-10px bg-crossLightPurple"/>
-            <div>Physical - <span className="text-black">&#8358;{program && program.physicalCost}</span> Per Participant</div>
+            <div>Physical - <span className="text-black">&#8358;{program && program.physicalCost.toLocaleString()}</span> Per Participant</div>
           </div>
 
           <div className="flex items-center justify-center w-auto h-auto gap-2">
             <hr className="rotate-45 large:h-20px large:w-20px small:w-10px small:h-10px bg-crossLightPurple"/>
-            <div>Online - <span className="text-black">&#8358;{program && program.onlineCost}</span> Per Participant</div>
+            <div>Online - <span className="text-black">&#8358;{program && program.onlineCost.toLocaleString()}</span> Per Participant</div>
           </div>
 
         </div>

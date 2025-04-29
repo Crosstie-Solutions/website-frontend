@@ -12,9 +12,12 @@ import { RiMoonClearLine } from "react-icons/ri";
 import { PiCubeTransparentThin } from "react-icons/pi";
 import { MdOutlineSignalWifiStatusbarNull } from "react-icons/md";
 
+
+
 function SatisfactionPage() {
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto large:mt-17 small:mt-8">
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto large:mt-12 small:mt-8">
+
       <AboutHero />
 
       <div className="flex flex-col items-center h-auto w-100">
@@ -29,9 +32,9 @@ function SatisfactionPage() {
           className="h-auto large:w-300px rounded-10 small:w-100"
         />
 
-        <hr className="bg-gray-500 large:h-500px large:w-2px small:w-80 small:h-2px" />
+        <hr className="bg-gray-500 large:h-380px large:w-2px small:w-80 small:h-2px" />
 
-        <div className="flex flex-col gap-2 large:h-100 large:w-60 small:h-auto small:w-100">
+        <div className="flex flex-col gap-2 large:h-100 large:w-60 small:h-auto small:w-100 text-crossTextGray">
           <div className="flex gap-2 p-1 bg-white rounded large:items-center large:w-100 text-15px large:flex-row small:flex-col">
             <div className="flex items-center justify-center rounded-full h-50px w-50px bg-faintPink">
               <FiUsers className="px-1 border rounded-full text-50px text-crossLightPurple" />
@@ -154,7 +157,7 @@ function SatisfactionPage() {
 
           <div className="flex flex-col gap-2 border large:w-95 bg-crossIconBg large:pr-2 large:py-2 large:pl-5 small:p-2 small:rounded large:relative large:right-2">
             <h5 className="font-bold">Dear Crosstie Partner,</h5>
-            <p className="text-black">
+            <p className="text-crossTextGray">
               At Crosstie Solutions, we are driven by one goal: delivering
               transformational services that not only meet your expectations but
               help you grow. Every solution that we offer is carefully crafted
@@ -162,7 +165,7 @@ function SatisfactionPage() {
               
             </p>
 
-            <p className="text-black"> Your satisfaction isn’t just a goal. It
+            <p className="text-crossTextGray"> Your satisfaction isn’t just a goal. It
               is our commitment. We may meet in person at different levels of
               our engagement with you, and at such times, sharing your feedback
               on your experience with us is expected. If, however, we do not
@@ -172,7 +175,7 @@ function SatisfactionPage() {
               experience. </p>
 
             
-            <p className="text-black">I am here to ensure you are heard and supported.
+            <p className="text-crossTextGray">I am here to ensure you are heard and supported.
               Please reach out to me directly at
               adebayo.adegun@crosstiesolutions.com. Thank you for choosing
               Crosstie. I hope you enjoy your learning journey with us, and I am
@@ -181,7 +184,7 @@ function SatisfactionPage() {
 
               
 
-              <div>
+              <div className="text-crossTextGray">
                 <div>Warm regards,</div>
                 <div>Adebayo Adegun</div>
                 <div>CEO, Crosstie Solutions</div>

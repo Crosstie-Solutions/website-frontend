@@ -26,29 +26,26 @@ function SalesExcellencePage() {
     //   return program.course.courseTitle.includes("Sales Excellence");
     // });
 
+    const location = window.location.pathname;
 
     const [salesSeriesPrograms, setSalesSeriesPrograms] = useState([]);
     
       useEffect(()=>{
     
         if(programsSearchTerm ==''){
-          const open = allPrograms && allPrograms.filter((program)=> {
-            return program.category.toLowerCase().includes("sales");
-          })
+          const open = allPrograms && allPrograms.filter(program=> program.category.toLowerCase().includes("sales"))
     
           setSalesSeriesPrograms(open)
         }else{
-          const open = currentPrograms && currentPrograms.filter((program)=> {
-            return program.category.toLowerCase().includes("sales");
-          })
+          const open = currentPrograms && currentPrograms.filter(program=> program.category.toLowerCase().includes("sales"))
     
           setSalesSeriesPrograms(open)
         } 
-      }, [allPrograms]);
+      }, [allPrograms, location, programsSearchTerm]);
 
     
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-12 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
       
     <AboutHero 
       tag={title}

@@ -13,17 +13,17 @@ import Bio from "../../components/Bio/Bio";
 
 function LeadershipPage() {
 
-  const boardOfDirectors = leaders && leaders.filter(leader => leader.type.includes('director') || leader.name.includes('Adebayo'));
+  const boardOfDirectors = leaders && leaders.filter(leader => leader.type.includes('director'));
 
-  const boardOfAdvisory = leaders && leaders.filter(leader => leader.type.includes('advisor') || leader.name.includes('Adebayo'));
+  const boardOfAdvisory = leaders && leaders.filter(leader => leader.type.includes('advisor'));
 
-  const teamMembers = leaders && leaders.filter(leader => leader.type.includes('teamMember') || leader.name.includes('Adebayo'));
+  const teamMembers = leaders && leaders.filter(leader => leader.type.includes('teamMember'));
 
   const facultyMembers = leaders && leaders.filter(leader => leader.type.includes('faculty'));
   
 
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-17 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white large:mt-12 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-8">
         
         <AboutHero />
 
@@ -57,7 +57,7 @@ function LeadershipPage() {
                     type={member.type}
                     bio={member.bio}
                     link={member.link}
-                    index = {i + 1}
+                    index = {member.name}
                   />
                   )
                 })

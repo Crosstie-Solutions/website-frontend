@@ -190,19 +190,34 @@ function formatDate(dateString) {
   //for admin to filter programs
   const [currentProgramsPage, setCurrentProgramsPage] = useState(1);
   const [programsSearchTerm, setProgramsSearchTerm] = useState("");
+  const [programsMonthSearchTerm, setProgramsMonthSearchTerm] = useState("");
   const [headerProgramsSearchTerm, setHeaderProgramsSearchTerm] = useState("");
   const programsPerPage = 10;
 
   console.log("currentProgramsPage:", currentProgramsPage);
+
+  console.log("programsMonthSearchTerm:", programsMonthSearchTerm);
 
   // // Filter programs based on search term
   const filteredPrograms = allPrograms && allPrograms.filter((program) =>
     
       `${program.title} ${program.category}`
     .toLowerCase()
-    .includes(programsSearchTerm.toLowerCase())
+    .includes(programsSearchTerm.toLowerCase()) 
     
   );
+
+  console.log("filteredPrograms:", filteredPrograms);
+
+//to filter programs based on month
+  const allOpenPrograms = allPrograms && allPrograms.filter((program) =>
+    
+    program.category.toLowerCase().includes("open")
+    
+  );
+
+  console.log("allOpenPrograms:", allOpenPrograms);
+
 
   const filteredHeaderPrograms = allPrograms && allPrograms.filter((program) =>
     
@@ -1661,9 +1676,9 @@ const timeAgo = (timestamp) => {
   currentJobsPage, headerProgramsSearchTerm, setHeaderProgramsSearchTerm,
   totalJobsPages, currentTestimonials,
   handleTestimonialsPageChange, headerProgramsSearchTerm, setHeaderProgramsSearchTerm,
-  currentTestimonialsPage, filteredHeaderPrograms,
+  currentTestimonialsPage, filteredHeaderPrograms, allOpenPrograms,
   totalTestimonialsPages, loadingAllPrograms,
-  handleJobsPageChange,
+  handleJobsPageChange, setProgramsMonthSearchTerm,
   allJobs,
   deleteJob,
   activeJob, toggleJob

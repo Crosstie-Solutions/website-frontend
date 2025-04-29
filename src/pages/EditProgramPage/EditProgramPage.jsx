@@ -1423,8 +1423,8 @@ function EditProgramPage() {
                    editDate && date && date.map((day, index)=>
                       <div className='flex items-center gap-1' key={index}>
                           <input
-                          type="date"
-                          placeholder={`Enter training date ${index + 1}`}
+                          type="text"
+                          placeholder={`Enter start and end date. E.g 06 March - 17 April`}
                           name="description"
                           className="p-0.5 border rounded-4 w-90"
                           value={day}

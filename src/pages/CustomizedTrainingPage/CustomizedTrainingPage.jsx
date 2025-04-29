@@ -28,6 +28,7 @@ function CustomizedTrainingPage() {
   return (
     <div className="relative flex flex-col items-center justify-start gap-5 py-5 bg-white large:mt-12 text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-13 small:pt-0">
         
+
         <AboutHero 
         tag="Customized Training"
         line1="Training Programs to Bridge ALL YOUR Skill Gaps"
@@ -76,7 +77,7 @@ function CustomizedTrainingPage() {
             </ul>
           </div>
 
-          <hr className="large:w-2px large:h-1500px bg-crossTextGray small:h-2px small:w-250px"/>
+          <hr className="large:w-2px large:h-700px bg-crossTextGray small:h-2px small:w-250px"/>
 
 
           <div className="flex flex-col items-center gap-2 large:h-100 large:w-50 small:h-auto small:w-100">
@@ -91,13 +92,13 @@ function CustomizedTrainingPage() {
 
 
 
-            <div className="flex items-center h-auto gap-2 p-1 bg-white border rounded large:flex-row w-100 small:flex-col small:py-2 large:py-1">
+            {/* <div className="flex items-center h-auto gap-2 p-1 bg-white border rounded large:flex-row w-100 small:flex-col small:py-2 large:py-1">
                 <AiOutlineDesktop className="rounded-full text-80px bg-faintPink p-0.5 text-crossLightPurple"/>
                 <div className="flex flex-col large:items-start w-90 h-100 small:items-center small:gap-1">
                     <div className="font-semibold small:text-center large:text-start">Streamlined digital transformation</div>
                     <div className="text-crossTextGray small:text-center large:text-start">We cut through the complexity of change. Our customised approach ensures your systems, people, and processes evolve together at the right pace. From strategy to implementation, we help you adopt the right tools, reduce disruption, and present real value faster.</div>
                 </div>
-            </div>
+            </div> */}
 
 
             <div className="flex items-center h-auto gap-2 p-1 bg-white border rounded large:flex-row w-100 small:flex-col small:py-2 large:py-1">
@@ -120,7 +121,7 @@ function CustomizedTrainingPage() {
             </div>
             
             
-            <div className="flex items-center h-auto gap-2 p-1 bg-white border rounded large:flex-row w-100 small:flex-col small:py-2 large:py-1">
+            {/* <div className="flex items-center h-auto gap-2 p-1 bg-white border rounded large:flex-row w-100 small:flex-col small:py-2 large:py-1">
                 <GrUserExpert className="rounded-full text-80px bg-faintPink p-0.5 text-crossLightPurple"/>
                 <div className="flex flex-col large:items-start w-90 h-100 small:items-center small:gap-1">
                     <div className="font-semibold small:text-center large:text-start">Soft Skills Launch Pad (SSLP)</div>
@@ -133,7 +134,7 @@ function CustomizedTrainingPage() {
                     SSLP is more than just a program. It is a launch into a real career opportunity.
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             
           </div>
@@ -154,9 +155,9 @@ function CustomizedTrainingPage() {
           </p>
         </div>
 
-        <div className="flex items-center h-auto large:justify-around large:flex-row large:w-90 small:flex-col small:gap-3 large:gap-5 large:flex-wrap">
+        <div className="flex items-center h-auto large:justify-around large:flex-row large:w-100 small:flex-col small:gap-3 large:gap-5 large:flex-wrap">
           
-          <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+          <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-25 text-15px rounded-20 small:w-100">
             <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
               <FaBookOpen className="text-crossLightPurple text-30px" />
             </div>
@@ -178,7 +179,7 @@ function CustomizedTrainingPage() {
           </Link> */}
           </div>
 
-          <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+          <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-25 text-15px rounded-20 small:w-100">
             <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
               <FaUserTie className="text-crossLightPurple text-30px" />
             </div>
@@ -199,7 +200,7 @@ function CustomizedTrainingPage() {
           </Link> */}
           </div>
 
-          <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+          <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-25 text-15px rounded-20 small:w-100">
             <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
               <FaUser className="text-crossLightPurple text-30px" />
             </div>
@@ -214,7 +215,7 @@ function CustomizedTrainingPage() {
             </p>
           </div>
 
-          <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+          <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-25 text-15px rounded-20 small:w-100">
             <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
               <FaUser className="text-crossLightPurple text-30px" />
             </div>
@@ -231,7 +232,7 @@ function CustomizedTrainingPage() {
           </div>
 
 
-          <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+          <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-25 text-15px rounded-20 small:w-100">
             <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
               <FaUser className="text-crossLightPurple text-30px" />
             </div>

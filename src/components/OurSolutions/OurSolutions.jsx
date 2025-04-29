@@ -57,11 +57,11 @@ function OurSolutions() {
                 {/* Training Programmes */}
             
                 {solution==="Training Programmes" &&
-                <div className='flex items-center justify-between h-auto large:flex-row w-100 small:flex-col small:gap-3 large:gap-0'>
+                <div className='flex small:items-center large:items-start justify-between h-auto large:flex-row w-100 small:flex-col small:gap-3 large:gap-0'>
                     
                     <Link
                     to="/our-courses/"
-                    className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
+                    className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-auto text-15px rounded-20 small:w-100'>
                         
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaBookOpen className='text-crossLightPurple text-50px'/></div>
                         
@@ -75,7 +75,7 @@ function OurSolutions() {
 
                     <Link
                     to="/our-courses/executive-leadership"
-                    className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
+                    className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-auto text-15px rounded-20 small:w-100'>
                         
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaUserTie className='text-crossLightPurple text-50px'/></div>
                         
@@ -88,7 +88,7 @@ function OurSolutions() {
 
                     <Link
                         to="/our-courses/complete-employee"
-                    className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
+                    className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-auto text-15px rounded-20 small:w-100'>
                         
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaUser className='text-crossLightPurple text-50px'/></div>
                         
@@ -103,9 +103,9 @@ function OurSolutions() {
 
                 {/* Consulting Services */}
                 {solution==="Consulting Services" &&
-                <div className='flex items-center justify-between h-auto large:flex-row w-100 small:flex-col small:gap-3 large:gap-0'>
+                <div className='flex small:items-center justify-between h-auto large:flex-row w-100 small:flex-col small:gap-3 large:gap-0 large:items-start'>
                     
-                    <div className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
+                    <div className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-auto text-15px rounded-20 small:w-100'>
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><HiOutlineUsers className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Culture Assessment and Transformation</h3>
@@ -115,7 +115,7 @@ function OurSolutions() {
                     </div>
 
 
-                    <div className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-350px text-15px rounded-20 small:w-100'>
+                    <div className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-auto text-15px rounded-20 small:w-100'>
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><GiTeamIdea className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Strategy Development and Execution</h3>
@@ -159,10 +159,16 @@ function OurSolutions() {
 
 
             {solution==="Training Programmes" &&
-            <Link to='/our-courses/' className='flex items-center justify-center h-auto gap-1 w-150px text-crossLightPurple text-15px'>See More <MdOutlineChevronRight className='text-20px'/></Link>}
+            <Link to='/our-courses/' className='flex flex-row items-center justify-center w-auto gap-1 p-2 text-white h-30px rounded-10 bg-crossLightPurple text-15px'>See More <MdOutlineChevronRight className='text-20px'/></Link>}
+
 
             {solution==="Consulting Services" &&
-            <Link to='/our-solutions/management-consulting' className='flex items-center justify-center h-auto gap-1 w-150px text-crossLightPurple text-15px'>See More <MdOutlineChevronRight className='text-20px'/></Link>}
+            <Link to='/our-solutions/management-consulting' className='flex flex-row items-center justify-center w-auto gap-1 p-2 text-white h-30px rounded-10 bg-crossLightPurple text-15px'>See More <MdOutlineChevronRight className='text-20px'/></Link>}
+
+
+             {/* <Link 
+            to='/about-us/our-clients'
+            className='flex flex-row items-center justify-center w-auto gap-1 p-2 text-white h-30px rounded-10 bg-crossLightPurple text-15px'>Show All <GoArrowRight className='text-25px'/></Link> */}
         </div>
         
     </div>

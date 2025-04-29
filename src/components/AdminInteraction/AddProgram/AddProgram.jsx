@@ -148,8 +148,10 @@ function AddProgram() {
           physicalCost: 0,
           onlineCost: 0,
           youAndICost: 0,
+          priorityIndex: null,
           description: "",
           courseContent: null,
+          programBanner: null,
           targetAudience: "",
           mode: "",
           time: "",
@@ -196,9 +198,15 @@ function AddProgram() {
         };
       
 
-        const handleFileChange = (e) => {
-          setProductData({ ...productData, courseContent: e.target.files[0] });
+        const handleBannerChange = (e) => {
+          setProductData({ ...productData, programBanner: e.target.files[0] });
+         
+          console.log("productData:", productData);
+        };
       
+        const handlePdfChange = (e) => {
+          setProductData({ ...productData, courseContent: e.target.files[0] });
+         
           console.log("productData:", productData);
         };
       
@@ -236,6 +244,10 @@ function AddProgram() {
             validationErrors.mode = "add training mode";
           }
 
+          if (!productData.priorityIndex) {
+            validationErrors.priorityIndex = "add priority index";
+          }
+
           // if (!productData.time) {
           //   validationErrors.time = "add product time";
           // }
@@ -251,6 +263,10 @@ function AddProgram() {
       
           if (!productData.courseContent) {
             validationErrors.courseContent = "upload course content.";
+          }
+
+          if (!productData.programBanner) {
+            validationErrors.programBanner = "upload program image.";
           }
       
       
@@ -271,6 +287,9 @@ function AddProgram() {
           formData.append("category", category);
           formData.append("course", course);
           formData.append("courseContent", productData.courseContent);
+          formData.append("programBanner", productData.programBanner);
+          formData.append("priorityIndex", productData.priorityIndex);
+
           date.forEach(item => formData.append("date[]", item));
           objectives.forEach(item => formData.append("objectives[]", item));
           modules.forEach(item => formData.append("modules[]", item));
@@ -305,6 +324,9 @@ function AddProgram() {
               }
             } catch (error) {
               console.error("Error creating program:", error);
+              if(error){
+                toast.error(error.response.data.message)
+              }
             } finally {
               setLoading(false);
             }
@@ -398,7 +420,7 @@ function AddProgram() {
               </div>
 
               <div className="flex items-center justify-start h-auto gap-5 w-100">
-              <div className="flex flex-col w-40 h-auto">
+                <div className="flex flex-col w-40 h-auto">
                   <label htmlFor="physicalCost">Physical Cost (For OEP)</label>
                   <input
                     type="number"
@@ -413,20 +435,58 @@ function AddProgram() {
                     </p>
                   )}
                 </div>
+
                 <div className="flex flex-col w-40 h-auto">
                   <label htmlFor="courseContent">Course content</label>
                   <input
                     type="file"
                     name="courseContent"
-                    multiple
+                    // multiple
                     // accept="image/*"
                     accept=".pdf"
-                    onChange={handleFileChange}
+                    onChange={handlePdfChange}
                   />
                   
                   {productErrors && (
                     <p className="text-13px text-vogueRed">
                       {productErrors.courseContent}
+                    </p>
+                  )}
+
+                </div>
+              </div>
+
+              <div className="flex items-center justify-start h-auto gap-5 w-100">
+                <div className="flex flex-col w-40 h-auto">
+                  <label htmlFor="priorityIndex">Priority Index</label>
+                  <input
+                    type="number"
+                    placeholder="Enter priority index"
+                    name="priorityIndex"
+                    className="p-0.5 border rounded-4"
+                    onChange={handleChange}
+                  />
+                  {productErrors && (
+                    <p className="text-13px text-vogueRed">
+                      {productErrors.priorityIndex}
+                    </p>
+                  )}
+                </div>
+                
+                <div className="flex flex-col w-40 h-auto">
+                  <label htmlFor="programBanner">Promgram Image</label>
+                  <input
+                    type="file"
+                    name="programBanner"
+                    multiple
+                    accept="image/*"
+                    // accept=".pdf"
+                    onChange={handleBannerChange}
+                  />
+                  
+                  {productErrors && (
+                    <p className="text-13px text-vogueRed">
+                      {productErrors.programBanner}
                     </p>
                   )}
 
@@ -550,8 +610,8 @@ function AddProgram() {
                     date && date.map((day, index)=>
                       <div className='flex items-center gap-1' key={index}>
                           <input
-                          type="date"
-                          placeholder={`Enter training date ${index + 1}`}
+                          type="text"
+                          placeholder={`Enter start and end date. E.g 06 March - 17 April`}
                           name="description"
                           className="p-0.5 border rounded-4 w-85"
                           value={day}

@@ -156,18 +156,67 @@ const partnerData = [
 
 
 const leaders = [
+
+  {
+    name: "xxxxx",
+    image: leadersImages[1],
+    role: "xxxxx",
+    type: "director",
+    bio: `No Bio`,
+    link: `https://www.google.com`
+  },
+
   {
     name: "Adebayo Adegun",
     image: leadersImages[0],
     role: "Lead Partner & CEO",
-    type: "teamMember",
+    type: "director",
     bio: `Adebayo Adegun, known as "The Impacter," is a seasoned Trainer and OD Consultant with 15+ years of experience. He’s led major consulting projects and trained over 5,000 employees across industries. As CEO of Crosstie Solutions, Adebayo partners with top organisations. His expertise includes leadership development, succession planning, and culture transformation. He holds advanced degrees in Managerial Psychology and Organisational Leadership.`,
     link: `https://www.google.com`
   },
 
   {
-    name: "Peter Bello",
+    name: "xxxxx",
     image: leadersImages[1],
+    role: "xxxxx",
+    type: "director",
+    bio: `No Bio`,
+    link: `https://www.google.com`
+  },
+
+
+  {
+    name: "xxxxx",
+    image: leadersImages[1],
+    role: "xxxxx",
+    type: "advisor",
+    bio: `No Bio`,
+    link: `https://www.google.com`
+  },
+
+  {
+    name: "xxxxx",
+    image: leadersImages[1],
+    role: "xxxxx",
+    type: "advisor",
+    bio: `No Bio`,
+    link: `https://www.google.com`
+  },
+
+  {
+    name: "xxxxx",
+    image: leadersImages[1],
+    role: "xxxxx",
+    type: "advisor",
+    bio: `No Bio`,
+    link: `https://www.google.com`
+  },
+
+
+
+  {
+    name: "Peter Bello",
+    image: leadersImages[2],
     role: "Associate, Learning & Development",
     type: "teamMember",
     bio: `No Bio`,
@@ -176,7 +225,7 @@ const leaders = [
 
   {
     name: "Promise Essien",
-    image: leadersImages[2],
+    image: leadersImages[3],
     role: "Associate, Business Development & Client Relations",
     type: "teamMember",
     bio: `Promise Essien is a versatile Business Development and Client Relationship Professional with experience across consulting, healthcare, education, and real estate in Nigeria and the UK. With a B.Sc. in Microbiology, she transitioned from the medical field to marketing and sales. She’s our Associate, Business Development and Client Relations, responsible for lead generation, prospect management and client relations. She contributes to digital marketing, strategic planning, and content creation.`,
@@ -185,7 +234,7 @@ const leaders = [
 
   {
     name: "Jacob Abua",
-    image: leadersImages[3],
+    image: leadersImages[4],
     role: "Analyst, Organisational Development",
     type: "teamMember",
     bio: `No Bio`,
@@ -194,7 +243,7 @@ const leaders = [
 
   {
     name: "Ademide Adegboye",
-    image: leadersImages[4],
+    image: leadersImages[5],
     role: "HR/ L&D Support",
     type: "teamMember",
     bio: `No Bio`,

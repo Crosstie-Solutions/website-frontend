@@ -8,7 +8,7 @@ import HeroSlider from "../HeroSlider/HeroSlider";
 
 function Hero() {
   return (
-    <div className="relative flex flex-col items-center justify-center text-white large:pl-0 large:w-100vw large:h-500px hero small:w-100vw small:h-65vh large:mt-4">
+    <div className="relative flex flex-col items-center justify-center text-white large:pl-0 large:w-100vw large:h-auto hero small:w-100vw small:h-65vh large:mt-4">
 
       <HeroSlider />
       
@@ -47,7 +47,7 @@ function Hero() {
           </div>
 
           <div className="pl-1 border-l border-crossYellow">
-            <h1 className="w-auto h-auto font-extrabold large:text-30px small:text-15px">500+</h1>
+            <h1 className="w-auto h-auto font-extrabold large:text-30px small:text-15px">300+</h1>
             <p className="text-11px">Projects Completed</p>
           </div>
 

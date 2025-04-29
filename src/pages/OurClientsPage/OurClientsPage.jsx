@@ -13,7 +13,7 @@ function OurClientsPage() {
   
   
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12 large:mt-17">
+    <div className="relative flex flex-col items-center justify-start gap-5 pb-5 bg-white text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12 large:mt-12">
       
       <AboutHero />
 

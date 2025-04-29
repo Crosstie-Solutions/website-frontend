@@ -6,6 +6,8 @@ import { toast } from 'react-toastify';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { CrossContext } from "../../Context/CrossContext";
+import { CiLocationOn } from "react-icons/ci";
+import { IoCallOutline } from "react-icons/io5";
 
 
 
@@ -117,54 +119,68 @@ function ContactForm() {
   return (
     <div className="flex items-center justify-between h-auto text-white small:px-2 large:pl-8 bg-crossLightPurple large:w-100vw large:flex-row small:flex-col small:py-3 large:py-0 large:px-0 small:gap-3 large:gap-0">
       
-      <div className="flex flex-col large:gap-3 large:w-35 small:w-100 small:gap-1">
-        <h1 className="font-bold text-crossYellow large:text-50px small:text-25px">
-          Visit Us At:
-        </h1>
+      <div className="flex flex-col large:gap-2 h-auto large:w-35 small:w-100 small:gap-1 large:pt-2 large:pb-4">
+        
+        <div>
+          <h1 className="font-bold text-crossYellow large:text-20px small:text-20px">
+            Visit Us At:
+          </h1>
 
-        <hr className="w-40 bg-white h-1px" />
+          <hr className="w-40 bg-white h-1px" />
 
-        <div className="flex flex-col items-start h-auto gap-2 w-100">
-          <address>
-           <span className="text-crossYellow">Head Office:</span> <br />
-            Mulliner Towers, 7th Floor, 39 Alfred Rewane Road, Ikoyi Lagos.
-          </address>
-
-          {/* <a
-            href={`tel:07056517470`}
-            className="flex items-center justify-center large:gap-1 small:gap-1"
-          >
-            <FaPhone className="rotate-90 text-15px text-crossYellow" /> 07056517470
-          </a>
-
-          <a
-            href={`tel:08035190430`}
-            className="flex items-center justify-center large:gap-1 small:gap-1"
-          >
-            <FaPhone className="rotate-90 text-15px text-crossYellow" /> 08035190430
-          </a> */}
-
-          {/* <a
-            href="mailto:info@crosstie.com"
-            className="flex items-center justify-center large:gap-1 small:gap-1"
-          >
-            <MdOutlineMail className="text-20px text-crossYellow" /> info@crosstiesolutions.com
-          </a> */}
+          <div className="flex flex-col items-start h-auto gap-2 w-100 mt-1">
+            
+            <address>
+            <span className="text-crossYellow flex"><CiLocationOn className="text-25px text-white"/> Head Office:</span>
+              <div>Mulliner Towers, 7th Floor, 39 Alfred Rewane Road, Ikoyi Lagos.</div>
+            </address>
+          </div>
         </div>
 
-        <h1 className="font-bold text-crossYellow large:text-50px small:text-25px">
-        Call Us:         
-        </h1>
+        <div>
+          <h1 className="font-bold text-crossYellow large:text-20px small:text-20px">
+          Call Us:         
+          </h1>
 
-        <hr className="w-40 bg-white h-1px" />
+          <hr className="w-40 bg-white h-1px" />
 
-        <div className="flex flex-col items-start h-auto w-100">
-          <div>09160901017</div>         
-          <div>07056517470</div>         
+          <div className="flex flex-col items-start h-auto w-100 mt-1">
+            <div className="flex items-center h-auto w-auto gap-1 mt-1"><IoCallOutline className="text-25px"/> 09160901017</div>        
+            <div className="flex items-center h-auto w-auto gap-1 mt-1"><IoCallOutline className="text-25px"/> 07056517470</div>        
+          </div>
         </div>
+
+        <div className="flex flex-col h-auto w-100">
+          <h1 className="font-bold text-crossYellow large:text-20px small:text-20px">
+          General Enquiries:         
+          </h1>
+
+          <hr className="w-40 bg-white h-1px" />
+          <div className="flex items-center h-auto w-auto gap-1 mt-1"><MdOutlineMail className="text-25px"/> enquiries@crosstiesolutions.com</div>   
+        </div>   
+
+        <div className="flex flex-col h-auto w-100">
+          <h1 className="font-bold text-crossYellow large:text-20px small:text-20px">
+          Book a Consulting Session:         
+          </h1>
+
+          <hr className="w-40 bg-white h-1px" />
+          <div className="flex items-center h-auto w-auto gap-1 mt-1"><MdOutlineMail className="text-25px"/> consulting@crosstiesolutions.com</div>   
+        </div> 
+
+        <div className="flex flex-col h-auto w-100">
+          <h1 className="font-bold text-crossYellow large:text-20px small:text-20px">
+          Choose a Training Program:         
+          </h1>
+
+          <hr className="w-40 bg-white h-1px" />
+          <div className="flex items-center h-auto w-auto mt-1 gap-1"><MdOutlineMail className="text-25px"/> training@crosstiesolutions.com
+          </div>   
+        </div>    
+        
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-1 py-3 text-black bg-white large:px-5 large:h-100 large:w-50 small:rounded-5 small:w-100 text-15px small:px-1 large:rounded-none">
+      <div className="flex flex-col items-center justify-center gap-1 py-3 text-black bg-white large:px-5 large:h-full large:w-50 small:rounded-5 small:w-100 text-15px small:px-1 large:rounded-none">
         
         <div className="flex flex-col items-start h-auto w-100">
           <label htmlFor="fullName">Full Name</label>
