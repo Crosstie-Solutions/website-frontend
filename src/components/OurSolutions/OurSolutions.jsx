@@ -57,7 +57,7 @@ function OurSolutions() {
                 {/* Training Programmes */}
             
                 {solution==="Training Programmes" &&
-                <div className='flex justify-between h-auto small:px-1 small:items-center large:items-start large:flex-row w-100 small:flex-col small:gap-3 large:gap-0 large:px-0'>
+                <div className='flex justify-between h-auto small:items-center large:items-start large:flex-row w-100 small:flex-col small:gap-3 large:gap-0'>
                     
                     <Link
                     to="/our-courses/"

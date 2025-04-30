@@ -19,7 +19,7 @@ function CaseStudy(post) {
       <img
         src={caseStudyImage}
         alt="blog image"
-        className="w-100 h-170px rounded-5"
+        className="w-100 large:h-170px rounded-5 small:h-auto"
       />
 
       <div className="flex flex-row justify-between h-auto w-100 text-crossTextGray">
