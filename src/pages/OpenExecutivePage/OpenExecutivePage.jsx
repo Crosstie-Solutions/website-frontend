@@ -22,10 +22,8 @@ function OpenExecutivePage() {
   
 
   const {
-    currentPrograms, loadingAllPrograms,
-    handleProgramsPageChange,
-    currentProgramsPage,
-    totalProgramsPages,
+     loadingAllPrograms,
+
     allPrograms, allCourses, downloadScreen, downloadProgramScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen,
     toggleDownloadScreen, allOpenPrograms
   } = useContext(CrossContext);
@@ -38,6 +36,27 @@ function OpenExecutivePage() {
   
 
   const [filteredPrograms, setFilteredPrograms] = useState(allOpenPrograms);
+
+
+  //for pagination
+    const [currentProgramsPage, setCurrentProgramsPage] = useState(1);
+    const programsPerPage = 10;
+
+    // // Calculate total pages
+  const totalProgramsPages = filteredPrograms && Math.ceil(filteredPrograms.length / programsPerPage);
+
+  // Get requests for the current page
+  const programsStartIndex = (currentProgramsPage - 1) * programsPerPage;
+  const programsEndIndex = programsStartIndex + programsPerPage;
+  const currentPrograms = filteredPrograms && filteredPrograms.slice(programsStartIndex, programsEndIndex).reverse();
+
+  
+  //Handle page change
+  const handleProgramsPageChange = (page) => {
+    if (page > 0 && page <= totalProgramsPages) {
+      setCurrentProgramsPage(page);
+    }
+  };
 
 
 
@@ -59,7 +78,7 @@ function OpenExecutivePage() {
 
      
       
-      <div className="small:w-90vw large:w-83vw h-auto flex justify-between">
+      <div className="flex justify-between h-auto small:w-90vw large:w-83vw">
         
         <OpenProgramsFilter programs={allOpenPrograms} onFilter={setFilteredPrograms} />
 
@@ -67,8 +86,8 @@ function OpenExecutivePage() {
       
 
       <div className="flex flex-row flex-wrap h-auto gap-3 small:justify-center small:w-100 large:w-83vw large:justify-center">
-        {filteredPrograms &&
-          filteredPrograms.map((program, i) => 
+        {currentPrograms &&
+          currentPrograms.map((program, i) => 
             
             
               <div key={i}>
@@ -102,8 +121,8 @@ function OpenExecutivePage() {
 
 
       {/* Pagination */}
-      {/* {openPrograms && openPrograms.length > 0 && ()} */}
-        {/* <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
+      {filteredPrograms && filteredPrograms.length > 0 && 
+        <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
             className="flex items-center justify-center text-white large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
             disabled={currentProgramsPage === 1}
@@ -124,7 +143,7 @@ function OpenExecutivePage() {
           >
             <HiOutlineChevronRight className="text-20px" />
           </button>
-        </div> */}
+        </div>}
       
 
       {filteredPrograms && filteredPrograms.length < 1 && (

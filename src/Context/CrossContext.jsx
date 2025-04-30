@@ -210,11 +210,14 @@ function formatDate(dateString) {
   console.log("filteredPrograms:", filteredPrograms);
 
 //to filter programs based on month
-  const allOpenPrograms = allPrograms && allPrograms.filter((program) =>
+  const open = allPrograms && allPrograms.filter((program) =>
     
     program.category.toLowerCase().includes("open")
     
   );
+
+  //sort by index
+  const allOpenPrograms = open && open.sort((a, b) => a.priorityIndex - b.priorityIndex);
 
   console.log("allOpenPrograms:", allOpenPrograms);
 
@@ -237,7 +240,7 @@ function formatDate(dateString) {
   const currentPrograms = filteredPrograms && filteredPrograms.slice(programsStartIndex, programsEndIndex).reverse();
 
   
-  // Handle page change
+  //Handle page change
   const handleProgramsPageChange = (page) => {
     if (page > 0 && page <= totalProgramsPages) {
       setCurrentProgramsPage(page);

@@ -18,7 +18,7 @@ import { CourseBrochureDownloadScreen, CourseContentDownloadScreen } from "../..
 
 function ExecutiveLeadership() {
 
-    const {currentPrograms, handleProgramsPageChange, currentProgramsPage, totalProgramsPages, programsSearchTerm, allCourses, downloadScreen, toggleDownloadScreen, downloadProgramScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen, allPrograms} = useContext(CrossContext);
+    const {programsSearchTerm, allCourses, downloadScreen, toggleDownloadScreen, downloadProgramScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen, allPrograms} = useContext(CrossContext);
 
 
     
@@ -26,28 +26,45 @@ function ExecutiveLeadership() {
     const downloadUrl = allCourses && allCourses.length > 0 ? allCourses[1].courseBrochure : "";
   const title = allCourses && allCourses.length > 0 && allCourses[1].courseTitle;
 
-    // const executiveLeadershipPrograms = currentPrograms && currentPrograms.filter((program)=> {
-    //   return program.course.courseTitle.includes("Executive Leadership");
-    // });
+  
 
     const location = window.location.pathname;
 
-    const [executiveLeadershipPrograms, setExecutiveLeadershipPrograms] = useState([]);
-    
-      useEffect(()=>{
-        
-    
-        if(programsSearchTerm ==''){
-          const open = allPrograms && allPrograms.filter(program=> program.category.toLowerCase().includes("leadership"))
-    
-          setExecutiveLeadershipPrograms(open)
-        }else{
-          const open = currentPrograms && currentPrograms.filter(program=> program.category.toLowerCase().includes("leadership"))
-    
-          setExecutiveLeadershipPrograms(open)
-        } 
-      },[allPrograms, location, programsSearchTerm]);
+    // const [executiveLeadershipPrograms, setExecutiveLeadershipPrograms] = useState([]);
 
+    const executiveLeadershipPrograms = allPrograms && allPrograms.filter(program=> program.category.toLowerCase().includes("leadership"));
+
+
+    // // Filter programs based on search term
+  const filteredPrograms = executiveLeadershipPrograms && executiveLeadershipPrograms.filter((program) =>
+    
+    `${program.title} ${program.category}`
+  .toLowerCase()
+  .includes(programsSearchTerm.toLowerCase()) 
+  
+);
+
+     //for pagination
+     const [currentProgramsPage, setCurrentProgramsPage] = useState(1);
+     const programsPerPage = 10;
+ 
+     // // Calculate total pages
+   const totalProgramsPages = filteredPrograms && Math.ceil(filteredPrograms.length / programsPerPage);
+ 
+   // Get requests for the current page
+   const programsStartIndex = (currentProgramsPage - 1) * programsPerPage;
+   const programsEndIndex = programsStartIndex + programsPerPage;
+   const currentPrograms = filteredPrograms && filteredPrograms.slice(programsStartIndex, programsEndIndex).reverse();
+ 
+   
+   //Handle page change
+   const handleProgramsPageChange = (page) => {
+     if (page > 0 && page <= totalProgramsPages) {
+       setCurrentProgramsPage(page);
+     }
+   };
+
+    
     
     
     
@@ -71,9 +88,9 @@ function ExecutiveLeadership() {
       
 
         <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
-            
+        
             {
-                executiveLeadershipPrograms && executiveLeadershipPrograms.map((program, i)=>{
+                currentPrograms && currentPrograms.sort((a, b) => a.priorityIndex - b.priorityIndex).map((program, i)=>{
                   return(
                     <div>
                             <Program
@@ -104,7 +121,7 @@ function ExecutiveLeadership() {
         
 
           {/* Pagination */}
-      {/* {executiveLeadershipPrograms && executiveLeadershipPrograms.length > 0 && (
+      {currentPrograms && currentPrograms.length > 0 && (
         <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
             className="flex items-center justify-center text-white large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
@@ -117,8 +134,6 @@ function ExecutiveLeadership() {
           <div className="text-sm">
             Page {currentProgramsPage} of {totalProgramsPages}
            
-
-            
           </div>
 
           <button
@@ -129,10 +144,10 @@ function ExecutiveLeadership() {
             <HiOutlineChevronRight className="text-20px" />
           </button>
         </div>
-      )} */}
+      )}
             
             
-            {executiveLeadershipPrograms && executiveLeadershipPrograms.length < 1 && (
+            {currentPrograms && currentPrograms.length < 1 && (
               <p className="mt-5 text-center w-100 text-15px">No result found.</p>
             )}
 
