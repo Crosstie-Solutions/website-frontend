@@ -22,7 +22,7 @@ function AboutHero(props) {
       <div className="flex flex-col items-start justify-center large:gap-2 small:pt-2 large:pl-0 large:h-100 large:w-50 small:h-auto small:w-90vw large:pt-0 small:gap-1 small:pl-1">
         
         {!window.location.pathname.includes('satisfaction') &&
-        <h1 class="large:text-35px large:w-100 large:leading-tight font-semibold small:w-80 small:text-20px small:leading-normal"> 
+        <h1 className="font-semibold large:text-35px large:w-100 large:leading-tight small:w-80 small:text-20px small:leading-normal"> 
           {tag ? tag : "About Us"}
         </h1>}
         
@@ -89,26 +89,26 @@ function AboutHero(props) {
 
         {/* satisfaction */}
         {window.location.pathname.includes('satisfaction') &&
-        <img src={PHOTOS.satisfaction1} alt="image" className="bg-gray-400 large:h-70 large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center border-t-8 border-r-8 border-crossLightPurple"/>}
+        <img src={PHOTOS.satisfaction1} alt="image" className="bg-gray-400 border-t-8 border-r-8 large:h-70 large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center border-crossLightPurple"/>}
 
 
           {/* Corporate_Training */}
           {window.location.pathname==='/our-solutions/' &&
-        <img src={PHOTOS.Corporate_Training} alt="image" className="bg-gray-400 large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center border-t-8 border-r-8 border-crossLightPurple"/>}
+        <img src={PHOTOS.Corporate_Training} alt="image" className="bg-gray-400 border-t-8 border-r-8 large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center border-crossLightPurple"/>}
 
         
           {/* Management_Consulting */}
           {window.location.pathname.includes('management-consulting') &&
-        <img src={PHOTOS.Management_Consulting} alt="image" className="bg-gray-400 large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center border-t-8 border-r-8 border-crossLightPurple"/>}
+        <img src={PHOTOS.Management_Consulting} alt="image" className="bg-gray-400 border-t-8 border-r-8 large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center border-crossLightPurple"/>}
 
         
           {/* Customized_Training */}
         {window.location.pathname.includes('customized-training') &&
-        <img src={PHOTOS.Customized_Training} alt="image" className="bg-gray-400 large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center border-t-8 border-r-8 border-crossLightPurple"/>}
+        <img src={PHOTOS.Customized_Training} alt="image" className="bg-gray-400 border-t-8 border-r-8 large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center border-crossLightPurple"/>}
 
         {/* webinars */}
         {window.location.pathname.includes('webinars') &&
-        <img src={PHOTOS.webinar} alt="image" className="bg-gray-400 large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center border-t-8 border-r-8 border-crossLightPurple"/>}
+        <img src={PHOTOS.webinar} alt="image" className="bg-gray-400 border-t-8 border-r-8 large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center border-crossLightPurple"/>}
 
 
         {/* open executive */}

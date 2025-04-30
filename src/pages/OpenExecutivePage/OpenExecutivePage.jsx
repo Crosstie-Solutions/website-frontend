@@ -48,7 +48,7 @@ function OpenExecutivePage() {
   // Get requests for the current page
   const programsStartIndex = (currentProgramsPage - 1) * programsPerPage;
   const programsEndIndex = programsStartIndex + programsPerPage;
-  const currentPrograms = filteredPrograms && filteredPrograms.slice(programsStartIndex, programsEndIndex).reverse();
+  const currentPrograms = filteredPrograms && filteredPrograms.slice(programsStartIndex, programsEndIndex)
 
   
   //Handle page change

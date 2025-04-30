@@ -21,6 +21,7 @@ import { MdOutlineDescription } from "react-icons/md";
 import { MdOutlineViewModule } from "react-icons/md";
 import { CourseContentDownloadScreen } from "../../components/DownloadScreen/DownloadScreen";
 import { PHOTOS } from "../../assets/images";
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 
 
 
@@ -63,6 +64,36 @@ function ProgramDetailsPage() {
 
     viewProgram();
   }, [programId]);
+
+
+  //to get category route of current program
+  const [catRoute, setCatRoute] = useState('');
+
+  console.log("category route:", catRoute)
+
+  const location = window.location.pathname;
+
+  useEffect(()=>{
+    if(program && program.category.toLowerCase().includes("open")){
+      setCatRoute("")
+    }
+
+    if(program && program.category.toLowerCase().includes("executive")){
+      setCatRoute("executive-leadership")
+    }
+
+    if(program && program.category.toLowerCase().includes("sales")){
+      setCatRoute("sales-excellence")
+    }
+
+    if(program && program.category.toLowerCase().includes("employee")){
+      setCatRoute("complete-employee")
+    }
+
+    if(program && program.category.toLowerCase().includes("bonding")){
+      setCatRoute("team-bonding")
+    }
+  }, [programId, program, location])
   
   
 
@@ -209,7 +240,15 @@ function ProgramDetailsPage() {
   return (
     <div className="relative flex flex-col items-center justify-start gap-5 large:mt-15 large:text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12 small:text-13px">
       
-      <div className="flex small:flex-col-reverse items-center large:justify-center text-white large:gap-2 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-1 small:h-auto small:w-100vw crossLightPurple bg-crossLightPurple large:flex-row small:py-2 large:py-0">
+      <div className="relative flex items-center text-white small:flex-col-reverse large:justify-center large:gap-2 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-1 small:h-auto small:w-100vw crossLightPurple bg-crossLightPurple large:flex-row small:py-2 large:py-0">
+
+      {
+            !loadingProgram &&
+        <Breadcrumb 
+        title={program && program.title}
+        category={program && program.category}
+        catRoute={catRoute}
+        />}
         
         <div className="flex flex-col justify-center gap-2 large:pl-0 large:h-500px large:w-50 small:w-100vw small:h-auto small:pl-2 bg-crossLightPurple small:py-2 large:py-0 large:relative large:-left-2">         
           
@@ -244,7 +283,7 @@ function ProgramDetailsPage() {
             <RiFolderDownloadLine className="large:text-25px small:text-20px" />
           </div>}
 
-            {me && me.role !=="user" &&
+            {!loadingProgram && me && me.role !=="user" &&
           
           <div className="flex items-center w-auto h-auto gap-2">
             <Link to='/admin-dashboard' className="flex items-center justify-center w-auto gap-1 px-1 border rounded large:mt-3 small:mt-0 h-30px"> <LuMoveLeft className="flex text-25px"/> Admin dashboard</Link>
@@ -256,7 +295,7 @@ function ProgramDetailsPage() {
 
         {
             !loadingProgram &&
-          <img src={program && program.programBanner} alt="course banner" className="large:h-75 large:w-auto small:w-90vw small:h-auto large:relative large:-right-2"/>}
+          <img src={program && program.programBanner} alt="course banner" className="large:h-75 large:w-auto small:w-90vw small:h-auto large:relative large:-right-2 small:mt-3"/>}
 
       </div>
 
