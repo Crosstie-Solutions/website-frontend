@@ -126,7 +126,7 @@ function ViewCaseStudy() {
 
            {/* related case studies */}
 
-           <div className='flex flex-col items-center h-auto gap-3 large:w-83vw'>
+           <div className='flex flex-col items-center h-auto gap-3 large:w-83vw small:w-90vw'>
                 <h3 className='font-semibold large:text-25px small:text-17px'>Related Case Studies</h3>
 
 
