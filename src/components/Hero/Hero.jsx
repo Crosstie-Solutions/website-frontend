@@ -30,7 +30,7 @@ function Hero() {
           PEOPLE DEVELOPMENT & MANAGEMENT CONSULTING
         </h1>
 
-        <p className="font-normal large:w-40 small:w-100 small:text-11px large:text-17px">
+        <p className="font-normal large:w-40 small:w-100 small:text-13px large:text-17px">
           Your trusted partner in all-around organisation development
         </p>
 
