@@ -13,6 +13,7 @@ function AddEvent() {
       const [title, setTitle] = useState('');
       const [client, setClient] = useState('');
       const [date, setDate] = useState('');      
+      const [priorityIndex, setPriorityIndex] = useState(null);      
       
       const [eventImages, setEventImages] = useState([]);
 
@@ -73,6 +74,7 @@ const noError = Object.keys(validationErrors).length === 0;
     formData.append("title", title);
     formData.append("client", client);
     formData.append("date", date);
+    formData.append("priorityIndex", priorityIndex);
 
     for (let i = 0; i < eventImages.length; i++) {
       formData.append("eventImages", eventImages[i]);
@@ -105,6 +107,7 @@ if (noError) {
     
     if(error){
       console.log("Error adding event:", error);
+      toast.error(error.response.data.message);
     }
   
   } finally {
@@ -146,6 +149,15 @@ if (noError) {
              onChange={(e) => setDate(e.target.value)}
             />
             <p className='text-vogueRed'>{eventErrors && eventErrors.date}</p>
+        </div>
+
+        <div className='flex flex-col h-auto w-100'>
+            <label htmlFor="priorityIndex">Priority Index</label>
+            <input type="number" name='priorityIndex' id='' className='pl-1 border rounded h-40px w-100'
+            placeholder='Enter priority index'
+             onChange={(e) => setPriorityIndex(e.target.value)}
+            />
+            <p className='text-vogueRed'>{eventErrors && eventErrors.priorityIndex}</p>
         </div>
 
         <div className='flex flex-col h-auto w-100'>
