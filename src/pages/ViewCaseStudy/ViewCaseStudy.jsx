@@ -91,7 +91,8 @@ function ViewCaseStudy() {
     <div className='flex flex-col items-center h-auto bg-white large:mt-17 w-100vw small:mt-12'>
         
         <div className='relative flex flex-col items-start h-auto w-100'>
-          <img src={post && post.caseStudyImage} alt="image" className='large:h-auto large:w-100 small:w-100vw small:h-300px'/>
+          
+          <img src={post && post.caseStudyImage} alt="image" className='large:h-auto large:w-100 small:w-100vw small:h-250px'/>
   
           <div className='absolute flex flex-col items-start text-white large:gap-2 large:justify-start large:pt-20 large:pl-10 bg-caseStudyOverlay h-100 w-100 small:pl-3 small:pt-0 small:justify-end small:gap-1 small:pb-2 large:pb-0'>
             
