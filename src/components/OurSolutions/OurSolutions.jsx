@@ -53,15 +53,15 @@ function OurSolutions() {
   
 
   
-            <div className='flex flex-wrap items-center justify-between h-auto w-100'>
+            <div className='flex flex-wrap items-center justify-between h-auto large:w-100 small:w-90vw'>
                 {/* Training Programmes */}
             
                 {solution==="Training Programmes" &&
-                <div className='flex small:items-center large:items-start justify-between h-auto large:flex-row w-100 small:flex-col small:gap-3 large:gap-0'>
+                <div className='flex justify-between h-auto small:px-1 small:items-center large:items-start large:flex-row w-100 small:flex-col small:gap-3 large:gap-0 large:px-0'>
                     
                     <Link
                     to="/our-courses/"
-                    className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-auto text-15px rounded-20 small:w-100'>
+                    className='flex flex-col justify-between h-auto gap-2 p-1 border border-crossIconBg large:w-25 text-15px rounded-20 small:w-100'>
                         
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaBookOpen className='text-crossLightPurple text-50px'/></div>
                         
@@ -75,7 +75,7 @@ function OurSolutions() {
 
                     <Link
                     to="/our-courses/executive-leadership"
-                    className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-auto text-15px rounded-20 small:w-100'>
+                    className='flex flex-col justify-between h-auto gap-2 p-1 border border-crossIconBg large:w-25 text-15px rounded-20 small:w-100'>
                         
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaUserTie className='text-crossLightPurple text-50px'/></div>
                         
@@ -88,7 +88,7 @@ function OurSolutions() {
 
                     <Link
                         to="/our-courses/complete-employee"
-                    className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-auto text-15px rounded-20 small:w-100'>
+                    className='flex flex-col justify-between h-auto gap-2 p-1 border border-crossIconBg large:w-25 text-15px rounded-20 small:w-100'>
                         
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaUser className='text-crossLightPurple text-50px'/></div>
                         
@@ -103,9 +103,9 @@ function OurSolutions() {
 
                 {/* Consulting Services */}
                 {solution==="Consulting Services" &&
-                <div className='flex small:items-center justify-between h-auto large:flex-row w-100 small:flex-col small:gap-3 large:gap-0 large:items-start'>
+                <div className='flex justify-between h-auto small:items-center large:flex-row w-100 small:flex-col small:gap-3 large:gap-0 large:items-start'>
                     
-                    <div className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-auto text-15px rounded-20 small:w-100'>
+                    <div className='flex flex-col justify-between h-auto gap-2 p-1 border border-crossIconBg large:w-25 text-15px rounded-20 small:w-100'>
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><HiOutlineUsers className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Culture Assessment and Transformation</h3>
@@ -115,7 +115,7 @@ function OurSolutions() {
                     </div>
 
 
-                    <div className='flex flex-col justify-between gap-2 p-1 border border-crossIconBg large:w-25 h-auto text-15px rounded-20 small:w-100'>
+                    <div className='flex flex-col justify-between h-auto gap-2 p-1 border border-crossIconBg large:w-25 text-15px rounded-20 small:w-100'>
                         <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><GiTeamIdea className='text-crossLightPurple text-50px'/></div>
                         
                         <h3 className='font-bold text-crossLightPurple'>Strategy Development and Execution</h3>
