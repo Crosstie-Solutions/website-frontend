@@ -43,7 +43,7 @@ function CorporateTrainingPage() {
 
       <div className="flex items-center h-auto large:justify-center large:flex-row large:w-70vw small:flex-col small:gap-3 large:gap-5 large:flex-wrap">
         
-        <Link to='/our-courses/' className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+        <Link to='/our-courses/' className="flex flex-col items-center justify-center gap-1 px-1 py-2 bg-white border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaBookOpen className="text-crossLightPurple text-30px" />
           </div>
@@ -64,7 +64,7 @@ function CorporateTrainingPage() {
           </Link> */}
         </Link>
 
-        <Link to='/executive-leadership' className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+        <Link to='/executive-leadership' className="flex flex-col items-center justify-center gap-1 px-1 py-2 bg-white border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaUserTie className="text-crossLightPurple text-30px" />
           </div>
@@ -85,7 +85,7 @@ function CorporateTrainingPage() {
           </Link> */}
         </Link>
 
-        <Link to='/complete-employee' className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+        <Link to='/complete-employee' className="flex flex-col items-center justify-center gap-1 px-1 py-2 bg-white border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaUser className="text-crossLightPurple text-30px" />
           </div>
@@ -101,7 +101,7 @@ function CorporateTrainingPage() {
 
 
 
-        <Link to='/sales-excellence' className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+        <Link to='/sales-excellence' className="flex flex-col items-center justify-center gap-1 px-1 py-2 bg-white border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaUser className="text-crossLightPurple text-30px" />
           </div>
@@ -115,7 +115,7 @@ function CorporateTrainingPage() {
           </p>
         </Link>
 
-        <Link to='/sales-excellence' className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+        <Link to='/sales-excellence' className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100 bg-white">
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaUser className="text-crossLightPurple text-30px" />
           </div>
