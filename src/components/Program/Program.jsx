@@ -25,7 +25,7 @@ function Program(program) {
     
     
   return (
-    <div className='flex flex-col items-center gap-1 px-1 py-2 bg-white border border-crossLightPurple small:w-250px large:w-270px rounded-10 text-13px hover:shadow-lg'>
+    <div className='flex flex-col items-center gap-1 px-1 py-2 bg-white border border-crossLightPurple small:w-250px large:w-270px rounded-10 text-13px hover:shadow-lg h-auto'>
       
       <Link to={`/our-courses/${id}`} className='font-semibold text-center hover:underline large:text-17px small:text-15px'>{title}</Link>
 
@@ -37,26 +37,27 @@ function Program(program) {
             <RxDownload /> Course Content</div>
 
         <div className='flex flex-col h-auto gap-1 w-100'>
+            
             <div className='flex items-center gap-1 w-100 text-crossLightPurple small:justify-center large:justify-start'><TbTimeDuration45 className='text-20px'/> <span className='text-crossTextGray'>Duration:</span> {duration}</div>
 
             {date && date[0] !=='' &&
-            <div className='items-center gap-1 large:flex w-100 small:hidden'><MdOutlineCalendarMonth className='text-20px text-crossLightPurple'/> <span>{date[0]}</span></div>}
+            <div className='items-center gap-1 flex w-100'><MdOutlineCalendarMonth className='text-20px text-crossLightPurple'/> <span>{date[0]}</span></div>}
 
             {
               moreDates && date && date.slice(1).map((day, i)=>
-                <div className='items-center gap-1 large:flex w-100 small:hidden'
+                <div className='items-center gap-1 flex w-100'
                 key={i}
                 ><MdOutlineCalendarMonth className='text-20px text-crossLightPurple'/> <span>{day}</span></div>
               )
             }
             
             {!time=='' &&
-            <div className='items-center gap-1 large:flex small:hidden w-100'><GoClock className='text-20px text-crossLightPurple'/> {time}</div>}
+            <div className='items-center gap-1 flex w-100'><GoClock className='text-20px text-crossLightPurple'/> {time}</div>}
 
-            <div className='items-center gap-1 large:flex small:hidden w-100'><IoIosLaptop className='text-20px text-crossLightPurple'/> {mode}</div>
+            <div className='items-center gap-1 flex w-100'><IoIosLaptop className='text-20px text-crossLightPurple'/> {mode}</div>
         </div>
 
-        <div className='flex-col items-center h-auto gap-1 large:flex small:hidden w-100'>
+        <div className='flex-col items-center h-auto gap-1 large:flex w-100'>
               
           
           {date && date.length > 1 &&
@@ -67,7 +68,7 @@ function Program(program) {
             >Show {moreDates ? "less" : "more"} dates <MdKeyboardArrowDown className={`text-20px ${moreDates ? "rotate-180" : ""}`}/></div>}
 
 
-            <div className='flex items-center justify-center gap-1 text-white cursor-pointer w-200px h-30px rounded-10 bg-crossLightPurple'
+            <div className='flex items-center justify-center gap-1 text-white cursor-pointer w-200px h-30px rounded-10 bg-crossLightPurple small:mt-1 large:mt-0'
             onClick={()=>{
 
               category && category.toLowerCase().includes("open executive") ? toggleOpenEnrollment(id) :
@@ -75,7 +76,7 @@ function Program(program) {
             }}
             >Enroll Now</div>
             
-            <Link to={`/our-courses/${id}`} className='flex items-center justify-center gap-1 text-black border w-200px border-crossLightPurple h-30px rounded-10'>More details</Link>
+            <Link to={`/our-courses/${id}`} className='flex items-center justify-center gap-1 text-black border w-200px border-crossLightPurple h-30px rounded-10 small:mt-1 large:mt-0'>More details</Link>
         </div>
 
 
