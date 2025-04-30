@@ -20,6 +20,7 @@ import { GrWorkshop } from "react-icons/gr";
 import { MdOutlineDescription } from "react-icons/md";
 import { MdOutlineViewModule } from "react-icons/md";
 import { CourseContentDownloadScreen } from "../../components/DownloadScreen/DownloadScreen";
+import { PHOTOS } from "../../assets/images";
 
 
 
@@ -206,23 +207,25 @@ function ProgramDetailsPage() {
   
 
   return (
-    <div className="relative flex flex-col items-center justify-start gap-5 large:mt-15 large:text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-17 small:text-13px">
+    <div className="relative flex flex-col items-center justify-start gap-5 large:mt-15 large:text-15px large:w-100vw large:h-auto small:w-100vw small:h-auto small:mt-12 small:text-13px">
       
-      <div className="flex flex-col items-start justify-center text-white large:gap-1 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-2 small:h-200px small:w-100vw">
+      <div className="flex small:flex-col-reverse items-center large:justify-center text-white large:gap-2 large:w-100vw large:h-500px small:px-0 large:p-0 small:gap-1 small:h-auto small:w-100vw crossLightPurple bg-crossLightPurple large:flex-row small:py-2 large:py-0">
         
-        <div className="absolute flex flex-col justify-center gap-2 large:pl-10 large:h-500px large:w-100vw small:w-100vw small:h-auto small:pl-2 bg-crossLightPurple small:py-2 large:py-0">         
+        <div className="flex flex-col justify-center gap-2 large:pl-0 large:h-500px large:w-50 small:w-100vw small:h-auto small:pl-2 bg-crossLightPurple small:py-2 large:py-0 large:relative large:-left-2">         
           
-          <h1 className="font-semibold large:text-35px large:w-60 large:leading-normal small:leading-5 small:w-80 small:text-17px">
+          <h1 className="font-semibold large:text-35px large:w-100 large:leading-normal small:leading-5 small:w-80 small:text-17px">
             {program && program.title.toUpperCase()}
             {loadingProgram && "Loading Course Details..."}
           </h1>
 
-          <p className="font-extralight large:w-50 small:w-90 small:text-11px large:text-15px">
+          {
+            !loadingProgram &&
+          <p className="font-extralight large:w-50 small:w-90 small:text-13px large:text-15px">
           {/* {program && program.description[0].toUpperCase()}
           {program && program.description.slice(1, 100)}... */}
           {summary && summary[0][0].toUpperCase()}
-          {summary && summary[0].slice(1)}
-          </p>
+          {summary && summary[0].slice(1, 80)}...
+          </p>}
 
 
           {loadingProgram &&
@@ -250,6 +253,11 @@ function ProgramDetailsPage() {
             <Link to={`/our-courses/edit/${programId}`} className="flex items-center justify-center w-auto gap-1 px-1 border rounded large:mt-3 small:mt-0 h-30px"> <CiEdit className="flex text-25px"/> Edit Course</Link>
           </div>}
         </div>
+
+        {
+            !loadingProgram &&
+          <img src={program && program.programBanner} alt="course banner" className="large:h-75 large:w-auto small:w-90vw small:h-auto large:relative large:-right-2"/>}
+
       </div>
 
 

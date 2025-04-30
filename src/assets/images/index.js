@@ -9,6 +9,10 @@ const PHOTOS = {
     hero_1: new URL("./hero_1.png", import.meta.url).href,
     about: new URL("./about.jpeg", import.meta.url).href,
 
+    program_banner1: new URL("./program_banner1.jpeg", import.meta.url).href,
+    program_banner2: new URL("./program_banner2.jpeg", import.meta.url).href,
+
+    
     about1: new URL("./about1.jpg", import.meta.url).href,
     about2: new URL("./about2.jpg", import.meta.url).href,
     about3: new URL("./about3.jpg", import.meta.url).href,
