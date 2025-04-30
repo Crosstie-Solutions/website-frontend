@@ -18,7 +18,7 @@ const HeroSlider = () => {
     
   
     return (
-      <div className="relative w-full h-[90vh] overflow-hidden">
+      <div className="relative w-full large:h-[90vh] overflow-hidden small:h-auto">
         <div
           className="flex transition-transform duration-1000 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -28,7 +28,7 @@ const HeroSlider = () => {
               key={index}
               src={src}
               alt={`slide-${index}`}
-              className="w-full h-[90vh] object-cover flex-shrink-0"
+              className="w-full large:h-[90vh] object-cover flex-shrink-0 small:h-auto"
             />
           ))}
         </div>

@@ -38,6 +38,7 @@ function AboutUsPage() {
         <MobileAboutButtonSwiper />
       </div>
 
+
       <div className="flex items-center justify-center large:h-350px large:mt-7 large:gap-0 small:flex-col-reverse large:flex-row small:w-90vw large:w-83vw small:gap-3 small:h-auto">
 
         <img src={PHOTOS.story} alt="logo"  className="shadow-lg large:w-25 large:h-auto small:h-auto small:w-80 "/>
