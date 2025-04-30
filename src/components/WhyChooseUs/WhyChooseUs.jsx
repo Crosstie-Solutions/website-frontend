@@ -33,64 +33,55 @@ function WhyChooseUs() {
         {/* Training Programmes */}
         
         
-        <div className='flex flex-wrap items-center justify-between h-auto large:flex-row w-100 small:flex-col small:gap-3 large:gap-2'>
+        <div className='flex flex-wrap small:items-center large:items-start justify-between h-auto large:flex-row w-100 small:flex-col small:gap-3 large:gap-3'>
             
-            <div className='flex flex-col justify-start gap-2 p-1 bg-white border border-crossIconBg large:w-30 h-450px text-15px rounded-20 small:w-100'>
+            <div className='flex flex-col justify-start gap-2 p-1 bg-white border border-crossIconBg large:w-30 h-auto text-15px rounded-20 small:w-100'>
                 
                 <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaBookOpen className='text-crossLightPurple text-50px'/></div>
                 
                 <h3 className='font-bold text-crossLightPurple'>Interactive Engaging Courses</h3>
                 
-                <p className='text-15px text-crossTextGray'>Experience alone is not enough for sustainable growth. You need a sharp strategy, fresh thinking, and leadership that adapts. Our <span className="text-black">interactive, engaging programs</span> are delivered by internationally certified instructors in an atmosphere that builds critical thinking, intensive learning, and transformation.
+                <p className='text-15px text-crossTextGray'>Experience alone does not guarantee long-term growth. What is required is clear strategy, fresh thinking, and agile leadership. Our immersive sessions, led by certified professionals, improve critical reasoning, deepen learning, and build meaningful transformation in a focused setting.
                 </p>
                 
                 
             </div>
 
-            <div className='flex flex-col justify-start gap-2 p-1 bg-white border large:h-450px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100'>
+            <div className='flex flex-col justify-start gap-2 p-1 bg-white border h-auto border-crossIconBg large:w-30 text-15px rounded-20 small:w-100 large:pb-5'>
                 
                 <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><PiCertificateLight className='text-crossLightPurple text-50px'/></div>
                 
                 <h3 className='font-bold text-crossLightPurple'>Recognized Certificates</h3>
                 
-                <p className='text-15px text-crossTextGray'>Credibility matters where change is constant, and our certification programs provide just that. We are certified by the <span className="text-black"> International Federation of Training and Development Organisations</span> (IFTDO) as a training and consultancy provider. And not only are our selection of courses broad and unrivalled, but they are also accredited by relevant professional bodies.</p>
+                <p className='text-15px text-crossTextGray'>Credibility matters where change is constant. Certified by IFTDO, our training programs offer unmatched, quality, accredited courses recognized by top professional bodies across various fields.</p>
                 
             </div>
 
-            <div className='flex flex-col justify-start gap-2 p-1 bg-white border border-crossIconBg large:w-30 h-450px text-15px rounded-20 small:w-100'>
+            <div className='flex flex-col justify-start gap-2 p-1 bg-white border border-crossIconBg large:w-30 h-auto text-15px rounded-20 small:w-100'>
                 
                 <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><RiTeamLine className='text-crossLightPurple text-50px'/></div>
 
                 <h3 className='font-bold text-crossLightPurple'>Team of knowledge experts</h3>
                 
-                <p className='text-15px text-crossTextGray'>At the core of Crosstie Solutions is a team of seasoned professionals: <span className="text-black">trainers, consultants, and strategists</span>  who bring practical experience and deep industry knowledge to every engagement. We have researched challenges common to over 100 different organisations. As a result, we are equipped with insights and expertise to proffer solutions tailored to your unique corporate needs. We don’t just teach best practices, we have lived them.</p>
+                <p className='text-15px text-crossTextGray'>Crosstie Solutions constitutes experienced trainers, consultants, and strategists who bring practical expertise to every engagement. With insights from over 100 organizations, we offer tailored solutions grounded in real-world experience, not just best practices.</p>
                 
                
             </div>
 
 
-
-
-
-
-
-
-
-
-
-            <div className='flex flex-col justify-start gap-2 p-1 bg-white border border-crossIconBg large:w-30 h-450px text-15px rounded-20 small:w-100'>
+            <div className='flex flex-col justify-start gap-2 p-1 bg-white border border-crossIconBg large:w-30 h-auto text-15px rounded-20 small:w-100'>
                 
                 <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><FaBookOpen className='text-crossLightPurple text-50px'/></div>
                 
                 <h3 className='font-bold text-crossLightPurple'>Solution Oriented</h3>
                 
-                <p className='text-15px text-crossTextGray'>Our consultation services are delivered from a standpoint of experience and utmost professionalism and tailored to your specific needs. We work with you to achieve your goal, as your success is our success. This ensures that you get the best value for your time and money.
+                <p className='text-15px text-crossTextGray'>Our consulting services are rooted in experience and delivered with professionalism. We tailor every solution to your specific needs, working closely with you to ensure meaningful results and the best value for your investment.
                 </p>
                 
                 
             </div>
 
-            <div className='flex flex-col justify-start gap-2 p-1 bg-white border large:h-450px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100'>
+            <div className='flex flex-col justify-start gap-2 p-1 bg-white border h-auto border-crossIconBg large:w-30 text-15px rounded-20 small:w-100'>
                 
                 <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><PiCertificateLight className='text-crossLightPurple text-50px'/></div>
                 
@@ -100,14 +91,14 @@ function WhyChooseUs() {
                 
             </div>
 
-            <div className='flex flex-col justify-start gap-2 p-1 bg-white border border-crossIconBg large:w-30 h-450px text-15px rounded-20 small:w-100'>
+            <div className='flex flex-col justify-start gap-2 p-1 bg-white border border-crossIconBg large:w-30 h-auto text-15px rounded-20 small:w-100'>
                 
                 <div className='flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px'><RiTeamLine className='text-crossLightPurple text-50px'/></div>
 
                 <h3 className='font-bold text-crossLightPurple'>People-Powered Performance</h3>
                 
                 <p className='text-15px text-crossTextGray'>Your strategy succeeds or fails on one thing: people.
-                  Our approach connects executive-level strategy and frontline actions. We help organisations align leadership, enhance culture, and improve talent not just for today, but for long-term performance. From restructuring teams to resetting culture, we co-create solutions that bring clarity, accountability, and engagement across teams.
+                We connect executive strategy to frontline action, aligning leadership, culture, and talent for lasting performance. Together, we co-create solutions that bring clarity, accountability, and engagement.
                   </p>
                 
                
