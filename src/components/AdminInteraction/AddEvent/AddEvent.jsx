@@ -9,6 +9,9 @@ function AddEvent() {
 
     const { baseUrl, setLoading } = useContext(CrossContext);
 
+    const maxImageSize = 2 * 1024 * 1024; //to limit images to 2MB in bytes
+    const [imageSizeErrors, setImageSizeErrors] = useState("");
+
 
       const [title, setTitle] = useState('');
       const [client, setClient] = useState('');
@@ -26,6 +29,20 @@ function AddEvent() {
 
         const previewUrls = selectedFiles.map((file) => URL.createObjectURL(file));
         setPreviews(previewUrls);
+
+
+        //to check images size (1mb max)
+        const allFiles = Array.from(e.target.files);
+        for (let file of allFiles) {
+          if (file.size > maxImageSize) {
+            setImageSizeErrors(
+              `File ${file.name} is too large. Max. image size is 2MB.`
+            );
+            return;
+          }
+        }
+
+        setImageSizeErrors(""); // Clear error if all files are okay
       };
       
       
@@ -178,6 +195,7 @@ if (noError) {
             </div>
 
             <p className='text-vogueRed'>{eventErrors && eventErrors.eventImages}</p>
+            <p className='text-vogueRed'>{imageSizeErrors && imageSizeErrors}</p>
         </div>
 
 
