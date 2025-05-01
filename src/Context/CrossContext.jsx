@@ -1003,8 +1003,10 @@ const toggleBio = async (index)=>{
 
 // blogPost
 //blog posts 
-const [allBlogPosts, setAllBlogPosts] = useState();
+const [blogPosts, setBlogPosts] = useState();
 const [loadingAllBlogPosts, setLoadingAllBlogPosts] = useState(false);
+
+const allBlogPosts = blogPosts && blogPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
 console.log("allBlogPosts:", allBlogPosts)
 
@@ -1014,7 +1016,7 @@ const viewAllBlogPosts = async () => {
     setLoadingAllBlogPosts(true)
     const response = await axios.get(`${baseUrl}/api/blog`);
 
-    setAllBlogPosts(response.data.data.data);
+    setBlogPosts(response.data.data.data);
   } catch (dupError) {
     console.log("error fetching all BlogPosts:", dupError);
   }finally{
