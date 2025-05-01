@@ -22,10 +22,13 @@ function BlogPage() {
 
     
   return (
-    <div className='flex flex-col items-start p-2 mt-20 bg-white w-83vw rounded-10'>
+    <div className='flex flex-col gap-2 pt-1 pb-5 bg-white large:items-start large:p-2 large:mt-20 large:w-83vw rounded-10 small:w-90vw small:mt-13 small:items-center'>
+
+      <h2 className='font-semibold text-center w-100 large:text-30px text-crossDarkPurple small:text-20px'>Blog</h2>
       
      <div className='flex flex-row items-start justify-between h-auto w-100'>
-        <div className='flex flex-col items-center justify-center h-auto gap-3 w-70'>
+        
+        <div className='flex flex-col items-center justify-center h-auto gap-3 large:w-70 small:w-100'>
           {
               currentBlogPosts && currentBlogPosts.map((post, i)=>
                   <SecondBlogPost 
@@ -46,7 +49,7 @@ function BlogPage() {
         </div>
 
 
-        <div className='h-auto w-25'>
+        <div className='h-auto w-25 large:flex small:hidden'>
           <BlogSideBar />
         </div>
      </div>

@@ -24,7 +24,7 @@ function CaseStudy(post) {
 
       <div className="flex flex-row justify-between h-auto w-100 text-crossTextGray">
         <div>Case Study</div>
-        <div>{date}</div>
+        <div>{date && date}</div>
       </div>
 
       <h3 className="font-semibold">
@@ -54,25 +54,26 @@ function SecondCaseStudy(post) {
   const {formatDate} = useContext(CrossContext);
   
   return (
-    <div className="flex items-start h-auto gap-2 px-1 py-1 border small:flex-col large:w-100 border-crossIconBg rounded-10 small:w-100 large:flex-row">
+    <div className="flex items-start h-auto gap-2 px-1 border large:py-1 small:flex-col large:w-100 border-crossIconBg rounded-10 small:w-100 large:flex-row small:py-2">
       
       <img
         src={caseStudyImage}
         alt="blog image"
-        className="large:w-auto h-200px rounded-5"
+        className="large:w-30 large:h-200px rounded-5 small:h-250px small:w-100"
       />
 
-      <div className="flex flex-col items-start h-auto gap-2 w-60">
-        <div className="flex flex-row justify-between h-auto w-100 text-crossTextGray">
+      <div className="flex flex-col items-start h-auto gap-2 large:w-60 small:w-100">
+        
+        <div className="flex-row justify-between h-auto large:flex w-100 text-crossTextGray small:hidden">
           <div>Case Study</div>
-          <div>{formatDate(date)}</div>
+          <div>{date && date}</div>
         </div>
 
         <h3 className="font-semibold">
           {title}
         </h3>
 
-        <p className="text-crossTextGray">
+        <p className="text-crossTextGray large:flex small:hidden">
           {challenge.slice(0, 80)}...
         </p>
 

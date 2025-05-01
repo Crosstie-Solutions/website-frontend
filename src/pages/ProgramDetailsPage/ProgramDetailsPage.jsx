@@ -22,7 +22,8 @@ import { MdOutlineViewModule } from "react-icons/md";
 import { CourseContentDownloadScreen } from "../../components/DownloadScreen/DownloadScreen";
 import { PHOTOS } from "../../assets/images";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
-
+import { TbTimeDuration45 } from "react-icons/tb";
+import { LuAlarmClock } from "react-icons/lu";
 
 
 
@@ -220,7 +221,7 @@ function ProgramDetailsPage() {
 
 
   // to split paragraph
-  function splitParagraphByFullStops(text, limit = 3) {
+  function splitParagraphByFullStops(text, limit = 2) {
     const sentences = text.split('.').map(s => s.trim()).filter(Boolean);
     const paragraphs = [];
   
@@ -259,11 +260,11 @@ function ProgramDetailsPage() {
 
           {
             !loadingProgram &&
-          <p className="font-extralight large:w-50 small:w-90 small:text-13px large:text-15px">
+          <p className="font-extralight large:w-90 small:w-90 small:text-13px large:text-17px">
           {/* {program && program.description[0].toUpperCase()}
           {program && program.description.slice(1, 100)}... */}
           {summary && summary[0][0].toUpperCase()}
-          {summary && summary[0].slice(1, 80)}...
+          {summary && summary[0].slice(1)}
           </p>}
 
 
@@ -496,6 +497,15 @@ function ProgramDetailsPage() {
                   )
                 }            
               </ul>
+          </div>}
+
+
+          {program && !program.category.toLowerCase().includes('open') &&
+          <div className="flex flex-col items-center justify-center h-auto gap-2 pb-2 bg-white w-100">
+          
+          
+            <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple w-100"><LuAlarmClock className="text-20px" /> Duration</h4>
+              <p className="pl-2 text-left w-100">{program && program.duration}</p>
           </div>}
 
           

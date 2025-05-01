@@ -24,7 +24,7 @@ function OurInsights() {
         </div>
         <h3 className="font-bold text-25px">Expert Knowledge Shared</h3>
         <p className="text-15px text-crossTextGray">
-        Hear How Crosstie’s Training and Consulting Services Transformed Participants and Organisations</p>
+        Get Pro Knowledge from Leaders in the Industry</p>
       </div>
 
 

@@ -443,7 +443,7 @@ const leaders = [
   {
     name: "Olufunmilayo Olaniyi",
     image: '',
-    role: `Senior Vice President of Business Development at Flutterwave`,
+    role: `Business Development and Client Relations Expert`,
     type: "facultyMember",
     bio: ``,
     link: ``

@@ -50,29 +50,29 @@ function SecondBlogPost(post) {
   const {formatDate} = useContext(CrossContext);
   
   return (
-    <div className="flex items-start h-auto gap-2 px-1 py-1 border small:flex-col large:w-100 border-crossIconBg rounded-10 small:w-100 large:flex-row">
+    <div className="flex flex-row items-start h-auto py-1 border large:gap-2 large:px-1 large:w-100 border-crossIconBg rounded-10 small:w-100 small:gap-1">
       
       <img
         src={blogImage}
         alt="blog image"
-        className="large:w-40 h-200px rounded-5"
+        className="small:h-150px large:w-40 large:h-200px rounded-5 small:w-60"
       />
 
-      <div className="flex flex-col items-start h-auto gap-2 w-60">
-        <div className="flex flex-row justify-between h-auto w-100 text-crossTextGray">
+      <div className="flex flex-col items-start h-auto gap-2 large:w-60 small:w-100">
+        <div className="flex-row justify-between h-auto large:flex w-100 text-crossTextGray small:hidden">
           <div>Article</div>
           <div>{formatDate(createdAt)}</div>
         </div>
 
-        <h3 className="font-semibold">
+        <h3 className="font-semibold w-100 small:text-13px large:text-20px small:pr-0.5 large:pr-0">
           {title}
         </h3>
 
-        <p className="text-crossTextGray">
+        <p className="text-crossTextGray small:hidden large:flex">
           {preview}...
         </p>
 
-        <Link className="flex flex-row items-center justify-center w-auto gap-1 text-crossLightPurple"
+        <Link className="flex flex-row items-center justify-center w-auto gap-1 text-crossLightPurple large:text-15px small:text-13px"
         to={`/blog/${postId}`}
         >
           Read More <GoArrowRight className="text-18px"/>

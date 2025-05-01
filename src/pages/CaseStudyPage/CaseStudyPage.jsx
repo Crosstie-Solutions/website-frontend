@@ -28,7 +28,9 @@ function CaseStudyPage() {
     
     
   return (
-    <div className='flex flex-col items-center p-2 mt-20 bg-white w-83vw rounded-10'>
+    <div className='flex flex-col items-center gap-2 pt-2 pb-5 bg-white large:mt-20 large:p-2 large:w-83vw rounded-10 small:w-90vw small:mt-13'>
+
+      <h2 className='font-semibold text-center w-100 large:text-30px text-crossDarkPurple small:text-20px'>Case Studies</h2>
       
      <div className='flex flex-row items-start justify-between h-auto w-100'>
         <div className='flex flex-col items-center justify-center h-auto gap-3 w-100'>
@@ -55,7 +57,7 @@ function CaseStudyPage() {
 
       {/* Pagination */}
            {allCaseStudies && allCaseStudies.length > 0 && (
-             <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
+             <div className="flex items-center justify-between h-auto gap-3 large:w-50 small:w-80">
                <button
                  className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
                  disabled={currentCaseStudiesPage === 1}
