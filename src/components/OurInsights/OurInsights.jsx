@@ -22,9 +22,9 @@ function OurInsights() {
           OUR INSIGHTS
           </h5>
         </div>
-        <h3 className="font-bold text-25px">Get Pro Knowledge From Leaders In The Industry</h3>
+        <h3 className="font-bold text-25px">Expert Knowledge Shared</h3>
         <p className="text-15px text-crossTextGray">
-        Explore valuable contents and updates industry trends and solutions</p>
+        Get pro knowledge from leaders in the industry</p>
       </div>
 
 
