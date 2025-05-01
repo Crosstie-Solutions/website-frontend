@@ -32,10 +32,10 @@ function AboutHero(props) {
           {line1 ? line1 : "We Train. We Advise. We Transform"}
         </p>}
 
-        {window.location.pathname==='/about-us/' &&         
+        {/* {window.location.pathname==='/about-us/' &&         
         <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
           {line1 ? line1 : "We Train. We Advise. We Transform"}
-        </p>}
+        </p>} */}
 
         {window.location.pathname==='/about-us/our-story' &&         
         <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
