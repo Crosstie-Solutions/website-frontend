@@ -26,9 +26,9 @@ function AboutHero(props) {
           {tag ? tag : "About Us"}
         </h1>}
         
-        {!window.location.pathname.includes('satisfaction') && !window.location.pathname.includes('executive') && !window.location.pathname.includes('sales') && !window.location.pathname.includes('employee') && !window.location.pathname==='/our-courses/' &&
+        {!window.location.pathname.includes('satisfaction')  &&
         
-        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px">
+        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
           {line1 ? line1 : "We Train. We Advise. We Transform"}
         </p>}
 
@@ -84,10 +84,10 @@ function AboutHero(props) {
 
 
           {/* just for team bonding */}
-        {window.location.pathname.includes('bonding') &&         
+        {/* {window.location.pathname.includes('bonding') &&         
         <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px">
           {line1 ? line1 : "We Train. We Advise. We Transform"}
-        </p>}
+        </p>} */}
 
         {!window.location.pathname.includes('satisfaction') &&
         <h1 class="large:text-18px large:w-90 large:leading-8 small:leading-5  small:w-100 small:text-17px">

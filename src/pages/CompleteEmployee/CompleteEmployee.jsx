@@ -66,6 +66,7 @@ function CompleteEmployee() {
       <AboutHero 
         tag={title}
         buttonText="Download CES Course Brochure"
+        line1= "Comprehensive. Structured. Growth-Focused"
         line2 = "Transform your entire workforce through a level-centric training methodology to implement all-around growth and development."
       />
 

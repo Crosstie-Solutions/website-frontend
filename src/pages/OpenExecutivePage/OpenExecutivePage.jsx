@@ -67,6 +67,7 @@ function OpenExecutivePage() {
       <AboutHero 
         tag={title}
         buttonText="Download OEP Course Brochure"
+        line1= "Adaptable. Collaborative. Designed for Growth."
         line2= "Flexible training options for small and medium-sized organisations with limited staff in specific roles, as well as professionals seeking to learn and network with peers across their industry."
 
       />

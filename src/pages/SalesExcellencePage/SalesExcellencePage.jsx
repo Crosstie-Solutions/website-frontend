@@ -70,6 +70,7 @@ function SalesExcellencePage() {
     <AboutHero 
       tag={title}
       buttonText="Download SES Course Brochure"
+       line1= "Mastery. Impact. Performance-Driven"
       line2= "Deploy the highest level of sales mastery skills to your sales force that transforms them into high-performing revenue generators and relationship experts."
     />
       
