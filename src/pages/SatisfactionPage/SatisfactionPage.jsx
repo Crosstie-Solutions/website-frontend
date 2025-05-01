@@ -161,23 +161,25 @@ function SatisfactionPage() {
               At Crosstie Solutions, we are driven by one goal: delivering
               transformational services that not only meet your expectations but
               help you grow. Every solution that we offer is carefully crafted
-              with your success in mind. 
-              
+              with your success in mind. Your satisfaction isn’t just a goal. It
+              is our commitment.
             </p>
 
-            <p className="text-crossTextGray"> Your satisfaction isn’t just a goal. It
-              is our commitment. We may meet in person at different levels of
+            <p className="text-crossTextGray"> We may meet in person at different levels of
               our engagement with you, and at such times, sharing your feedback
               on your experience with us is expected. If, however, we do not
               have the opportunity to meet physically, and you have hit a
               roadblock with finding the help you need through our usual
               support, know that as CEO, I take full responsibility for your
-              experience. </p>
+              experience. I am here to ensure you are heard and supported.
+              Please reach out to me directly at <a 
+              target='_blank'
+              href="mailto:adebayo.adegun@crosstiesolutions.com"
+              className="text-crossBlue"
+              >adebayo.adegun@crosstiesolutions.com</a>.</p>
 
             
-            <p className="text-crossTextGray">I am here to ensure you are heard and supported.
-              Please reach out to me directly at
-              adebayo.adegun@crosstiesolutions.com. Thank you for choosing
+            <p className="text-crossTextGray">Thank you for choosing
               Crosstie. I hope you enjoy your learning journey with us, and I am
               confident that you will leave every engagement with real
               transformation, continued excellence and exceptional experience.</p>
