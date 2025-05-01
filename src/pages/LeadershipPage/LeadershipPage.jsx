@@ -69,7 +69,7 @@ function LeadershipPage() {
           {/* The Crosstie Team */}
           <div className="flex flex-col items-center h-auto gap-2 w-100">
             <h4 className="py-1 pl-1 font-semibold text-white border-l-4 bg-crossTextGray text-20px w-100 border-crossYellow">The Crosstie Team</h4>
-            <div className="flex flex-row flex-wrap justify-center h-auto gap-3 w-100">
+            <div className="flex flex-row flex-wrap justify-center h-auto large:gap-5 small:gap-3 w-100">
 
               {
                 teamMembers && teamMembers.map((member, i)=>{
@@ -82,7 +82,7 @@ function LeadershipPage() {
                     type={member.type}
                     bio={member.bio}
                     link={member.link}
-                    index = {i + 1}
+                    index = {member.name}
                   />
                   )
                 })
@@ -110,7 +110,7 @@ function LeadershipPage() {
                     type={member.type}
                     bio={member.bio}
                     link={member.link}
-                    index = {i + 1}
+                    index = {member.name}
                   />
                   )
                 })

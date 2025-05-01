@@ -82,7 +82,7 @@ function OurSolutions() {
                         <h3 className='font-bold text-crossLightPurple'>Executive Leadership 
                         Programmes (ELP)</h3>
                         
-                        <p className='text-15px text-crossTextGray'>Designed for leaders at all levels, these premium two—to three-day programs explore strategy, influence, and decision-making. They blend expert-led sessions with real case studies and optional coaching to reinforce lasting, effective leadership.</p>
+                        <p className='text-15px text-crossTextGray'>Designed for leaders at all levels, these premium two-to three-day programs explore strategy, influence, and decision-making. They blend expert-led sessions with real case studies and optional coaching to reinforce lasting, effective leadership.</p>
                         
                     </Link>
 

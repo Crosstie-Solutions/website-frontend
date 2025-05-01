@@ -17,7 +17,7 @@ function ConsultingCaseStudy() {
         <div className="flex flex-col h-auto gap-0.5 w-100">
           <div className="flex items-center w-auto h-auto gap-1">
             <hr className="h-2px w-40px bg-crossLightPurple" />
-            <h5 className="text-crossLightPurple text-15px">Get to know more</h5>
+            <h5 className="text-crossLightPurple text-15px">Get To Know More</h5>
           </div>
           <h3 className="font-bold text-20px">Case Studies</h3>
           <p className="text-15px text-crossTextGray">

@@ -70,11 +70,7 @@ function CustomizedTrainingPage() {
             For Crosstie Solutions, offering customised training means creating a strong bond with clients.
             </p>
 
-            <ul className="list-disc text-crossLightPurple">
-              <li>Bridge Your Skills gap</li>
-              <li>Align with business objectives</li>
-              <li>Boost employee engagement</li>
-            </ul>
+            
           </div>
 
           <hr className="large:w-2px large:h-700px bg-crossTextGray small:h-2px small:w-250px"/>
@@ -151,7 +147,7 @@ function CustomizedTrainingPage() {
           </div>
           <h3 className="font-bold text-25px">Our Learning Options</h3>
           <p className="text-15px text-crossTextGray">
-            Delve Into our Weekly Insights, Crafted By The Best Of Bests
+          Your Learning, Your Pace. Choose Structure or Flexibility.
           </p>
         </div>
 
@@ -188,7 +184,7 @@ function CustomizedTrainingPage() {
             Classroom Training
             </h3>
 
-            <p className="text-center text-13px text-crossTextGray">
+            <p className="text-center text-13px text-crossTextGray"> Focused. Immersive. Practical.
             Some skills are best built face-to-face. Our Classroom Training programs offer an immersive, distraction-free environment where teams can engage deeply, collaborate and walk away with practical skills they can apply immediately.
             </p>
 

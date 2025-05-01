@@ -91,13 +91,12 @@ function OurStoryPage() {
         
         <h3 className="font-bold text-20px">Our Journey</h3>
         
-        <p className="text-crossTextGray">The early years weren’t easy. In fact, the first three years nearly broke us. <span className="font-semibold">Crosstie Solutions</span> fought a constant battle to survive as financial pressure threatened to shut us down more than once. Resources were scarce, but the dream stayed alive.
-        For the first few years, we worked mostly with schools. No major deals.
-        From inception, we had five different arms, but we needed focus. A brand audit revealed what people knew us for: <span className="font-semibold">training</span>.</p>
+        <p className="text-crossTextGray">The early years weren’t easy. In fact, the first three years nearly broke us. <span className="font-semibold">Crosstie Solutions</span> fought a constant battle to survive as financial pressure threatened to shut us down more than once. Resources were scarce, but the dream stayed alive. For the first few years, we worked mostly with schools. No major deals.
+        </p>
 
-        <p className="text-crossTextGray">This insight helped us refine our identity and opened new doors. One of our first breakthroughs came in 2016 with a training engagement for the Nigerian Mortgage Refinance Company (NMRC), followed by Cambridge University Press. That same year, triumph started to feel real - we collaborated with training firms to deliver training sessions to GTBank, Stanbic IBTC, Seplat Petroleum and a few more.</p>
+        <p className="text-crossTextGray">From inception, we had five different arms, but we needed focus. A brand audit revealed what people knew us for: <span className="font-semibold">training</span>. This insight helped us refine our identity and opened new doors. One of our first breakthroughs came in 2016 with a training engagement for the Nigerian Mortgage Refinance Company (NMRC), followed by Cambridge University Press. That same year, triumph started to feel real - we collaborated with training firms to deliver training sessions to GTBank, Stanbic IBTC, Seplat Petroleum and a few more.</p>
 
-        <p className="text-crossTextGray">By <span className="font-semibold">2018</span>, our reach expanded. In partnership with ICF Nigeria, we brought <span className="font-semibold">Tamiko Sher</span> to the country and hosted our very first leadership conference featuring <span className="font-semibold">Brigette Hyacinth</span>, with over <span className="font-semibold">150 top HR professionals and business leaders</span> in attendance. A milestone that proved we were no longer small players.</p>
+        <p className="text-crossTextGray">By <span className="font-semibold">2018</span>, our reach expanded. In partnership with ICF Nigeria, we brought <span className="font-semibold">Tamiko Cuellar</span> to the country and hosted our very first leadership conference featuring <span className="font-semibold">Brigette Hyacinth</span>, with over <span className="font-semibold">150 top HR professionals and business leaders</span> in attendance. A milestone that proved we were no longer small players.</p>
         
         
         <p className="text-crossTextGray">In 2019, we developed our first professional certificate program <span className="font-semibold">2018</span> and endorsed it with the International Federation of Training and Development Organisations <span className="font-semibold">(IFTDO)</span>.</p>
@@ -116,7 +115,7 @@ function OurStoryPage() {
 
         <p className="text-crossTextGray">We have crossed the shores of Lagos to bring our consulting services and training programs to over <span className="font-semibold">12 industries nationwide.</span> Every step, every inch of growth has been earned through perseverance and an unwavering commitment to <span className="font-semibold">transforming professional spaces.</span></p>
 
-        <p className="text-crossTextGray">But we’re not finished yet. We know we are not where we want to be. <span className="font-semibold">Growth is constant</span> and <span className="font-semibold">Growth is constant</span>, and we are still learning, evolving, and expanding. We have more goals to accomplish, more lives to impact, and more stories to tell. Slowly, but surely, we are unveiling them, one step at a time.</p>
+        <p className="text-crossTextGray">But we’re not finished yet. We know we are not where we want to be. <span className="font-semibold">Growth is constant</span>, and we are still learning, evolving, and expanding. We have more goals to accomplish, more lives to impact, and more stories to tell. Slowly, but surely, we are unveiling them, one step at a time.</p>
 
         <p className="text-crossTextGray">We haven’t told our story as often as we should… <span className="font-semibold">on social media, in press releases, or grand announcements</span>. But that’s changing now. <span className="font-semibold">Every day</span> we’re building on the foundation we’ve laid, taking pride in how far we’ve come, and excited about where we’re headed.</p>
 
@@ -128,9 +127,9 @@ function OurStoryPage() {
 
 
 
-      <div className="flex items-center justify-center h-auto large:mt-2 large:gap-2 small:flex-col-reverse large:flex-col w-83vw small:gap-1">
+      <div className="flex items-center justify-center h-auto large:mt-2 large:gap-2 small:flex-col large:flex-col w-83vw small:gap-1">
 
-      <h2 className="font-bold text-20px">Our Journey In Visual</h2>
+      <h2 className="font-bold small:text-20px large:text-35px">Our Journey In Visual</h2>
       
         <img
           src={PHOTOS.journey}

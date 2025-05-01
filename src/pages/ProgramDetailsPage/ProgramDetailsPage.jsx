@@ -78,7 +78,7 @@ function ProgramDetailsPage() {
       setCatRoute("")
     }
 
-    if(program && program.category.toLowerCase().includes("executive")){
+    if(program && program.category.toLowerCase().includes("leadership")){
       setCatRoute("executive-leadership")
     }
 
@@ -93,7 +93,7 @@ function ProgramDetailsPage() {
     if(program && program.category.toLowerCase().includes("bonding")){
       setCatRoute("team-bonding")
     }
-  }, [programId, program, location])
+  }, [programId, program])
   
   
 
@@ -295,7 +295,7 @@ function ProgramDetailsPage() {
 
         {
             !loadingProgram &&
-          <img src={program && program.programBanner} alt="course banner" className="large:h-75 large:w-auto small:w-90vw small:h-auto large:relative large:-right-2 small:mt-3"/>}
+          <img src={program && program.programBanner} alt="course banner" className="large:h-75 large:w-auto small:w-70vw small:h-auto large:relative large:-right-2 small:mt-3"/>}
 
       </div>
 

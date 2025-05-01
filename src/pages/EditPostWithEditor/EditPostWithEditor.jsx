@@ -1,6 +1,7 @@
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
+import Image from '@tiptap/extension-image';
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate, Link as RouterLink } from 'react-router-dom';
@@ -22,7 +23,13 @@ function EditPostWithEditor() {
   const [existingImage, setExistingImage] = useState('');
 
   const editor = useEditor({
-    extensions: [StarterKit, Link],
+     extensions: [
+          StarterKit,
+          Link.configure({
+            openOnClick: false,
+          }),
+          Image,
+        ],
     content: '<p>Loading...</p>',
   });
 
@@ -43,6 +50,30 @@ function EditPostWithEditor() {
       fetchPost();
     }
   }, [editor, postId, baseUrl]);
+
+
+  const addImage = async () => {
+      
+      const fileInput = document.createElement('input');
+      fileInput.type = 'file';
+      fileInput.accept = 'image/*';
+  
+      fileInput.onchange = async () => {
+        const file = fileInput.files[0];
+        const formData = new FormData();
+        formData.append('image', file);
+  
+        try {
+          const res = await axios.post(`${baseUrl}/api/blog/blog-content-image`, formData);
+          const imageUrl = res.data.url;
+          editor.chain().focus().setImage({ src: imageUrl }).run();
+        } catch (err) {
+          toast.error(err.response.data.message);
+        }
+      };
+  
+      fileInput.click();
+    };
 
 
   //to update the post
@@ -72,6 +103,7 @@ function EditPostWithEditor() {
 
     try {
         setLoading(true);
+        window.scrollTo({ top: 0, behavior: "auto" });
         
      const response = await axios.patch(`${baseUrl}/api/blog/${postId}`, formData);
        
@@ -148,6 +180,7 @@ function EditPostWithEditor() {
           >
             Add Link
           </button>
+          <button onClick={addImage} className="btn">Insert Image</button>
         </div>
       )}
 

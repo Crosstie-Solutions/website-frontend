@@ -32,6 +32,56 @@ function AboutHero(props) {
           {line1 ? line1 : "We Train. We Advise. We Transform"}
         </p>}
 
+        {window.location.pathname==='/about-us/' &&         
+        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
+          {line1 ? line1 : "We Train. We Advise. We Transform"}
+        </p>}
+
+        {window.location.pathname==='/about-us/our-story' &&         
+        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
+          {line1 ? line1 : "We Train. We Advise. We Transform"}
+        </p>}
+
+        {window.location.pathname==='/about-us/leadership' &&         
+        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
+          {line1 ? line1 : "We Train. We Advise. We Transform"}
+        </p>}
+
+        {window.location.pathname==='/about-us/our-clients' &&         
+        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
+          {line1 ? line1 : "We Train. We Advise. We Transform"}
+        </p>}
+
+        {window.location.pathname==='/about-us/feedbacks' &&         
+        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
+          {line1 ? line1 : "We Train. We Advise. We Transform"}
+        </p>}
+
+        {window.location.pathname==='/about-us/crosstie-photos' &&         
+        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
+          {line1 ? line1 : "We Train. We Advise. We Transform"}
+        </p>}
+
+        {window.location.pathname==='/our-solutions/' &&         
+        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
+          {line1 ? line1 : "We Train. We Advise. We Transform"}
+        </p>}
+
+        {window.location.pathname==='/our-solutions/management-consulting' &&         
+        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
+          {line1 ? line1 : "We Train. We Advise. We Transform"}
+        </p>}
+
+        {window.location.pathname==='/our-solutions/customized-training' &&         
+        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
+          {line1 ? line1 : "We Train. We Advise. We Transform"}
+        </p>}
+
+        {window.location.pathname==='/our-solutions/webinars' &&         
+        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
+          {line1 ? line1 : "We Train. We Advise. We Transform"}
+        </p>}
+
 
           {/* just for team bonding */}
         {window.location.pathname.includes('bonding') &&         
@@ -53,12 +103,12 @@ function AboutHero(props) {
         </h1>}
 
         {window.location.pathname.includes('satisfaction') &&
-        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px">
+        <p className="font-normal large:w-90 small:w-100 small:text-13px large:text-17px text-crossLightPurple">
         Zero Risk. Total Confidence. Guaranteed Peace of Mind.
         </p>}
 
         {window.location.pathname.includes('satisfaction') &&
-        <h1 class="large:text-20px large:w-70 large:leading-8 small:leading-5 font-semibold small:w-100 small:text-17px">
+        <h1 class="large:text-18px large:w-70 large:leading-8 small:leading-5  small:w-100 small:text-17px">
         We stand behind everything we offer. No hassles, just our commitment to your satisfaction.
         </h1>}
 

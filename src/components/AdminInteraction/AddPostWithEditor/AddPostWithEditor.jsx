@@ -1,6 +1,7 @@
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
+import Image from '@tiptap/extension-image';
 import axios from 'axios';
 import { useContext, useState } from 'react';
 import { CrossContext } from '../../../Context/CrossContext';
@@ -20,6 +21,12 @@ function AddPostWithEditor() {
       Link.configure({
         openOnClick: false,
       }),
+      Image,
+      // Image.configure({
+      //   HTMLAttributes: {
+      //     class: 'float-image',
+      //   },
+      // })
     ],
     content: '<p>Start writing your blog post...</p>',
   });
@@ -30,6 +37,31 @@ function AddPostWithEditor() {
       editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
     }
   };
+
+  
+  const addImage = async () => {
+    
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+
+    fileInput.onchange = async () => {
+      const file = fileInput.files[0];
+      const formData = new FormData();
+      formData.append('image', file);
+
+      try {
+        const res = await axios.post(`${baseUrl}/api/blog/blog-content-image`, formData);
+        const imageUrl = res.data.url;
+        editor.chain().focus().setImage({ src: imageUrl }).run();
+      } catch (err) {
+        toast.error(err.response.data.message);
+      }
+    };
+
+    fileInput.click();
+  };
+  
 
   const handleSubmit = async () => {
     // if (!title || !blogImage || !editor) return alert('Please fill in all fields');
@@ -44,6 +76,8 @@ function AddPostWithEditor() {
 
     try {
         setLoading(true)
+        window.scrollTo({ top: 0, behavior: "auto" });
+        
       const response = await axios.post(`${baseUrl}/api/blog`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
@@ -92,6 +126,7 @@ function AddPostWithEditor() {
           <button onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} className="btn">H2</button>
           <button onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} className="btn">H3</button>
           <button onClick={addLink} className="btn">Insert Link</button>
+          <button onClick={addImage} className="btn">Insert Image</button>
         </div>
       )}
 

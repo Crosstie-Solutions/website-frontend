@@ -58,10 +58,11 @@ function BlogPostDetails() {
 
     
   return (
-    <div className='flex flex-col items-center h-auto gap-5 border large:mt-17 w-100vw text-15px small:mt-12'>
+    <div className='flex flex-col items-center h-auto gap-5 pb-5 bg-white border large:mt-17 w-100vw text-15px small:mt-12'>
       
       {/* heading and image */}
       <div className='flex items-center justify-center text-white bg-crossLightPurple w-100 large:h-400px large:flex-row small:flex-col-reverse small:gap-2 large:gap-0 small:pb-2 large:pb-0'>
+        
         
       {!loadingPost &&
         <div className='flex flex-col justify-center h-auto gap-2 large:items-start large:w-50 large:pl-10 large:pr-5 small:w-90vw small:items-center'>
@@ -96,7 +97,8 @@ function BlogPostDetails() {
         </div>}
 
         {!loadingPost &&
-        <img src={post && post.blogImage} alt="blog post image" className='large:w-50 large:h-100 small:w-100vw small:h-auto'/>}
+        <img src={post && post.blogImage} alt="blog post image" className='large:w-50 large:h-100 small:w-100vw small:h-250px'/>}
+       
         
         {loadingPost && <p className='font-semibold large:text-25px small:text-17px'>Loading article...</p>}
       </div>

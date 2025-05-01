@@ -172,7 +172,7 @@ const leaders = [
     role: "Lead Partner & CEO",
     type: "director",
     bio: `Adebayo Adegun, known as "The Impacter," is a seasoned Trainer and OD Consultant with 15+ years of experience. He’s led major consulting projects and trained over 5,000 employees across industries. As CEO of Crosstie Solutions, Adebayo partners with top organisations. His expertise includes leadership development, succession planning, and culture transformation. He holds advanced degrees in Managerial Psychology and Organisational Leadership.`,
-    link: `https://www.google.com`
+    link: `https://www.linkedin.com/in/iamtheimpacter/`
   },
 
   {
@@ -219,8 +219,8 @@ const leaders = [
     image: leadersImages[2],
     role: "Associate, Learning & Development",
     type: "teamMember",
-    bio: `No Bio`,
-    link: `https://www.google.com`
+    bio: `Peter Bello is a learning and development professional with 5+ years of experience designing training programs across pensions, insurance, and energy sectors. At Crosstie Solutions, he builds impactful content focused on customer service, business development, and team performance. He ensures training delivery meets real workplace needs. Outside work, Peter finds balance in fitness, music, and reflection, constantly seeking growth in all aspects of life.`,
+    link: `https://www.linkedin.com/in/peterolusholabello-8980bb177/`
   },
 
   {
@@ -229,7 +229,7 @@ const leaders = [
     role: "Associate, Business Development & Client Relations",
     type: "teamMember",
     bio: `Promise Essien is a versatile Business Development and Client Relationship Professional with experience across consulting, healthcare, education, and real estate in Nigeria and the UK. With a B.Sc. in Microbiology, she transitioned from the medical field to marketing and sales. She’s our Associate, Business Development and Client Relations, responsible for lead generation, prospect management and client relations. She contributes to digital marketing, strategic planning, and content creation.`,
-    link: `https://www.google.com`
+    link: `https://www.linkedin.com/in/promise-essien-907410249/`
   },
 
   {
@@ -237,8 +237,9 @@ const leaders = [
     image: leadersImages[4],
     role: "Analyst, Organisational Development",
     type: "teamMember",
-    bio: `No Bio`,
-    link: `https://www.google.com`
+    bio: `Jacob Abua is an Organisation Development Analyst at Crosstie Solutions with a strong foundation in data, leadership, and strategy. A top Statistics graduate from Cross River University of Technology, his acclaimed final-year project tackled real academic challenges using multivariate analysis. His career spans accounting, management, and consulting, where he designs impactful dashboards and spearheads cost-saving initiatives. Jacob brings proactive insight, operational acumen, and a passion for organisational growth.
+`,
+    link: `https://www.linkedin.com/in/jacobabua/`
   },
 
   {
@@ -246,8 +247,8 @@ const leaders = [
     image: leadersImages[5],
     role: "HR/ L&D Support",
     type: "teamMember",
-    bio: `No Bio`,
-    link: `https://www.google.com`
+    bio: `Ademide Adeboye is an HR professional at Crosstie Solutions, responsible for recruitment, onboarding, employee motivation, and performance management. She also supports Learning and Development programs. Though still in her early career stage, Ademide has streamlined HR processes, enhanced employee satisfaction, and boosted engagement. She brings fresh, practical solutions to workplace challenges and contributes to building a strong, productive, and positive organizational culture.`,
+    link: `https://www.linkedin.com/in/ademide-adeboye-2b895a213/`
   },
 
   {

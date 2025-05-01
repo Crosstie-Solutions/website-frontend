@@ -589,24 +589,33 @@ function EditTestimonialPage() {
             <div className="flex flex-col h-auto gap-1 w-100">
               {editProgram && (
 
-              <select name="program" id="" className="p-0.5 border rounded-4 cursor-pointer"
-              onChange={(e) => setProgram(e.target.value)}
-              >
-                <option value="">-select-</option>
-                {
-                  allPrograms && allPrograms.map((item, i)=>
-                    <option value={item.id}
-                    key={i}
-                    >{item.title}</option>
-                  )
-                }
+              // <select name="program" id="" className="p-0.5 border rounded-4 cursor-pointer"
+              // onChange={(e) => setProgram(e.target.value)}
+              // >
+              //   <option value="">-select-</option>
+              //   {
+              //     allPrograms && allPrograms.map((item, i)=>
+              //       <option value={item.id}
+              //       key={i}
+              //       >{item.title}</option>
+              //     )
+              //   }
                 
-              </select>
+              // </select>
+
+                <input
+                type="text"
+                placeholder="Enter program"
+                name="program"
+                className="p-0.5 border rounded-4"
+                onChange={(e) => setProgram(e.target.value)}
+                defaultValue={testimonial && testimonial.program}
+                />
               )}
 
               {!editProgram && testimonial &&
                 <div className="p-0.5 border rounded-4 flex items-center h-auto justify-between bg-white">
-                  <div className="w-90">{testimonial && testimonial.program[0].title}</div>
+                  <div className="w-90">{testimonial && testimonial.program}</div>
                   <CiEdit
                     className="cursor-pointer text-25px text-crossLightPurple"
                     onClick={toggleProgram}

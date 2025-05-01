@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import Image from '@tiptap/extension-image';
 import { toast } from 'react-toastify';
 import { CrossContext } from '../../Context/CrossContext';
 import { Link, useParams } from 'react-router-dom';
 import { CiEdit } from "react-icons/ci";
 import { UpdatingBtn } from '../../components/LoadingBtn/LoadingBtn';
 import { LuMoveLeft } from "react-icons/lu";
+
+
 
 
 function EditBlogPostPage() {

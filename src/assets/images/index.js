@@ -40,9 +40,9 @@ const PHOTOS = {
     contact: new URL("./contact.jfif", import.meta.url).href,
 
     story: new URL("./story.jpg", import.meta.url).href,
-    journey: new URL("./journey.png", import.meta.url).href,
-    adebayo: new URL("./adebayo.jpg", import.meta.url).href,
-    adebayo2: new URL("./adebayo2.jpg", import.meta.url).href,
+    journey: new URL("./journey.jpeg", import.meta.url).href,
+    adebayo: new URL("./adebayo.jpeg", import.meta.url).href,
+    adebayo2: new URL("./adebayo2.jpeg", import.meta.url).href,
     
 
     cl1: new URL("./client1.png", import.meta.url).href,
@@ -54,7 +54,7 @@ const PHOTOS = {
     mission: new URL("./mission.png", import.meta.url).href,
     vision: new URL("./vision.png", import.meta.url).href,
 
-    satisfaction1: new URL("./satisfaction1.jfif", import.meta.url).href,
+    satisfaction1: new URL("./satisfaction1.jpeg", import.meta.url).href,
     satisfaction2: new URL("./satisfaction2.jfif", import.meta.url).href,
     
 
@@ -96,12 +96,12 @@ const partnerImages = [
 
 
 const leadersImages = [
-    new URL("./adebayo2.jpg", import.meta.url).href,
+    new URL("./adebayo2.jpeg", import.meta.url).href,
     new URL("./avatar.jpg", import.meta.url).href,
-    new URL("./Peter.jpg", import.meta.url).href,
-    new URL("./Promise.jpg", import.meta.url).href,
-    new URL("./Jacob.jpg", import.meta.url).href,
-    new URL("./Ademide.jpg", import.meta.url).href,
+    new URL("./peter.jpg", import.meta.url).href,
+    new URL("./promise.jpg", import.meta.url).href,
+    new URL("./jacob.jpg", import.meta.url).href,
+    new URL("./ademide.jpg", import.meta.url).href,
 ];
 
 
