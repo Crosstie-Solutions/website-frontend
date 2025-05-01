@@ -30,8 +30,8 @@ function CustomizedTrainingPage() {
         
 
         <AboutHero 
-        tag="Customized Training"
-        line1="Training Programs to Bridge ALL YOUR Skill Gaps"
+        tag="Customised Training"
+        line1="Tailored. Targeted. Goal-Oriented"
         line2="We provide bespoke training programs that address your specific organization’s needs, aligning employee development with your company’s goals for measurable, sustainable growth."
       />
 

@@ -89,7 +89,7 @@ return (
     
     <Link to='/our-solutions/customized-training' className='flex items-center justify-between py-1 pl-1 text-black hover:bg-gray-200 hover:text-crossLightPurple'
     onClick={toggleNav}
-    >Customized Training</Link>
+    >Customised Training</Link>
 
     <Link to='/our-solutions/webinars' className='flex items-center justify-between py-1 pl-1 text-black hover:bg-gray-200 hover:text-crossLightPurple'
     onClick={toggleNav}

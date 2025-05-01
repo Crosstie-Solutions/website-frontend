@@ -32,7 +32,7 @@ function CorporateTrainingPage() {
       
       <AboutHero 
       tag="Corporate Training"
-      line1="Transformational Upskilling for Leverage in the Professional Space."
+      line1="Strategic. Targeted. Industry-Specific."
       line2="Learn technical and soft skills important for growth in the corporate world. Network with fellow professionals or get tailored content specific to your industry, organisation, role and level."
       />
 
@@ -115,7 +115,7 @@ function CorporateTrainingPage() {
           </p>
         </Link>
 
-        <Link to='/sales-excellence' className="flex flex-col items-center justify-center gap-1 px-1 py-2 border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100 bg-white">
+        <Link to='/sales-excellence' className="flex flex-col items-center justify-center gap-1 px-1 py-2 bg-white border h-300px border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaUser className="text-crossLightPurple text-30px" />
           </div>

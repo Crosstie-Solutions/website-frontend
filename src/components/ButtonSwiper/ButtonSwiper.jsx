@@ -124,7 +124,7 @@ const SolutionButtonSwiper = () => {
     route: "management-consulting"
   },
   {
-    name: "Customized Training",
+    name: "Customised Training",
     route: "customized-training"
   },
   

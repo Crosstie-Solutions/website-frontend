@@ -32,8 +32,7 @@ function OurFeedbacks() {
         </div>
         <h3 className="font-semibold text-25px">Real Stories, Real Impact</h3>
         <p className="text-15px text-crossTextGray">
-          Hear how Crosstie’s training and consulting services transformed
-          participants and organisations
+        Read How Crosstie’s Training and Consulting Services Have Transformed Individuals and Organisations
         </p>
       </div>
 
