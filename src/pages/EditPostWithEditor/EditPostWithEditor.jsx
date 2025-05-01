@@ -149,15 +149,19 @@ function EditPostWithEditor() {
           src={existingImage}
           alt="Current blog"
           className="object-cover w-full h-64 mb-4 rounded"
+          
         />
       )}
 
-      <input
+      <div>
+        <label htmlFor="">Replace Image</label>
+        <input
         type="file"
         accept="image/*"
         onChange={(e) => setBlogImage(e.target.files[0])}
         className="w-full p-2 border rounded"
       />
+      </div>
 
       {/* Toolbar */}
       {editor && (
