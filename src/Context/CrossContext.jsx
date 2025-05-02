@@ -126,7 +126,7 @@ const[loading, setLoading] = useState(false);
   const [allCourses, setAllCourses] = useState();
   const [loadingAllCourses, setLoadingAllCourses] = useState(false);
 
-  console.log("allCourses:", allCourses);
+
 
 
   const viewAllCourses = async () => {
@@ -170,7 +170,6 @@ function formatDate(dateString) {
   const [allPrograms, setAllPrograms] = useState();
   const [loadingAllPrograms, setLoadingAllPrograms] = useState(false);
 
-  console.log("allPrograms:", allPrograms)
 
 
   const viewAllPrograms = async () => {
@@ -194,9 +193,7 @@ function formatDate(dateString) {
   const [headerProgramsSearchTerm, setHeaderProgramsSearchTerm] = useState("");
   const programsPerPage = 10;
 
-  console.log("currentProgramsPage:", currentProgramsPage);
 
-  console.log("programsMonthSearchTerm:", programsMonthSearchTerm);
 
   // // Filter programs based on search term
   const filteredPrograms = allPrograms && allPrograms.filter((program) =>
@@ -207,7 +204,6 @@ function formatDate(dateString) {
     
   );
 
-  console.log("filteredPrograms:", filteredPrograms);
 
 //to filter programs based on month
   const open = allPrograms && allPrograms.filter((program) =>
@@ -219,7 +215,7 @@ function formatDate(dateString) {
   //sort by index
   const allOpenPrograms = open && open.sort((a, b) => a.priorityIndex - b.priorityIndex);
 
-  console.log("allOpenPrograms:", allOpenPrograms);
+
 
 
   const filteredHeaderPrograms = allPrograms && allPrograms.filter((program) =>
@@ -323,7 +319,6 @@ function formatDate(dateString) {
   //active program
   const [activeProgram, setActiveProgram] = useState(null);
 
-  console.log("activeProgram:", activeProgram);
 
   const toggleAdminProgramAction = async (index)=> {
 
@@ -336,7 +331,6 @@ function formatDate(dateString) {
   // this is the only course that both companies and individuals can register and it has dates. The rest are strictly for HR person to register the staff and they have no dates
   const executiveCourse = program && program.category==="Open Executive Programmes (OEP)";
 
-  console.log("executiveCourse:", executiveCourse);
 
 
 
@@ -366,10 +360,6 @@ function formatDate(dateString) {
   const upcomingWebinars = allWebinars && allWebinars.filter((webinar)=>webinar.past===false);
 
   const pastWebinars = allWebinars && allWebinars.filter((webinar)=>webinar.past===true);
-
-  console.log("allWebinars:", allWebinars);
-  console.log("upcomingWebinars:", upcomingWebinars);
-  console.log("pastWebinars:", pastWebinars);
 
   
 
@@ -480,7 +470,7 @@ const getLoginToken = () =>{
 const[loadMe, setLoadMe] = useState(false);
 const[me, setMe] = useState(null);
 
-console.log("me:", me);
+// console.log("me:", me);
 
 
 // Function to fetch logged in user details
@@ -520,7 +510,6 @@ const fetchMe = async () => {
   //fetch my webinars
 const[myWebinars, setMyWebinars] = useState(null);
 
-console.log("myWebinars:", myWebinars);
 
 
 // Function to fetch logged in user details
@@ -579,7 +568,7 @@ const [allCourseRegs, setAllCourseRegs] = useState(null);
 
 const [loadingAllCourseRegs, setLoadingAllCourseRegs] = useState(false);
 
-console.log("allCourseRegs:", allCourseRegs);
+
 
 
 const viewAllCourseRegs = async () => {
@@ -602,7 +591,6 @@ const [currentCourseRegsPage, setCurrentCourseRegsPage] = useState(1);
 const [courseRegsSearchTerm, setCourseRegsSearchTerm] = useState("");
 const courseRegsPerPage = 10;
 
-console.log("currentCourseRegsPage:", currentCourseRegsPage);
 
 // // Filter CourseRegs based on search term
 const filteredCourseRegs = allCourseRegs && allCourseRegs.filter((program) =>
@@ -696,7 +684,6 @@ const [webinarEnrollment, setWebinarEnrollment] = useState(null);
 
 const [webinar, setWebinar] = useState(null);
 const [loadingWebinar, setLoadingWebinar] = useState(false);
-console.log("webinar:", webinar)
 
 
 const toggleWebinarEnrollment = async (index)=> {
@@ -786,7 +773,6 @@ const [loadingAllTestimonials, setLoadingAllTestimonials] = useState(false);
 
 const allTestimonials = testimonials && testimonials.sort((a, b) => a.priorityIndex - b.priorityIndex);
 
-console.log("allTestimonials:", allTestimonials);
 
 
   //for admin to filter testimonials
@@ -794,7 +780,6 @@ console.log("allTestimonials:", allTestimonials);
   // const [programsSearchTerm, setProgramsSearchTerm] = useState("");
   const testimonialsPerPage = 12;
 
-  console.log("currentProgramsPage:", currentProgramsPage);
 
   // // Filter programs based on search term
   // const filteredPrograms = allPrograms && allPrograms.filter((program) =>
@@ -845,7 +830,6 @@ const viewAllTestimonials = async () => {
  //active Testimonial
  const [activeTestimonial, setActiveTestimonial] = useState(null);
 
- console.log("activeTestimonial:", activeTestimonial);
 
  const toggleAdminTestimonialAction = async (index)=> {
 
@@ -885,7 +869,7 @@ const deleteTestimonial = async (testimonialId) => {
 
 const [allContactForms, setAllContactForms] = useState(null);
 
-console.log("allContactForms:", allContactForms);
+
 
 const [loadingAllContactForms, setLoadingAllContactForms] = useState(false);
 
@@ -955,7 +939,6 @@ const viewAllContactForms = async () => {
     //program download
     const [downloadProgramScreen, setDownloadProgramScreen] = useState(null);
 
-    console.log('downloadProgramScreen:', downloadProgramScreen);
 
     const toggleDownloadProgramScreen = async (index) => { 
      window.scrollTo({ top: 0, behavior: "auto" });
@@ -971,7 +954,6 @@ const viewAllContactForms = async () => {
 
 const [allHighDemands, setAllHighDemands] = useState(null);
 
-console.log("allHighDemands:", allHighDemands);
 
 const [loadingAllHighDemands, setLoadingAllHighDemands] = useState(false);
 
@@ -1008,7 +990,6 @@ const [loadingAllBlogPosts, setLoadingAllBlogPosts] = useState(false);
 
 const allBlogPosts = blogPosts && blogPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
-console.log("allBlogPosts:", allBlogPosts)
 
 
 const viewAllBlogPosts = async () => {
@@ -1030,7 +1011,7 @@ const [currentBlogPostsPage, setCurrentBlogPostsPage] = useState(1);
 const [blogPostsSearchTerm, setBlogPostsSearchTerm] = useState("");
 const blogPostsPerPage = 10;
 
-console.log("currentBlogPostsPage:", currentBlogPostsPage);
+
 
 // // Filter BlogPosts based on search term
 const filteredBlogPosts = allBlogPosts && allBlogPosts.filter((blogPost) =>
@@ -1063,7 +1044,7 @@ const handleBlogPostsPageChange = (page) => {
 //active BlogPost
 const [activeBlogPost, setActiveBlogPost] = useState(null);
 
-console.log("activeBlogPost:", activeBlogPost);
+
 
 const toggleAdminBlogPostAction = async (index)=> {
 
@@ -1103,7 +1084,6 @@ const toggleAdminBlogPostAction = async (index)=> {
     
      const [allUsers, setAllUsers] = useState([]);
 
-     console.log("allUsers:", allUsers);
  
  
      const [loadUsers, setLoadUsers] = useState(false);
@@ -1167,7 +1147,6 @@ const toggleAdminBlogPostAction = async (index)=> {
    //active admin
   const [activeAdmin, setActiveAdmin] = useState(null);
 
-  console.log("activeAdmin:", activeAdmin);
 
   const toggleRemoveAdmin = async (index)=> {
 
@@ -1186,7 +1165,6 @@ const toggleAdminBlogPostAction = async (index)=> {
     
   const [allPartners, setAllPartners] = useState([]);
 
-  console.log("allPartners:", allPartners);
 
 
   const [loadPartners, setLoadPartners] = useState(false);
@@ -1270,7 +1248,6 @@ const togglePartner = async (index)=> {
     
   const [allHighDemand, setAllHighDemand] = useState([]);
 
-  console.log("allHighDemand:", allHighDemand);
 
 
   const [loadAllHighDemand, setLoadAllHighDemand] = useState(false);
@@ -1356,8 +1333,6 @@ const [activeSearch, setActiveSearch] = useState(false);
     
   const [allEvents, setAllEvents] = useState([]);
 
-  console.log("allEvents:", allEvents);
-
 
   const [loadEvents, setLoadEvents] = useState(false);
   
@@ -1426,7 +1401,6 @@ const toggleEvent = async (index)=> {
 const [allCaseStudies, setAllCaseStudies] = useState([]);
 const [loadingAllCaseStudies, setLoadingAllCaseStudies] = useState(false);
 
-console.log("allCaseStudies:", allCaseStudies)
 
 
 const viewAllCaseStudies = async () => {
@@ -1448,7 +1422,6 @@ const [currentCaseStudiesPage, setCurrentCaseStudiesPage] = useState(1);
 const [caseStudiesSearchTerm, setCaseStudiesSearchTerm] = useState("");
 const caseStudiesPerPage = 10;
 
-console.log("currentCaseStudiesPage:", currentCaseStudiesPage);
 
 // // Filter CaseStudies based on search term
 const filteredCaseStudies = allCaseStudies && allCaseStudies.filter((caseStudy) =>
@@ -1481,7 +1454,6 @@ const handleCaseStudiesPageChange = (page) => {
 //active CaseStudy
 const [activeCaseStudy, setActiveCaseStudy] = useState(null);
 
-console.log("activeCaseStudy:", activeCaseStudy);
 
 const toggleCaseStudy = async (index)=> {
 
@@ -1499,7 +1471,6 @@ const toggleCaseStudy = async (index)=> {
 const [allJobs, setAllJobs] = useState();
 const [loadingAllJobs, setLoadingAllJobs] = useState(false);
 
-console.log("allJobs:", allJobs)
 
 
 const viewAllJobs = async () => {
@@ -1521,7 +1492,6 @@ const [currentJobsPage, setCurrentJobsPage] = useState(1);
 const [jobsSearchTerm, setJobsSearchTerm] = useState("");
 const jobsPerPage = 10;
 
-console.log("currentJobsPage:", currentJobsPage);
 
 // // Filter Jobs based on search term
 const filteredJobs = allJobs && allJobs.filter((job) =>
@@ -1554,7 +1524,6 @@ const handleJobsPageChange = (page) => {
 //active Job
 const [activeJob, setActiveJob] = useState(null);
 
-console.log("activeJob:", activeJob);
 
 const toggleJob = async (index)=> {
 
