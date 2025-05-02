@@ -50,12 +50,12 @@ function SecondBlogPost(post) {
   const {formatDate} = useContext(CrossContext);
   
   return (
-    <div className="flex flex-row items-start h-auto py-1 border large:gap-2 large:px-1 large:w-100 border-crossIconBg rounded-10 small:w-100 small:gap-1">
+    <div className="flex items-start h-auto py-1 border large:flex-row large:gap-2 large:px-1 large:w-100 border-crossIconBg rounded-10 small:w-90 small:gap-1 small:flex-col small:p-1">
       
       <img
         src={blogImage}
         alt="blog image"
-        className="small:h-150px large:w-40 large:h-200px rounded-5 small:w-60"
+        className="small:h-150px large:w-40 large:h-200px rounded-5 small:w-100"
       />
 
       <div className="flex flex-col items-start h-auto gap-2 large:w-60 small:w-100">
@@ -64,7 +64,7 @@ function SecondBlogPost(post) {
           <div>{formatDate(createdAt)}</div>
         </div>
 
-        <h3 className="font-semibold w-100 small:text-13px large:text-20px small:pr-0.5 large:pr-0">
+        <h3 className="font-semibold w-100 small:text-13px large:text-20px">
           {title}
         </h3>
 
