@@ -1,11 +1,21 @@
-RewriteEngine On
+# RewriteEngine On
 
-# Redirect all traffic to index.html except for files and directories that actually exist
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [L]
+# # Redirect all traffic to index.html except for files and directories that actually exist
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^ index.html [L]
 
-# Allow CORS for APIs if needed
-<IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
+# # Allow CORS for APIs if needed
+# <IfModule mod_headers.c>
+#     Header set Access-Control-Allow-Origin "*"
+# </IfModule>
+
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
 </IfModule>

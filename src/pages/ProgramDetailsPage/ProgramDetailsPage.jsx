@@ -221,7 +221,7 @@ function ProgramDetailsPage() {
 
 
   // to split paragraph
-  function splitParagraphByFullStops(text, limit = 2) {
+  function splitParagraphByFullStops(text, limit = 1) {
     const sentences = text.split('.').map(s => s.trim()).filter(Boolean);
     const paragraphs = [];
   
@@ -253,7 +253,7 @@ function ProgramDetailsPage() {
         
         <div className="flex flex-col justify-center gap-2 large:pl-0 large:h-500px large:w-50 small:w-100vw small:h-auto small:pl-2 bg-crossLightPurple small:py-2 large:py-0 large:relative large:-left-2">         
           
-          <h1 className="font-semibold large:text-35px large:w-100 large:leading-normal small:leading-5 small:w-80 small:text-17px">
+          <h1 className="font-semibold large:text-30px large:w-100 large:leading-normal small:leading-5 small:w-80 small:text-17px">
             {program && program.title.toUpperCase()}
             {loadingProgram && "Loading Course Details..."}
           </h1>
