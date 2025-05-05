@@ -24,11 +24,11 @@ function ContactForm() {
     const [adminEmail, setAdminEmail] = useState("");
     const [service, setService] = useState("");
   
-    console.log("fullName:", fullName);
-    console.log("email:", email);
-    console.log("message:", message);
-    console.log("adminEmail:", adminEmail);
-    console.log("service:", service);
+    // console.log("fullName:", fullName);
+    // console.log("email:", email);
+    // console.log("message:", message);
+    // console.log("adminEmail:", adminEmail);
+    // console.log("service:", service);
   
     
     //to clear fields after submit
@@ -58,6 +58,8 @@ function ContactForm() {
         setAdminEmail("enquiries@crosstiesolutions.com")
       }
     }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
     
     const makeEnquiry = async () => {
@@ -71,6 +73,9 @@ function ContactForm() {
      }
     if (!email.trim()) {
       validationErrors.email = "email is required";
+    }
+    else if (!emailRegex.test(email)) {
+      validationErrors.email = "Please enter a valid email address.";
     }
     if (!service.trim()) {
       validationErrors.service = "select service";

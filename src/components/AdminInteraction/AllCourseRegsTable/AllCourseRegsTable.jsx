@@ -122,7 +122,7 @@ function AllCourseRegsTable() {
       {currentPrograms && currentPrograms.length > 0 && (
         <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
-            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-qxDarkGreen disabled:bg-gray-300 disabled:cursor-not-allowed"
+            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
             disabled={currentProgramsPage === 1}
             onClick={() => handleProgramsPageChange(currentProgramsPage - 1)}
           >
@@ -134,7 +134,7 @@ function AllCourseRegsTable() {
           </div>
 
           <button
-            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-qxDarkGreen disabled:bg-gray-300 disabled:cursor-not-allowed"
+            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
             disabled={currentProgramsPage === totalProgramsPages}
             onClick={() => handleProgramsPageChange(currentProgramsPage + 1)}
           >
