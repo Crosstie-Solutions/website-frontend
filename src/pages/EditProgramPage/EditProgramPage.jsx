@@ -103,185 +103,6 @@ function EditProgramPage() {
         }, [activeScreen]);
 
 
-      //to add product
-        const [productData, setProductData] = useState({
-          title: "",
-          cost: 0,
-          description: "",
-          courseContent: null,
-          targetAudience: "",
-          mode: "",
-          time: "",
-          // category: "",
-          // course: "",
-          duration: "",
-          // date: [],
-          // objectives: [],
-        });
-
-        
-        //to capture category and course at the same time
-        const [category, setCategory] = useState("");
-        const [course, setCourse] = useState("");
-
-        const handleCategoryChange = (e) => {
-          const { name, value } = e.target;
-
-
-          const extractedValues = value.split('-')
-
-          setCategory(extractedValues[0]);
-          setCourse(extractedValues[1]);
-      
-          console.log("category:", category);
-          console.log("course:", course);
-        };
-        
-
-        
-      
-        //product errors
-        const [productErrors, setProductErrors] = useState({});
-        console.log('productData:', productData);
-      
-        
-      
-        const handleChange = (e) => {
-          const { name, value } = e.target;
-      
-          setProductData({ ...productData, [name]: value });
-      
-          console.log("productData:", productData);
-        };
-      
-
-        // const handleFileChange = (e) => {
-        //   setProductData({ ...productData, courseContent: e.target.files[0] });
-      
-        //   console.log("productData:", productData);
-        // };
-      
-      
-        
-        //to add product
-        // const handleSubmit = async (e) => {
-        //   e.preventDefault();
-      
-        //   const validationErrors = {};
-      
-        //   //To ensure valid inputs
-        //   if (!productData.title.trim()) {
-        //     validationErrors.title = "product title is required";
-        //   }
-      
-        //   if (!category.trim()) {
-        //     validationErrors.category = "specify product category";
-        //   }
-      
-        //   if (productData.cost < 1) {
-        //     validationErrors.cost = "add product cost";
-        //   }
-      
-      
-        //   if (!productData.targetAudience) {
-        //     validationErrors.targetAudience = "specify product target audience";
-        //   }
-      
-        //   if (!productData.duration) {
-        //     validationErrors.duration = "add product duration";
-        //   }
-
-        //   if (!productData.mode) {
-        //     validationErrors.mode = "add product mode";
-        //   }
-
-        //   if (!productData.time) {
-        //     validationErrors.time = "add product time";
-        //   }
-
-        //   if (date.length < 1) {
-        //     validationErrors.date = "add product date";
-        //   }
-
-        //   if (objectives.length < 1) {
-        //     validationErrors.objectives = "add product objectives";
-        //   }
-      
-      
-        //   if (!productData.description.trim()) {
-        //     validationErrors.description = "add a brief description to the product";
-        //   }
-      
-        //   if (!productData.courseContent) {
-        //     validationErrors.courseContent = "upload course content.";
-        //   }
-      
-      
-        //   setProductErrors(validationErrors);
-      
-        //   const noError = Object.keys(validationErrors).length === 0;
-
-      
-        //   const formData = new FormData();
-        //   formData.append("title", productData.title);
-        //   formData.append("cost", Number(productData.cost));
-        //   formData.append("targetAudience", productData.targetAudience);
-        //   formData.append("mode", productData.mode);
-        //   formData.append("time", productData.time);
-        //   formData.append("description", productData.description);
-        //   formData.append("duration", productData.duration);
-        //   formData.append("category", category);
-        //   formData.append("course", course);
-        //   formData.append("courseContent", productData.courseContent);
-        //   // formData.append("date", JSON.stringify(date));
-        //   date.forEach(item => formData.append("date[]", item));
-        //   objectives.forEach(item => formData.append("objectives[]", item));
-        //   // formData.append("objectives", JSON.stringify(objectives));
-      
-        //   // Append each pdf file to the formData
-        //   // for (let i = 0; i < productData.courseContent.length; i++) {
-        //   //   formData.append("courseContent", productData.courseContent[i]);
-        //   // }
-      
-        //   // Log each key-value pair in FormData
-        //   for (let pair of formData.entries()) {
-        //     console.log(`${pair[0]}: ${pair[1]}`);
-        //   }
-
-          
-      
-        //   if (noError) {
-        //     setLoading(true);
-      
-        //     try {
-        //       const response = await axios.post(`${baseUrl}/api/program`, formData, {
-        //         headers: {
-        //           "Content-Type": "multipart/form-data",
-        //           // Authorization: `Bearer ${loginToken}`,
-        //         },
-        //         // withCredentials: true, // Important for sending cookies
-        //       });
-      
-        //       console.log("add program message:", response.data.message);
-        //       if (response.data.message === "program created successful.") {
-                
-        //         toast.success('Program added successfully!');
-        //         // setActiveScreen('overview')
-        //       }
-        //     } catch (error) {
-        //       console.error("Error creating program:", error);
-        //     } finally {
-        //       setLoading(false);
-        //     }
-        //   }
-        // };
-
-
-
-
-
-
-
 
         
       //funtions to edit program
@@ -340,55 +161,175 @@ function EditProgramPage() {
 
 
 
-  //change program cost
-  // const [editCost, setEditCost] = useState(false);
-  // const [updatingCost, setUpdatingCost] = useState(false);
-
-  // const [cost, setCost] = useState("");
-
-  // const toggleCost = () => {
-  //   setEditCost(!editCost);
-  // };
-
-  // const changeCost = async () => {
-  //   const validationErrors = {};
-
-  //   //To ensure valid inputs
-
-  //   if (!cost) {
-  //     validationErrors.cost = "program cost is required.";
-  //   }
-
-  //   setEditErrors(validationErrors);
-
-  //   const noError = Object.keys(validationErrors).length === 0;
-
-  //   if (noError) {
-  //     try {
-  //       setUpdatingCost(true);
-  //       setEditCost(false);
-  //       const response = await axios.patch(
-  //         `${baseUrl}/api/program/${programId && programId}`,
-  //         {
-  //           cost: cost,
-  //         },
-  //       );
-
-  //       console.log("program update response:", response.data);
-  //       if ((response.data.status = "success")) {
-  //         toast.success(
-  //           "Program updated successfully. Refresh to see changes."
-  //         );
-  //       }
-  //     } catch (error) {
-  //       console.error("Error updating program:", error);
-  //     } finally {
-  //       setUpdatingCost(false);
-  //     }
-  //   }
-  // };
+  // change program PhysicalCost
+  const [editPhysicalCost, setEditPhysicalCost] = useState(false);
+  const [updatingPhysicalCost, setUpdatingPhysicalCost] = useState(false);
 
 
+  const [physicalCost, setPhysicalCost] = useState("");
+
+  
+  const togglePhysicalCost = () => {
+    setEditPhysicalCost(!editPhysicalCost);
+  };
+
+  const changePhysicalCost = async () => {
+    const validationErrors = {};
+
+    //To ensure valid inputs
+
+    if (!physicalCost) {
+      validationErrors.physicalCost = "program physical cost is required.";
+    }
+
+    setEditErrors(validationErrors);
+
+    const noError = Object.keys(validationErrors).length === 0;
+
+    if (noError) {
+      try {
+        
+        setUpdatingPhysicalCost(true);
+        
+        setEditPhysicalCost(false);
+        
+        const response = await axios.patch(
+          `${baseUrl}/api/program/${programId && programId}`,
+          {
+            physicalCost: physicalCost,
+          },
+        );
+
+        console.log("program update response:", response.data);
+        if ((response.data.status = "success")) {
+          toast.success(
+            "Program updated successfully. Refresh to see changes."
+          );
+        }
+      } catch (error) {
+        console.error("Error updating program:", error);
+      } finally {
+        setUpdatingPhysicalCost(false);
+      }
+    }
+  };
+
+
+
+
+   // change program OnlineCost
+   const [editOnlineCost, setEditOnlineCost] = useState(false);
+   const [updatingOnlineCost, setUpdatingOnlineCost] = useState(false);
+ 
+ 
+   const [onlineCost, setOnlineCost] = useState("");
+ 
+   
+   const toggleOnlineCost = () => {
+     setEditOnlineCost(!editOnlineCost);
+   };
+ 
+   const changeOnlineCost = async () => {
+     const validationErrors = {};
+ 
+     //To ensure valid inputs
+ 
+     if (!onlineCost) {
+       validationErrors.onlineCost = "program online cost is required.";
+     }
+ 
+     setEditErrors(validationErrors);
+ 
+     const noError = Object.keys(validationErrors).length === 0;
+ 
+     if (noError) {
+       try {
+         
+         setUpdatingOnlineCost(true);
+         
+         setEditOnlineCost(false);
+         
+         const response = await axios.patch(
+           `${baseUrl}/api/program/${programId && programId}`,
+           {
+             onlineCost: onlineCost,
+           },
+         );
+ 
+         console.log("program update response:", response.data);
+         if ((response.data.status = "success")) {
+           toast.success(
+             "Program updated successfully. Refresh to see changes."
+           );
+         }
+       } catch (error) {
+         console.error("Error updating program:", error);
+       } finally {
+         setUpdatingOnlineCost(false);
+       }
+     }
+   };
+
+
+
+      // change program YouAndICost
+      const [editYouAndICost, setEditYouAndICost] = useState(false);
+      const [updatingYouAndICost, setUpdatingYouAndICost] = useState(false);
+    
+    
+      const [youAndICost, setYouAndICost] = useState("");
+    
+      
+      const toggleYouAndICost = () => {
+        setEditYouAndICost(!editYouAndICost);
+      };
+    
+      const changeYouAndICost = async () => {
+        const validationErrors = {};
+    
+        //To ensure valid inputs
+    
+        if (!youAndICost) {
+          validationErrors.youAndICost = "You and I cost is required.";
+        }
+    
+        setEditErrors(validationErrors);
+    
+        const noError = Object.keys(validationErrors).length === 0;
+    
+        if (noError) {
+          try {
+            
+            setUpdatingYouAndICost(true);
+            
+            setEditYouAndICost(false);
+            
+            const response = await axios.patch(
+              `${baseUrl}/api/program/${programId && programId}`,
+              {
+                youAndICost: youAndICost,
+              },
+            );
+    
+            console.log("program update response:", response.data);
+            if ((response.data.status = "success")) {
+              toast.success(
+                "Program updated successfully. Refresh to see changes."
+              );
+            }
+          } catch (error) {
+            console.error("Error updating program:", error);
+          } finally {
+            setUpdatingYouAndICost(false);
+          }
+        }
+      };
+
+
+
+
+
+  
   // Description
   //change program description
   const [editDescription, setEditDescription] = useState(false);
@@ -853,6 +794,76 @@ function EditProgramPage() {
 
 
 
+  
+  //change ProgramBanner
+  const [editProgramBanner, setEditProgramBanner] = useState(false);
+  const [updatingProgramBanner, setUpdatingProgramBanner] = useState(false);
+
+  const [programBanner, setProgramBanner] = useState("");
+
+  
+  const toggleProgramBanner = () => {
+    setEditProgramBanner(!editProgramBanner);
+  };
+  
+
+  const handleBannerChange = (e) => {
+    setProgramBanner(e.target.files[0]);
+  };
+  
+
+  
+  const changeProgramBanner = async () => {
+    const validationErrors = {};
+
+    //To ensure valid inputs
+
+    if (!programBanner) {
+      validationErrors.programBanner = "upload course content.";
+    }
+
+    
+    setEditErrors(validationErrors);
+
+    const noError = Object.keys(validationErrors).length === 0;
+
+      const formData = new FormData();
+          formData.append("programBanner", programBanner);
+
+          
+                    
+
+    if (noError) {
+      try {
+        setUpdatingProgramBanner(true);
+        setEditProgramBanner(false);
+        const response = await axios.patch(
+          `${baseUrl}/api/program/${programId && programId}`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            }
+          }
+        );
+
+        console.log("program update response:", response.data);
+        if ((response.data.status = "success")) {
+          toast.success(
+            "Program updated successfully. Refresh to see changes."
+          );
+        }
+      } catch (error) {
+        console.error("Error updating program:", error);
+      } finally {
+        setUpdatingProgramBanner(false);
+      }
+    }
+  };
+
+
+
+
   //to add and remove training Modules
     const [modules, setModules] = useState([""]);
   
@@ -1043,18 +1054,21 @@ function EditProgramPage() {
     
   };
 
+
+
   
   return (
     <div className="flex flex-col items-start h-auto gap-2 small:mt-17 w-90vw large:mt-20">
+    
             <div className='flex'>
                <Link to='/admin-dashboard' className="flex items-center text-crossLightPurple"> <LuMoveLeft className="flex text-25px"/></Link>
               <h4 className="font-semibold pl-9 text-crossLightPurple">Edit Program</h4>
             </div>
 
+
             <div
               className="flex flex-col items-center h-auto gap-2 w-100 large:text-15px small:text-13px"
-            >
-              
+            >   
               
               <div className="flex items-center justify-center h-auto lareg:gap-5 large:flex-row small:flex-col w-100 small:gap-2">
                 {/* title */}
@@ -1101,53 +1115,141 @@ function EditProgramPage() {
                 </div>
 
 
-                  {/* cost */}
-                {/* <div className="flex flex-col h-auto w-100">
-                  <label htmlFor="cost">Cost</label>
+                  {/* Physical Cost */}
+                <div className="flex flex-col h-auto w-100">
+                  <label htmlFor="cost">Physical Cost</label>
                   
                   <div className='flex flex-col h-auto gap-1 w-100'>
                     
-                  {editCost &&
+                  {editPhysicalCost &&
                     <input
                       type="number"
                       placeholder="Enter program cost"
-                      name="cost"
+                      name="physicalCost"
                       className="p-0.5 border rounded-4"
-                      onChange={(e)=>setCost(e.target.value)}
-                      defaultValue={program && program.cost}
+                      onChange={(e)=>setPhysicalCost(e.target.value)}
+                      defaultValue={program && program.physicalCost}
                     />}
 
 
-                    {!editCost &&
+                    {!editPhysicalCost &&
                       <div className="p-0.5 border rounded-4 flex items-center h-auto justify-between bg-white">
-                        <div className='w-90'>{program && program.cost.toLocaleString()}</div>
+                        <div className='w-90'>&#8358;{program && program.physicalCost.toLocaleString()}</div>
                         <CiEdit className='cursor-pointer text-25px text-crossLightPurple'
-                        onClick={toggleCost}
+                        onClick={togglePhysicalCost}
                         />
                       </div>}
                     
-                      {editCost && <p className="text-13px text-vogueRed">{editErrors.cost}</p>}
+                      {editPhysicalCost && <p className="text-13px text-vogueRed">{editErrors.physicalCost}</p>}
                     
-                      {editCost &&
+                    
+                      {editPhysicalCost &&
                       <div className='flex flex-row items-start h-auto gap-2 w-100'>
                         <button className='flex items-center justify-center w-auto px-1 border rounded text-crossLightPurple border-crossLightPurple h-30px'
-                        onClick={toggleCost}
+                        onClick={togglePhysicalCost}
                         >Cancel</button>
                         <button className='flex items-center justify-center w-auto px-2 text-white border rounded bg-crossLightPurple border-crossLightPurple h-30px'
-                        onClick={changeCost}
+                        onClick={changePhysicalCost}
                         >Save</button>
                       </div>}
 
-                      {updatingCost && <UpdatingBtn />}
+                      {updatingPhysicalCost && <UpdatingBtn />}
                   </div>
                   
-                </div> */}
+                </div>
               </div>
 
 
               <div className="flex items-center justify-center h-auto lareg:gap-5 large:flex-row small:flex-col w-100 small:gap-2">
-                 
-                 {/* Description */}
+                {/* online cost */}
+                <div className="flex flex-col h-auto w-100">
+                  <label htmlFor="onlineCost">Online Cost</label>
+                  
+                  <div className='flex flex-col h-auto gap-1 w-100'>
+                    
+                  {editOnlineCost &&
+                    <input
+                      type="number"
+                      placeholder="Enter program cost"
+                      name="onlineCost"
+                      className="p-0.5 border rounded-4"
+                      onChange={(e)=>setOnlineCost(e.target.value)}
+                      defaultValue={program && program.onlineCost}
+                    />}
+
+
+                    {!editOnlineCost &&
+                      <div className="p-0.5 border rounded-4 flex items-center h-auto justify-between bg-white">
+                        <div className='w-90'>&#8358;{program && program.onlineCost.toLocaleString()}</div>
+                        <CiEdit className='cursor-pointer text-25px text-crossLightPurple'
+                        onClick={toggleOnlineCost}
+                        />
+                      </div>}
+                    
+                      {editOnlineCost && <p className="text-13px text-vogueRed">{editErrors.onlineCost}</p>}
+                    
+                    
+                      {editOnlineCost &&
+                      <div className='flex flex-row items-start h-auto gap-2 w-100'>
+                        <button className='flex items-center justify-center w-auto px-1 border rounded text-crossLightPurple border-crossLightPurple h-30px'
+                        onClick={toggleOnlineCost}
+                        >Cancel</button>
+                        <button className='flex items-center justify-center w-auto px-2 text-white border rounded bg-crossLightPurple border-crossLightPurple h-30px'
+                        onClick={changeOnlineCost}
+                        >Save</button>
+                      </div>}
+
+                      {updatingOnlineCost && <UpdatingBtn />}
+                  </div>
+                  
+                </div>
+
+
+                  {/* You and I Cost */}
+                <div className="flex flex-col h-auto w-100">
+                  <label htmlFor="YouAndICost">You And I Cost</label>
+                  
+                  <div className='flex flex-col h-auto gap-1 w-100'>
+                    
+                  {editYouAndICost &&
+                    <input
+                      type="number"
+                      placeholder="Enter program cost"
+                      name="youAndICost"
+                      className="p-0.5 border rounded-4"
+                      onChange={(e)=>setYouAndICost(e.target.value)}
+                      defaultValue={program && program.youAndICost}
+                    />}
+
+
+                    {!editYouAndICost &&
+                      <div className="p-0.5 border rounded-4 flex items-center h-auto justify-between bg-white">
+                        <div className='w-90'>&#8358;{program && program.youAndICost.toLocaleString()}</div>
+                        <CiEdit className='cursor-pointer text-25px text-crossLightPurple'
+                        onClick={toggleYouAndICost}
+                        />
+                      </div>}
+                    
+                      {editYouAndICost && <p className="text-13px text-vogueRed">{editErrors.youAndICost}</p>}
+                    
+                    
+                      {editYouAndICost &&
+                      <div className='flex flex-row items-start h-auto gap-2 w-100'>
+                        <button className='flex items-center justify-center w-auto px-1 border rounded text-crossLightPurple border-crossLightPurple h-30px'
+                        onClick={toggleYouAndICost}
+                        >Cancel</button>
+                        <button className='flex items-center justify-center w-auto px-2 text-white border rounded bg-crossLightPurple border-crossLightPurple h-30px'
+                        onClick={changeYouAndICost}
+                        >Save</button>
+                      </div>}
+
+                      {updatingYouAndICost && <UpdatingBtn />}
+                  </div>
+                  
+                </div>
+              </div>
+
+              {/* Description */}
                 <div className="flex flex-col h-auto w-100">
                   <label htmlFor="description">About</label>
                   <div className='flex flex-col h-auto gap-1 w-100'>
@@ -1157,7 +1259,7 @@ function EditProgramPage() {
                       type="text"
                       placeholder="Enter program description"
                       name="description"
-                      className="p-0.5 border rounded-4"
+                      className="p-1 border rounded-4 h-200px"
                       onChange={(e)=>setDescription(e.target.value)}
                       defaultValue={program && program.description}
                     />}
@@ -1188,8 +1290,55 @@ function EditProgramPage() {
                 </div>
 
 
+              <div className="flex items-center justify-between h-auto lareg:gap-5 large:flex-row small:flex-col w-100 small:gap-2">
+                 
+                  {/* ProgramBanner */}
+                <div className="flex flex-col h-auto large:w-45 small:w-100">
+                  <label htmlFor="programBanner">Course banner</label>
+                
+                  
+                  
+                  <div className='flex flex-col h-auto gap-1 w-100'>
+                  
+                  {editProgramBanner &&
+                    <input
+                    type="file"
+                    name="programBanner"
+                    multiple
+                    // accept=".pdf"
+                    accept="image/*"
+                    onChange={handleBannerChange}
+                  />}
+
+
+
+                    {!editProgramBanner &&
+                      <div className="p-0.5 border rounded-4 flex items-center h-auto justify-between bg-white">
+                        <img src={program && program.programBanner} alt="course banner" className='h-auto rounded w-50px'/>
+                        <CiEdit className='cursor-pointer text-25px text-crossLightPurple'
+                        onClick={toggleProgramBanner}
+                        />
+                      </div>}
+                    
+                      {editProgramBanner && <p className="text-13px text-vogueRed">{editErrors.programBanner}</p>}
+                    
+                      {editProgramBanner &&
+                      <div className='flex flex-row items-start h-auto gap-2 w-100'>
+                        <button className='flex items-center justify-center w-auto px-1 border rounded text-crossLightPurple border-crossLightPurple h-30px'
+                        onClick={toggleProgramBanner}
+                        >Cancel</button>
+                        <button className='flex items-center justify-center w-auto px-2 text-white border rounded bg-crossLightPurple border-crossLightPurple h-30px'
+                        onClick={changeProgramBanner}
+                        >Save</button>
+                      </div>}
+
+                      {updatingProgramBanner && <UpdatingBtn />}
+                  </div>
+                </div>
+
+
                   {/* course content */}
-                <div className="flex flex-col h-auto w-100">
+                <div className="flex flex-col h-auto large:w-45 small:w-100">
                   <label htmlFor="courseContent">Course content</label>
                 
                   
