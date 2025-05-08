@@ -44,7 +44,7 @@ function CustomizedTrainingPage() {
 
       <div className="flex flex-col items-center gap-2 large:mt-2 large:w-83vw large:text-13px small:w-90vw">
         
-        <h4 className="font-bold large:text-25px">What Is Customized Training?</h4>
+        <h4 className="font-bold large:text-25px">What Is Customised Training?</h4>
 
         <div className="flex justify-between p-2 rounded small:items-center large:flex-row w-100 bg-faintPink small:flex-col small:gap-3 large:gap-0 text-16px large:items-start">
             

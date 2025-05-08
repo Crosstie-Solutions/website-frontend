@@ -8,6 +8,8 @@ import { LuEyeClosed } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 
 
+
+
 function LoginSignupPage() {
 
   const [reveal, setReveal] = useState(false);
@@ -306,11 +308,12 @@ const loginFormData = {
       
       {activeForm === "login" && (
         <div className="flex flex-col items-center gap-3 py-3 bg-white rounded-10 w-100">
+          
           <div className="flex flex-col items-center w-auto h-auto">
             <h4 className="font-semibold large:text-20px">Login to Your Account</h4>
           </div>
 
-          <div className="flex flex-col items-center gap-2 large:px-0 small:px-1 large:w-60 small:w-100">
+          <form onSubmit={handleLogin} className="flex flex-col items-center gap-2 large:px-0 small:px-1 large:w-60 small:w-100">
             
 
             <div className="flex flex-col h-auto w-100">
@@ -345,13 +348,16 @@ const loginFormData = {
                 />}
             </div>
 
+            <Link to='/forgot-password' className="self-end text-crossBlue text-13px">Forgot password?</Link>
+
             <button
               className="flex items-center justify-center text-white rounded w-100 h-40px bg-crossLightPurple text-17px"
-              onClick={handleLogin}
+            type="submit"
             >
               Login
             </button>
-          </div>
+           
+          </form>
         </div>
       )}
 

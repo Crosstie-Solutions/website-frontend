@@ -52,6 +52,8 @@ import { MdOutlineWork } from "react-icons/md";
 import AllJobsTable from "../../components/AdminInteraction/AllJobsTable/AllJobsTable.jsx";
 import AddJob from "../../components/AdminInteraction/AddJob/AddJob.jsx";
 import AddPostWithEditor from "../../components/AdminInteraction/AddPostWithEditor/AddPostWithEditor.jsx";
+import { MdFileDownload } from "react-icons/md";
+import AllDownloadsTable from "../../components/AdminInteraction/AllDownloadsTable/AllDownloadsTable.jsx";
 
 
 
@@ -363,6 +365,20 @@ function AdminDashboard() {
           Enquiries
         </div>
 
+        
+        {/* downloads */}
+        <div
+          className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
+            activeScreen === "downloads" ? "bg-gray-300" : ""
+          } hover:bg-gray-300`}
+          onClick={() => setActiveScreen("downloads")}
+        >
+          <MdFileDownload className="text-20px" />
+          File Downloads
+        </div>
+
+        
+
         {/* newsletter */}
         <div
           className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
@@ -603,7 +619,7 @@ function AdminDashboard() {
         
         {activeScreen === "contact" && <AllContactFormsTable />}
         
-        {/* {activeScreen === "addPost" && <AddPost />} */}
+        {activeScreen === "downloads" && <AllDownloadsTable />}
         
         {activeScreen === "addPost" && <AddPostWithEditor />}
         

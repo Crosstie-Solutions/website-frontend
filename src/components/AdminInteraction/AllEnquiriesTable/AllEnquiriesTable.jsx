@@ -25,7 +25,13 @@ function AllEnquiriesTable() {
         
         activeEnquiry,
         
-        activeCourseReg, toggleAdminEnquiryAction
+        activeCourseReg, toggleAdminEnquiryAction,
+
+
+        currentEnquiries,
+        handleEnquiriesPageChange,
+        currentEnquiriesPage,
+        totalEnquiriesPages,
         
       } = useContext(CrossContext);
     
@@ -53,7 +59,7 @@ function AllEnquiriesTable() {
         </div>
 
         {
-            allEnquiries && allEnquiries.map((enquiry, i)=>
+            currentEnquiries && currentEnquiries.map((enquiry, i)=>
                 <div className={`flex items-center justify-between h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-2`}>
                     <div>{i + 1}.</div>
                     
@@ -106,31 +112,31 @@ function AllEnquiriesTable() {
       </div>
 
       {/* Pagination */}
-      {allEnquiries && allEnquiries.length > 0 && (
+      {currentEnquiries && currentEnquiries.length > 0 && (
         <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
-            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-qxDarkGreen disabled:bg-gray-300 disabled:cursor-not-allowed"
-            disabled={currentProgramsPage === 1}
-            onClick={() => handleProgramsPageChange(currentProgramsPage - 1)}
+            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
+            disabled={currentEnquiriesPage === 1}
+            onClick={() => handleEnquiriesPageChange(currentEnquiriesPage - 1)}
           >
             <CgChevronLeft className="text-20px" />
           </button>
 
           <div className="text-sm">
-            Page {currentProgramsPage} of {totalProgramsPages}
+            Page {currentEnquiriesPage} of {totalEnquiriesPages}
           </div>
 
           <button
-            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-qxDarkGreen disabled:bg-gray-300 disabled:cursor-not-allowed"
-            disabled={currentProgramsPage === totalProgramsPages}
-            onClick={() => handleProgramsPageChange(currentProgramsPage + 1)}
+            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
+            disabled={currentEnquiriesPage === totalEnquiriesPages}
+            onClick={() => handleEnquiriesPageChange(currentEnquiriesPage + 1)}
           >
             <HiOutlineChevronRight className="text-20px" />
           </button>
         </div>
       )}
 
-    {allEnquiries && allEnquiries.length < 1 && (
+    {currentEnquiries && currentEnquiries.length < 1 && (
         <p className="mt-5 text-center w-100 text-15px">No result found.</p>
       )}
     </div>

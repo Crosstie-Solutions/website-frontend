@@ -65,6 +65,8 @@ import CareersPage from "./pages/CareersPage/CareersPage";
 import JobDetailsPage from "./pages/JobDetailsPage/JobDetailsPage";
 import ViewBlogPost from "./pages/ViewBlogPost/ViewBlogPost";
 import EditPostWithEditor from "./pages/EditPostWithEditor/EditPostWithEditor";
+import PasswordResetPage from "./pages/PasswordResetPage/PasswordResetPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage/ForgotPasswordPage";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -76,7 +78,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies, viewAllJobs} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies, viewAllJobs, viewAllDownloads} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -175,6 +177,14 @@ function App() {
   useEffect(()=>{
     viewAllJobs();
   }, []);
+
+  useEffect(()=>{
+    if(me && me.role.toLowerCase().includes('admin')){
+      viewAllDownloads();
+    }
+  }, [me]);
+
+  
 
   
 
@@ -294,11 +304,15 @@ function App() {
           {/* <Route element={<Protected />}>
             <Route path="/user/:userId" element={<UserProfile />} />
           </Route> */}
-          
-          {/* <Route
+
+          <Route
             path="/password-reset/:resetToken"
             element={<PasswordResetPage />}
-          /> */}
+          />
+          
+
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+         
 
           <Route path="*" element={<NoPage />} />
         </Routes>

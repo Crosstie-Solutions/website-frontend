@@ -20,13 +20,10 @@ function AllContactFormsTable() {
         currentProgramsPage,
         totalProgramsPages,
 
-        allEnquiries,
-
-
-        
-        activeEnquiry,
-        
-        activeCourseReg, toggleAdminEnquiryAction,
+        currentContactForms,
+        handleContactFormsPageChange,
+        currentContactFormsPage,
+        totalContactFormsPages,
 
 
           activeContactForm, toggleAdminContactFormAction, viewAllContactForms, allContactForms, loadingAllContactForms
@@ -56,7 +53,7 @@ function AllContactFormsTable() {
         </div>
 
         {
-            allContactForms && allContactForms.map((enquiry, i)=>
+            currentContactForms && currentContactForms.map((enquiry, i)=>
                 <div className={`flex items-center justify-between h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-2`}
                 key={i}
                 >
@@ -103,21 +100,21 @@ function AllContactFormsTable() {
       {allContactForms && allContactForms.length > 0 && (
         <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
-            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-qxDarkGreen disabled:bg-gray-300 disabled:cursor-not-allowed"
-            disabled={currentProgramsPage === 1}
-            onClick={() => handleProgramsPageChange(currentProgramsPage - 1)}
+            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
+            disabled={currentContactFormsPage === 1}
+            onClick={() => handleContactFormsPageChange(currentContactFormsPage - 1)}
           >
             <CgChevronLeft className="text-20px" />
           </button>
 
           <div className="text-sm">
-            Page {currentProgramsPage} of {totalProgramsPages}
+            Page {currentContactFormsPage} of {totalContactFormsPages}
           </div>
 
           <button
-            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-qxDarkGreen disabled:bg-gray-300 disabled:cursor-not-allowed"
-            disabled={currentProgramsPage === totalProgramsPages}
-            onClick={() => handleProgramsPageChange(currentProgramsPage + 1)}
+            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
+            disabled={currentContactFormsPage === totalContactFormsPages}
+            onClick={() => handleContactFormsPageChange(currentContactFormsPage + 1)}
           >
             <HiOutlineChevronRight className="text-20px" />
           </button>

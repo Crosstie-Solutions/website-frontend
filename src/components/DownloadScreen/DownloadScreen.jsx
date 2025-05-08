@@ -61,6 +61,7 @@ function PresentationDownloadScreen(props) {
            {
             fullName: fullName,
             email: email,
+            title: title,
            }
          );
     
@@ -211,6 +212,7 @@ function CourseBrochureDownloadScreen(props) {
          {
           fullName: fullName,
           email: email,
+          title: title
          }
        );
   
@@ -361,6 +363,7 @@ function CourseContentDownloadScreen(props) {
          {
           fullName: fullName,
           email: email,
+          title: title
          }
        );
   

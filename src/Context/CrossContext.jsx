@@ -14,7 +14,8 @@ function CrossContextProvider(props) {
 
   //base URL for API calls
   // const baseUrl = "http://127.0.0.1:8000";
-  const baseUrl = "https://server.crosstiesolutions.com";
+  const baseUrl = "https://crosstie-backend.onrender.com";
+  // const baseUrl = "https://server.crosstiesolutions.com";
 
 
 
@@ -563,6 +564,38 @@ const deleteProgram = async (programId) => {
 
 
 
+  //for admin to delete user
+  const [deletingUser, setDeletingUser] = useState(false);
+
+  const deleteUser = async (userId) => {
+    
+    try {
+      setDeletingUser(true);
+  
+      const response = await axios.delete(`${baseUrl}/api/users/delete-user/${userId && userId}`, {
+        headers: {
+          Authorization: `Bearer ${loginToken ? loginToken : ""}`
+        }
+      });
+  
+      
+      if(response.data.status ==='success'){
+        toast.success('user deleted successfully.');
+        toggleRemoveAdmin('exit')
+      }
+      
+    } catch (error) {
+      console.error('Error deleting user:', error);
+      if(error.response.data.message.includes('jwt')){
+        toast.error('session expired, login to perform action');
+      }
+    }finally{
+      setDeletingUser(false);
+    }
+  };
+
+
+
 
 const [allCourseRegs, setAllCourseRegs] = useState(null);
 
@@ -728,6 +761,29 @@ const viewAllEnquiries = async () => {
 };
 
 
+//for admin to filter Enquiries
+const [currentEnquiriesPage, setCurrentEnquiriesPage] = useState(1);
+const enquiriesPerPage = 10;
+
+
+// // Calculate total pages
+const totalEnquiriesPages = allEnquiries && Math.ceil(allEnquiries.length / enquiriesPerPage);
+
+// Get requests for the current page
+const enquiriesStartIndex = (currentEnquiriesPage - 1) * enquiriesPerPage;
+const enquiriesEndIndex = enquiriesStartIndex + enquiriesPerPage;
+const currentEnquiries = allEnquiries && allEnquiries.slice(enquiriesStartIndex, enquiriesEndIndex);
+
+
+// Handle page change
+const handleEnquiriesPageChange = (page) => {
+  window.scrollTo({ top: 0, behavior: "auto" });
+  if (page > 0 && page <= totalEnquiriesPages) {
+    setCurrentEnquiriesPage(page);
+  }
+};
+
+
 
   //active Enquiry
   const [activeEnquiry, setActiveEnquiry] = useState(null);
@@ -737,7 +793,58 @@ const viewAllEnquiries = async () => {
     window.scrollTo({ top: 0, behavior: "auto" });
 
     setActiveEnquiry((prev) => (prev === index ? null : index));
+  };
+
+
+
+
+
+
+
+//downloads
+
+const [allDownloads, setAllDownloads] = useState(null);
+
+console.log('allDownloads:', allDownloads);
+
+const [loadingAllDownloads, setLoadingAllDownloads] = useState(false);
+
+
+const viewAllDownloads = async () => {
+  try {
+    setLoadingAllDownloads(true)
+    const response = await axios.get(`${baseUrl}/api/download`);
+
+    setAllDownloads(response.data.data.data);
+  } catch (dupError) {
+    console.log("error fetching all Downloads:", dupError);
+  }finally{
+    setLoadingAllDownloads(false)
   }
+};
+
+
+//for admin to filter downloads
+const [currentDownloadsPage, setCurrentDownloadsPage] = useState(1);
+const downloadsPerPage = 10;
+
+
+// // Calculate total pages
+const totalDownloadsPages = allDownloads && Math.ceil(allDownloads.length / downloadsPerPage);
+
+// Get requests for the current page
+const downloadsStartIndex = (currentDownloadsPage - 1) * downloadsPerPage;
+const downloadsEndIndex = downloadsStartIndex + downloadsPerPage;
+const currentDownloads = allDownloads && allDownloads.slice(downloadsStartIndex, downloadsEndIndex);
+
+
+// Handle page change
+const handleDownloadsPageChange = (page) => {
+  window.scrollTo({ top: 0, behavior: "auto" });
+  if (page > 0 && page <= totalDownloadsPages) {
+    setCurrentDownloadsPage(page);
+  }
+};
 
 
 
@@ -781,14 +888,6 @@ const allTestimonials = testimonials && testimonials.sort((a, b) => a.priorityIn
   const testimonialsPerPage = 12;
 
 
-  // // Filter programs based on search term
-  // const filteredPrograms = allPrograms && allPrograms.filter((program) =>
-  //   `${program.title} ${program.category}`
-  //     .toLowerCase()
-  //     .includes(programsSearchTerm.toLowerCase())
-  // );
-
-
   // // Calculate total pages
   const totalTestimonialsPages = allTestimonials && Math.ceil(allTestimonials.length / testimonialsPerPage);
   
@@ -798,10 +897,6 @@ const allTestimonials = testimonials && testimonials.sort((a, b) => a.priorityIn
   const currentTestimonials = allTestimonials && allTestimonials.slice(testimonialsStartIndex, testimonialsEndIndex);
 
 
-
-  
-
-  
   // Handle page change
   const handleTestimonialsPageChange = (page) => {
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -872,6 +967,29 @@ const [allContactForms, setAllContactForms] = useState(null);
 
 
 const [loadingAllContactForms, setLoadingAllContactForms] = useState(false);
+
+//for admin to filter contact forms
+const [currentContactFormsPage, setCurrentContactFormsPage] = useState(1);
+const contactFormsPerPage = 10;
+
+
+// Calculate total pages
+const totalContactFormsPages = allContactForms && Math.ceil(allContactForms.length / contactFormsPerPage);
+
+// Get requests for the current page
+const contactFormsStartIndex = (currentContactFormsPage - 1) * contactFormsPerPage;
+const contactFormsEndIndex = contactFormsStartIndex + contactFormsPerPage;
+const currentContactForms = allContactForms && allContactForms.slice(contactFormsStartIndex, contactFormsEndIndex);
+
+
+
+// Handle page change
+const handleContactFormsPageChange = (page) => {
+  window.scrollTo({ top: 0, behavior: "auto" });
+  if (page > 0 && page <= totalContactFormsPages) {
+    setCurrentContactFormsPage(page);
+  }
+};
 
 
 
@@ -1331,10 +1449,12 @@ const [activeSearch, setActiveSearch] = useState(false);
 
   //for admin to fetch all Events
     
-  const [allEvents, setAllEvents] = useState([]);
+  const [events, setEvents] = useState([]);
 
 
   const [loadEvents, setLoadEvents] = useState(false);
+
+  const allEvents = events && events.sort((a, b) => a.priorityIndex - b.priorityIndex)
   
   const fetchEvents = async () => {
     
@@ -1344,7 +1464,7 @@ const [activeSearch, setActiveSearch] = useState(false);
       const response = await axios.get(`${baseUrl}/api/event`);
   
       
-      setAllEvents(response.data.data.data)
+      setEvents(response.data.data.data)
     } catch (error) {
       console.error('Error fetching Events:', error);
     }finally{
@@ -1653,8 +1773,19 @@ const timeAgo = (timestamp) => {
   currentTestimonialsPage, filteredHeaderPrograms, allOpenPrograms,
   totalTestimonialsPages, loadingAllPrograms,
   handleJobsPageChange, setProgramsMonthSearchTerm,
-  allJobs,
-  deleteJob,
+  allJobs, currentContactForms, deleteUser, deletingUser,
+  handleContactFormsPageChange, viewAllDownloads,
+  currentContactFormsPage, currentDownloads,
+  handleDownloadsPageChange,
+  currentDownloadsPage,
+  totalDownloadsPages,
+
+  allDownloads,
+  totalContactFormsPages,
+  deleteJob, currentEnquiries,
+  handleEnquiriesPageChange,
+  currentEnquiriesPage,
+  totalEnquiriesPages,
   activeJob, toggleJob
   };
 

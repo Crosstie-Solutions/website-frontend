@@ -10,10 +10,10 @@ import { RiFolderDownloadLine } from "react-icons/ri";
 function RemoveAdmin(props) {
 
   
-    const {adminId, firstName, lastName} = props;
+    const {adminId, firstName, lastName, role} = props;
 
 
-   const {toggleDownloadScreen, baseUrl, setLoading, toggleRemoveAdmin, loginToken} = useContext(CrossContext);
+   const {toggleDownloadScreen, baseUrl, setLoading, toggleRemoveAdmin, loginToken, deleteUser, deletingUser} = useContext(CrossContext);
 
 
 
@@ -69,7 +69,8 @@ function RemoveAdmin(props) {
       <div className="flex flex-col items-center justify-center w-100 h-100">
         {/* form */}
         
-        
+        {/* remove admin */}
+        {role && role.toLowerCase()==='admin' &&
         <div className="flex flex-col items-center justify-center gap-2 py-3 text-black bg-white rounded-5 large:px-5 large:h-100 large:w-40 small:rounded-5 small:w-90 text-15px small:px-1">
 
             <p className="text-center">Are you sure you want to remove <span className="font-semibold text-crossLightPurple">{firstName} {lastName}?</span> They will lose all admin privileges.</p>
@@ -102,7 +103,57 @@ function RemoveAdmin(props) {
           </div>
 
           
-        </div>
+        </div>}
+
+
+         {/* delete user */}
+         {role && role.toLowerCase()==='user' &&
+         <div className="flex flex-col items-center justify-center gap-2 py-3 text-black bg-white rounded-5 large:px-5 large:h-100 large:w-40 small:rounded-5 small:w-90 text-15px small:px-1">
+
+            <p className="text-center">Are you sure you want to delete <span className="font-semibold text-crossLightPurple">{firstName} {lastName}?</span> They will be permanently deleted from Crosstie database.</p>
+          
+          <div className="flex items-center justify-center h-auto gap-3 w-100">
+          {!deletingUser &&
+            <button
+              className="flex items-center justify-center w-auto px-2 border rounded h-40px text-crossLightPurple border-crossLightPurple"
+              onClick={()=>{
+                toggleRemoveAdmin("exit")
+              }}
+            >
+              Cancel
+            </button>}
+          
+            {!deletingUser && 
+            <button
+              className="flex items-center justify-center w-auto px-2 text-white border-none rounded h-40px bg-vogueRed"
+              onClick={()=>{
+                deleteUser(adminId)
+              }}
+            >
+              Delete
+            </button>}
+
+
+
+
+            {removingAdmin &&
+            <button
+              className="flex items-center justify-center w-auto px-2 text-white bg-red-300 border-none rounded h-40px"
+            >
+              Removing...
+            </button>}
+
+
+            {deletingUser &&
+            <button
+              className="flex items-center justify-center w-auto px-2 text-white bg-red-300 border-none rounded h-40px"
+            >
+              Deleting...
+            </button>}
+          </div>
+
+          
+          </div>}
        
       </div>
       

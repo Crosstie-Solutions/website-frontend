@@ -45,6 +45,7 @@ function AllCourseRegsTable() {
     
   return (
     <div className='flex flex-col items-center h-auto gap-2 w-100'>
+      
       <div className='flex items-center h-auto gap-5 w-100'>
         <h4 className="self-start text-crossLightPurple small:hidden large:block">Course Registrations({allCourseRegs && allCourseRegs.length})</h4>
         {/* <div className='large:w-70 h-40px small:w-100'>
@@ -66,7 +67,7 @@ function AllCourseRegsTable() {
         </div>
 
         {
-            allCourseRegs && allCourseRegs.map((reg, i)=>
+            currentCourseRegs && currentCourseRegs.map((reg, i)=>
                 <div className={`flex items-center justify-between h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1`}>
                     <div>{i + 1}.</div>
                     <div className='flex flex-col gap-1 break-words large:w-15 small:w-20'>{reg.fullName}
@@ -119,31 +120,31 @@ function AllCourseRegsTable() {
       </div>
 
       {/* Pagination */}
-      {currentPrograms && currentPrograms.length > 0 && (
+      {currentCourseRegs && currentCourseRegs.length > 0 && (
         <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
             className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
-            disabled={currentProgramsPage === 1}
-            onClick={() => handleProgramsPageChange(currentProgramsPage - 1)}
+            disabled={currentCourseRegsPage === 1}
+            onClick={() => handleCourseRegsPageChange(currentCourseRegsPage - 1)}
           >
             <CgChevronLeft className="text-20px" />
           </button>
 
           <div className="text-sm">
-            Page {currentProgramsPage} of {totalProgramsPages}
+            Page {currentCourseRegsPage} of {totalCourseRegsPages}
           </div>
 
           <button
             className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
-            disabled={currentProgramsPage === totalProgramsPages}
-            onClick={() => handleProgramsPageChange(currentProgramsPage + 1)}
+            disabled={currentCourseRegsPage === totalCourseRegsPages}
+            onClick={() => handleCourseRegsPageChange(currentCourseRegsPage + 1)}
           >
             <HiOutlineChevronRight className="text-20px" />
           </button>
         </div>
       )}
 
-    {currentPrograms && currentPrograms.length < 1 && (
+    {currentCourseRegs && currentCourseRegs.length < 1 && (
         <p className="mt-5 text-center w-100 text-15px">No result found.</p>
       )}
     </div>

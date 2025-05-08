@@ -38,25 +38,25 @@ function AllUsersTable() {
         </div>
       </div>
       
-      <table className="h-auto w-100">
-        <tr className="font-bold border-b border-blue-300 text-crossBlue">
-          <td>S/N</td>
-          <td>Name</td>
-          <td>Phone</td>
-          <td>Email</td>
-          <td>Role</td>
+      <div className="flex flex-col h-auto gap-1 w-100">
+        <div className="flex flex-row gap-1 font-bold border-b border-blue-300 text-crossBlue">
+          <div className="w-auto">S/N</div>
+          <div className="w-20">Name</div>
+          <div className="w-20">Phone</div>
+          <div className="w-40">Email</div>
+          <div className="w-10">Role</div>
           {/* <td>Verif. status</td> */}
-        </tr>
+        </div>
 
         {currentUsers &&
           currentUsers.map((user, i) => {
             return (
-              <tr
+              <div
                 key={i}
-                className={`${i % 2 === 0 ? "bg-gray-100" : "bg-white"}`}
+                className={`${i % 2 === 0 ? "bg-gray-100" : "bg-white"} flex gap-1`}
               >
-                <td>{i + 1}.</td>
-                <td className={`flex flex-col gap-0.5`}>
+                <div className="w-auto">{i + 1}.</div>
+                <div className={`flex flex-col gap-0.5 w-20`}>
                   {user.firstName} {user.lastName}
                   
                   {user.role==='admin' && me && me.role.includes('super') &&
@@ -64,12 +64,19 @@ function AllUsersTable() {
                     className='flex items-center justify-center text-white rounded cursor-pointer h-30px w-100px bg-crossLightPurple text-11px'
                     onClick={()=>toggleRemoveAdmin(i)}
                     >Remove Admin</div>}
-                </td>
 
-                <td>{user.phone}</td>
-                <td className="">{user.email}</td>
 
-                <td className={`text-black`}>{user.role}</td>
+                  {user.role==='user' && me && me.role.includes('super') &&
+                  <div  
+                    className='flex items-center justify-center text-white rounded cursor-pointer h-30px w-100px bg-vogueRed text-11px'
+                    onClick={()=>toggleRemoveAdmin(i)}
+                    >Delete User</div>}
+                </div>
+
+                <div className="w-20">{user.phone}</div>
+                <div className="w-40 break-words">{user.email}</div>
+
+                <div className={`text-black w-10`}>{user.role}</div>
 
                 {activeAdmin === i && (
                     <div>
@@ -79,12 +86,13 @@ function AllUsersTable() {
                       adminId={user.id}
                       firstName={user.firstName}
                       lastName={user.lastName}
+                      role={user.role}
                       />
                     </div>)}
-              </tr>
+              </div>
             );
           })}
-      </table>
+      </div>
 
 
       {/* Pagination */}
