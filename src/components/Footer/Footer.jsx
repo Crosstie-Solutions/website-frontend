@@ -219,10 +219,10 @@ const myLastName = document.getElementById('myLastName');
             
             <li><Link to="/blog">Blog </Link></li>
             <li><Link to="/case-studies">Case Studies </Link></li>
-            <li><Link to="">Terms of Service </Link></li>
+            <li><Link to="/conditions">Terms of Service </Link></li>
             <li><Link to="/careers">Careers</Link></li>
-            <li><Link to="">Privacy Policy </Link></li>
-            <li><Link to="">Media Report</Link></li>
+            <li><Link to="/privacy">Privacy Policy </Link></li>
+            <li><Link to="/media">Media Report</Link></li>
         </ul>
       </div>
 

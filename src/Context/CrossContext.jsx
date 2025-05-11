@@ -1726,6 +1726,14 @@ const timeAgo = (timestamp) => {
 }
 
 
+//consulting form
+const [consultingTitle, setConsultingTitle] = useState('')
+
+const bookService = (title)=> {
+  setConsultingTitle(title)
+}
+
+consultingTitle, bookService
 
 
 
@@ -1787,7 +1795,7 @@ const timeAgo = (timestamp) => {
   handleEnquiriesPageChange,
   currentEnquiriesPage,
   totalEnquiriesPages,
-  activeJob, toggleJob
+  activeJob, toggleJob, consultingTitle, bookService
   };
 
   

@@ -4,6 +4,7 @@ import { CrossContext } from "../../Context/CrossContext";
 import { PHOTOS } from "../../assets/images";
 
 
+
 function AboutHero(props) {
 
   const {tag, buttonText, line1, line2} = props;
@@ -90,7 +91,7 @@ function AboutHero(props) {
         </p>} */}
 
         {!window.location.pathname.includes('satisfaction') &&
-        <h1 class="large:text-18px large:w-90 large:leading-8 small:leading-5  small:w-100 small:text-17px">
+        <h1 className="large:text-18px large:w-90 large:leading-8 small:leading-5  small:w-100 small:text-17px">
           
            {line2 ? line2 : "We transform talents and organizations to improve performance."}
         </h1>}

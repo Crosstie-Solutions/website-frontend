@@ -67,6 +67,8 @@ import ViewBlogPost from "./pages/ViewBlogPost/ViewBlogPost";
 import EditPostWithEditor from "./pages/EditPostWithEditor/EditPostWithEditor";
 import PasswordResetPage from "./pages/PasswordResetPage/PasswordResetPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage/ForgotPasswordPage";
+import PrivacyPage from "./pages/PrivacyPage/PrivacyPage";
+import ConditionsPage from "./pages/ConditionsPage/ConditionsPage";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -277,6 +279,8 @@ function App() {
           <Route path="/our-solutions/customized-training" element={<CustomizedTrainingPage />} />
           
           <Route path="/our-solutions/webinars" element={<WebinarPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/conditions" element={<ConditionsPage />} />
           
           
           

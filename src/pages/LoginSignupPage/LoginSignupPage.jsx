@@ -196,6 +196,12 @@ const loginFormData = {
       }
     }
   };
+
+  const [agree, setAgree] = useState(false);
+
+  const handleAgree = (e)=>{
+    setAgree(e.target.checked)
+  }
   
   
 
@@ -292,12 +298,27 @@ const loginFormData = {
                 />}
             </div>
 
+              
+            <p className="lareg:text-13px text-crossTextGray w-100 h-auto large:flex large:items-center small:text-10px small:items-start large:gap-0.5">
+              <input type="checkbox" name="" id="" 
+            onChange={handleAgree}
+            /> I have read and agree to the <Link to='/conditions' className="text-crossBlue">Terms and Conditions</Link> and <Link to='/privacy' className="text-crossBlue">Privacy Policy</Link> of Crosstie Solutions</p>
+
+              {!agree &&
             <button
-              className="flex items-center justify-center text-white rounded w-100 h-40px bg-crossLightPurple text-17px"
+              className={`flex items-center justify-center text-white rounded w-100 h-40px bg-crossLightPurple text-17px cursor-not-allowed opacity-50`}
+              disabled
+            >
+              Sign up
+            </button>}
+
+              {agree &&
+            <button
+              className={`flex items-center justify-center text-white rounded w-100 h-40px bg-crossLightPurple text-17px`}
               onClick={handleSignup}
             >
               Sign up
-            </button>
+            </button>}
           </div>
         </div>
       )}
