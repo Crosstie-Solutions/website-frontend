@@ -21,12 +21,12 @@ function ConsultingForm(props) {
    
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
-  
+    const [nameOfOrg, setNameOfOrg] = useState("");
+    const [orgSize, setOrgSize] = useState("");
+    const [role, setRole] = useState("");
+    const [phone, setPhone] = useState("");
+    const [message, setMessage] = useState("");
     
-    //to clear fields after submit
-    
-    const nameField = document.getElementById("nameField");
-    const emailField = document.getElementById("emailField");
     
   
     //funtion for enrollment
@@ -34,7 +34,7 @@ function ConsultingForm(props) {
     const [contactErrors, setContactErrors] = useState({});
     
     
-    const requestDownload = async () => {
+    const bookSession = async () => {
      
      
      const validationErrors = {};
@@ -45,6 +45,21 @@ function ConsultingForm(props) {
      }
     if (!email.trim()) {
       validationErrors.email = "email is required";
+    }
+    if (!phone.trim()) {
+      validationErrors.phone = "phone number is required";
+    }
+
+    if (!nameOfOrg.trim()) {
+      validationErrors.nameOfOrg = "company name is required";
+    }
+
+    if (!orgSize.trim()) {
+      validationErrors.orgSize = "What is the size of your organization?";
+    }
+
+    if (!role.trim()) {
+      validationErrors.role = "role is required";
     }
 
     
@@ -57,20 +72,23 @@ function ConsultingForm(props) {
          
          setLoading(true);
          const response = await axios.post(
-           `${baseUrl}/api/download`,
+           `${baseUrl}/api/consulting`,
            {
             fullName: fullName,
             email: email,
-            title: title,
+            phone: phone,
+            nameOfOrg: nameOfOrg,
+            orgSize: orgSize,
+            message: message,
+            role: role,
+            service: consultingTitle,
            }
          );
     
          if (response.status === 201) {
           
-           toast.success('Details submitted successfully. Proceed to download.');
-           nameField.value="";
-           emailField.value="";
-           setScreen("download");
+           toast.success('Message sent successfully, we will reach out as soon as possible.');
+           bookService('exit')
          }
        } catch (error) {
          
@@ -109,7 +127,7 @@ function ConsultingForm(props) {
                 type="text"
                 name="fullName"
                 id="nameField"
-                className="pl-1 border rounded border-crossLightPurple w-100 h-40px myField"
+                className="pl-1 border rounded border-crossLightPurple w-100 h-40px"
                 onChange={(e) => setFullName(e.target.value)}
               />
               <p className="text-vogueRed">
@@ -134,29 +152,29 @@ function ConsultingForm(props) {
 
           <div className="w-100 flex items-center justify-between h-auto">
             <div className="flex flex-col items-start h-auto w-45">
-              <label htmlFor="companyName">Organization</label>
+              <label htmlFor="nameOfOrg">Organization</label>
               <input
                 type="text"
-                name="companyName"
-                id="nameField"
+                name="nameOfOrg"
+                id=""
                 placeholder="Enter company name"
                 className="pl-1 border rounded border-crossLightPurple w-100 h-40px myField"
-                onChange={(e) => setFullName(e.target.value)}
+                onChange={(e) => setNameOfOrg(e.target.value)}
               />
               <p className="text-vogueRed">
-                {contactErrors && contactErrors.companyName}
+                {contactErrors && contactErrors.nameOfOrg}
               </p>
             </div>
 
             <div className="flex flex-col items-start h-auto w-45">
               <label htmlFor="role">Role</label>
               <input
-                type="email"
+                type="text"
                 name="role"
-                id="emailField"
+                id=""
                 className="pl-1 border rounded border-crossLightPurple w-100 h-40px myField"
                 placeholder="What is your role in the organization?"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setRole(e.target.value)}
               />
               <p className="text-vogueRed">
                 {contactErrors && contactErrors.role}
@@ -173,17 +191,20 @@ function ConsultingForm(props) {
                 id=""
                 placeholder="Enter company name"
                 className="pl-1 border rounded border-crossLightPurple w-100 h-40px myField"
-                onChange={(e) => setFullName(e.target.value)}
+                onChange={(e) => setPhone(e.target.value)}
               />
               <p className="text-vogueRed">
                 {contactErrors && contactErrors.phone}
               </p>
             </div>
 
+
             <div className="flex flex-col items-start h-auto w-45">
               <label htmlFor="role">Company Size</label>
               
-              <select name="companySize" id="" className="pl-1 border rounded border-crossLightPurple w-100 h-40px myField">
+              <select name="companySize" id="" className="pl-1 border rounded border-crossLightPurple w-100 h-40px"
+               onChange={(e) => setOrgSize(e.target.value)}
+              >
                 <option value="">-select-</option>
                 <option value="5 - 10">5 - 10</option>
                 <option value="10 - 20">10 - 20</option>
@@ -193,16 +214,18 @@ function ConsultingForm(props) {
                 <option value="above 100">Above 100</option>
               </select>
               <p className="text-vogueRed">
-                {contactErrors && contactErrors.companySize}
+                {contactErrors && contactErrors.orgSize}
               </p>
             </div>
           </div>
 
-          <textarea name="overview" id="" className="h-100px w-100 pl-1 border rounded border-crossLightPurple"></textarea>
+          <textarea name="overview" id="" className="h-100px w-100 pl-1 border rounded border-crossLightPurple"
+          onChange={(e) => setMessage(e.target.value)}
+          ></textarea>
 
           <button
             className="flex items-center justify-center border-none rounded h-40px w-100 hover:bg-crossYellow hover:text-crossLightPurple bg-crossLightPurple text-white"
-            // onClick={requestDownload}
+            onClick={bookSession}
           >
             Book Now
           </button>

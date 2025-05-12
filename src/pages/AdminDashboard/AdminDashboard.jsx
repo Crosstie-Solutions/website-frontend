@@ -54,6 +54,8 @@ import AddJob from "../../components/AdminInteraction/AddJob/AddJob.jsx";
 import AddPostWithEditor from "../../components/AdminInteraction/AddPostWithEditor/AddPostWithEditor.jsx";
 import { MdFileDownload } from "react-icons/md";
 import AllDownloadsTable from "../../components/AdminInteraction/AllDownloadsTable/AllDownloadsTable.jsx";
+import { CiSquareQuestion } from "react-icons/ci";
+import AllConsultingReqTable from "../../components/AdminInteraction/AllConsultingReqTable/AllConsultingReqTable.jsx";
 
 
 
@@ -377,6 +379,18 @@ function AdminDashboard() {
           File Downloads
         </div>
 
+
+        {/* Consulting Request */}
+        <div
+          className={`flex items-center justify-start gap-1 pl-3 cursor-pointer h-40px w-100 text-15px ${
+            activeScreen === "consulting" ? "bg-gray-300" : ""
+          } hover:bg-gray-300`}
+          onClick={() => setActiveScreen("consulting")}
+        >
+          <CiSquareQuestion className="text-20px" />
+          Consulting Requests
+        </div>
+
         
 
         {/* newsletter */}
@@ -648,6 +662,8 @@ function AdminDashboard() {
         {activeScreen === "allJobs" && <AllJobsTable />}
         
         {activeScreen === "addJob" && <AddJob />}
+
+        {activeScreen === "consulting" && <AllConsultingReqTable />}
         
         
         
@@ -957,6 +973,7 @@ function AdminDashboard() {
             <MdKeyboardArrowRight className="text-20px" />
           </div>
 
+
            {/* jobs */}
            <div
                 className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-13px`}
@@ -1050,6 +1067,20 @@ function AdminDashboard() {
             <div className="flex items-center gap-1 w-100 h-100" onClick={toggleSideBar}>
               <LuBadgeHelp className="text-20px" />
               Contact Forms
+            </div>
+
+            <MdKeyboardArrowRight className="text-20px" />
+          </div>
+
+
+           {/* Consulting Requests */}
+          <div
+            className={`flex items-center justify-between gap-1 px-1 cursor-pointer h-40px w-100 text-13px`}
+            onClick={() => setActiveScreen("consulting")}
+          >
+            <div className="flex items-center gap-1 w-100 h-100" onClick={toggleSideBar}>
+              <CiSquareQuestion className="text-20px" />
+              Consulting Requests
             </div>
 
             <MdKeyboardArrowRight className="text-20px" />
@@ -1248,6 +1279,8 @@ function AdminDashboard() {
         {activeScreen === "all Jobs" && <AllJobsTable />}
         
         {activeScreen === "add Job" && <AddJob />}
+
+        {activeScreen === "consulting" && <AllConsultingReqTable />}
 
         
         </div>

@@ -80,7 +80,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies, viewAllJobs, viewAllDownloads} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies, viewAllJobs, viewAllDownloads, viewAllConsultingReqs} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -183,6 +183,12 @@ function App() {
   useEffect(()=>{
     if(me && me.role.toLowerCase().includes('admin')){
       viewAllDownloads();
+    }
+  }, [me]);
+
+  useEffect(()=>{
+     if(me && me.role.toLowerCase().includes('admin')){
+      viewAllConsultingReqs();
     }
   }, [me]);
 

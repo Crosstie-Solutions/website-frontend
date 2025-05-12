@@ -598,6 +598,7 @@ const deleteProgram = async (programId) => {
 
 
 
+  //course registration
 const [allCourseRegs, setAllCourseRegs] = useState(null);
 
 const [loadingAllCourseRegs, setLoadingAllCourseRegs] = useState(false);
@@ -664,6 +665,82 @@ const handleCourseRegsPageChange = (page) => {
     setActiveCourseReg((prev) => (prev === index ? null : index));
   }
 
+
+
+
+
+
+
+
+
+   //consulting requests
+const [consultingReqs, setConsultingReqs] = useState(null);
+
+const [loadingAllConsultingReqs, setLoadingAllConsultingReqs] = useState(false);
+
+const allConsultingReqs = consultingReqs && consultingReqs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+
+
+
+const viewAllConsultingReqs = async () => {
+  try {
+    setLoadingAllConsultingReqs(true)
+    const response = await axios.get(`${baseUrl}/api/consulting`);
+
+    setConsultingReqs(response.data.data.data);
+  } catch (dupError) {
+    console.log("error fetching all consulting regs:", dupError);
+  }finally{
+    setLoadingAllConsultingReqs(false)
+  }
+};
+
+
+
+//for admin to filter course regs
+const [currentConsultingReqsPage, setCurrentConsultingReqsPage] = useState(1);
+const [consultingReqsSearchTerm, setConsultingReqsSearchTerm] = useState("");
+const consultingReqsPerPage = 10;
+
+
+// // Filter ConsultingReqs based on search term
+const filteredConsultingReqs = allConsultingReqs && allConsultingReqs.filter((program) =>
+  `${program.title} ${program.category}`
+    .toLowerCase()
+    .includes(consultingReqsSearchTerm.toLowerCase())
+);
+
+
+// // Calculate total pages
+const totalConsultingReqsPages = filteredConsultingReqs && Math.ceil(filteredConsultingReqs.length / consultingReqsPerPage);
+
+// Get requests for the current page
+const consultingReqsStartIndex = (currentConsultingReqsPage - 1) * consultingReqsPerPage;
+const consultingReqsEndIndex = consultingReqsStartIndex + consultingReqsPerPage;
+const currentConsultingReqs = filteredConsultingReqs && filteredConsultingReqs.slice(consultingReqsStartIndex, consultingReqsEndIndex);
+
+
+// Handle page change
+const handleConsultingReqsPageChange = (page) => {
+  if (page > 0 && page <= totalConsultingReqsPages) {
+    setCurrentConsultingReqsPage(page);
+  }
+};
+
+
+
+
+
+  //active consulting reg.
+  const [activeConsultingReq, setActiveConsultingReq] = useState(null);
+
+  const toggleAdminConsultingReqAction = async (index)=> {
+
+    window.scrollTo({ top: 0, behavior: "auto" });
+
+    setActiveConsultingReq((prev) => (prev === index ? null : index));
+  }
 
 
 
@@ -1785,12 +1862,9 @@ consultingTitle, bookService
   allJobs, currentContactForms, deleteUser, deletingUser,
   handleContactFormsPageChange, viewAllDownloads,
   currentContactFormsPage, currentDownloads,
-  handleDownloadsPageChange,
-  currentDownloadsPage,
-  totalDownloadsPages,
-
-  allDownloads,
-  totalContactFormsPages,
+  handleDownloadsPageChange, viewAllConsultingReqs,
+  currentDownloadsPage, totalDownloadsPages, allDownloads,
+  totalContactFormsPages, allConsultingReqs, currentConsultingReqs, handleConsultingReqsPageChange, currentConsultingReqsPage, totalConsultingReqsPages, activeConsultingReq, toggleAdminConsultingReqAction,
   deleteJob, currentEnquiries,
   handleEnquiriesPageChange,
   currentEnquiriesPage,
