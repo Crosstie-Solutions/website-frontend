@@ -219,9 +219,14 @@ function ConsultingForm(props) {
             </div>
           </div>
 
-          <textarea name="overview" id="" className="h-100px w-100 pl-1 border rounded border-crossLightPurple"
-          onChange={(e) => setMessage(e.target.value)}
-          ></textarea>
+          <div className="flex flex-col items-start justify-center h-auto w-100">
+              <label htmlFor="message">Brief overview of how we can be of help</label>
+              <textarea name="message" id="" className="h-100px w-100 pl-1 border rounded border-crossLightPurple"
+              placeholder="let us know how we can be of help"
+              onChange={(e) => setMessage(e.target.value)}
+              ></textarea>
+          </div>
+          
 
           <button
             className="flex items-center justify-center border-none rounded h-40px w-100 hover:bg-crossYellow hover:text-crossLightPurple bg-crossLightPurple text-white"

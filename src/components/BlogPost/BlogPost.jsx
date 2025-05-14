@@ -5,13 +5,16 @@ import { Link } from "react-router-dom";
 import { CrossContext } from "../../Context/CrossContext";
 
 
+
 function BlogPost(post) {
 
   const {formatDate} = useContext(CrossContext)
 
   const {title, blogImage, content, postId, createdAt, preview} = post
   
+
   return (
+    
     <div className="flex flex-col items-start h-auto gap-1 px-1 py-1 bg-white border large:w-30 border-crossIconBg rounded-10 small:w-100">
       <img
         src={blogImage}

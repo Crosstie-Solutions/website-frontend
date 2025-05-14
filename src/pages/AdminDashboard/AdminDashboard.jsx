@@ -56,6 +56,9 @@ import { MdFileDownload } from "react-icons/md";
 import AllDownloadsTable from "../../components/AdminInteraction/AllDownloadsTable/AllDownloadsTable.jsx";
 import { CiSquareQuestion } from "react-icons/ci";
 import AllConsultingReqTable from "../../components/AdminInteraction/AllConsultingReqTable/AllConsultingReqTable.jsx";
+import { SiSimpleanalytics } from "react-icons/si";
+import AddReport from "../../components/AdminInteraction/AddReport/AddReport.jsx";
+import AllReportsTable from "../../components/AdminInteraction/AllReportsTable/AllReportsTable.jsx";
 
 
 
@@ -77,6 +80,13 @@ function AdminDashboard() {
 
    const togglePartnersDD = ()=>{
      setPartnersDD(!partnersDD);
+   }
+
+    //report dropdown
+   const [reportDD, setReportDD] = useState(false);
+
+   const toggleReportDD = ()=>{
+     setReportDD(!reportDD);
    }
 
     //case study dropdown
@@ -512,6 +522,38 @@ function AdminDashboard() {
         </div>
 
 
+
+        {/* manage reports */}
+        <div
+          className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+        >
+          
+          <div className={`${ activeScreen === "addReport" || activeScreen === "allReports" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
+          onClick={toggleReportDD}
+          >
+
+            <div className="flex gap-1">
+              <SiSimpleanalytics className="text-20px" />
+              Media Reports
+            </div>
+
+            <IoChevronDown className={`text-20px ${reportDD ? "rotate-180" : ""}`}/>
+          </div>
+
+          {reportDD &&
+          <div className="flex flex-col items-center gap-1 w-100">
+            <div className="flex justify-center h-auto cursor-pointer w-100 hover:bg-gray-300"
+             onClick={() => setActiveScreen("allReports")}
+            >All Reports</div>
+            
+            <div className="flex justify-center h-auto cursor-pointer w-100 hover:bg-gray-300"
+             onClick={() => setActiveScreen("addReport")}
+            >Add Report</div>
+            
+          </div>}
+        </div>
+
+
         {/* manage Case studies */}
         <div
           className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
@@ -664,6 +706,10 @@ function AdminDashboard() {
         {activeScreen === "addJob" && <AddJob />}
 
         {activeScreen === "consulting" && <AllConsultingReqTable />}
+
+        {activeScreen === "addReport" && <AddReport />}
+
+        {activeScreen === "allReports" && <AllReportsTable />}
         
         
         
@@ -1280,7 +1326,7 @@ function AdminDashboard() {
         
         {activeScreen === "add Job" && <AddJob />}
 
-        {activeScreen === "consulting" && <AllConsultingReqTable />}
+        {activeScreen === "consulting" && <Allconsu />}
 
         
         </div>

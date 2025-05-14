@@ -43,7 +43,7 @@ function AllEventsTable() {
     <div className="flex flex-col items-center justify-center h-auto gap-3 py-3 large:px-2 bg-vogueWhite w-100 rounded-10 large:text-15px small:text-10px">
 
       <div className='flex items-center justify-between h-auto gap-5 w-100'>
-        <h4 className="self-start font-bold text-crossLightPurple small:hidden large:block">All Partners({allEvents && allEvents.length})</h4>
+        <h4 className="self-start font-bold text-crossLightPurple small:hidden large:block">All Events({allEvents && allEvents.length})</h4>
         <div className='large:w-70 h-40px small:w-100'>
             <EventsFilter />
         </div>

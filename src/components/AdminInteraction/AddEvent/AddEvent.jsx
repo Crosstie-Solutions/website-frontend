@@ -103,7 +103,7 @@ if (noError) {
     
     setLoading(true);
     const response = await axios.post(
-      `${baseUrl}/api/event`,
+      `https://server.crosstiesolutions.com/api/event`,
       formData,
       {
         headers: {

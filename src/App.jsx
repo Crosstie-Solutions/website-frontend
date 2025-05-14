@@ -69,6 +69,9 @@ import PasswordResetPage from "./pages/PasswordResetPage/PasswordResetPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage/ForgotPasswordPage";
 import PrivacyPage from "./pages/PrivacyPage/PrivacyPage";
 import ConditionsPage from "./pages/ConditionsPage/ConditionsPage";
+import ReportPage from "./pages/ReportPage/ReportPage";
+import ReportDetails from "./pages/ReportDetails/ReportDetails";
+import EditReport from "./pages/EditReport/EditReport";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -80,7 +83,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies, viewAllJobs, viewAllDownloads, viewAllConsultingReqs} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies, viewAllJobs, viewAllDownloads, viewAllConsultingReqs, viewAllReports} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -192,6 +195,14 @@ function App() {
     }
   }, [me]);
 
+
+  useEffect(()=>{
+    viewAllReports()
+  }, []);
+
+
+  
+
   
 
   
@@ -262,6 +273,8 @@ function App() {
           <Route path="/login" element={<LoginSignupPage />} />
           
           <Route path="/blog" element={<BlogPage />} />
+
+          <Route path="/media-report" element={<ReportPage />} />
           
           <Route path="/case-studies" element={<CaseStudyPage />} />
           
@@ -273,9 +286,12 @@ function App() {
           <Route path="/case-studies/:postId" element={<ViewCaseStudy />} />
           
           <Route path="/blog/:postId" element={<BlogPostDetails />} />
-          {/* <Route path="/blog/:postId" element={<ViewBlogPost />} /> */}
-          {/* <Route path="/blog/edit/:postId" element={<EditBlogPostPage />} /> */}
+
+          <Route path="/media-report/:postId" element={<ReportDetails />} />
+          
           <Route path="/blog/edit/:postId" element={<EditPostWithEditor />} />
+
+          <Route path="/media-report/edit/:postId" element={<EditReport />} />
 
           
 

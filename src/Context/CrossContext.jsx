@@ -1179,7 +1179,7 @@ const toggleBio = async (index)=>{
 
 
 
-// blogPost
+
 //blog posts 
 const [blogPosts, setBlogPosts] = useState();
 const [loadingAllBlogPosts, setLoadingAllBlogPosts] = useState(false);
@@ -1271,6 +1271,106 @@ const toggleAdminBlogPostAction = async (index)=> {
      setDeletingBlogPost(false);
    }
  };
+
+
+
+
+
+
+ //media report
+
+const [reports, setReports] = useState();
+
+const [loadingAllReports, setLoadingAllReports] = useState(false);
+
+const allReports = reports && reports.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+
+
+const viewAllReports = async () => {
+  try {
+    setLoadingAllReports(true)
+    const response = await axios.get(`${baseUrl}/api/report`);
+
+    setReports(response.data.data.data);
+  } catch (dupError) {
+    console.log("error fetching all Reports:", dupError);
+  }finally{
+    setLoadingAllReports(false)
+  }
+};
+
+
+//for admin to filter Reports
+const [currentReportsPage, setCurrentReportsPage] = useState(1);
+const [reportsSearchTerm, setReportsSearchTerm] = useState("");
+const reportsPerPage = 10;
+
+
+
+// // Filter Reports based on search term
+const filteredReports = allReports && allReports.filter((Report) =>
+  `${Report.title}`
+    .toLowerCase()
+    .includes(reportsSearchTerm.toLowerCase())
+);
+
+
+
+// // Calculate total pages
+const totalReportsPages = filteredReports && Math.ceil(filteredReports.length / reportsPerPage);
+
+// Get requests for the current page
+const reportsStartIndex = (currentReportsPage - 1) * reportsPerPage;
+const reportsEndIndex = reportsStartIndex + reportsPerPage;
+const currentReports = filteredReports && filteredReports.slice(reportsStartIndex, reportsEndIndex).reverse();
+
+
+// Handle page change
+const handleReportsPageChange = (page) => {
+  window.scrollTo({ top: 0, behavior: "auto" });
+  if (page > 0 && page <= totalReportsPages) {
+    setCurrentReportsPage(page);
+  }
+};
+
+
+
+//active Report
+const [activeReport, setActiveReport] = useState(null);
+
+
+
+const toggleAdminReportAction = async (index)=> {
+
+  setActiveReport((prev) => (prev === index ? null : index));
+}
+
+
+
+ //for admin to delete report
+ const [deletingReport, setDeletingReport] = useState(false);
+
+ const deleteReport = async (postId) => {
+   
+   try {
+     setDeletingReport(true);
+ 
+     const response = await axios.delete(`${baseUrl}/api/report/${postId && postId}`);
+ 
+     console.log('report delete response:', response.data);
+     if(response.data.status ==='success'){
+       toast.success('Media report deleted successfully.');
+       toggleAdminReportAction("exit")
+     }
+     
+   } catch (error) {
+     console.error('Error deleting report:', error);
+   }finally{
+     setDeletingReport(false);
+   }
+ };
+
 
 
 
@@ -1865,7 +1965,11 @@ consultingTitle, bookService
   handleDownloadsPageChange, viewAllConsultingReqs,
   currentDownloadsPage, totalDownloadsPages, allDownloads,
   totalContactFormsPages, allConsultingReqs, currentConsultingReqs, handleConsultingReqsPageChange, currentConsultingReqsPage, totalConsultingReqsPages, activeConsultingReq, toggleAdminConsultingReqAction,
-  deleteJob, currentEnquiries,
+  deleteJob, currentEnquiries, loadingAllReports, allReports,
+        currentReports, viewAllReports, activeReport, toggleAdminReportAction,
+        handleReportsPageChange, deletingReport, deleteReport,
+        currentReportsPage,
+        totalReportsPages,
   handleEnquiriesPageChange,
   currentEnquiriesPage,
   totalEnquiriesPages,

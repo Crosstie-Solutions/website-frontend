@@ -9,13 +9,13 @@ import { CiEdit } from "react-icons/ci";
 import { CrossContext } from '../../Context/CrossContext';
 import axios from "axios";
 import { BsStack } from "react-icons/bs";
-import './BlogPostDetails.css'
+import './ReportDetails.css'
 
 
 
 
 
-function BlogPostDetails() {
+function ReportDetails() {
 
     const {
         baseUrl, me, formatDate,
@@ -36,11 +36,11 @@ function BlogPostDetails() {
     
           try {
             setLoadingPost(true)
-            const response = await axios.get(`${baseUrl}/api/blog/${postId}`);
+            const response = await axios.get(`${baseUrl}/api/report/${postId}`);
             setPost(response.data.data.data);
       
           } catch (error) {
-            console.error('Error fetching blog post:', error);
+            console.error('Error fetching report post:', error);
           }finally{
             setLoadingPost(false);
           }
@@ -69,15 +69,14 @@ function BlogPostDetails() {
             
             <div className='flex items-center justify-between border-b h-40px w-100'>
                 <Link className='flex items-center gap-1'
-                to='/blog'
+                to='/media-report'
                 >
-                <MdKeyboardBackspace className='text-20px text-crossYellow'/> Back To Insights</Link>
+                <MdKeyboardBackspace className='text-20px text-crossYellow'/> Media Reports</Link>
 
                 {me && me.role !=="user" &&
                 <Link className='flex items-center gap-1'
-                to={`/blog/edit/${postId && postId}`}
-                ><CiEdit className='text-20px text-crossYellow'/> Edit Post</Link>}
-                
+                to={`/media-report/edit/${postId && postId}`}
+                ><CiEdit className='text-20px text-crossYellow'/> Edit</Link>}
 
                 {me && me.role !=="user" &&
                 <Link className='flex items-center gap-1'
@@ -93,27 +92,31 @@ function BlogPostDetails() {
                 to='/'
                 ><FaRegUserCircle className='text-crossYellow'/> Crosstie Solutions</Link>
                 
-                <div className='flex items-center gap-0.5'><FaCalendar className='text-crossYellow'/> {formatDate(post && post.createdAt)}</div>
+                <div className='flex items-center gap-0.5'><FaCalendar className='text-crossYellow'/> {post && post.date}</div>
             </div>
         </div>}
 
         {!loadingPost &&
-        <img src={post && post.blogImage} alt="blog post image" className='large:w-50 large:h-100 small:w-100vw small:h-250px'/>}
+        <img src={post && post.reportImage} alt="blog post image" className='large:w-50 large:h-100 small:w-100vw small:h-250px'/>}
        
         
         {loadingPost && <p className='font-semibold large:text-25px small:text-17px'>Loading article...</p>}
       </div>
 
+
+      <div className='large:w-83vw small:w-90vw'>
+        <p>{post && post.overview}</p>
+      </div>
       
 
        {/* Blog Content */}
        <div className="prose prose-lg max-w-none blog-content large:w-83vw small:w-90vw"
             dangerouslySetInnerHTML={{ __html: post && post.content }}
           />
-    </div>
+      </div>
   )
 
   
 }
 
-export default BlogPostDetails
+export default ReportDetails
