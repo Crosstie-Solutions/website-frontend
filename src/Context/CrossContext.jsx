@@ -1692,6 +1692,35 @@ const toggleEvent = async (index)=> {
 };
 
 
+const [deletingEvent, setDeletingEvent] = useState(false);
+    
+    
+    const deleteEvent = async (eventId) => {    
+     
+       try {
+         
+         setDeletingEvent(true);
+         const response = await axios.delete(
+           `${baseUrl}/api/event/${eventId}`);
+    
+         if (response.status === 200) {
+          
+           toast.success('Event deleted successfully.');
+           toggleEvent("exit");
+           
+         }
+       } catch (error) {
+         
+         console.log("Error deleting Event:", error);
+         
+       } finally {
+        setDeletingEvent(false);
+       }
+   
+    };
+
+
+
 
 
 
@@ -1970,7 +1999,7 @@ consultingTitle, bookService
         currentReports, viewAllReports, activeReport, toggleAdminReportAction,
         handleReportsPageChange, deletingReport, deleteReport,
         currentReportsPage, count, setCount,
-        totalReportsPages,
+        totalReportsPages, deleteEvent, deletingEvent,
   handleEnquiriesPageChange,
   currentEnquiriesPage,
   totalEnquiriesPages,

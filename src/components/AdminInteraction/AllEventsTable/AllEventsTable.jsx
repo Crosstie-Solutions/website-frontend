@@ -8,6 +8,7 @@ import DeletePartner from "../../DeletePartner/DeletePartner";
 import PartnersFilter from "../../PartnersFilter/PartnersFilter";
 import EventsFilter from "../../EventsFilter/EventsFilter";
 import DeleteEvent from "../../DeleteEvent/DeleteEvent";
+import AdminEventAction from "../AdminEventAction/AdminEventAction";
 
 
 
@@ -74,9 +75,9 @@ function AllEventsTable() {
                   
                  
                   <div  
-                    className='flex items-center justify-center text-white rounded cursor-pointer h-30px w-100px bg-vogueRed text-11px'
+                    className='flex items-center justify-center text-white rounded cursor-pointer h-30px w-100px bg-crossLightPurple text-11px'
                     onClick={()=>toggleEvent(i)}
-                    >Delete Event</div>
+                    >Action</div>
                 </div>
 
                 <div className="w-20 break-words flex justify-start">{event.client}</div>
@@ -88,11 +89,12 @@ function AllEventsTable() {
 
                 {activeEvent === i && (
                     <div>
-                      <DeleteEvent 
+                      <AdminEventAction 
                       eventNo={i + 1}
                       eventEnd={allEvents.length + 1}
                       eventId={event.id}
                       client={event.client}
+                      title={event.title}
                       />
                     </div>)}
               </div>

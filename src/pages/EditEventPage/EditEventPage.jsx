@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { CrossContext } from '../../Context/CrossContext';
-import { useParams } from 'react-router-dom';
-
+import { Link, useParams } from 'react-router-dom';
+import { MdKeyboardBackspace } from "react-icons/md";
 
 
 function EditEventPage() {
 
-    const { baseUrl, setLoading } = useContext(CrossContext);
+    const { baseUrl, setLoading, me } = useContext(CrossContext);
 
      const { eventId } = useParams(); // blog ID from URL
 
@@ -149,6 +149,7 @@ const updateEvent = async (eventId, formFields) => {
   try {
     setLoading(true);
     // https://server.crosstiesolutions.com
+    // http://127.0.0.1:8000
 
     const response = await axios.patch(`https://server.crosstiesolutions.com/api/event/${eventId}`, payload, {
       headers: {
@@ -195,7 +196,12 @@ const handleSubmit = async (e) => {
 
       <h4 className="font-semibold text-crossLightPurple">Update Event</h4>
 
+     
+
       <div className='flex flex-col items-end gap-2 p-1 bg-white large:p-2 rounded-10 w-100'>
+
+         {me && me.role !=="user" &&
+           <Link className='flex items-center justify-center gap-1 border rounded text-crossLightPurple w-200px border-crossLightPurple h-40px self-start' to="/admin-dashboard"><MdKeyboardBackspace className='text-20px'/>Back to dashboard</Link>}
 
         <div className='flex flex-col h-auto w-100'>
             <label htmlFor="title">Event Title</label>
