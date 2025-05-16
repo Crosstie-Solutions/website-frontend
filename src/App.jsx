@@ -72,6 +72,7 @@ import ConditionsPage from "./pages/ConditionsPage/ConditionsPage";
 import ReportPage from "./pages/ReportPage/ReportPage";
 import ReportDetails from "./pages/ReportDetails/ReportDetails";
 import EditReport from "./pages/EditReport/EditReport";
+import TrialComponent from "./components/TrialComponent";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -292,6 +293,8 @@ function App() {
           <Route path="/blog/edit/:postId" element={<EditPostWithEditor />} />
 
           <Route path="/media-report/edit/:postId" element={<EditReport />} />
+
+          <Route path="/trial" element={<TrialComponent />} />
 
           
 

@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 
 export const CrossContext = createContext(null);
 
+
 function CrossContextProvider(props) {
 
 
@@ -1923,7 +1924,7 @@ consultingTitle, bookService
 
 
 
-
+  const [count, setCount] = useState(0);
 
   //value to export
   const contextValue = {
@@ -1968,7 +1969,7 @@ consultingTitle, bookService
   deleteJob, currentEnquiries, loadingAllReports, allReports,
         currentReports, viewAllReports, activeReport, toggleAdminReportAction,
         handleReportsPageChange, deletingReport, deleteReport,
-        currentReportsPage,
+        currentReportsPage, count, setCount,
         totalReportsPages,
   handleEnquiriesPageChange,
   currentEnquiriesPage,

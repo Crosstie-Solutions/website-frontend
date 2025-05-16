@@ -57,7 +57,8 @@ function AllEventsTable() {
           <div className="w-20">Event</div>
           <div className="w-20">Client</div>
           <div className="w-20">Date</div>
-          <div className="w-20">Image</div>
+          <div className="w-10">Index</div>
+          <div className="w-10">Image</div>
         </div>
 
         {currentEvents &&
@@ -65,10 +66,10 @@ function AllEventsTable() {
             return (
               <div
                 key={i}
-                className={`${i % 2 === 0 ? "bg-gray-100" : "bg-white"} flex items-center w-100 h-auto justify-between`}
+                className={`${i % 2 === 0 ? "bg-gray-100" : "bg-white"} flex items-center w-100 h-auto gap-2`}
               >
-                <div className="w-10">{i + 1}.</div>
-                <div className={`flex flex-col gap-0.5 w-20`}>
+                <div className="w-10 flex justify-start">{i + 1}.</div>
+                <div className={`flex flex-col gap-0.5 w-20 break-words items-start`}>
                   {event.title}
                   
                  
@@ -78,11 +79,12 @@ function AllEventsTable() {
                     >Delete Event</div>
                 </div>
 
-                <div className="w-20">{event.client}</div>
+                <div className="w-20 break-words flex justify-start">{event.client}</div>
 
-                <div className="w-20">{event.date}</div>
+                <div className="w-10 flex justify-start">{event.date}</div>
+                <div className="w-10 flex justify-end">{event.priorityIndex}</div>
 
-                <div className="w-20"><img src={event.eventImages[0]} alt="partner logo" className="rounded h-50px w-50px"/></div>
+                <div className="w-10 flex justify-end"><img src={event.eventImages[0]} alt="partner logo" className="rounded h-50px w-50px"/></div>
 
                 {activeEvent === i && (
                     <div>
