@@ -73,6 +73,7 @@ import ReportPage from "./pages/ReportPage/ReportPage";
 import ReportDetails from "./pages/ReportDetails/ReportDetails";
 import EditReport from "./pages/EditReport/EditReport";
 import TrialComponent from "./components/TrialComponent";
+import EditEventPage from "./pages/EditEventPage/EditEventPage";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -254,6 +255,8 @@ function App() {
           <Route path="/about-us/feedbacks" element={<FeedbacksPage />} />
           <Route path="/about-us/satisfaction" element={<SatisfactionPage />} />
           <Route path="/about-us/crosstie-photos" element={<OurPhotosPage />} />
+
+          <Route path="/about-us/crosstie-photos/edit/:eventId" element={<EditEventPage />} />
 
           
           <Route path="/our-courses" element={<OpenExecutivePage />} />
