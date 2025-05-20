@@ -15,7 +15,7 @@ function Program(program) {
 
     const {formatDate, toggleEnrollment, toggleDownloadScreen,  toggleDownloadProgramScreen, toggleOpenEnrollment} = useContext(CrossContext);
 
-    const {title, duration, date, time, mode, id, courseContent, category} = program;
+    const {title, duration, date, time, mode, id, courseContent, category, slug} = program;
 
     const [moreDates, setMoreDates] = useState(null);
 
@@ -25,9 +25,9 @@ function Program(program) {
     
     
   return (
-    <div className='flex flex-col items-center gap-1 px-1 py-2 bg-white border border-crossLightPurple small:w-250px large:w-270px rounded-10 text-13px hover:shadow-lg h-auto'>
+    <div className='flex flex-col items-center h-auto gap-1 px-1 py-2 bg-white border border-crossLightPurple small:w-250px large:w-270px rounded-10 text-13px hover:shadow-lg'>
       
-      <Link to={`/our-courses/${id}`} className='font-semibold text-center hover:underline large:text-17px small:text-15px'>{title}</Link>
+      <Link to={`/our-courses/${slug}`} className='font-semibold text-center hover:underline large:text-17px small:text-15px'>{title}</Link>
 
         <div className='flex items-center justify-center w-auto gap-1 px-1 border cursor-pointer text-crossLightPurple border-crossLightPurple h-30px rounded-10'
         onClick={()=>{
@@ -41,20 +41,20 @@ function Program(program) {
             <div className='flex items-center gap-1 w-100 text-crossLightPurple small:justify-center large:justify-start'><TbTimeDuration45 className='text-20px'/> <span className='text-crossTextGray'>Duration:</span> {duration}</div>
 
             {date && date[0] !=='' &&
-            <div className='items-center gap-1 flex w-100'><MdOutlineCalendarMonth className='text-20px text-crossLightPurple'/> <span>{date[0]}</span></div>}
+            <div className='flex items-center gap-1 w-100'><MdOutlineCalendarMonth className='text-20px text-crossLightPurple'/> <span>{date[0]}</span></div>}
 
             {
               moreDates && date && date.slice(1).map((day, i)=>
-                <div className='items-center gap-1 flex w-100'
+                <div className='flex items-center gap-1 w-100'
                 key={i}
                 ><MdOutlineCalendarMonth className='text-20px text-crossLightPurple'/> <span>{day}</span></div>
               )
             }
             
             {!time=='' &&
-            <div className='items-center gap-1 flex w-100'><GoClock className='text-20px text-crossLightPurple'/> {time}</div>}
+            <div className='flex items-center gap-1 w-100'><GoClock className='text-20px text-crossLightPurple'/> {time}</div>}
 
-            <div className='items-center gap-1 flex w-100'><IoIosLaptop className='text-20px text-crossLightPurple'/> {mode}</div>
+            <div className='flex items-center gap-1 w-100'><IoIosLaptop className='text-20px text-crossLightPurple'/> {mode}</div>
         </div>
 
         <div className='flex-col items-center h-auto gap-1 large:flex w-100'>

@@ -75,6 +75,7 @@ import EditReport from "./pages/EditReport/EditReport";
 import TrialComponent from "./components/TrialComponent";
 import EditEventPage from "./pages/EditEventPage/EditEventPage";
 import CrosstieEdgePage from "./pages/CrosstieEdgePage/CrosstieEdgePage";
+import CartIcon from "./components/CartIcon/CartIcon";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -221,6 +222,8 @@ function App() {
       <BackToTop />
 
       <Router>
+
+        {/* <CartIcon /> */}
       
         <ScrollToTop />
         

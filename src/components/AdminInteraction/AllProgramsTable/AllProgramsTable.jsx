@@ -81,6 +81,7 @@ function AllProgramsTable() {
                       progEnd={allPrograms.length + 1}
                       programId={program.id}
                       title={program.title}
+                      slug={program.slug}
                       />
                     </div>)}
                 </div>

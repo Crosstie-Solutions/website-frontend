@@ -9,7 +9,7 @@ import { DeletingBtn } from '../../LoadingBtn/LoadingBtn';
 
 function AdminProgramAction(program) {
 
-    const { progEnd, progNo, programId, title } = program;
+    const { progEnd, progNo, programId, title, slug } = program;
 
     
     const { 
@@ -39,7 +39,7 @@ function AdminProgramAction(program) {
        
         <Link 
         // to='/' 
-        to={`/our-courses/${programId}`}
+        to={`/our-courses/${slug}`}
         className='flex items-center justify-center font-bold rounded w-70 h-40px text-[#00a14b]'
         onClick={() => toggleAdminProgramAction(progEnd)}
         >View program</Link>

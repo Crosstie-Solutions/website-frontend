@@ -53,7 +53,7 @@ function ProgramDetailsPage() {
       try {
         setLoadingProgram(true)
         const response = await axios.get(`${baseUrl}/api/program/${programId}`);
-        setProgram(response.data.data.data);
+        setProgram(response.data.data);
   
       } catch (error) {
         console.error('Error fetching program:', error);

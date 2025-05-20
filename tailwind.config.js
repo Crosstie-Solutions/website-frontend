@@ -292,6 +292,8 @@ export default {
         '35vh': '35vh',
         '45vh': '45vh',
         '50vh': '50vh',
+        '60vh': '60vh',
+        '70vh': '70vh',
         '100vh': '100vh',
         '80vh': '80vh',
         '0vw': '0vw',

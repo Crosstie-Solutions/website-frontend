@@ -98,6 +98,7 @@ function SalesExcellencePage() {
                           date={program.date}
                           time={program.time}
                           mode={program.mode}
+                          slug={program.slug}
                           id={program._id}
                           courseContent={program.courseContent}
                           category={program.category}
