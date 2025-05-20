@@ -140,7 +140,10 @@ function JobApplicationForm(job) {
     }
   }
   };
+  
+  
 
+  
   return (
     <div className="flex flex-col h-auto gap-3 large:px-3 w-100 small:p-1">
       

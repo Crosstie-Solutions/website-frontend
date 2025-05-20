@@ -5,6 +5,7 @@ import { PHOTOS } from "../../assets/images";
 
 
 
+
 function AboutHero(props) {
 
   const {tag, buttonText, line1, line2} = props;
@@ -124,6 +125,16 @@ function AboutHero(props) {
           <TbFileTypePdf className="text-20px" />
           {buttonText ? buttonText : "Download Our Corporate Presentation"}
         </div>}
+
+
+          {/* crosstie edge download */}
+
+         {window.location.pathname.includes('edge') &&
+        
+        <div
+          className="flex items-center justify-center gap-1 px-1 mt-2 text-center text-white cursor-pointer large:w-auto large:rounded-5 bg-buttonOverlay large:text-15px h-40px bg-crossLightPurple small:text-13px small:w-100 small:rounded-10"
+        > <TbFileTypePdf className="text-20px" /> {buttonText && buttonText}
+        </div>}
         
       </div>
 
@@ -146,6 +157,11 @@ function AboutHero(props) {
           {/* Corporate_Training */}
           {window.location.pathname==='/our-solutions/' &&
         <img src={PHOTOS.Corporate_Training} alt="image" className="bg-gray-400 border-t-8 border-r-8 large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center border-crossLightPurple"/>}
+
+
+        {/* crosstie edge */}
+          {window.location.pathname.includes('edge') &&
+        <img src={PHOTOS.edge} alt="image" className="bg-gray-400 border-t-8 border-r-8 large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center border-crossLightPurple"/>}
 
         
           {/* Management_Consulting */}

@@ -625,7 +625,7 @@ const viewAllCourseRegs = async () => {
 //for admin to filter course regs
 const [currentCourseRegsPage, setCurrentCourseRegsPage] = useState(1);
 const [courseRegsSearchTerm, setCourseRegsSearchTerm] = useState("");
-const courseRegsPerPage = 10;
+const  courseRegsPerPage = 10;
 
 
 // // Filter CourseRegs based on search term
@@ -670,7 +670,40 @@ const handleCourseRegsPageChange = (page) => {
 
 
 
+  //Edge apps
 
+const [allEdgeApps, setAllEdgeApps] = useState(null);
+
+console.log('allEdgeApps:', allEdgeApps)
+
+const [loadingAllEdgeApps, setLoadingAllEdgeApps] = useState(false);
+
+
+
+
+const viewAllEdgeApps = async () => {
+
+  try {
+    setLoadingAllEdgeApps(true)
+    const response = await axios.get(`${baseUrl}/api/edge/applications/all`);
+
+    setAllEdgeApps(response.data.data.data);
+  } catch (dupError) {
+    console.log("error fetching all edge app:", dupError);
+  }finally{
+    setLoadingAllEdgeApps(false)
+  }
+};
+
+   //active edge app.
+  const [activeEdgeApp, setActiveEdgeApp] = useState(null);
+
+  const toggleAdminEdgeAppAction = async (index)=> {
+
+    window.scrollTo({ top: 0, behavior: "auto" });
+
+    setActiveEdgeApp((prev) => (prev === index ? null : index));
+  }
 
 
 
@@ -1635,6 +1668,9 @@ const [activeSearch, setActiveSearch] = useState(false);
 
   const allEvents = events && events.sort((a, b) => a.priorityIndex - b.priorityIndex)
   
+
+  console.log('allEvents:', allEvents)
+
   const fetchEvents = async () => {
     
     try {
@@ -1974,7 +2010,7 @@ consultingTitle, bookService
   totalUsersPages, activeSearch, setActiveSearch,
   handleUsersPageChange, setDownloadProgramScreen,
     allUsers, activeAdmin, toggleRemoveAdmin,
-   toggleOpenEnrollment, openEnrollmentForm, executiveEnrollmentData, handleExecutiveChange, trainingMode, setTrainingMode, setExecutiveEnrollmentData, toggleSecondOpenEnrollment, secondOpenEnrollmentForm, currentEvents, allEvents, fetchEvents, loadEvents, togglePresentationDownloadScreen, toggleCourseContentDownloadScreen, presentationDownloadScreen, courseContentDownloadScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen, eventsSearchTerm, setEventsSearchTerm, setCurrentEventsPage, loadEvents,
+   toggleOpenEnrollment, openEnrollmentForm, executiveEnrollmentData, handleExecutiveChange, trainingMode, setTrainingMode, setExecutiveEnrollmentData, toggleSecondOpenEnrollment, secondOpenEnrollmentForm, currentEvents, allEvents, fetchEvents, loadEvents, togglePresentationDownloadScreen, toggleCourseContentDownloadScreen, presentationDownloadScreen, courseContentDownloadScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen, eventsSearchTerm, setEventsSearchTerm, setCurrentEventsPage, loadEvents, viewAllEdgeApps,
   currentEvents, viewAllCaseStudies, allCaseStudies,
   currentEventsPage,  handleCaseStudiesPageChange,
   currentCaseStudiesPage, loadingAllCaseStudies,
@@ -2000,7 +2036,7 @@ consultingTitle, bookService
         handleReportsPageChange, deletingReport, deleteReport,
         currentReportsPage, count, setCount,
         totalReportsPages, deleteEvent, deletingEvent,
-  handleEnquiriesPageChange,
+  handleEnquiriesPageChange, allEdgeApps, activeEdgeApp, toggleAdminEdgeAppAction,
   currentEnquiriesPage,
   totalEnquiriesPages,
   activeJob, toggleJob, consultingTitle, bookService

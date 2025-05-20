@@ -59,6 +59,8 @@ import AllConsultingReqTable from "../../components/AdminInteraction/AllConsulti
 import { SiSimpleanalytics } from "react-icons/si";
 import AddReport from "../../components/AdminInteraction/AddReport/AddReport.jsx";
 import AllReportsTable from "../../components/AdminInteraction/AllReportsTable/AllReportsTable.jsx";
+import { IoSchool } from "react-icons/io5";
+import { AllEdgeAppsTable } from "../../components/AdminInteraction/AllEdgeAppsTable/AllEdgeAppsTable.jsx";
 
 
 
@@ -73,6 +75,13 @@ function AdminDashboard() {
 
   const toggleUsersDD = ()=>{
     setUsersDD(!usersDD);
+  }
+
+   //edge apps dropdown
+  const [edgeDD, setEdgeDD] = useState(false);
+
+  const toggleEdgeDD = ()=>{
+    setEdgeDD(!edgeDD);
   }
 
    //partners dropdown
@@ -448,6 +457,39 @@ function AdminDashboard() {
         </div>
 
 
+        {/* Manage Croostie Edge */}
+        <div
+          className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+        >
+          
+          <div className={`${ activeScreen === "edgeApplicants" || activeScreen === "edgeRecruiters" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
+          onClick={toggleEdgeDD}
+          >            
+            <div className="flex gap-1">
+              <IoSchool className="text-20px" />
+              Crosstie EDGE
+            </div>
+            
+            
+            <IoChevronDown className={`text-20px ${edgeDD ? "rotate-180" : ""}`}/>
+          </div>
+
+          {edgeDD &&
+          <div className="flex flex-col items-center gap-1 w-100">
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("edgeApplicants")}
+            >Applicants</div>
+            
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("edgeRecruiters")}
+            >Recruiters</div>
+
+          </div>}
+        </div>
+
+
         {/* testimonials */}
         
         <div
@@ -710,6 +752,10 @@ function AdminDashboard() {
         {activeScreen === "addReport" && <AddReport />}
 
         {activeScreen === "allReports" && <AllReportsTable />}
+        
+        {activeScreen === "edgeApplicants" && <AllEdgeAppsTable type="applicant" />}
+        
+        {activeScreen === "edgeRecruiters" && <AllEdgeAppsTable type="recruiter" />}
         
         
         

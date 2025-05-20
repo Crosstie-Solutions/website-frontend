@@ -74,6 +74,7 @@ import ReportDetails from "./pages/ReportDetails/ReportDetails";
 import EditReport from "./pages/EditReport/EditReport";
 import TrialComponent from "./components/TrialComponent";
 import EditEventPage from "./pages/EditEventPage/EditEventPage";
+import CrosstieEdgePage from "./pages/CrosstieEdgePage/CrosstieEdgePage";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -85,7 +86,7 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies, viewAllJobs, viewAllDownloads, viewAllConsultingReqs, viewAllReports} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies, viewAllJobs, viewAllDownloads, viewAllConsultingReqs, viewAllReports, viewAllEdgeApps} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -203,8 +204,11 @@ function App() {
   }, []);
 
 
+  useEffect(()=>{
+    viewAllEdgeApps()
+  }, []);
   
-
+  
   
 
   
@@ -305,6 +309,8 @@ function App() {
           <Route path="/our-solutions/" element={<CorporateTrainingPage />} />
           <Route path="/our-solutions/management-consulting" element={<ManagementConsultingPage />} />
           <Route path="/our-solutions/customized-training" element={<CustomizedTrainingPage />} />
+
+          <Route path="/our-solutions/crosstie-edge" element={<CrosstieEdgePage />} />
           
           <Route path="/our-solutions/webinars" element={<WebinarPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
