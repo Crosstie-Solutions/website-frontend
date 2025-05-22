@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { CrossContext } from '../../Context/CrossContext';
 import Purchase from '../Purchase/Purchase';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 
 function MyPurchases() {
@@ -61,6 +63,9 @@ function MyPurchases() {
         {loadingPurchases && <p className='font-semibold text-center w-100'>Loading your resources...</p>}
             
         {!loadingPurchases && purchases && purchases.length < 1 && <p className='font-semibold text-center w-100'>No Resource</p>}
+
+         {!loadingPurchases && purchases && purchases.length < 1 &&
+        <Link to='/our-solutions/resource-vault' className="flex items-center justify-center w-auto px-2 text-white rounded bg-crossLightPurple h-40px">Check Resource Vault</Link>}
     </div>
   )
 }

@@ -25,29 +25,26 @@ function TransactionVerif() {
 
   
   //to set loading
-  const location = useLocation();
-  useEffect(()=>{
+  // const location = useLocation();
+  // useEffect(()=>{
     
-    if(location.pathname.includes("verify") && !me){
-        setLoading(true)
-    }
-    else{
-        setLoading(false);
-        // clearCart();
-    }
-  });
+  //   if(location.pathname.includes("verify") && !me){
+  //       setLoading(true)
+  //   }
+  //   else{
+  //       setLoading(false);
+  //       // clearCart();
+  //   }
+  // });
 
   //to get gateway response
   const [checking, setChecking] = useState(false);
-  
-  // const [order, setOrder] = useState(null);
-  // console.warn("order:", order);
-
   
   useEffect(() => {
     const verifyTransaction = async () => {
       try {
         setChecking(true);
+        setLoading(true)
         const response = await axios.get(
           `${baseUrl}/api/payment/verify-payment?reference=${reference && reference}`
         );
@@ -67,6 +64,7 @@ function TransactionVerif() {
         console.warn("Error verifying transaction:", error);
       }finally{
         setChecking(false)
+        setLoading(false)
       }
     };
 
