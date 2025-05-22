@@ -3,8 +3,8 @@ import { CrossContext } from '../../Context/CrossContext';
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { CgChevronLeft } from "react-icons/cg";
 // import BlogSideBar from '../../components/BlogSideBar/BlogSideBar';
-import { Report } from '../Report/Report';
-import Product from '../Product/Product';
+import { Report } from '../../components/Report/Report';
+import Product from '../../components/Product/Product';
 
 
 

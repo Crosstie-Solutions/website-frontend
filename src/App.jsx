@@ -76,7 +76,7 @@ import TrialComponent from "./components/TrialComponent";
 import EditEventPage from "./pages/EditEventPage/EditEventPage";
 import CrosstieEdgePage from "./pages/CrosstieEdgePage/CrosstieEdgePage";
 import CartIcon from "./components/CartIcon/CartIcon";
-import ResourceVaultPage from "./components/ResourceVaultPage/ResourceVaultPage";
+import ResourceVaultPage from "./pages/ResourceVaultPage/ResourceVaultPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage";
 import CartPage from "./pages/CartPage/CartPage";
 import TransactionVerif from "./pages/TransactionVerif/TransactionVerif";

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 import axios from 'axios';
 import { CrossContext } from "../../Context/CrossContext";
@@ -21,6 +21,9 @@ function CartPage() {
   //total cart amount
   let subTotal = getTotalCartAmount();
   
+
+  //for navigation
+    const navigate = useNavigate();
   
   //to convert cartiems to an array to place order
   const [cartItemsToSend, setCartItemsToSend] = useState('station');
@@ -84,7 +87,11 @@ function CartPage() {
   
       if(noError){
         try {
+          window.scrollTo({top: 0, behavior: "auto"});
           setLoading(true);
+
+            // Open a blank window immediately (before async begins)
+          const payWindow = window.open('', '_blank');
           
           const initiate = await axios.post(`${baseUrl}/api/payment/initialize`, {
             "firstName": firstName,
@@ -103,12 +110,12 @@ function CartPage() {
 
 
           
-          // if(initiate.data.status === true){
-          //   setAuthorizationUrl(initiate.data.data.data.authorization_url)
-          //   // const reference = initiate.data.data.reference;
-            
-          //   // localStorage.setItem("reference", JSON.stringify(reference))
-          // }
+          if(initiate.data.data.status === true){
+            payWindow.location.href = initiate.data.data.data.authorization_url;
+          }else{
+            navigate('/cart')
+            // payWindow.close(); // Close the blank window if the API fails
+          }
           
         } catch (error) {
           console.log('initiate error:', error)
@@ -122,12 +129,12 @@ function CartPage() {
 
 
     //for customer to complete transaction with card
-    useEffect(()=>{
-      if (authorizationUrl && authorizationUrl !=="") {
-        // const target = "_blank";
-        window.open(authorizationUrl && authorizationUrl);
-      }
-    }, [authorizationUrl]);
+    // useEffect(()=>{
+    //   if (authorizationUrl && authorizationUrl !=="") {
+    //     // const target = "_blank";
+    //     window.open(authorizationUrl && authorizationUrl);
+    //   }
+    // }, [authorizationUrl]);
 
 
 
