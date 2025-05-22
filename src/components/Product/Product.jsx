@@ -31,7 +31,7 @@ function Product(product) {
       </div>
       
       
-      <Link to={`/our-solutions/resource-vault/${slug}`} className="font-semibold large:text-15px small:text-11px small:px-1 large:px-0 text-crossLightPurple">
+      <Link to={`/our-solutions/resource-vault/${slug}`} className="font-semibold large:text-15px small:text-11px small:px-0 large:px-0 text-crossLightPurple w-100">
         {title}
       </Link>
       
