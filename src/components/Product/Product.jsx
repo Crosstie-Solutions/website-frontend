@@ -40,7 +40,7 @@ function Product(product) {
         &#8358;{price.toLocaleString()}
       </span>}
 
-      <div className="flex items-center justify-center px-1 text-white rounded cursor-pointer large:w-auto large:h-40px bg-crossLightPurple"
+      <div className="flex items-center justify-center w-auto px-1 text-white rounded cursor-pointer large:h-40px small:h-30px bg-crossLightPurple text-15px small:text-13px"
        onClick={() => addToCart(bookId)}
       >
         Add to cart
