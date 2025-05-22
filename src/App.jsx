@@ -76,6 +76,10 @@ import TrialComponent from "./components/TrialComponent";
 import EditEventPage from "./pages/EditEventPage/EditEventPage";
 import CrosstieEdgePage from "./pages/CrosstieEdgePage/CrosstieEdgePage";
 import CartIcon from "./components/CartIcon/CartIcon";
+import ResourceVaultPage from "./components/ResourceVaultPage/ResourceVaultPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage";
+import CartPage from "./pages/CartPage/CartPage";
+import TransactionVerif from "./pages/TransactionVerif/TransactionVerif";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -87,7 +91,8 @@ function App() {
 
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
-    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies, viewAllJobs, viewAllDownloads, viewAllConsultingReqs, viewAllReports, viewAllEdgeApps} = useContext(CrossContext);
+    loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies, viewAllJobs, viewAllDownloads, viewAllConsultingReqs, viewAllReports, viewAllEdgeApps, viewAllProducts, cartItems,
+    storeCartItems} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -210,8 +215,15 @@ function App() {
   }, []);
   
   
-  
 
+  useEffect(()=>{
+    viewAllProducts()
+  }, []);
+  
+   //to store cart items in local storage
+    useEffect(() => {
+      storeCartItems();
+    }, [cartItems]);
   
 
    
@@ -223,7 +235,7 @@ function App() {
 
       <Router>
 
-        {/* <CartIcon /> */}
+        <CartIcon />
       
         <ScrollToTop />
         
@@ -314,6 +326,15 @@ function App() {
           <Route path="/our-solutions/customized-training" element={<CustomizedTrainingPage />} />
 
           <Route path="/our-solutions/crosstie-edge" element={<CrosstieEdgePage />} />
+          
+          <Route path="/our-solutions/resource-vault" element={<ResourceVaultPage />} />
+          
+          <Route path="/our-solutions/resource-vault/:productId" element={<ProductDetailsPage />} />
+          
+          <Route path="/cart" element={<CartPage />} />
+          
+          <Route path="/verify-transaction" element={<TransactionVerif />} />
+          
           
           <Route path="/our-solutions/webinars" element={<WebinarPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />

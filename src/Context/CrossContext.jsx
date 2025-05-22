@@ -1976,7 +1976,179 @@ const bookService = (title)=> {
   setConsultingTitle(title)
 }
 
-consultingTitle, bookService
+
+
+//for resource vault
+const [allProducts, setAllProducts] = useState();
+  const [loadingAllProducts, setLoadingAllProducts] = useState(false);
+
+  console.log("allProducts:", allProducts);
+
+
+
+  const viewAllProducts = async () => {
+    try {
+      setLoadingAllProducts(true)
+      const response = await axios.get(`${baseUrl}/api/product`);
+
+      setAllProducts(response.data.data.data);
+    } catch (dupError) {
+      console.warn("dupError:", dupError);
+    }finally{
+      setLoadingAllProducts(false)
+    }
+  };
+
+
+
+
+    //for admin to filter product
+    const [currentProductsPage, setCurrentProductsPage] = useState(1);
+    const [productsSearchTerm, setProductsSearchTerm] = useState("");
+    const productsPerPage = 10;
+  
+    // Filter products based on search term
+    const filteredProducts = allProducts && allProducts.filter((product) =>
+      `${product.title} ${product.category}`
+        .toLowerCase()
+        .includes(productsSearchTerm.toLowerCase())
+    );
+  
+    // Calculate total pages
+    const totalProductsPages = filteredProducts && Math.ceil(filteredProducts.length / productsPerPage);
+  
+    // Get requests for the current page
+    const productsStartIndex = (currentProductsPage - 1) * productsPerPage;
+    const productsEndIndex = productsStartIndex + productsPerPage;
+    const currentProducts = filteredProducts && filteredProducts.slice(productsStartIndex, productsEndIndex);  
+  
+    
+    // Handle page change
+    const handleProductsPageChange = (page) => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+      if (page > 0 && page <= totalProductsPages) {
+        setCurrentProductsPage(page);
+      }
+    };
+  
+  
+  
+    //for admin to take action on product
+  
+  const [activeProduct, setActiveProduct] = useState(null);
+  
+  const toggleAdminProductAction = (index)=>{
+    // setAdminAction(!adminAction);
+    setActiveProduct((prev) => (prev === index ? null : index));
+  };
+
+
+  
+  //to get cart Items
+    const [cartItems, setCartItems] = useState(() => {
+      const savedCart = localStorage.getItem('cartItems');
+      return savedCart ? JSON.parse(savedCart) : {};
+    });
+    // console.log("cartItems:", cartItems);
+  
+    //store cart items in local storage
+    const storeCartItems = () =>{
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
+  
+  
+  
+    const addToCart = (itemId) => {
+      setCartItems((prevCart) => {
+        const newCart = { ...prevCart };
+    
+        // Check if the item is already in the cart
+        if (newCart[itemId]) {
+          //  newCart[itemId] += 1; // Increase quantity
+            // toast.success(`1 item added to cart.`)
+          // Ensure the new quantity does not exceed the available stock
+          toast.error('Item already added to cart');
+        } else {
+           newCart[itemId] = 1; // Add product with quantity 1
+            toast.success(`1 item added to cart.`)
+        }
+    
+        return newCart;
+      });
+    };
+  
+  
+    //remove from cart
+    const removeFromCart = (itemId) => {
+      setCartItems((prev) => ({ ...prev, [itemId]: 0 }));
+      toast.success(`Product removed from cart.`)
+    };
+  
+    //decrease cart item
+    const decreaseCartItem = (itemId) => {
+      setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+      toast.success(`1 item removed from cart.`)
+    };
+  
+    
+
+    //clear cart
+    const clearCart = () => {
+  
+        let cart = {};
+      for (let i = 1; i < allProducts && allProducts.length + 1; i++) {
+        cart[i] = 0;
+      }
+  
+      setCartItems(cart);
+    };
+  
+  
+    //to manually update cart items
+    // const updateCartItemCount = (newAmount, itemId) => {
+    //   setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
+    // };
+  
+  
+    //to get total number of items in the cart
+    const getTotalCartItems = () => {
+      let totalItem = 0;
+      for(const item in cartItems){
+          if(cartItems[item]>0){
+              totalItem += cartItems[item];
+          }
+      }
+      return totalItem;
+  }
+  
+  
+   // to Calculate the total amount for each product
+   const productTotalPrice = (productId) => {
+    
+    const product = allProducts && allProducts.find(p => p._id === productId);
+    if (!product) return 0;
+  
+    if (product.priceDiscount > 0){
+      const discount = (product.priceDiscount / 100 ) * product.price;
+  
+      const discountedPrice = product.price - discount;
+  
+      return discountedPrice * (cartItems[productId] || 0);
+    }
+  
+  
+    return product.price * (cartItems[productId] || 0);
+  };
+  
+    //to get total amount of money for all items
+    const getTotalCartAmount = () => {
+  
+      return Object.keys(cartItems).reduce((total, productId) => {
+        return total + productTotalPrice(productId);
+      }, 0);
+    };
+
+        
 
 
 
@@ -2033,11 +2205,16 @@ consultingTitle, bookService
   totalContactFormsPages, allConsultingReqs, currentConsultingReqs, handleConsultingReqsPageChange, currentConsultingReqsPage, totalConsultingReqsPages, activeConsultingReq, toggleAdminConsultingReqAction,
   deleteJob, currentEnquiries, loadingAllReports, allReports,
         currentReports, viewAllReports, activeReport, toggleAdminReportAction,
-        handleReportsPageChange, deletingReport, deleteReport,
-        currentReportsPage, count, setCount,
+        handleReportsPageChange, deletingReport, deleteReport, viewAllProducts,
+        currentReportsPage, count, setCount, productTotalPrice,
         totalReportsPages, deleteEvent, deletingEvent,
   handleEnquiriesPageChange, allEdgeApps, activeEdgeApp, toggleAdminEdgeAppAction,
-  currentEnquiriesPage,
+  currentEnquiriesPage, loadingAllProducts, getTotalCartItems, allProducts,
+        currentProducts, addToCart, cartItems, clearCart, removeFromCart,
+    storeCartItems, getTotalCartAmount,
+        handleProductsPageChange,
+        currentProductsPage,
+        totalProductsPages,
   totalEnquiriesPages,
   activeJob, toggleJob, consultingTitle, bookService
   };

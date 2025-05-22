@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CiEdit } from "react-icons/ci";
 import { UpdatingBtn } from "../../components/LoadingBtn/LoadingBtn";
 import { HiOutlineEye } from "react-icons/hi";
@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { CrossContext } from "../../Context/CrossContext";
 import MyWebinars from "../../components/MyWebinars/MyWebinars";
 import { useNavigate } from "react-router-dom";
+import MyPurchases from "../../components/MyPurchases/MyPurchases";
 
 
 
@@ -582,16 +583,41 @@ function UserProfile() {
     window.location.reload(false);
   };
 
+
+  const [screen, setScreen] = useState('profile');
+
+
   
 
   return (
-    <div className="flex flex-col h-auto py-3 large:mt-18 small:gap-3 large:px-2 rounded-10 large:w-90 bg-vogueWhite text-15px text-cribGray small:w-90vw small:px-1 large:gap-5 small:mt-15">
+    <div className="flex flex-col h-auto py-3 large:mt-18 small:gap-3 large:px-2 rounded-10 large:w-83vw bg-vogueWhite text-15px text-cribGray small:w-90vw small:px-1 large:gap-5 small:mt-15">
 
+      <div className="flex items-center justify-start h-auto gap-3 border-b w-100">
+        <button className={`flex items-center justify-center w-auto h-40px ${screen === 'profile' ? "relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[4px] after:bg-crossLightPurple" : ""}`} 
+        onClick={()=>setScreen('profile')}
+        >Profile</button>
+        
+        <button
+        className={`flex items-center justify-center w-auto h-40px ${screen === 'purchase' ? "relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[4px] after:bg-crossLightPurple" : ""}`}
+         onClick={()=>setScreen('purchase')}
+        >My Purchases</button>
+        
+        <button
+        className={`flex items-center justify-center w-auto h-40px ${screen === 'webinar' ? "relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[4px] after:bg-crossLightPurple" : ""}`}
+        
+        onClick={()=>setScreen('webinar')}
+        >Webinars</button>
+      </div>
+
+       {screen === 'purchase' &&
+      <MyPurchases />}
 
       {/* My webinars */}
-      <MyWebinars />
+      {screen === 'webinar' &&
+      <MyWebinars />}
       
       {/* general settings */}
+      {screen === 'profile' &&
       <div className="flex flex-col h-auto gap-2 w-100">
         <div className="flex flex-col h-auto w-100">
           <h3 className="font-bold text-black text-20px">General</h3>
@@ -834,11 +860,12 @@ function UserProfile() {
             </div>
           </div>
         </div>
-      </div>
+      </div>}
 
 
 
       {/* password settings */}
+      {screen === 'profile' &&
       <div className="flex flex-col items-end h-auto gap-2 w-100">
         <div className="flex flex-col h-auto w-100">
           <h4 className="font-bold text-black text-20px">Change Password</h4>
@@ -953,11 +980,11 @@ function UserProfile() {
 
           {updatingPassword && <UpdatingBtn />}
         </div>
-      </div>
+      </div>}
 
 
-
-      {me &&
+      
+      {me && screen === 'profile' &&
     <button className="relative items-center justify-center px-2 mt-5 text-white border large:flex w-150px h-40px bg-vogueRed rounded-10 left-10 small:hidden"
             onClick={logoutUser}
             >Log Out</button>}

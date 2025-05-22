@@ -14,6 +14,11 @@ const PHOTOS = {
 
     edge: new URL("./edge.jpg", import.meta.url).href,
 
+    verve: new URL("./verve.jpg", import.meta.url).href,
+    mastercard: new URL("./mastercard.png", import.meta.url).href,
+    visa: new URL("./visa.png", import.meta.url).href,
+    paystack: new URL("./paystack.png", import.meta.url).href,
+
     
     about1: new URL("./about1.jpg", import.meta.url).href,
     about2: new URL("./about2.jpg", import.meta.url).href,

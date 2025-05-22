@@ -244,6 +244,7 @@ const loginFormData = {
           </div>
 
           <div className="flex flex-col items-center gap-2 large:px-0 small:px-1 large:w-60 small:w-100">
+            
             <div className="flex flex-col h-auto w-100">
               <label htmlFor="">First Name*</label>
 
