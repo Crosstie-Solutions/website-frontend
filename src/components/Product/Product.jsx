@@ -40,18 +40,21 @@ function Product(product) {
         &#8358;{price.toLocaleString()}
       </span>}
 
+
+       {priceDiscount > 0 &&
+      <div className="flex flex-col w-auto h-auto">
+        <div className="text-gray-500 line-through large:text-15px small:text-13px">&#8358;{price}</div>
+        
+        <div className="font-bold large:text-15px text-vogueBlack small:text-13px">&#8358;{discountedPrice}</div>
+      </div>}
+
       <div className="flex items-center justify-center w-auto px-1 text-white rounded cursor-pointer large:h-40px small:h-30px bg-crossLightPurple text-15px small:text-13px"
        onClick={() => addToCart(bookId)}
       >
         Add to cart
       </div>
 
-      {priceDiscount > 0 &&
-      <div className="flex flex-col w-auto h-auto">
-        <div className="text-gray-500 line-through large:text-15px small:text-13px">&#8358;{price}</div>
-        
-        <div className="font-bold large:text-15px text-vogueBlack small:text-13px">&#8358;{discountedPrice}</div>
-      </div>}
+     
         
       {priceDiscount > 0 &&
       <div className="absolute top-0 right-0 px-0.5 text-white rounded large:text-15px small:text-13px bg-crossFooterText">-{priceDiscount}%</div>}

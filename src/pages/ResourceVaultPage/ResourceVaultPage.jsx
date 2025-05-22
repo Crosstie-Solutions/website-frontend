@@ -51,13 +51,6 @@ function ResourceVaultPage() {
           }
 
           
-          <button
-          onClick={()=>{
-            localStorage.clear();
-          }}
-          className='border'
-          >Clear cart</button>
-          
           {!loadingAllProducts && currentProducts && currentProducts.length < 1 && <p className='mt-10'>No Article found.</p>}
        
 
