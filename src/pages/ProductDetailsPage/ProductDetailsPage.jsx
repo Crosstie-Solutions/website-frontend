@@ -160,7 +160,7 @@ function ProductDetailsPage() {
         <p className="font-semibold">Number of pages: <span className="font-semibold text-crossLightPurple">{product && product.pages}</span></p>
 
         {product && product.priceDiscount === 0 &&
-        <p className="flex gap-1 border border-red-500"><span className="font-semibold">Cost:</span> 
+        <p className="flex gap-1"><span className="font-semibold">Cost:</span> 
           <span className="font-semibold text-crossLightPurple">&#8358;{product && product.price.toLocaleString()}</span>      
         </p>}
 

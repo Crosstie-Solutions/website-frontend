@@ -76,7 +76,7 @@ function Program(program) {
             }}
             >Enroll Now</div>
             
-            <Link to={`/our-courses/${id}`} className='flex items-center justify-center gap-1 text-black border w-200px border-crossLightPurple h-30px rounded-10 small:mt-1 large:mt-0'>More details</Link>
+            <Link to={`/our-courses/${slug}`} className='flex items-center justify-center gap-1 text-black border w-200px border-crossLightPurple h-30px rounded-10 small:mt-1 large:mt-0'>More details</Link>
         </div>
 
 
