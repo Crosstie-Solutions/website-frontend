@@ -16,7 +16,6 @@ function Purchase(order) {
       
       <div
         className="flex items-center justify-center bg-white large:h-auto large:w-100 small:w-100 small:h-auto large:px-2 large:py-3 rounded-5 small:px-0 small:py-2"
-        
       >
         <img
           src={previews && previews[0]}

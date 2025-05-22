@@ -17,7 +17,7 @@ function Product(product) {
   // const productId = useParams();
 
   return (
-    <div className="relative flex flex-col items-start h-auto gap-1 bg-gray-100 large:px-1 small:px-1 large:w-250px small:border-2 small:w-150px small:py-1 small:rounded-4 large:pb-2 large:rounded-10">
+    <div className="relative flex flex-col items-start h-auto gap-1 bg-gray-100 large:px-1 small:px-1 large:w-250px small:border-2 small:w-120px small:py-1 small:rounded-4 large:pb-2 large:rounded-10">
       
       <div
         className="flex items-center justify-center bg-white large:h-auto large:w-100 small:w-100 small:h-auto large:px-2 large:py-3 rounded-5 small:px-0 small:py-2"
