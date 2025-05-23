@@ -21,12 +21,14 @@ function EditProgramPage() {
       } = useContext(CrossContext);
 
     
-      const programId = useParams().programId;
+      const slug = useParams().programId;
      
       const [program, setProgram] = useState(null);
       const [loadingProgram, setLoadingProgram] = useState(false);
     
       console.log("program:", program);
+
+      const programId = program && program.id
     
     
       useEffect(()=>{
@@ -34,7 +36,7 @@ function EditProgramPage() {
     
           try {
             setLoadingProgram(true)
-            const response = await axios.get(`${baseUrl}/api/program/${programId}`);
+            const response = await axios.get(`${baseUrl}/api/program/${slug}`);
             setProgram(response.data.data);
       
           } catch (error) {
@@ -151,6 +153,9 @@ function EditProgramPage() {
         }
       } catch (error) {
         console.error("Error updating program:", error);
+        if(error){
+          toast.error(error.response.data.message);
+        }
       } finally {
         setUpdatingTitle(false);
       }
