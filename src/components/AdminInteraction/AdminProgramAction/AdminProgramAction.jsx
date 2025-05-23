@@ -46,7 +46,7 @@ function AdminProgramAction(program) {
         
         
         <Link 
-        to={`/our-courses/edit/${programId}`}
+        to={`/our-courses/edit/${slug}`}
         className='flex items-center justify-center font-bold text-[#662d91] rounded w-70 h-40px'
         onClick={()=> toggleAdminProgramAction(progEnd)}
         >Edit program</Link>

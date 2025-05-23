@@ -24,18 +24,6 @@ function TransactionVerif() {
   console.log('reference param:', reference);
 
   
-  //to set loading
-  // const location = useLocation();
-  // useEffect(()=>{
-    
-  //   if(location.pathname.includes("verify") && !me){
-  //       setLoading(true)
-  //   }
-  //   else{
-  //       setLoading(false);
-  //       // clearCart();
-  //   }
-  // });
 
   //to get gateway response
   const [checking, setChecking] = useState(false);
@@ -71,19 +59,6 @@ function TransactionVerif() {
     verifyTransaction();
   }, [reference]);
 
-  
-  //to view orders
-  // const viewOrders = ()=>{
-  //   setActiveScreen("orders")
-  //   setCurrent(true)
-  // }
-
-  //clear or keep cart
-  // useEffect(()=>{
-  //   if(order && order.paid===true){
-  //     clearCart();
-  //   }
-  // }, [order]);
 
  
 
