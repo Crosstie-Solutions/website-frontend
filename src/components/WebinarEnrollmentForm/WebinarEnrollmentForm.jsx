@@ -205,7 +205,7 @@ function WebinarEnrollmentForm() {
               <div className="flex flex-col h-auto gap-1 w-100">
                 <input
                   type="email"
-                  placeholder="myemail@gamil.com"
+                  placeholder="myemail@gmail.com"
                   name="email"
                   className="p-0.5 border rounded-4"
                   onChange={(e)=>setEmail(e.target.value)}

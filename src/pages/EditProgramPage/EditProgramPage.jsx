@@ -1061,6 +1061,62 @@ function EditProgramPage() {
 
 
 
+  //change PriorityIndex
+  const [editPriorityIndex, setEditPriorityIndex] = useState(false);
+  const [updatingPriorityIndex, setUpdatingPriorityIndex] = useState(false);
+
+
+  const [priorityIndex, setPriorityIndex] = useState("");
+
+  
+  const togglePriorityIndex = () => {
+    setEditPriorityIndex(!editPriorityIndex);
+  };
+
+  const changePriorityIndex = async () => {
+    const validationErrors = {};
+
+    //To ensure valid inputs
+
+    if (!priorityIndex) {
+      validationErrors.priorityIndex = "priority index is required.";
+    }
+
+    setEditErrors(validationErrors);
+
+    const noError = Object.keys(validationErrors).length === 0;
+
+    if (noError) {
+      try {
+        
+        setUpdatingPriorityIndex(true);
+        
+        setEditPriorityIndex(false);
+        
+        const response = await axios.patch(
+          `${baseUrl}/api/program/${programId && programId}`,
+          {
+            priorityIndex: priorityIndex,
+          },
+        );
+
+        console.log("program update response:", response.data);
+        if ((response.data.status = "success")) {
+          toast.success(
+            "Program updated successfully. Refresh to see changes."
+          );
+        }
+      } catch (error) {
+        // console.error("Error updating program:", error);
+        toast.error(error.response.data.message);
+      } finally {
+        setUpdatingPriorityIndex(false);
+      }
+    }
+  };
+
+
+
   
   return (
     <div className="flex flex-col items-start h-auto gap-2 small:mt-17 w-90vw large:mt-20">
@@ -1634,6 +1690,64 @@ function EditProgramPage() {
                        {updatingDate && <UpdatingBtn />}
                    </div>
               </div>
+
+
+              {/* PriorityIndex */}
+              
+              <div className="flex flex-col self-start h-auto gap-1 large:w-85 small:w-85vw">
+                  <label htmlFor="title">Priority Index</label>            
+           
+                  <div className='flex flex-col h-auto gap-1 w-100'>
+                   
+                   {
+                   editPriorityIndex &&
+                      <div className='flex items-center gap-1'>
+                          
+                          <input
+                          type="text"
+                          placeholder={`Enter priority index`}
+                          
+                          name="priorityIndex"
+                          className="p-0.5 border rounded-4 w-90"
+                          defaultValue={program && program.priorityIndex}
+                          onChange={(e) => setPriorityIndex(e.target.value)}
+                        />
+                        
+                       
+                      </div> }
+ 
+ 
+                     {!editPriorityIndex &&
+                       <div className="p-0.5 border rounded-4 flex items-start h-auto justify-between bg-white">
+                         <div className='flex flex-col w-90'>
+                          
+                            <div>-- {program && program.priorityIndex}</div>
+                          
+                          </div>
+                         <CiEdit className='cursor-pointer text-25px text-crossLightPurple'
+                         onClick={togglePriorityIndex}
+                         />
+                       </div>}
+                     
+                       {editPriorityIndex && <p className="text-13px text-vogueRed">{editErrors.PriorityIndex}</p>}
+
+                          
+                      
+                     
+                       {editPriorityIndex &&
+                       <div className='flex flex-row items-start h-auto gap-2 w-100'>
+                         <button className='flex items-center justify-center w-auto px-1 border rounded text-crossLightPurple border-crossLightPurple h-30px'
+                         onClick={togglePriorityIndex}
+                         >Cancel</button>
+                         <button className='flex items-center justify-center w-auto px-2 text-white border rounded bg-crossLightPurple border-crossLightPurple h-30px'
+                         onClick={changePriorityIndex}
+                         >Save</button>
+                       </div>}
+ 
+                       {updatingPriorityIndex && <UpdatingBtn />}
+                   </div>
+              </div>
+              
 
                 {/* objectives */}
               <div className="flex flex-col self-start h-auto gap-1 large:w-85 small:w-85vw">

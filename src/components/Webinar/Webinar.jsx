@@ -12,9 +12,9 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 
 function Webinar(webinar) {
 
-    const {webinarType, setWebinarType, toggleWebinarEnrollment} = useContext(CrossContext);
+    const {webinarType, setWebinarType, toggleWebinarEnrollment, formatWebinarDate} = useContext(CrossContext);
 
-    const {presenter, topic, description, date, time, totalAttendees, duration, youtubeLink, webinarId} = webinar;
+    const {presenter, topic, description, date, time, totalAttendees, duration, youtubeLink, webinarId, actualDate} = webinar;
 
     const [showMore, setShowMore] = useState(false);
     
@@ -57,7 +57,7 @@ function Webinar(webinar) {
             </div>
         </div> */}
 
-        <div className='flex items-center gap-1 w-100'><RiCalendar2Line className='text-15px'/> {date}</div>
+        <div className='flex items-center gap-1 w-100'><RiCalendar2Line className='text-15px'/> {formatWebinarDate(actualDate)}</div>
 
         <div className='flex items-center gap-1 w-100'><AiOutlineClockCircle className='text-15px'/> {time}</div>
 

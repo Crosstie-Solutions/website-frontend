@@ -97,6 +97,7 @@ function WebinarPage() {
                     topic={webinar.topic}
                     description={webinar.description}
                     date={webinar.date}
+                    actualDate={webinar.actualDate}
                     time={webinar.time}
                     totalAttendees={webinar.totalAttendees}
                     duration={webinar.duration}

@@ -80,6 +80,8 @@ import ResourceVaultPage from "./pages/ResourceVaultPage/ResourceVaultPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage";
 import CartPage from "./pages/CartPage/CartPage";
 import TransactionVerif from "./pages/TransactionVerif/TransactionVerif";
+import WebinarCertificate from "./components/WebinarCertificate/WebinarCertificate";
+import FeedbackForm from "./pages/FeedbackForm/FeedbackForm";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -92,7 +94,7 @@ function App() {
   const {aboutDD, solutionsDD, coursesDD, mobileSearch, 
     viewAllPrograms, enrollmentForm, viewAllWebinars, 
     loading, fetchMe, getLoginToken, loginToken, fetchMyWebinars, me, viewAllCourses, viewAllCourseRegs, webinarEnrollment, viewAllEnquiries, viewAllNewsletters, viewAllTestimonials, viewAllContactForms, presentationDownloadScreen, viewAllHighDemands, viewAllBlogPosts, fetchUsers, fetchPartners, fetchAllHighDemand, activeSearch, openEnrollmentForm, secondOpenEnrollmentForm, fetchEvents, downloadUrl, title, viewAllCaseStudies, viewAllJobs, viewAllDownloads, viewAllConsultingReqs, viewAllReports, viewAllEdgeApps, viewAllProducts, cartItems,
-    storeCartItems} = useContext(CrossContext);
+    storeCartItems, webinarCertTemplate} = useContext(CrossContext);
 
 
   useEffect(()=>{
@@ -290,6 +292,8 @@ function App() {
           <Route path="/our-courses/edit/:programId" element={<EditProgramPage />} />
           <Route path="/our-solutions/webinars/edit/:webinarId" element={<EditWebinarPage />} />
           
+          <Route path="/our-solutions/webinars/feedback/:webinarId" element={<FeedbackForm />} />
+          
           
           <Route path="/about-us/feedbacks/edit/:testimonyId" element={<EditTestimonialPage />} />
           
@@ -337,6 +341,14 @@ function App() {
           
           
           <Route path="/our-solutions/webinars" element={<WebinarPage />} />
+          
+          {/* <Route path="/certificate" element={<WebinarCertificate 
+          certificateUrl={webinarCertTemplate}
+          name='Promise Edet Okpoto'
+          courseTitle='Web development'
+          date='27th February 2025'
+          />} /> */}
+          
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/conditions" element={<ConditionsPage />} />
           

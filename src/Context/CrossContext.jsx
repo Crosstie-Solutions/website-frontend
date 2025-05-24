@@ -19,6 +19,16 @@ function CrossContextProvider(props) {
   // const baseUrl = "https://server.crosstiesolutions.com";
 
 
+  const copyToClipboard = (text) => {
+        try {
+          navigator.clipboard.writeText(text)
+          toast.success("Feedback link copied!");
+        } catch (error) {
+          toast.error('failed to copy feedback link');
+        }
+    };
+
+
 
   const [aboutDD, setAboutDD] = useState(false);
 
@@ -167,6 +177,24 @@ function formatDate(dateString) {
   const year = date.getFullYear();
   return `${day}/${month}/${year}`;
 }
+
+
+//format webinar date
+const formatWebinarDate = (dateString)=> {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.toLocaleString('en-GB', { month: 'long' });
+  const year = date.getFullYear();
+
+    const getOrdinalSuffix = (n) => {
+      const s = ['th', 'st', 'nd', 'rd'];
+      const v = n % 100;
+      return s[(v - 20) % 10] || s[v] || s[0];
+    };
+
+    return `${day}${getOrdinalSuffix(day)} ${month} ${year}`;
+    
+  };
 
 
 
@@ -1159,9 +1187,13 @@ const viewAllContactForms = async () => {
     setCourseBrochureDownloadScreen(!courseBrochureDownloadScreen);
    }
 
+   //corperate presentation file
    const downloadUrl = "https://res.cloudinary.com/dnq0mhrjs/image/upload/v1744802770/Crosstie_Corporate_Profile_2025_sap8fs.pdf";
       
     const title = "Our Corporate Presentation";
+
+    //webinar certificate template
+    const webinarCertTemplate = "https://res.cloudinary.com/dnq0mhrjs/image/upload/v1748066017/Complete_Webinar_Certificate_4_tutmq2.pdf"
 
 
    
@@ -2211,8 +2243,8 @@ const [allProducts, setAllProducts] = useState();
   handleEnquiriesPageChange, allEdgeApps, activeEdgeApp, toggleAdminEdgeAppAction,
   currentEnquiriesPage, loadingAllProducts, getTotalCartItems, allProducts,
         currentProducts, addToCart, cartItems, clearCart, removeFromCart,
-    storeCartItems, getTotalCartAmount,
-        handleProductsPageChange,
+    storeCartItems, getTotalCartAmount, webinarCertTemplate,
+        handleProductsPageChange, formatWebinarDate, copyToClipboard,
         currentProductsPage,
         totalProductsPages,
   totalEnquiriesPages,

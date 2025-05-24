@@ -188,7 +188,6 @@ export default {
       colors: {
         vogueRed: "#ff0000",
         crossDarkPurple: "#431C61",
-        // crossLightPurple: "#652D90",
         crossLightPurple: "#7232A1",
         crossTextGray: "#737373",
         crossIconBg: "#F0DCFF",

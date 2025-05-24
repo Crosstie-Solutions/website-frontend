@@ -204,13 +204,13 @@ const myLastName = document.getElementById('myLastName');
             <li><Link to="/our-solutions/webinars">Webinars</Link></li>
             <li><Link to="/our-solutions/customized-training">Customised Solutions</Link></li>
             <li><Link 
-            // to="/our-solutions/resource-vault"
-            to="/"
+            to="/our-solutions/resource-vault"
+            // to="/"
             >The Resource Vault</Link></li>
             <li><Link 
-            // to="/our-solutions/soft-skills-launchpad"
-            to="/"
-            >Soft Skills Launchpad  Programme (SSLP)</Link></li>
+            to="/our-solutions/crosstie-edge"
+            // to="/"
+            >Crosstie EDGE</Link></li>
         </ul>
 
        

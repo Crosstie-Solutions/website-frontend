@@ -13,7 +13,11 @@ function AboutHero(props) {
     const {togglePresentationDownloadScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen} = useContext(CrossContext);
 
    
-    const videoId = 'BdWLMvrkidU'
+    // const videoId = 'BdWLMvrkidU';
+    
+    const videoId = 'Idni8o4Nxj4';
+
+    // <iframe width="560" height="315" src="https://www.youtube.com/embed/Idni8o4Nxj4?si=9zG8DAcAqu_fahWG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     
 
     
@@ -92,7 +96,7 @@ function AboutHero(props) {
         </p>} */}
 
         {!window.location.pathname.includes('satisfaction') &&
-        <h1 className="large:text-18px large:w-90 large:leading-8 small:leading-5  small:w-100 small:text-17px">
+        <h1 className="large:text-18px large:w-90 large:leading-8 small:leading-5 small:w-100 small:text-17px">
           
            {line2 ? line2 : "We transform talents and organizations to improve performance."}
         </h1>}

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { CrossContext } from '../../../Context/CrossContext';
 import { DeletingBtn } from '../../LoadingBtn/LoadingBtn';
 import MarkAsPast from '../MarkAsPast/MarkAsPast';
-
+import { IoCopyOutline } from "react-icons/io5";
 
 
 
@@ -15,7 +15,7 @@ function AdminWebinarAction(webinar) {
     
     const { 
       deletingWebinar, deleteWebinar,
-      toggleAdminWebinarAction, toggleActiveWebinarView, activeWebinarView
+      toggleAdminWebinarAction, toggleActiveWebinarView, activeWebinarView, copyToClipboard
     } = useContext(CrossContext);
     
 
@@ -78,7 +78,16 @@ function AdminWebinarAction(webinar) {
         <button className='flex items-center justify-center font-semibold rounded w-70 h-40px text-vogueRed'
         onClick={toggleDeleteWebinarMode}
         >Delete Webinar</button>
+
+
+        <div 
+        className='flex items-center justify-center gap-1 font-semibold text-black rounded cursor-pointer w-70 h-40px'
+        onClick={()=>{
+          copyToClipboard(`https://crosstiesolutions.com/our-solutions/webinars/feedback/${webinarId}`)
+        }}
+        >Feedback Link <IoCopyOutline className='text-20px' /></div>
         
+
       </div>}
 
         {/* delete webinar */}

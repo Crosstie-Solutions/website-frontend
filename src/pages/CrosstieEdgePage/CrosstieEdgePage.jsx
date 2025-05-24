@@ -100,6 +100,8 @@ function CrosstieEdgePage() {
 
   
    const apply = async () => {
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   
   const validationErrors = {};
   
@@ -112,6 +114,10 @@ function CrosstieEdgePage() {
   if (!email.trim()) {
     validationErrors.email = "email is required";
   }
+
+  else if (!emailRegex.test(email)) {
+      validationErrors.email = "Please enter a valid email address.";
+    }
 
   
   if (!phone) {
@@ -493,7 +499,7 @@ function CrosstieEdgePage() {
                     <div className="flex flex-col h-auto w-45">
                         <label htmlFor="address">Company Address</label>
                         
-                        <input type="text" name="address" className="p-1 border rounded h-40px w-100" placeholder="what is your role in the company?"
+                        <input type="text" name="address" className="p-1 border rounded h-40px w-100"
                         onChange={(e)=>setAddress(e.target.value)}
                         />
                         
@@ -575,7 +581,7 @@ function CrosstieEdgePage() {
                     </div>
 
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="linkedIn">LinkedIn URL</label>
+                        <label htmlFor="linkedIn">Company LinkedIn URL</label>
                         <input type="text" name="linkedIn" className="p-1 border rounded h-40px w-100"
                         onChange={(e)=>setLinkedIn(e.target.value)}
                         />
@@ -684,7 +690,7 @@ function CrosstieEdgePage() {
                     <div className="flex flex-col h-auto w-45">
                         <label htmlFor="dateOfBirth">Date Of Birth</label>
                         
-                        <input type="text" name="dateOfBirth" className="p-1 border rounded h-40px w-100" placeholder="what is your role in the company?"
+                        <input type="date" name="dateOfBirth" className="p-1 border rounded h-40px w-100"
                         onChange={(e)=>setDateOfBirth(e.target.value)}
                         />
                         <p className="text-vogueRed">{enrollmentErrors && enrollmentErrors.dateOfBirth}</p>
@@ -714,7 +720,7 @@ function CrosstieEdgePage() {
                     </div>
 
                     <div className="flex flex-col h-auto w-45">
-                        <label htmlFor="course">Course</label>
+                        <label htmlFor="course">Course of study</label>
                         <input type="text" name="course" className="p-1 border rounded h-40px w-100"
                         onChange={(e)=>setCourse(e.target.value)}
                         />

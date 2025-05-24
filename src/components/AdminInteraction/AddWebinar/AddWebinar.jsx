@@ -167,7 +167,7 @@ function AddWebinar() {
                   Date
                   </label>
                   <input
-                    type="date"
+                    type="datetime-local"
                     name="date"
                     className="p-0.5 border rounded-4"
                     onChange={handleChange}

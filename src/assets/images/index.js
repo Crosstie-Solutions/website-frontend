@@ -19,6 +19,8 @@ const PHOTOS = {
     visa: new URL("./visa.png", import.meta.url).href,
     paystack: new URL("./paystack.png", import.meta.url).href,
 
+    webinarTemplate: new URL("./webinarTemplate.png", import.meta.url).href,
+
     
     about1: new URL("./about1.jpg", import.meta.url).href,
     about2: new URL("./about2.jpg", import.meta.url).href,
