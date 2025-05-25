@@ -34,7 +34,7 @@ const EventCarousel = ({ photos }) => {
 
         <button
           onClick={() => setFullscreenImage(photos[currentIndex])}
-          className="absolute px-2 py-1 text-sm text-white bg-black rounded bottom-8 right-11 bg-opacity-60 hover:bg-opacity-80"
+          className="absolute px-2 py-1 text-sm text-white bg-black rounded bottom-8 right-13 bg-opacity-60 hover:bg-opacity-80"
         >
           View
         </button>
