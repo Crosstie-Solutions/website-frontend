@@ -86,9 +86,14 @@ if (!date.trim()) {
   validationErrors.date = "date is required";
 }
 
- else if (eventImages.length < 6) {
-  validationErrors.eventImages = "An event should have at least 6 pictures. Abeg hustle for more pictures.";
+  if (eventImages.length < 6) {
+  validationErrors.eventImages = "An event should have at least 6 images";
 }
+
+if (eventImages.length > 6) {
+  validationErrors.eventImages = "An event can not have more than 6 images";
+}
+
 
 
 
