@@ -51,7 +51,7 @@ function ResourceVaultPage() {
           }
 
           
-          {!loadingAllProducts && currentProducts && currentProducts.length < 1 && <p className='mt-10'>No Article found.</p>}
+          {!loadingAllProducts && currentProducts && currentProducts.length < 1 && <p className='mt-10'>No Resource found.</p>}
        
 
 

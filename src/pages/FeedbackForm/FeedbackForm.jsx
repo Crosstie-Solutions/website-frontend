@@ -57,6 +57,10 @@ const sendFeedback = async (event) => {
    validationErrors.fullName = "full name is required";
  }
 
+ if (fullName.trim().split(' ').length !== 2) {
+   validationErrors.fullName = "Please enter first and last name";
+ }
+
 
  if (!email.trim()) {
    validationErrors.email = "email is required";
