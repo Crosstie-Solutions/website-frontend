@@ -5,6 +5,8 @@ import { CrossContext } from '../../../Context/CrossContext';
 import { PHOTOS } from '../../../assets/images';
 
 
+
+
 function AddEvent() {
 
     const { baseUrl, setLoading } = useContext(CrossContext);
@@ -20,10 +22,17 @@ function AddEvent() {
       
       const [eventImages, setEventImages] = useState([]);
 
+      console.log('eventImages:', eventImages);
+
       const [previews, setPreviews] = useState([]);
 
       const handleFileChange = (e) => {
         setEventImages(e.target.files);
+
+        //  const fileList = e.target.files; // FileList
+        // const files = Array.from(fileList); // Convert to array
+        
+        // setEventImages(files);
 
         const selectedFiles = Array.from(e.target.files).slice(0, 10);
 
@@ -77,8 +86,8 @@ if (!date.trim()) {
   validationErrors.date = "date is required";
 }
 
- else if (eventImages.length < 10) {
-  validationErrors.eventImages = "An event should have at least 10 pictures. Abeg hustle for more pictures.";
+ else if (eventImages.length < 6) {
+  validationErrors.eventImages = "An event should have at least 6 pictures. Abeg hustle for more pictures.";
 }
 
 
@@ -96,14 +105,18 @@ const noError = Object.keys(validationErrors).length === 0;
     for (let i = 0; i < eventImages.length; i++) {
       formData.append("eventImages", eventImages[i]);
     }
+
+     for (let pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+    }
+
   
 
 if (noError) {
   try {
     
     setLoading(true);
-    const response = await axios.post(
-      `https://server.crosstiesolutions.com/api/event`,
+    const response = await axios.post(`${baseUrl}/api/event`,
       formData,
       {
         headers: {
@@ -178,7 +191,7 @@ if (noError) {
         </div>
 
         <div className='flex flex-col h-auto w-100'>
-            <label htmlFor="eventImages">Pictures From Event(10)</label>
+            <label htmlFor="eventImages">Pictures From Event(6)</label>
             <input type="file" name='eventImages' id='eventImagesField' className='pl-1 border rounded h-40px w-100'
             accept="image/*"
             multiple

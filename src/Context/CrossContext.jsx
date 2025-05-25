@@ -2041,7 +2041,7 @@ const [allProducts, setAllProducts] = useState();
   
     // Filter products based on search term
     const filteredProducts = allProducts && allProducts.filter((product) =>
-      `${product.title} ${product.category}`
+      `${product.title} ${product.price}`
         .toLowerCase()
         .includes(productsSearchTerm.toLowerCase())
     );
@@ -2064,7 +2064,6 @@ const [allProducts, setAllProducts] = useState();
     };
   
   
-  
     //for admin to take action on product
   
   const [activeProduct, setActiveProduct] = useState(null);
@@ -2072,6 +2071,31 @@ const [allProducts, setAllProducts] = useState();
   const toggleAdminProductAction = (index)=>{
     // setAdminAction(!adminAction);
     setActiveProduct((prev) => (prev === index ? null : index));
+  };
+
+
+
+  //for admin to delete product
+  const [deletingProduct, setDeletingProduct] = useState(false);
+  
+  const deleteProduct = async (productId) => {
+    
+    try {
+      setDeletingProduct(true);
+  
+      const response = await axios.delete(`${baseUrl}/api/product/delete/${productId && productId}`);
+  
+      console.error('product delete response:', response.data);
+      if(response.data.status ==='success'){
+        toast.success('Product deleted successfully.');
+        toggleAdminProductAction("exit")
+      }
+      
+    } catch (error) {
+      console.error('Error deleting product:', error);
+    }finally{
+      setDeletingProduct(false);
+    }
   };
 
 
@@ -2245,7 +2269,10 @@ const [allProducts, setAllProducts] = useState();
         currentProducts, addToCart, cartItems, clearCart, removeFromCart,
     storeCartItems, getTotalCartAmount, webinarCertTemplate,
         handleProductsPageChange, formatWebinarDate, copyToClipboard,
-        currentProductsPage,
+        currentProductsPage, productsSearchTerm, setProductsSearchTerm, setCurrentProductsPage, currentProductsPage,
+        totalProductsPages, deleteProduct, deletingProduct,
+        handleProductsPageChange,
+        activeProduct, toggleAdminProductAction,
         totalProductsPages,
   totalEnquiriesPages,
   activeJob, toggleJob, consultingTitle, bookService

@@ -330,6 +330,11 @@ function ProgramDetailsPage() {
             <div>Online - <span className="text-black">&#8358;{program && program.onlineCost.toLocaleString()}</span> Per Participant</div>
           </div>
 
+          <div className="flex items-center justify-center w-auto h-auto gap-2">
+            <hr className="rotate-45 large:h-20px large:w-20px small:w-10px small:h-10px bg-crossLightPurple"/>
+            <div>You And I - <span className="text-black">&#8358;{program && program.youAndICost.toLocaleString()}</span> Per Participant</div>
+          </div>
+
         </div>
 
         <hr className="bg-gray-300 h-2px w-100"/>

@@ -61,6 +61,9 @@ import AddReport from "../../components/AdminInteraction/AddReport/AddReport.jsx
 import AllReportsTable from "../../components/AdminInteraction/AllReportsTable/AllReportsTable.jsx";
 import { IoSchool } from "react-icons/io5";
 import { AllEdgeAppsTable } from "../../components/AdminInteraction/AllEdgeAppsTable/AllEdgeAppsTable.jsx";
+import { AiOutlineProduct } from "react-icons/ai";
+import AddProduct from "../../components/AdminInteraction/AddProduct/AddProduct.jsx";
+import AllProductsTable from "../../components/AdminInteraction/AllProductsTable/AllProductsTable.jsx";
 
 
 
@@ -89,6 +92,14 @@ function AdminDashboard() {
 
    const togglePartnersDD = ()=>{
      setPartnersDD(!partnersDD);
+   }
+
+
+   //Products dropdown
+   const [productsDD, setProductsDD] = useState(false);
+
+   const toggleProductsDD = ()=>{
+     setProductsDD(!productsDD);
    }
 
     //report dropdown
@@ -370,6 +381,40 @@ function AdminDashboard() {
             <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
              onClick={() => setActiveScreen("addEvent")}
             >Add Event</div>
+
+          </div>}
+        </div>
+
+
+        {/* Manage Products */}
+
+         <div
+          className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+        >
+          
+          <div className={`${ activeScreen === "addProduct" || activeScreen === "allProducts" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
+          onClick={toggleProductsDD}
+          >            
+            <div className="flex gap-1">
+              <AiOutlineProduct className="text-20px" />
+              Resource Vault
+            </div>
+            
+            
+            <IoChevronDown className={`text-20px ${productsDD ? "rotate-180" : ""}`}/>
+          </div>
+
+          {productsDD &&
+          <div className="flex flex-col items-center gap-1 w-100">
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("allProducts")}
+            >All Products</div>
+            
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("addProduct")}
+            >Add Product</div>
 
           </div>}
         </div>
@@ -756,6 +801,10 @@ function AdminDashboard() {
         {activeScreen === "edgeApplicants" && <AllEdgeAppsTable type="applicant" />}
         
         {activeScreen === "edgeRecruiters" && <AllEdgeAppsTable type="recruiter" />}
+        
+        {activeScreen === "addProduct" && <AddProduct />}
+        
+        {activeScreen === "allProducts" && <AllProductsTable />}
         
         
         

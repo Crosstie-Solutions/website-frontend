@@ -82,6 +82,7 @@ import CartPage from "./pages/CartPage/CartPage";
 import TransactionVerif from "./pages/TransactionVerif/TransactionVerif";
 import WebinarCertificate from "./components/WebinarCertificate/WebinarCertificate";
 import FeedbackForm from "./pages/FeedbackForm/FeedbackForm";
+import EditProductPage from "./pages/EditProductPage/EditProductPage";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -334,6 +335,8 @@ function App() {
           <Route path="/our-solutions/resource-vault" element={<ResourceVaultPage />} />
           
           <Route path="/our-solutions/resource-vault/:productId" element={<ProductDetailsPage />} />
+          
+          <Route path="/our-solutions/resource-vault/edit/:productId" element={<EditProductPage />} />
           
           <Route path="/cart" element={<CartPage />} />
           
