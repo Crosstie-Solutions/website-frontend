@@ -160,9 +160,9 @@ const leaders = [
   {
     name: "Adejoke Adebomi",
     image: leadersImages[2],
-    role: "Director, Project Management Office.",
+    role: "Non-Executive Director, Project Management",
     type: "director",
-    bio: `No Bio`,
+    bio: `Adejoke Adebomi is an accomplished project management professional with a track record of delivering high-impact initiatives across diverse sectors. As Non-Executive Director, PMO at Crosstie, she provides strategic oversight and advisory support on the planning and executing of training and consulting projects. Her expertise strengthens Crosstie’s project governance and delivery excellence, while she continues to maintain her primary professional engagements independently.`,
     link: `https://www.linkedin.com`
   },
 
