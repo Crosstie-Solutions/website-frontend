@@ -352,7 +352,11 @@ function CrosstieEdgePage() {
               </ol>
           </div>
 
-          <FrequentlyAskedQues />
+          {/* desktop FAQ */}
+
+            <div className="large:flex small:hidden">
+              <FrequentlyAskedQues />
+            </div>
           
         </div>
 
@@ -408,6 +412,11 @@ function CrosstieEdgePage() {
         </div>
       </div>
 
+        {/* mobile FAQ */}
+        
+        <div className="h-auto w-90vw large:hidden small:flex">
+          <FrequentlyAskedQues />
+        </div>  
 
       {/* Application form */}
       <div className="flex flex-col items-center gap-3 py-5 bg-white rounded large:w-83vw small:w-90vw">

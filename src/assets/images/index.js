@@ -107,10 +107,13 @@ const partnerImages = [
 const leadersImages = [
     new URL("./adebayo2.jpeg", import.meta.url).href,
     new URL("./avatar.jpg", import.meta.url).href,
+    new URL("./avatar_f.jpg", import.meta.url).href,
     new URL("./peter.jpeg", import.meta.url).href,
     new URL("./promise.jpeg", import.meta.url).href,
     new URL("./jacob.jpeg", import.meta.url).href,
     new URL("./ademide.jpeg", import.meta.url).href,
+    new URL("./lauretta.png", import.meta.url).href,
+    new URL("./solomon.png", import.meta.url).href,
 ];
 
 

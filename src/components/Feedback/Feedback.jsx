@@ -9,6 +9,7 @@ function Feedback(testimonial) {
 
   const {name, jobRole, testimony, priorityIndex, date, program, id, toggleReadMore, isExpanded} = testimonial;
 
+  const {formatDate} = useContext(CrossContext)
   
   // const [more, setMore] = useState(null);
 
@@ -51,7 +52,7 @@ function Feedback(testimonial) {
           {program}
         </p>
 
-        <div className="text-[#B56DEE]">{date}</div>
+        <div className="text-[#B56DEE]">{formatDate(date)}</div>
       </div>
 
       <div className="absolute flex items-center justify-center bg-white rounded-full -top-1.5 h-30px w-30px left-2 hover:text-crossLightPurple text-gray-400 cursor-pointer">

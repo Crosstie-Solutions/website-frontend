@@ -158,12 +158,12 @@ const partnerData = [
 const leaders = [
 
   {
-    name: "xxxxx",
-    image: leadersImages[1],
-    role: "xxxxx",
+    name: "Adejoke Adebomi",
+    image: leadersImages[2],
+    role: "Director, Project Management Office.",
     type: "director",
     bio: `No Bio`,
-    link: `https://www.google.com`
+    link: `https://www.linkedin.com`
   },
 
   {
@@ -175,15 +175,33 @@ const leaders = [
     link: `https://www.linkedin.com/in/iamtheimpacter/`
   },
 
+  // {
+  //   name: "xxxxx",
+  //   image: leadersImages[1],
+  //   role: "xxxxx",
+  //   type: "director",
+  //   bio: `No Bio`,
+  //   link: `https://www.google.com`
+  // },
+
+
   {
-    name: "xxxxx",
-    image: leadersImages[1],
-    role: "xxxxx",
-    type: "director",
-    bio: `No Bio`,
-    link: `https://www.google.com`
+    name: "Solomon Avbioroko",
+    image: leadersImages[8],
+    role: "Strategic Advisor",
+    type: "advisor",
+    bio: `Solomon Avbioroko is a seasoned leadership and human capital development expert with extensive experience in driving performance across diverse sectors. He has held leadership roles at the Lagos Business School and facilitated numerous executive learning sessions, contributing to the strategic growth of several organisations. As an External Advisor at Crosstie, he offers valuable insights, helping to shape impactful training and consulting interventions while maintaining his independence and professional affiliations.`,
+    link: `http://linkedin.com/in/solomon-avbioroko-a38aa143`
   },
 
+  {
+    name: "Barr. Lauretta Usiade",
+    image: leadersImages[7],
+    role: "Strategic Advisor",
+    type: "advisor",
+    bio: `Barrister Lauretta Usiade is a seasoned Learning and Development professional with extensive experience in talent transformation and organisational capability building. As Head of Learning and Development at EKEDC, she has championed innovative training initiatives. In her role as a Strategic Advisor at Crosstie, she leverages her vast network and expertise to support impactful learning solutions across industries, while maintaining her primary professional commitments independently.`,
+    link: `https://www.linkedin.com/in/barrister-lauretta-usiade-llb-mild-mcipm-fimc-adhrm-76525367?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app`
+  },
 
   {
     name: "xxxxx",
@@ -191,32 +209,14 @@ const leaders = [
     role: "xxxxx",
     type: "advisor",
     bio: `No Bio`,
-    link: `https://www.google.com`
-  },
-
-  {
-    name: "xxxxx",
-    image: leadersImages[1],
-    role: "xxxxx",
-    type: "advisor",
-    bio: `No Bio`,
-    link: `https://www.google.com`
-  },
-
-  {
-    name: "xxxxx",
-    image: leadersImages[1],
-    role: "xxxxx",
-    type: "advisor",
-    bio: `No Bio`,
-    link: `https://www.google.com`
+    link: `/`
   },
 
 
 
   {
     name: "Peter Bello",
-    image: leadersImages[2],
+    image: leadersImages[3],
     role: "Associate, Learning & Development",
     type: "teamMember",
     bio: `Peter Bello is a learning and development professional with 5+ years of experience designing training programs across pensions, insurance, and energy sectors. At Crosstie Solutions, he builds impactful content focused on customer service, business development, and team performance. He ensures training delivery meets real workplace needs. Outside work, Peter finds balance in fitness, music, and reflection, constantly seeking growth in all aspects of life.`,
@@ -225,7 +225,7 @@ const leaders = [
 
   {
     name: "Promise Essien",
-    image: leadersImages[3],
+    image: leadersImages[4],
     role: "Associate, Business Development & Client Relations",
     type: "teamMember",
     bio: `Promise Essien is a versatile Business Development and Client Relationship Professional with experience across consulting, healthcare, education, and real estate in Nigeria and the UK. With a B.Sc. in Microbiology, she transitioned from the medical field to marketing and sales. She’s our Associate, Business Development and Client Relations, responsible for lead generation, prospect management and client relations. She contributes to digital marketing, strategic planning, and content creation.`,
@@ -234,7 +234,7 @@ const leaders = [
 
   {
     name: "Jacob Abua",
-    image: leadersImages[4],
+    image: leadersImages[5],
     role: "Analyst, Organisational Development",
     type: "teamMember",
     bio: `Jacob Abua is an Organisation Development Analyst at Crosstie Solutions with a strong foundation in data, leadership, and strategy. A top Statistics graduate from Cross River University of Technology, his acclaimed final-year project tackled real academic challenges using multivariate analysis. His career spans accounting, management, and consulting, where he designs impactful dashboards and spearheads cost-saving initiatives. Jacob brings proactive insight, operational acumen, and a passion for organisational growth.
@@ -244,7 +244,7 @@ const leaders = [
 
   {
     name: "Ademide Adegboye",
-    image: leadersImages[5],
+    image: leadersImages[6],
     role: "HR/ L&D Support",
     type: "teamMember",
     bio: `Ademide Adeboye is an HR professional at Crosstie Solutions, responsible for recruitment, onboarding, employee motivation, and performance management. She also supports Learning and Development programs. Though still in her early career stage, Ademide has streamlined HR processes, enhanced employee satisfaction, and boosted engagement. She brings fresh, practical solutions to workplace challenges and contributes to building a strong, productive, and positive organizational culture.`,

@@ -144,7 +144,7 @@ function OurSolutions() {
                     
                     {
                         allHighDemands && allHighDemands.map((program, i)=>
-                            <Link to={`/our-courses/${program.program && program.program.length >0 && program.program[0].id}`} className='flex items-center justify-center gap-1 py-1 font-semibold text-black h-80px lareg:w-auto large:text-15px rounded-5 small:text-13px bg-crossIconBg hover:text-crossLightPurple small:w-auto'
+                            <Link to={`/our-courses/${program.program && program.program.length >0 && program.program[0].slug}`} className='flex items-center justify-center gap-1 py-1 font-semibold text-black h-80px lareg:w-auto large:text-15px rounded-5 small:text-13px bg-crossIconBg hover:text-crossLightPurple small:w-auto'
                             key={i}
                             >
                                 <div className='flex items-center justify-center px-1 border-l-4 w-250px h-100 border-crossLightPurple hover:h-90'>{program.program && program.program.length >0 && program.program[0].title}</div>
