@@ -197,6 +197,15 @@ const formatWebinarDate = (dateString)=> {
   };
 
 
+  function formatTestimonialDate(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // Months are zero-indexed
+  const year = date.getFullYear();
+  return `${day}-${month}-${year}`;
+}
+
+
 
   const [allPrograms, setAllPrograms] = useState();
   const [loadingAllPrograms, setLoadingAllPrograms] = useState(false);
@@ -280,10 +289,13 @@ const formatWebinarDate = (dateString)=> {
   const [enrollmentForm, setEnrollmentForm] = useState(null);
 
   const [program, setProgram] = useState(null);
+  console.log('program:', program);
 
 
   //for other courses aside open executive
   const toggleEnrollment = async (index)=> {
+
+    console.log('slug received:', index);
 
     window.scrollTo({ top: 0, behavior: "auto" });
     // setEnrollmentForm(!enrollmentForm);
@@ -291,7 +303,8 @@ const formatWebinarDate = (dateString)=> {
 
     try {
       const response = await axios.get(`${baseUrl}/api/program/${index}`);
-      setProgram(response.data.data.data);
+
+      setProgram(response.data.data);
 
     } catch (error) {
       console.error('Error fetching program:', error);
@@ -312,7 +325,7 @@ const formatWebinarDate = (dateString)=> {
 
     try {
       const response = await axios.get(`${baseUrl}/api/program/${index}`);
-      setProgram(response.data.data.data);
+      setProgram(response.data.data);
 
     } catch (error) {
       console.error('Error fetching program:', error);
@@ -2270,7 +2283,7 @@ const [allProducts, setAllProducts] = useState();
     storeCartItems, getTotalCartAmount, webinarCertTemplate,
         handleProductsPageChange, formatWebinarDate, copyToClipboard,
         currentProductsPage, productsSearchTerm, setProductsSearchTerm, setCurrentProductsPage, currentProductsPage,
-        totalProductsPages, deleteProduct, deletingProduct,
+        totalProductsPages, deleteProduct, deletingProduct, formatTestimonialDate,
         handleProductsPageChange,
         activeProduct, toggleAdminProductAction,
         totalProductsPages,

@@ -403,7 +403,7 @@ function AddProgram() {
                 </div>
 
                 <div className="flex flex-col w-40 h-auto">
-                  <label htmlFor="youAndICost">You And I Cost (For OEP)</label>
+                  <label htmlFor="youAndICost">You & I Cost (For OEP)</label>
                   <input
                     type="number"
                     placeholder="Enter personalized training cost"

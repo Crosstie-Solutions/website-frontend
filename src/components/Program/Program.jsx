@@ -71,8 +71,8 @@ function Program(program) {
             <div className='flex items-center justify-center gap-1 text-white cursor-pointer w-200px h-30px rounded-10 bg-crossLightPurple small:mt-1 large:mt-0'
             onClick={()=>{
 
-              category && category.toLowerCase().includes("open executive") ? toggleOpenEnrollment(id) :
-              toggleEnrollment(id)
+              category && category.toLowerCase().includes("open executive") ? toggleOpenEnrollment(slug) :
+              toggleEnrollment(slug)
             }}
             >Enroll Now</div>
             
