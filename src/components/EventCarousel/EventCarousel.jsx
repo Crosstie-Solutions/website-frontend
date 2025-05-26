@@ -29,15 +29,16 @@ const EventCarousel = ({ photos }) => {
         <img
           src={photos[currentIndex]}
           alt={`Photo ${currentIndex + 1}`}
-          className="object-cover w-100 h-100"
+          className="object-cover cursor-pointer w-100 h-100"
+          onClick={() => setFullscreenImage(photos[currentIndex])}
         />
 
-        <button
+        {/* <button
           onClick={() => setFullscreenImage(photos[currentIndex])}
           className="absolute px-2 py-1 text-sm text-white bg-black rounded bottom-8 right-13 bg-opacity-60 hover:bg-opacity-80"
         >
           View
-        </button>
+        </button> */}
       </div>
 
       <div className="absolute left-0 right-0 flex justify-between px-4 -translate-y-1/2 -bottom-1">
@@ -60,7 +61,9 @@ const EventCarousel = ({ photos }) => {
 
       {/* Fullscreen Modal */}
       {fullscreenImage && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
+        onClick={() => setFullscreenImage(null)}
+        >
           <div className="relative">
             <img src={fullscreenImage} alt="Full View" className="max-h-[90vh] max-w-[90vw] rounded" />
             <button
