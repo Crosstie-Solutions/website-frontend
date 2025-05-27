@@ -158,21 +158,22 @@ const partnerData = [
 const leaders = [
 
   {
-    name: "Adejoke Adebomi",
-    image: leadersImages[2],
-    role: "Non-Executive Director, Project Management",
-    type: "director",
-    bio: `Adejoke Adebomi is an accomplished project management professional with a track record of delivering high-impact initiatives across diverse sectors. As Non-Executive Director, PMO at Crosstie, she provides strategic oversight and advisory support on the planning and executing of training and consulting projects. Her expertise strengthens Crosstie’s project governance and delivery excellence, while she continues to maintain her primary professional engagements independently.`,
-    link: `https://www.linkedin.com`
-  },
-
-  {
     name: "Adebayo Adegun",
     image: leadersImages[0],
     role: "Lead Partner & CEO",
     type: "director",
     bio: `Adebayo Adegun, known as "The Impacter," is a seasoned Trainer and OD Consultant with 15+ years of experience. He’s led major consulting projects and trained over 5,000 employees across industries. As CEO of Crosstie Solutions, Adebayo partners with top organisations. His expertise includes leadership development, succession planning, and culture transformation. He holds advanced degrees in Managerial Psychology and Organisational Leadership.`,
     link: `https://www.linkedin.com/in/iamtheimpacter/`
+  },
+
+
+   {
+    name: "Adejoke Adebomi",
+    image: leadersImages[2],
+    role: "Non-Executive Director, Project Management",
+    type: "director",
+    bio: `Adejoke Adebomi is an accomplished project management professional with a track record of delivering high-impact initiatives across diverse sectors. As Non-Executive Director, PMO at Crosstie, she provides strategic oversight and advisory support on the planning and executing of training and consulting projects. Her expertise strengthens Crosstie’s project governance and delivery excellence, while she continues to maintain her primary professional engagements independently.`,
+    link: `https://www.linkedin.com`
   },
 
   // {

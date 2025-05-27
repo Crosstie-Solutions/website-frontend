@@ -338,6 +338,8 @@ const formatWebinarDate = (dateString)=> {
   const [secondOpenEnrollmentForm, setSecondOpenEnrollmentForm] = useState(null);
   
 
+
+  
   const toggleSecondOpenEnrollment = async (index)=> {
 
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -347,7 +349,7 @@ const formatWebinarDate = (dateString)=> {
 
     try {
       const response = await axios.get(`${baseUrl}/api/program/${index}`);
-      setProgram(response.data.data.data);
+      setProgram(response.data.data);
 
     } catch (error) {
       console.error('Error fetching program:', error);

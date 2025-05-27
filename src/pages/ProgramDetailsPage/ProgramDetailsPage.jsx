@@ -415,8 +415,8 @@ function ProgramDetailsPage() {
 
             <button className="flex items-center justify-center w-auto px-2 text-white h-40px bg-crossLightPurple rounded-20"
             onClick={()=>{
-              executiveProgram ? toggleSecondOpenEnrollment(programId) :
-              toggleEnrollment(programId)
+              executiveProgram ? toggleSecondOpenEnrollment(program && program.slug) :
+              toggleEnrollment(program && program.slug)
             }}
             >Enroll Now</button>
           </div>
