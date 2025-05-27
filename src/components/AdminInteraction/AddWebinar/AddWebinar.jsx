@@ -164,7 +164,7 @@ function AddWebinar() {
               <div className="flex items-center justify-start h-auto gap-5 w-100">
                 <div className="flex flex-col w-40 h-auto">
                   <label htmlFor="date">
-                  Date
+                  Date & Time
                   </label>
                   <input
                     type="datetime-local"
@@ -182,7 +182,7 @@ function AddWebinar() {
                   Time
                   </label>
                   <input
-                    type="time"
+                    type="text"
                     placeholder="enter webinar time"
                     name="time"
                     className="p-0.5 border rounded-4"

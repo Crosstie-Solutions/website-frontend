@@ -35,7 +35,7 @@ const WebinarCertificate = ({ name, courseTitle, date, certificateUrl }) => {
 
       const nameX = 350;
       const nameY = 330;
-      const courseX = 300;
+      const courseX = 360;
       const courseY = 275;
       const dateX = 380;
       const dateY = 220;

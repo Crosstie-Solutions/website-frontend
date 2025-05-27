@@ -166,12 +166,12 @@ const sendFeedback = async (event) => {
                 <label htmlFor="">Rate the webinar</label>
 
                 <select name="rating" id="" className="p-1 border rounded h-40px w-100" onChange={(e)=>setRating(e.target.value)}>
-                  <option value="">select</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
+                  <option value="">-select-</option>
+                  <option value="1">1 - Excellent</option>
+                  <option value="2">2 - Good</option>
+                  <option value="3">3 - Average</option>
+                  <option value="4">4 - Needs Improvement</option>
+                  <option value="5">5 - Below Satisfactory</option>
                 </select>
                 <p className="text-vogueRed">{signupErrors.rating}</p>
               </div>

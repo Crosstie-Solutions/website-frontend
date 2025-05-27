@@ -128,7 +128,7 @@ useEffect(()=>{
 
       </div>
 
-        {activeWebinar && activeWebinar.past ===true && feedback &&
+        {feedback &&
       <div className='flex flex-col items-start h-auto gap-2 large:w-50 small:w-100'>
         
         <img src={PHOTOS.webinarTemplate} alt="certificate template" className='h-auto w-150px'/>
