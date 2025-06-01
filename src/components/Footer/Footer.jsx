@@ -166,18 +166,18 @@ const myLastName = document.getElementById('myLastName');
         </div>
 
         <div className="flex items-end justify-center gap-2">
-          <a href="https://www.youtube.com/@crosstiesolutions"><RiYoutubeLine className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/></a>
+          <a href="https://www.youtube.com/@crosstiesolutions" target="_blank"><RiYoutubeLine className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/></a>
           
-          <a href="https://web.facebook.com/crosstiesolutions"><SiFacebook className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/></a>
+          <a href="https://web.facebook.com/crosstiesolutions" target="_blank"><SiFacebook className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/></a>
           
-          <a href="https://www.linkedin.com/company/crosstiesolutions/"><AiOutlineLinkedin className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/></a>
+          <a href="https://www.linkedin.com/company/crosstiesolutions/" target="_blank"><AiOutlineLinkedin className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/></a>
           
-          <a href="https://x.com/CrossTieSolutn"><BsTwitterX className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/></a>
+          <a href="https://x.com/crosstiesolutns" target="_blank"><BsTwitterX className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/></a>
 
           
-          <a href="https://www.instagram.com/crosstiesolutions/"><LuInstagram className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/></a>
+          <a href="https://www.instagram.com/crosstiesolutions/" target="_blank"><LuInstagram className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/></a>
 
-          <a href="https://www.tiktok.com/@crosstiesolutions"><FaTiktok className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/></a>
+          <a href="https://www.tiktok.com/@crosstiesolutions" target="_blank"><FaTiktok className="p-0.5 rounded-full large:text-35px bg-crossLightPurple small:text-25px"/></a>
           
         </div>
       </div>
