@@ -13,8 +13,7 @@ function WebinarEnrollmentForm() {
   const {webinar, baseUrl, setWebinarEnrollment, loadingWebinar, setLoading} = useContext(CrossContext);
 
    //state for enrollment
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
+    const [fullName, setFullName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
 
@@ -43,12 +42,14 @@ function WebinarEnrollmentForm() {
      const validationErrors = {};
     
      //To ensure valid inputs
-     if (!firstName.trim()) {
-       validationErrors.firstName = "first name is required";
+     if (!fullName.trim()) {
+       validationErrors.fullName = "full name is required";
      }
-     if (!lastName.trim()) {
-      validationErrors.lastName = "last name is required";
-    }
+
+     if (fullName.trim().length < 2) {
+       validationErrors.fullName = "Enter atleast first and last name";
+     }
+
     if (!phone) {
       validationErrors.phone = "phone is required";
     }
@@ -70,8 +71,7 @@ function WebinarEnrollmentForm() {
            `${baseUrl}/api/webinar/register`,
            {
             webinarId: webinar && webinar.id,
-            firstName,
-            lastName,
+            fullName,
             email, 
             phone,
           }
@@ -147,39 +147,25 @@ function WebinarEnrollmentForm() {
         <div className="flex flex-col items-center justify-between h-auto gap-2 pt-2 pb-3 mt-0 w-90 rounded-10">
           
           <div className="flex items-center justify-between h-auto gap-5 w-100">
-            <div className="flex flex-col h-auto w-45">
-              <label htmlFor="firstName">First Name</label>
+            <div className="flex flex-col h-auto w-100">
+              <label htmlFor="fullName">Full Name</label>
 
               <div className="flex flex-col h-auto gap-1 w-100">
                 <input
                   type="text"
-                  placeholder="Enter webinar firstName"
-                  name="firstName"
+                  placeholder="Enter your full name"
+                  name="fullName"
                   className="p-0.5 border rounded-4"
-                  onChange={(e)=>setFirstName(e.target.value)}
+                  onChange={(e)=>setFullName(e.target.value)}
                 />
 
                
-                <p className="text-13px text-vogueRed">{enrollmentErrors.firstName}</p>
+                <p className="text-13px text-vogueRed">{enrollmentErrors.fullName}</p>
               
               </div>
             </div>
 
-            <div className="flex flex-col h-auto w-45">
-              <label htmlFor="lastName">Last Name</label>
-
-              <div className="flex flex-col h-auto gap-1 w-100">
-                <input
-                  type="text"
-                  placeholder="Enter webinar presenter"
-                  name="lastName"
-                  className="p-0.5 border rounded-4"
-                  onChange={(e)=>setLastName(e.target.value)}
-                />
-
-                <p className="text-13px text-vogueRed">{enrollmentErrors.lastName}</p>
-              </div>
-            </div>
+      
           </div>
 
           <div className="flex items-center justify-between h-auto gap-5 w-100">
