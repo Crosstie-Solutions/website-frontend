@@ -22,6 +22,7 @@ function EditWebinarPage() {
       
   console.log("webinar:", webinar);  
       
+  
     useEffect(()=>{
       const viewWebinar = async ()=> {
   
@@ -575,7 +576,7 @@ function EditWebinarPage() {
             <div className="flex flex-col h-auto gap-1 w-100">
               {editDate && (
                 <input
-                type="date"
+                type="datetime-local"
                 placeholder="Enter webinar date"
                 name="date"
                 className="p-0.5 border rounded-4"
@@ -625,7 +626,7 @@ function EditWebinarPage() {
             <div className="flex flex-col h-auto gap-1 w-100">
               {editTime && (
                 <input
-                type="time"
+                type="text"
                 placeholder="Enter webinar time"
                 name="time"
                 className="p-0.5 border rounded-4"
