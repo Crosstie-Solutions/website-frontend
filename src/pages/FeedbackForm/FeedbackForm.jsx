@@ -57,8 +57,8 @@ const sendFeedback = async (event) => {
    validationErrors.fullName = "full name is required";
  }
 
- if (fullName.trim().split(' ').length !== 2) {
-   validationErrors.fullName = "Please enter first and last name";
+ if (fullName.trim().split(' ').length < 2) {
+   validationErrors.fullName = "Enter atleast first and last name";
  }
 
 
@@ -89,6 +89,7 @@ const sendFeedback = async (event) => {
  const noError = Object.keys(validationErrors).length === 0;
 
  if (noError) {
+  window.scrollTo({ top: 0, behavior: "auto" });
    try {
      // setLastErrors("");
      setLoading(true);

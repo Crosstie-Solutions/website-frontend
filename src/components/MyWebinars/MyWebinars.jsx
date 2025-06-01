@@ -78,6 +78,29 @@ useEffect(()=>{
 
 
 
+//to get my webinar attendance record
+  const[record, setRecord] = useState(null);
+ console.log("my attendance record:", record);
+
+ useEffect(()=>{
+  const fetchRecord = async () => {
+  
+    try {
+      const response = await axios.get(`${baseUrl}/api/webinar/record/my-record?webinarId=${webinarId && webinarId}&email=${me && me.email}`);
+
+      
+      setRecord(response.data.data.record)
+    } catch (error) {
+      if(error){
+        console.error('Error fetching my record:', error);
+      }
+  
+    }
+  };
+
+  fetchRecord();
+  
+}, [myWebinars, webinarId]);
 
 
 
@@ -113,8 +136,9 @@ useEffect(()=>{
 
         <div className='flex p-1 border h-40px w-100 border-crossLightPurple rounded-10'>
             <div className='flex items-center justify-start border-r w-30 border-crossLightPurple'>Provide feedback</div>
-            <div className='flex items-center justify-start px-1 w-70'><Link>Link</Link> </div>
+            <div className='flex items-center justify-start px-1 w-70'><Link className='text-crossBlue' to={`https://crosstiesolutions.com/our-solutions/webinars/feedback/${activeWebinar && activeWebinar.id}`}>Link</Link> </div>
         </div>
+        
 
         <div className='flex border large:h-40px w-100 border-crossLightPurple rounded-10 small:h-auto'>
             <div className='flex items-center justify-start px-1 border-r w-30 border-crossLightPurple'>Certificate</div>
@@ -135,7 +159,7 @@ useEffect(()=>{
         
         <WebinarCertificate 
           certificateUrl={webinarCertTemplate}
-          name={me && me.firstName[0].toUpperCase() + me.firstName.slice(1) + " " + me.lastName[0].toUpperCase() + me.lastName.slice(1)}
+          name={record && record.fullName}
           courseTitle={activeWebinar && activeWebinar.topic}
           date={activeWebinar && formatWebinarDate(activeWebinar.actualDate)}
           />

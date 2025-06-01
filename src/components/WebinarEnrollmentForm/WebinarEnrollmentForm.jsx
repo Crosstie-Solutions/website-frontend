@@ -46,7 +46,7 @@ function WebinarEnrollmentForm() {
        validationErrors.fullName = "full name is required";
      }
 
-     if (fullName.trim().length < 2) {
+     if (fullName.trim().split(' ').length < 2) {
        validationErrors.fullName = "Enter atleast first and last name";
      }
 
