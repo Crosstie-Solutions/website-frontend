@@ -148,7 +148,7 @@ function WebinarEnrollmentForm() {
           
           <div className="flex items-center justify-between h-auto gap-5 w-100">
             <div className="flex flex-col h-auto w-100">
-              <label htmlFor="fullName">Full Name</label>
+              <label htmlFor="fullName">Full Name (The way you want on your certificate)</label>
 
               <div className="flex flex-col h-auto gap-1 w-100">
                 <input
