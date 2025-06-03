@@ -140,10 +140,10 @@ useEffect(()=>{
         </div>
         
 
-        <div className='flex border large:h-40px w-100 border-crossLightPurple rounded-10 small:h-auto'>
+        {/* <div className='flex border large:h-40px w-100 border-crossLightPurple rounded-10 small:h-auto'>
             <div className='flex items-center justify-start px-1 border-r w-30 border-crossLightPurple'>Certificate</div>
             <div className='flex items-center justify-start px-1 w-70 small:h-auto large:h-100'>Webinar Participation Certificate can be downloaded after submitting feedback.</div>
-        </div>
+        </div> */}
 
         <div className='flex p-1 border h-40px w-100 border-crossLightPurple rounded-10'>
             <div className='flex items-center justify-start border-r w-30 border-crossLightPurple'>Upcoming Webinars</div>

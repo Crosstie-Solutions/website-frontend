@@ -47,11 +47,11 @@ function AdminJobAction(job) {
         >View Job</Link>
         
         
-        {/* <Link 
-        to={`/our-courses/edit/${jobId}`}
-        className='flex items-center justify-center font-bold text-[#662d91] rounded w-70 h-40px'
+        <Link 
+        to={`/careers/job/edit/${jobId}`}
+        className='flex items-center justify-center font-bold rounded text-crossBlue w-70 h-40px'
         onClick={()=> toggleJob(progEnd)}
-        >Edit Job</Link> */}
+        >Edit Job</Link>
 
        
         <button className='flex items-center justify-center font-bold rounded w-70 h-40px text-vogueRed'

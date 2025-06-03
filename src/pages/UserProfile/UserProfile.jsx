@@ -590,7 +590,10 @@ function UserProfile() {
   
 
   return (
-    <div className="flex flex-col h-auto py-3 large:mt-18 small:gap-3 large:px-2 rounded-10 large:w-83vw bg-vogueWhite text-15px text-cribGray small:w-90vw small:px-1 large:gap-5 small:mt-15">
+    <div className="flex flex-col h-auto py-3 large:mt-18 small:gap-3 large:px-2 rounded-10 large:w-83vw bg-vogueWhite text-15px text-cribGray small:w-90vw small:px-1 large:gap-3 small:mt-15">
+
+      {me &&
+      <div className="self-end font-semibold">Learner ID: <span className="text-crossLightPurple">{me && me.learnerId}</span></div>}
 
       <div className="flex items-center justify-start h-auto gap-3 border-b w-100">
         <button className={`flex items-center justify-center w-auto h-40px ${screen === 'profile' ? "relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[4px] after:bg-crossLightPurple" : ""}`} 

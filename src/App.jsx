@@ -83,6 +83,7 @@ import TransactionVerif from "./pages/TransactionVerif/TransactionVerif";
 import WebinarCertificate from "./components/WebinarCertificate/WebinarCertificate";
 import FeedbackForm from "./pages/FeedbackForm/FeedbackForm";
 import EditProductPage from "./pages/EditProductPage/EditProductPage";
+import EditJobPage from "./pages/EditJobPage/EditJobPage";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -309,6 +310,8 @@ function App() {
           <Route path="/careers" element={<CareersPage />} />
           
           <Route path="/careers/job/:jobId" element={<JobDetailsPage />} />
+          
+          <Route path="/careers/job/edit/:jobId" element={<EditJobPage />} />
           
           
           <Route path="/case-studies/:postId" element={<ViewCaseStudy />} />

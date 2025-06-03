@@ -2115,7 +2115,7 @@ const [allProducts, setAllProducts] = useState();
 
 
   
-  //to get cart Items
+  //to get cart Items from local storage
     const [cartItems, setCartItems] = useState(() => {
       const savedCart = localStorage.getItem('cartItems');
       return savedCart ? JSON.parse(savedCart) : {};

@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { CrossContext } from '../../../Context/CrossContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { CrossContext } from '../../Context/CrossContext';
+import { useParams } from 'react-router-dom';
 
 
 
 
-function AddJob() {
+function EditJobPage() {
 
     const {
         me,
@@ -16,6 +17,36 @@ function AddJob() {
         activeScreen,
         allCourses, setActiveScreen, executiveCourse
       } = useContext(CrossContext);
+
+
+
+      const jobId = useParams().jobId
+      
+          // view job
+      
+          const [job, setJob] = useState();
+              const [loadingJob, setLoadingJob] = useState(false);
+              
+           console.log("job:", job)
+          
+          useEffect(()=>{
+            
+              
+              const viewJob = async () => {
+                try {
+                  setLoadingJob(true)
+                  const response = await axios.get(`${baseUrl}/api/job/${jobId}`);
+              
+                  setJob(response.data.data.data);
+                } catch (dupError) {
+                  console.log("error fetching job:", dupError);
+                }finally{
+                  setLoadingJob(false)
+                }
+              };
+      
+              viewJob();
+          }, [jobId]);
 
 
       //to add and remove more responsibilities
@@ -136,93 +167,75 @@ function AddJob() {
         const [jobErrors, setJobErrors] = useState({});
        
               
-      
+        const updateProduct = async (jobId, updatedFields) => {
+          try {
+            setLoading(true)
+            const formData = new FormData();
         
-        //to add job
-      const addJob = async (e) => {
-          e.preventDefault();
-      
-          const validationErrors = {};
-      
-          //To ensure valid inputs
-          if (!role.trim()) {
-            validationErrors.role = "job role is required";
-          }
-      
-          if (!mode.trim()) {
-            validationErrors.mode = "specify job mode";
-          }
-      
-          if (!type) {
-            validationErrors.type = "specify employment type";
-          }
-
-          if (!description) {
-            validationErrors.description = "add job description";
-          }
-
-          if (responsibilities.length < 1) {
-            validationErrors.responsibilities = "add job responsibilities";
-          }
-
-
-          if (requirements.length < 1) {
-            validationErrors.requirements = "add job requirements";
-          }
-      
-      
-         
-      
-      
-          setJobErrors(validationErrors);
-      
-          const noError = Object.keys(validationErrors).length === 0;
-          
-
-          
-      
-          if (noError) {
-            setLoading(true);
-      
-            try {
-              const response = await axios.post(`${baseUrl}/api/job`, {
-                role: role,
-                mode: mode,
-                budget: budget,
-                type: type,
-                description: description,
-                location: location,
-                responsibilities: responsibilities,
-                requirements: requirements,
-                benefits: benefits,
-                recruitmentProcess: recruitmentProcess,
-              }, {
-                headers: {
-                  "Content-Type": "application/json",      
-                },
-                
-              });
-      
-              console.log("add job message:", response.data.message);
-              if (response.status === 201) {
-                
-                toast.success('Job created successfully!');
-                setActiveScreen('overview')
-              }
-            } catch (error) {
-              console.error("Error creating job:", error);
-            } finally {
-              setLoading(false);
+        
+            // Append only the fields that are provided
+            for (const key in updatedFields) {
+              const value = updatedFields[key];
+        
+              if (value === null || value === undefined || value === '') continue;
+        
+                formData.append(key, value);
+              
             }
+        
+            for (let pair of formData.entries()) {
+              console.log(pair[0], pair[1]);
+            }
+        
+        
+            const response = await axios.patch(
+              `${baseUrl}/api/job/edit/${jobId}`,
+              formData
+            );
+        
+             if(response.status === 200){
+                  toast.success('Job updated successfully')
+              }
+        
+            return response.data;
+          } catch (error) {
+             if(error){
+                  toast.error(error.response.data.message);
+                console.log("Error editing job:", error);
+            }
+          }finally{
+            setLoading(false)
           }
+        };
+        
+        
+          const handleSubmit = async () => {
+            
+          const updatedFields = {
+            role: role || null,
+            mode: mode || null,
+            budget: budget || null,
+            type: type || null,
+            description: description || null,
+            location: location || null,
+            responsibilities: responsibilities || null,
+            requirements: requirements || null,
+            benefits: benefits || null,
+            recruitmentProcess: recruitmentProcess || null,
+          };
+        
+          console.log("edit job formData:", updatedFields);
+        
+          await updateProduct(jobId, updatedFields);
+          
         };
       
 
 
 
   return (
-    <div className="flex flex-col items-start h-auto gap-2 w-100">
-            <h4 className="font-semibold text-crossLightPurple">Add Job</h4>
+    <div className="flex flex-col items-start h-auto gap-2 large:mt-20 large:w-83vw small:w-90vw small:mt-15">
+            <h4 className="font-semibold text-crossLightPurple">Edit Job</h4>
 
             <div
               className="flex flex-col h-auto gap-2 w-100 large:text-15px small:text-13px"
@@ -235,6 +248,7 @@ function AddJob() {
                     placeholder="Enter job role"
                     name="role"
                     className="p-0.5 border rounded-4"
+                    defaultValue={job && job.role}
                     onChange={(e)=>setRole(e.target.value)}
                   />
                   {jobErrors && (
@@ -276,6 +290,7 @@ function AddJob() {
                     placeholder="What is the budget for this role?"
                     name="budget"
                     className="p-0.5 border rounded-4"
+                    defaultValue={job && job.budget}
                     onChange={(e)=>setBudget(e.target.value)}
                   />
                   {jobErrors && (
@@ -317,6 +332,7 @@ function AddJob() {
                     name="location"
                     className="p-0.5 border rounded-4"
                     onChange={(e)=>setLocation(e.target.value)}
+                    defaultValue={job && job.location}
                   />
                   {jobErrors && (
                     <p className="text-13px text-vogueRed">
@@ -336,6 +352,7 @@ function AddJob() {
                    placeholder='Enter job description...'
                    className="p-0.5 border rounded-4 h-100px"
                    onChange={(e)=>setDescription(e.target.value)}
+                   defaultValue={job && job.description}
                  />
                  {jobErrors && (
                    <p className="text-13px text-vogueRed">
@@ -349,6 +366,17 @@ function AddJob() {
 
 
               <div className="flex flex-col h-auto gap-1 w-100">
+                
+                <div className='flex flex-col h-auto gap-2 w-100'>
+                    <h3 className='font-semibold text-17px'>Responsibilities</h3>
+                  
+                    <ul className='flex flex-col h-auto gap-1 list-disc text-15px text-crossTextGray w-100'>
+                    {job && job.responsibilities.map((res, i)=>
+                        <li key={i}>{res}</li>
+                    )}
+                    </ul>
+                </div>
+                
                   <label htmlFor="responsibilities">Responsibilities</label>
                   {
                     responsibilities && responsibilities.map((day, index)=>
@@ -390,6 +418,18 @@ function AddJob() {
 
 
               <div className="flex flex-col h-auto gap-1 w-100">
+
+                <div className='flex flex-col h-auto gap-2 w-100'>
+                    <h3 className='font-semibold text-17px'>Requirements</h3>
+                  
+                    <ul className='flex flex-col h-auto gap-1 list-disc text-15px text-crossTextGray w-100'>
+                    {job && job.requirements.map((req, i)=>
+                    <li key={i}>{req}</li>
+                    )
+                    }
+                    </ul>
+                </div>
+                
                   <label htmlFor="requirements">Job Requirements</label>
                   {
                     requirements && requirements.map((objective, index)=>
@@ -432,6 +472,18 @@ function AddJob() {
 
 
               <div className="flex flex-col h-auto gap-1 w-100">
+
+                 <div className='flex flex-col h-auto gap-2 w-100'>
+                    <h3 className='font-semibold text-17px'>Benefits</h3>
+                  
+                    <ul className='flex flex-col h-auto gap-1 list-disc text-15px text-crossTextGray w-100'>
+                    {job && job.benefits.map((ben, i)=>
+                    <li key={i}>{ben}</li>
+                    )
+                    }
+                    </ul>
+                </div>
+                
                   <label htmlFor="benefits">Job Benefits</label>
                   {
                     benefits && benefits.map((module, index)=>
@@ -475,6 +527,18 @@ function AddJob() {
 
 
               <div className="flex flex-col h-auto gap-1 w-100">
+
+                <div className='flex flex-col h-auto gap-2 w-100'>
+                    <h3 className='font-semibold text-17px'>Recruitment Process</h3>
+                  
+                    <ul className='flex flex-col h-auto gap-1 list-disc text-15px text-crossTextGray w-100'>
+                        {job && job.recruitmentProcess.map((rec, i)=>
+                        <li key={i}>{rec}</li>
+                        )
+                        }
+                    </ul>
+                </div>
+        
                   <label htmlFor="recruitmentProcess">Recruitment Process (Let applicants know the stages of your recruitment)</label>
                   {
                     recruitmentProcess && recruitmentProcess.map((note, index)=>
@@ -516,10 +580,10 @@ function AddJob() {
               
 
               <button
-                onClick={addJob}
+                onClick={handleSubmit}
                 className="flex items-center justify-center mt-5 large:w-20 rounded-4 h-40px bg-crossLightPurple text-vogueWhite hover:bg-transparent small:w-50 hover:border hover:border-crossLightPurple hover:text-crossLightPurple"
               >
-                Post Job
+                Update Job
               </button>
             </div>
           </div>
@@ -527,4 +591,4 @@ function AddJob() {
 }
 
 
-export default AddJob;
+export default EditJobPage;
