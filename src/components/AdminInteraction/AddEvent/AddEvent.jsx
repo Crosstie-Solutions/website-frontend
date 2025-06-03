@@ -41,17 +41,17 @@ function AddEvent() {
 
 
         //to check images size (1mb max)
-        const allFiles = Array.from(e.target.files);
-        for (let file of allFiles) {
-          if (file.size > maxImageSize) {
-            setImageSizeErrors(
-              `File ${file.name} is too large. Max. image size is 2MB.`
-            );
-            return;
-          }
-        }
+        // const allFiles = Array.from(e.target.files);
+        // for (let file of allFiles) {
+        //   if (file.size > maxImageSize) {
+        //     setImageSizeErrors(
+        //       `File ${file.name} is too large. Max. image size is 2MB.`
+        //     );
+        //     return;
+        //   }
+        // }
 
-        setImageSizeErrors(""); // Clear error if all files are okay
+        // setImageSizeErrors(""); // Clear error if all files are okay
       };
       
       
