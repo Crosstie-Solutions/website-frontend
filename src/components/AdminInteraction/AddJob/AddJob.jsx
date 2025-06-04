@@ -183,6 +183,7 @@ function AddJob() {
       
           if (noError) {
             setLoading(true);
+            window.scrollTo({ top: 0, behavior: "auto" });
       
             try {
               const response = await axios.post(`${baseUrl}/api/job`, {
