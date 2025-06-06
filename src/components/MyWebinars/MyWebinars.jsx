@@ -147,7 +147,7 @@ useEffect(()=>{
 
         <div className='flex p-1 border h-40px w-100 border-crossLightPurple rounded-10'>
             <div className='flex items-center justify-start border-r w-30 border-crossLightPurple'>Upcoming Webinars</div>
-            <div className='flex items-center justify-start px-1 w-70'><Link to='/our-solutions/webinars'>Crosstie webinars</Link></div>
+            <div className='flex items-center justify-start px-1 w-70 text-crossBlue'><Link to='/our-solutions/webinars'>Crosstie webinars</Link></div>
         </div>
 
       </div>
@@ -155,7 +155,7 @@ useEffect(()=>{
         {feedback &&
       <div className='flex flex-col items-start h-auto gap-2 large:w-50 small:w-100'>
         
-        <img src={PHOTOS.webinarTemplate} alt="certificate template" className='h-auto w-150px'/>
+        <img src={PHOTOS.webinarTemplate} alt="certificate template" className='h-auto w-100px'/>
         
         <WebinarCertificate 
           certificateUrl={webinarCertTemplate}

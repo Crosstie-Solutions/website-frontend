@@ -87,13 +87,13 @@ const WebinarCertificate = ({ name, courseTitle, date, certificateUrl }) => {
       <div className="space-x-4">
         <button
           onClick={() => generateCertificate(false)}
-          className="w-auto px-2 text-white bg-purple-600 rounded h-40px hover:bg-purple-700"
+          className="w-auto px-2 text-white bg-purple-600 rounded h-40px hover:bg-purple-700 text-13px"
         >
           Preview
         </button>
         <button
           onClick={() => generateCertificate(true)}
-          className="w-auto px-2 text-white bg-green-600 rounded h-40px hover:bg-green-700"
+          className="w-auto px-2 text-white bg-green-600 rounded h-40px hover:bg-green-700 text-13px"
         >
           Download
         </button>

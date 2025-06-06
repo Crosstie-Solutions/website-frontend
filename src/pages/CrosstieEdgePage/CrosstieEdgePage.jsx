@@ -107,12 +107,12 @@ function CrosstieEdgePage() {
   
   //To ensure valid inputs
   if (messageMode ==='applicant' && !fullName.trim()) {
-    validationErrors.fullName = "full name is required";
+    validationErrors.fullName = "Full name is required";
   }
 
 
   if (!email.trim()) {
-    validationErrors.email = "email is required";
+    validationErrors.email = "Email is required";
   }
 
   else if (!emailRegex.test(email)) {
@@ -121,7 +121,7 @@ function CrosstieEdgePage() {
 
   
   if (!phone) {
-    validationErrors.phone = "phone number is required";
+    validationErrors.phone = "Phone number is required";
   }
 
   if (!linkedIn) {
@@ -133,15 +133,15 @@ function CrosstieEdgePage() {
   }
 
   if (messageMode ==='recruiter' && !address.trim()) {
-    validationErrors.address = "address is required";
+    validationErrors.address = "Address is required";
   }
 
   if (messageMode ==='recruiter' && !nameOfOrg.trim()) {
-    validationErrors.nameOfOrg = "company name is required";
+    validationErrors.nameOfOrg = "Company name is required";
   }
 
   if (messageMode ==='recruiter' && !contactPerson.trim()) {
-    validationErrors.contactPerson = "provide contact person";
+    validationErrors.contactPerson = "Provide contact person";
   }
 
   if (messageMode ==='recruiter' && !role.trim()) {
@@ -270,6 +270,10 @@ function CrosstieEdgePage() {
   };
 
   
+  const whatsAppMessage = encodeURIComponent("Hello Crosstie, I have questions about Crosstie EDGE.");
+  const emailMessage = encodeURIComponent("Hello Crosstie, I have questions about Crosstie EDGE.");
+
+  const subject = encodeURIComponent("Crosstie EDGE.");
 
 
 
@@ -304,7 +308,7 @@ function CrosstieEdgePage() {
           <div className="flex flex-col gap-1 bg-white w-100">
             <h4 className="flex gap-1 p-1 text-white bg-crossLightPurple"><IoSchool className="text-20px" /> What Is Crosstie EDGE?</h4>
             <p className="leading-loose small:p-1 text-crossTextGray">
-            Every high achiever has potential. Crosstie EDGE gives it a headway..
+            Every high achiever has potential. Crosstie EDGE gives it a headway.
             EDGE by Crosstie Solutions is the definitive career readiness accelerator for high-calibre Nigerian graduates and NYSC members.
             This 30-day programme closes the critical gap between academic credentials and workplace excellence. Admission is 100% free, but it is reserved for those serious about standing out.
             </p>
@@ -443,13 +447,14 @@ function CrosstieEdgePage() {
           <div className="flex items-center h-auto gap-2 large:w-auto small:w-100 small:justify-center">
             <a
             target="_blank"
-              href="mailto:training@crosstiesolutions.com"
+              href={`mailto:training@crosstiesolutions.com?subject=${subject}&body=${emailMessage}`}
               className="flex items-center justify-center w-auto gap-1 px-1 border border-black rounded h-40px"
             ><MdOutlineMail className="text-20px" /> Email </a>
             
             <a
               target="_blank"
-              href="https://wa.me/2349160901017"
+              rel="noopener noreferrer"
+              href={`https://wa.me/2349160901017?text=${whatsAppMessage}`}
               className="flex items-center justify-center w-auto gap-1 px-1 border border-black rounded h-40px"
             >
               <FaWhatsapp className="text-whatsAppGreen text-20px" /> Whatsapp

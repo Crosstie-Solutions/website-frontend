@@ -1265,7 +1265,7 @@ const toggleBio = async (index)=>{
 const [blogPosts, setBlogPosts] = useState();
 const [loadingAllBlogPosts, setLoadingAllBlogPosts] = useState(false);
 
-const allBlogPosts = blogPosts && blogPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+const allBlogPosts = blogPosts && blogPosts.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
 
 
 
@@ -2219,6 +2219,58 @@ const [allProducts, setAllProducts] = useState();
       }, 0);
     };
 
+
+
+
+   //Edge apps
+
+const [allWebinarFeedbacks, setAllWebinarFeedbacks] = useState(null);
+
+console.log('allWebinarFeedbacks:', allWebinarFeedbacks)
+
+const [loadingAllWebinarFeedbacks, setLoadingAllWebinarFeedbacks] = useState(false);
+
+
+
+
+const viewAllWebinarFeedbacks = async () => {
+
+  try {
+    setLoadingAllWebinarFeedbacks(true)
+    const response = await axios.get(`${baseUrl}/api/webinar/feedback/all`);
+
+    setAllWebinarFeedbacks(response.data.data.data);
+
+  } catch (dupError) {
+    console.log("error fetching all webinar feedbacks:", dupError);
+  }finally{
+    setLoadingAllWebinarFeedbacks(false)
+  }
+};
+
+
+   //active webinar feedback.
+  const [activeWebinarFeedback, setActiveWebinarFeedback] = useState(null);
+
+  const toggleAdminWebinarFeedbackAction = async (index)=> {
+
+    window.scrollTo({ top: 0, behavior: "auto" });
+
+    setActiveWebinarFeedback((prev) => (prev === index ? null : index));
+  }
+
+
+   //for user to filter webinar feedbacks
+  const [webinarFeedbackSearchTerm, setWebinarFeedbackSearchTerm] = useState("");
+
+
+  // Filter WebinarFeedback based on search term
+  const filteredWebinarFeedback = allWebinarFeedbacks && allWebinarFeedbacks.filter((webinar) =>
+    `${webinar.webinarId.topic} ${webinar.webinarId.presenter}`
+      .toLowerCase()
+      .includes(webinarFeedbackSearchTerm.toLowerCase())
+  );
+
         
 
 
@@ -2241,7 +2293,7 @@ const [allProducts, setAllProducts] = useState();
     currentPast, handlePastPageChange, currentPastPage, totalPastPages, pastSearchTerm,
   pastWebinars, activeWebinar, toggleActiveWebinarView, activeWebinarView, webinarEnrollment, toggleWebinarEnrollment, webinar, setWebinarEnrollment, loadingWebinar, viewAllEnquiries, toggleAdminEnquiryAction, activeEnquiry, allEnquiries, setActiveEnquiry, viewAllNewsletters, allNewsletters, viewAllTestimonials, allTestimonials, loadingAllTestimonials,  activeTestimonial, toggleAdminTestimonialAction, deletingTestimonial, deleteTestimonial,   activeContactForm, toggleAdminContactFormAction, viewAllContactForms, allContactForms, loadingAllContactForms, viewAllHighDemands, allHighDemands, toggleBio, userBio, currentTestimonials, handleTestimonialsPageChange, allBlogPosts, viewAllBlogPosts, handleBlogPostsPageChange, currentBlogPostsPage, deletingBlogPost, deleteBlogPost, blogPostsSearchTerm, activeBlogPost, currentBlogPosts, totalBlogPostsPages,setBlogPostsSearchTerm, toggleAdminBlogPostAction, currentTestimonialsPage, totalTestimonialsPages, loadingAllCaseStudies,
   currentCaseStudies,  caseStudiesSearchTerm, setCaseStudiesSearchTerm, setCurrentCaseStudiesPage, currentCaseStudiesPage, totalCaseStudiesPages,
-  handleCaseStudiesPageChange, allCaseStudies, activeCaseStudy, toggleCaseStudy, fetchUsers, loadUsers, fetchPartners,
+  handleCaseStudiesPageChange, allCaseStudies, activeCaseStudy, toggleCaseStudy, fetchUsers, loadUsers, fetchPartners, viewAllWebinarFeedbacks,
   currentUsers, setUsersSearchTerm, loadPartners,
   currentPartners, partnersSearchTerm, setPartnersSearchTerm, setCurrentPartnersPage,
   currentPartnersPage, activeHighDemand, toggleHighDemand,
@@ -2266,7 +2318,7 @@ const [allProducts, setAllProducts] = useState();
   totalJobsPages, currentTestimonials,
   handleTestimonialsPageChange, headerProgramsSearchTerm, setHeaderProgramsSearchTerm,
   currentTestimonialsPage, filteredHeaderPrograms, allOpenPrograms,
-  totalTestimonialsPages, loadingAllPrograms,
+  totalTestimonialsPages, loadingAllPrograms, toggleAdminWebinarFeedbackAction,
   handleJobsPageChange, setProgramsMonthSearchTerm,
   allJobs, currentContactForms, deleteUser, deletingUser,
   handleContactFormsPageChange, viewAllDownloads,
@@ -2278,7 +2330,7 @@ const [allProducts, setAllProducts] = useState();
         currentReports, viewAllReports, activeReport, toggleAdminReportAction,
         handleReportsPageChange, deletingReport, deleteReport, viewAllProducts,
         currentReportsPage, count, setCount, productTotalPrice,
-        totalReportsPages, deleteEvent, deletingEvent,
+        totalReportsPages, deleteEvent, deletingEvent, allWebinarFeedbacks, webinarFeedbackSearchTerm, setWebinarFeedbackSearchTerm,
   handleEnquiriesPageChange, allEdgeApps, activeEdgeApp, toggleAdminEdgeAppAction,
   currentEnquiriesPage, loadingAllProducts, getTotalCartItems, allProducts,
         currentProducts, addToCart, cartItems, clearCart, removeFromCart,
@@ -2286,9 +2338,9 @@ const [allProducts, setAllProducts] = useState();
         handleProductsPageChange, formatWebinarDate, copyToClipboard,
         currentProductsPage, productsSearchTerm, setProductsSearchTerm, setCurrentProductsPage, currentProductsPage,
         totalProductsPages, deleteProduct, deletingProduct, formatTestimonialDate,
-        handleProductsPageChange,
+        handleProductsPageChange, activeWebinarFeedback,
         activeProduct, toggleAdminProductAction,
-        totalProductsPages,
+        totalProductsPages, filteredWebinarFeedback,
   totalEnquiriesPages,
   activeJob, toggleJob, consultingTitle, bookService
   };

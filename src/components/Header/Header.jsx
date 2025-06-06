@@ -189,14 +189,14 @@ function Header() {
                 
                 <a href={`tel:08138957283`} className="flex items-center justify-center gap-1 small:gap-1 text-15px"
                 onClick={toggleNav}
-                ><FaPhone /> +234 708 560 4023</a>
+                ><FaPhone /> +234 916 090 1017</a>
                 
                 
                 <a
                 href="https://wa.me/2348138957283"
                 className='flex items-center justify-center gap-1 small:gap-1 text-15px'
                 onClick={toggleNav}
-                ><FaWhatsapp className='text-whatsAppGreen'/> +234 708 560 4023</a>
+                ><FaWhatsapp className='text-whatsAppGreen'/> +234 916 090 1017</a>
                 
                 
                 <a 

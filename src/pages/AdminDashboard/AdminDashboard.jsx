@@ -64,6 +64,7 @@ import { AllEdgeAppsTable } from "../../components/AdminInteraction/AllEdgeAppsT
 import { AiOutlineProduct } from "react-icons/ai";
 import AddProduct from "../../components/AdminInteraction/AddProduct/AddProduct.jsx";
 import AllProductsTable from "../../components/AdminInteraction/AllProductsTable/AllProductsTable.jsx";
+import { AllWebinarFeedbacksTable } from "../../components/AdminInteraction/AllWebinarFeedbacksTable/AllWebinarFeedbacksTable.jsx";
 
 
 
@@ -292,7 +293,7 @@ function AdminDashboard() {
           className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
         >
           
-          <div className={`${ activeScreen === "addWebinar" || activeScreen === "upcomingWebinars"|| activeScreen === "pastWebinars" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
+          <div className={`${ activeScreen === "addWebinar" || activeScreen === "upcomingWebinars" || activeScreen === "pastWebinars"  || activeScreen === "webinarFeedbacks" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
           onClick={toggleWebinarsDD}
           >
             <div className="flex gap-1">
@@ -317,6 +318,10 @@ function AdminDashboard() {
             <div className="h-auto pl-1 cursor-pointer w-100 hover:bg-gray-300"
              onClick={() => setActiveScreen("pastWebinars")}
             >Past Webinars</div>
+
+            <div className="h-auto pl-1 cursor-pointer w-100 hover:bg-gray-300"
+             onClick={() => setActiveScreen("webinarFeedbacks")}
+            >Webinar Feedbacks</div>
 
           </div>}
         </div>
@@ -805,6 +810,8 @@ function AdminDashboard() {
         {activeScreen === "addProduct" && <AddProduct />}
         
         {activeScreen === "allProducts" && <AllProductsTable />}
+        
+        {activeScreen === "webinarFeedbacks" && <AllWebinarFeedbacksTable />}
         
         
         
