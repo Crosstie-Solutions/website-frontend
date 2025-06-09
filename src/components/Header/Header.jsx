@@ -187,13 +187,13 @@ function Header() {
 
           <div className='flex flex-col items-start h-auto gap-1 text-crossLightPurple w-100 text-13px'>
                 
-                <a href={`tel:08138957283`} className="flex items-center justify-center gap-1 small:gap-1 text-15px"
+                <a href={`tel:09160901017`} className="flex items-center justify-center gap-1 small:gap-1 text-15px"
                 onClick={toggleNav}
                 ><FaPhone /> +234 916 090 1017</a>
                 
                 
                 <a
-                href="https://wa.me/2348138957283"
+                href="https://wa.me/2349160901017"
                 className='flex items-center justify-center gap-1 small:gap-1 text-15px'
                 onClick={toggleNav}
                 ><FaWhatsapp className='text-whatsAppGreen'/> +234 916 090 1017</a>

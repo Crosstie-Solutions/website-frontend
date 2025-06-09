@@ -31,8 +31,10 @@ import { LuAlarmClock } from "react-icons/lu";
 function ProgramDetailsPage() {
   
   const {
-    toggleEnrollment, baseUrl, me, setLoading, executiveEnrollmentData, handleExecutiveChange, setExecutiveEnrollmentData, trainingMode, setTrainingMode, toggleSecondOpenEnrollment, secondOpenEnrollmentForm, downloadProgramScreen, toggleDownloadProgramScreen
+    toggleEnrollment, baseUrl, me, setLoading, executiveEnrollmentData, handleExecutiveChange, setExecutiveEnrollmentData, trainingMode, setTrainingMode, toggleSecondOpenEnrollment, secondOpenEnrollmentForm, downloadProgramScreen, toggleDownloadProgramScreen, 
   } = useContext(CrossContext);
+
+  
 
   const programId = useParams().programId;
  
@@ -96,7 +98,13 @@ function ProgramDetailsPage() {
     }
   }, [programId, program])
   
+
+  //default messages
+  const whatsAppMessage = encodeURIComponent(`Hello Crosstie, I have questions about ${program && program.title}.`);
+  const emailMessage = encodeURIComponent(`Hello Crosstie, I have questions about ${program && program.title}.`);
+  const subject = encodeURIComponent(program && program.title);
   
+   
 
 
 
@@ -548,7 +556,7 @@ function ProgramDetailsPage() {
           <div className="flex items-center h-auto gap-2 large:w-auto small:w-100 small:justify-center">
             <a
             target="_blank"
-              href="mailto:training@crosstiesolutions.com"
+              href={`mailto:training@crosstiesolutions.com?subject=${subject}&body=${emailMessage}`}
               className="flex items-center justify-center w-auto gap-1 px-1 border border-black rounded h-40px"
             >
               <MdOutlineMail className="text-20px" /> Email
@@ -556,7 +564,7 @@ function ProgramDetailsPage() {
             
             <a
               target="_blank"
-              href="https://wa.me/2349160901017"
+              href={`https://wa.me/2349160901017?text=${whatsAppMessage}`}
               className="flex items-center justify-center w-auto gap-1 px-1 border border-black rounded h-40px"
             >
               <FaWhatsapp className="text-whatsAppGreen text-20px" /> Whatsapp

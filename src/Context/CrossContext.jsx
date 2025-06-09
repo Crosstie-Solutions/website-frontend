@@ -842,7 +842,7 @@ const deleteWebinar = async (webinarId) => {
     const response = await axios.delete(`${baseUrl}/api/webinar/${webinarId && webinarId}`);
 
     console.log('Webinar delete response:', response.data);
-    if(response.data.status ==='success'){
+    if(response.status === 200){
       toast.success('Webinar deleted successfully.');
       toggleAdminWebinarAction("exit")
     }
@@ -2271,6 +2271,13 @@ const viewAllWebinarFeedbacks = async () => {
       .includes(webinarFeedbackSearchTerm.toLowerCase())
   );
 
+
+
+    const whatsAppMessage = encodeURIComponent("Hello Crosstie, I have questions about Crosstie EDGE.");
+  const emailMessage = encodeURIComponent("Hello Crosstie, I have questions about Crosstie EDGE.");
+
+  const subject = encodeURIComponent("Crosstie EDGE.");
+
         
 
 
@@ -2339,7 +2346,7 @@ const viewAllWebinarFeedbacks = async () => {
         currentProductsPage, productsSearchTerm, setProductsSearchTerm, setCurrentProductsPage, currentProductsPage,
         totalProductsPages, deleteProduct, deletingProduct, formatTestimonialDate,
         handleProductsPageChange, activeWebinarFeedback,
-        activeProduct, toggleAdminProductAction,
+        activeProduct, toggleAdminProductAction, whatsAppMessage, emailMessage, subject,
         totalProductsPages, filteredWebinarFeedback,
   totalEnquiriesPages,
   activeJob, toggleJob, consultingTitle, bookService

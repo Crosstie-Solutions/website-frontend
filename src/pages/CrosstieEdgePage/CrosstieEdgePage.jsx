@@ -35,7 +35,7 @@ import { FrequentlyAskedQues } from "../../components/FrequentlyAskedQues/Freque
 
 function CrosstieEdgePage() {
   
-  const { baseUrl, me, setLoading, } = useContext(CrossContext);
+  const { baseUrl, me, setLoading, whatsAppMessage, emailMessage, subject } = useContext(CrossContext);
   
   
   //type
@@ -268,12 +268,6 @@ function CrosstieEdgePage() {
     }
   }
   };
-
-  
-  const whatsAppMessage = encodeURIComponent("Hello Crosstie, I have questions about Crosstie EDGE.");
-  const emailMessage = encodeURIComponent("Hello Crosstie, I have questions about Crosstie EDGE.");
-
-  const subject = encodeURIComponent("Crosstie EDGE.");
 
 
 
