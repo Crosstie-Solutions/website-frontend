@@ -46,15 +46,16 @@ function AllContactFormsTable() {
       
         <div className='flex h-auto gap-1 border-b border-gray-200 large:font-semibold small:font-semibold w-100'>
             <div>S/N</div>
-            <div className='w-20 large:relative'>Name</div>
-            <div className='w-auto large:relative text-vogueRed small:hidden large:flex'>Email</div>
-            <div className='flex justify-center w-20 large:relative left-2'>Service</div>
-            <div className='flex justify-center w-40 large:relative'>Message</div>
+            <div className='flex justify-start w-20'>Name</div>
+            <div className='flex justify-start w-20 text-vogueRed'>Email</div>
+            <div className='flex justify-start w-20'>Phone</div>
+            <div className='flex justify-start w-20'>Service</div>
+            <div className='flex justify-start w-20'>Message</div>
         </div>
 
         {
             currentContactForms && currentContactForms.map((enquiry, i)=>
-                <div className={`flex items-center justify-between h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-2`}
+                <div className={`flex items-center justify-start h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-1`}
                 key={i}
                 >
                     <div>{i + 1}.</div>
@@ -67,11 +68,13 @@ function AllContactFormsTable() {
                         >View</div>
                     </div>
                     
-                    <div className={`relative  small:right-1 text-vogueRed large:w-20 small:hidden large:flex `}>{enquiry.email.slice(0, 10)}...</div>
+                    <div className={`small:right-1 text-vogueRed large:w-20 small:hidden large:flex justify-start`}>{enquiry.email.slice(0, 10)}...</div>
+
+                    <div className={`small:right-1 large:w-20 small:hidden large:flex justify-start`}>{enquiry.phone}</div>
                     
-                    <div className='relative small:right-2 large:w-20'>{enquiry.service}</div>
+                    <div className='flex justify-start small:right-2 large:w-20'>{enquiry.service}</div>
                     
-                    <div className='relative flex justify-center text-center small:right-1 large:w-40'>{enquiry.message.slice(0, 80)}...</div>
+                    <div className='flex justify-start text-center small:right-1 large:w-20'>{enquiry.message.slice(0, 80)}...</div>
                     
                   
                     
@@ -85,6 +88,7 @@ function AllContactFormsTable() {
                       service={enquiry.service}
                       fullName={enquiry.fullName}
                       email={enquiry.email}
+                      phone={enquiry.phone}
                       message={enquiry.message}
                       adminEmail={enquiry.adminEmail}
                       />

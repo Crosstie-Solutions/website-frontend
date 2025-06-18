@@ -58,6 +58,7 @@ function AdminContactFormAction(enquiry) {
           <div className='flex flex-col h-auto gap-1 w-100'>
             <div>User Name: <span className='font-semibold'>{fullName}</span></div>
             <div>User Email: <span className='font-semibold'>{email}</span></div>
+            <div>Phone Number: <span className='font-semibold'>{phone}</span></div>
             <div>Selected Service: <span className='font-semibold'>{service}</span></div>           
             <div>Admin Notified: <span className='font-semibold'>{adminEmail}</span></div>           
             <div>Message: <span className='font-semibold'>{message}</span></div>

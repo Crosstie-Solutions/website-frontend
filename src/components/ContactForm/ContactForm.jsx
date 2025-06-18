@@ -20,6 +20,7 @@ function ContactForm() {
    
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
     const [adminEmail, setAdminEmail] = useState("");
     const [service, setService] = useState("");
@@ -38,6 +39,7 @@ function ContactForm() {
     const messageField = document.getElementById("messageField");
     const nameField = document.getElementById("nameField");
     const emailField = document.getElementById("emailField");
+    const phoneField = document.getElementById("phoneField");
     
   
     //funtion for enrollment
@@ -69,19 +71,22 @@ function ContactForm() {
     
      //To ensure valid inputs
      if (!fullName.trim()) {
-       validationErrors.fullName = "full name is required";
+       validationErrors.fullName = "Full name is required";
      }
     if (!email.trim()) {
-      validationErrors.email = "email is required";
+      validationErrors.email = "Email is required";
     }
     else if (!emailRegex.test(email)) {
       validationErrors.email = "Please enter a valid email address.";
     }
+    if (!phone.trim()) {
+      validationErrors.phone = "Phone number is required";
+    }
     if (!service.trim()) {
-      validationErrors.service = "select service";
+      validationErrors.service = "Select service";
     }
     if (!message.trim()) {
-      validationErrors.message = "message is required";
+      validationErrors.message = "Message is required";
     }
     
      setContactErrors(validationErrors);
@@ -97,6 +102,7 @@ function ContactForm() {
            {
             fullName: fullName,
             email: email,
+            phone: phone,
             service: service,
             adminEmail: adminEmail,
             message: message
@@ -109,6 +115,7 @@ function ContactForm() {
            messageField.value="";
            nameField.value="";
            emailField.value="";
+           phoneField.value="";
          }
        } catch (error) {
          
@@ -202,6 +209,14 @@ function ContactForm() {
           onChange={(e)=>setEmail(e.target.value)}
           />
           <p className="text-vogueRed">{contactErrors && contactErrors.email}</p>
+        </div>
+
+        <div className="flex flex-col items-start h-auto w-100">
+          <label htmlFor="phone">Phone</label>
+          <input type="text" name="phone" id="phoneField" className="pl-1 border rounded border-crossLightPurple w-100 h-40px myField"
+          onChange={(e)=>setPhone(e.target.value)}
+          />
+          <p className="text-vogueRed">{contactErrors && contactErrors.phone}</p>
         </div>
 
         <div className="flex flex-col items-start h-auto w-100">
