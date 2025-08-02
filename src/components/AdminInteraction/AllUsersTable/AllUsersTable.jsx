@@ -99,7 +99,7 @@ function AllUsersTable() {
       {!loadUsers && currentUsers && currentUsers.length > 0 && (
         <div className="flex items-center justify-between w-auto h-auto gap-3 mt-4">
           <button
-            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-tribeBlue disabled:bg-gray-300 disabled:cursor-not-allowed"
+            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
             disabled={currentUsersPage === 1}
             onClick={() => handleUsersPageChange(currentUsersPage - 1)}
           >
@@ -111,7 +111,7 @@ function AllUsersTable() {
           </div>
 
           <button
-            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-tribeBlue disabled:bg-gray-300 disabled:cursor-not-allowed"
+            className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
             disabled={currentUsersPage === totalUsersPages}
             onClick={() => handleUsersPageChange(currentUsersPage + 1)}
           >

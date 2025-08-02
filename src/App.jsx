@@ -84,6 +84,10 @@ import WebinarCertificate from "./components/WebinarCertificate/WebinarCertifica
 import FeedbackForm from "./pages/FeedbackForm/FeedbackForm";
 import EditProductPage from "./pages/EditProductPage/EditProductPage";
 import EditJobPage from "./pages/EditJobPage/EditJobPage";
+import CultureAssessmentPage from "./pages/CultureAssessmentPage/CultureAssessmentPage";
+import StrategyDevelopmentPage from "./pages/StrategyDevelopmentPage/StrategyDevelopmentPage";
+import BusinessProcessPage from "./pages/BusinessProcessPage/BusinessProcessPage";
+import CorporatePerformancePage from "./pages/CorporatePerformancePage/CorporatePerformancePage";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -339,6 +343,17 @@ function App() {
           
           <Route path="/our-solutions/" element={<CorporateTrainingPage />} />
           <Route path="/our-solutions/management-consulting" element={<ManagementConsultingPage />} />
+          
+          <Route path="/our-solutions/management-consulting/culture-assessment-and-transformation" element={<CultureAssessmentPage />} />
+          
+          <Route path="/our-solutions/management-consulting/strategy-development-and-execution" element={<StrategyDevelopmentPage />} />
+          
+          
+          <Route path="/our-solutions/management-consulting/business-process-documentation-and-improvement" element={<BusinessProcessPage />} />
+          
+          <Route path="/our-solutions/management-consulting/corporate-performance-management" element={<CorporatePerformancePage />} />
+
+          
           <Route path="/our-solutions/customized-training" element={<CustomizedTrainingPage />} />
 
           <Route path="/our-solutions/crosstie-edge" element={<CrosstieEdgePage />} />

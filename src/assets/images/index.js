@@ -9,6 +9,8 @@ const PHOTOS = {
     hero_1: new URL("./hero_1.png", import.meta.url).href,
     about: new URL("./about.jpeg", import.meta.url).href,
 
+    consult: new URL("./consult.png", import.meta.url).href,
+
     program_banner1: new URL("./program_banner1.jpeg", import.meta.url).href,
     program_banner2: new URL("./program_banner2.jpeg", import.meta.url).href,
 
@@ -20,6 +22,12 @@ const PHOTOS = {
     paystack: new URL("./paystack.png", import.meta.url).href,
 
     webinarTemplate: new URL("./webinarTemplate.jpg", import.meta.url).href,
+
+    
+    culture: new URL("./culture.jpeg", import.meta.url).href,
+    process: new URL("./process.jpeg", import.meta.url).href,
+    performance: new URL("./performance.jpeg", import.meta.url).href,
+    strategy: new URL("./strategy.jpeg", import.meta.url).href,
 
     
     about1: new URL("./about1.jpg", import.meta.url).href,

@@ -37,7 +37,7 @@ function CourseSuggestion() {
         onClick={()=>{
           setActiveSearch(false);
         }}
-        to={`/our-courses/${program.id}`}
+        to={`/our-courses/${program.slug}`}
         className='p-1 border-b w-100 hover:bg-gray-200 hover:text-crossLightPurple'>{program.title}</Link>
         )
       }
@@ -58,7 +58,7 @@ function MobileCourseSuggestion() {
         {
           filteredHeaderPrograms && filteredHeaderPrograms.map((program, i)=>
           <Link 
-          to={`/our-courses/${program.id}`}
+          to={`/our-courses/${program.slug}`}
           key={i} 
           className='p-1 mt-1 border-b w-100'
           onClick={toggleMobileSearch}

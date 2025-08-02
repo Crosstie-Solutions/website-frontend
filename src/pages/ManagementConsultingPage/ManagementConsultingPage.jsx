@@ -45,7 +45,7 @@ function ManagementConsultingPage() {
 
       <div className="flex items-center h-auto large:justify-center large:flex-row large:w-70vw small:flex-col small:gap-3 large:gap-5 large:flex-wrap">
         
-        <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 bg-white border h-auto border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+        <Link to='/our-solutions/management-consulting/culture-assessment-and-transformation' className="flex flex-col items-center justify-center h-auto gap-1 px-1 py-2 bg-white border border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
           
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaBookOpen className="text-crossLightPurple text-30px" />
@@ -59,25 +59,21 @@ function ManagementConsultingPage() {
           Your strategy depends on culture. Using our Six-Dimension Framework, we assess, identify gaps, and guide transformation, building a culture aligned with your goals, industry, and growth stage, with hands-on support throughout.
           </p>
 
-          <button
-            className="flex items-center justify-center w-auto bg-crossLightPurple text-white px-2 h-40px rounded hover:bg-white hover:text-crossLightPurple hover:border-crossLightPurple hover:border"
-            onClick={()=>{
-              bookService('Culture Assessment and Transformation')
-            }}
+           {/* <Link to='/our-solutions/management-consulting/culture-assessment-and-transformation'
+            className="flex items-center justify-center w-auto px-2 text-white rounded bg-crossLightPurple h-40px hover:bg-white hover:text-crossLightPurple hover:border-crossLightPurple hover:border"
           >
-            Book Now
-          </button>
+            Read More
+          </Link> */}
 
           {consultingTitle && consultingTitle.includes('Culture Assessment and Transformation') &&
           <ConsultingForm 
           consultingTitle={consultingTitle}
           />}
 
-        </div>
+        </Link>
 
 
-
-        <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 bg-white border h-auto border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+        <Link to='/our-solutions/management-consulting/strategy-development-and-execution' className="flex flex-col items-center justify-center h-auto gap-1 px-1 py-2 bg-white border border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaUserTie className="text-crossLightPurple text-30px" />
           </div>
@@ -90,25 +86,14 @@ function ManagementConsultingPage() {
           As businesses grow, instinct must give way to strategy. We diagnose key pillars, co-create actionable plans, and support execution, helping you shift from founder-driven decisions to intentional, scalable strategy.
           </p>
 
-          <button
-            className="flex items-center justify-center w-auto bg-crossLightPurple text-white px-2 h-40px rounded hover:bg-white hover:text-crossLightPurple hover:border-crossLightPurple hover:border"
-
-             onClick={()=>{
-              bookService('Strategy Development and Execution')
-            }}
-          >
-            Book Now
-          </button>
-
-          {consultingTitle && consultingTitle.includes('Strategy Development and Execution') &&
+          {/* {consultingTitle && consultingTitle.includes('Strategy Development and Execution') &&
           <ConsultingForm 
           consultingTitle={consultingTitle}
-          />}
-        </div>
+          />} */}
+        </Link>
 
 
-
-        <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 bg-white border h-auto border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+        <Link to='/our-solutions/management-consulting/business-process-documentation-and-improvement' className="flex flex-col items-center justify-center h-auto gap-1 px-1 py-2 bg-white border border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
 
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaUser className="text-crossLightPurple text-30px" />
@@ -122,25 +107,25 @@ function ManagementConsultingPage() {
           High-performing organisations know operational excellence is intentional, built on well-designed, documented, and improved processes. We capture core workflows, create process maps, and support systems that can run smoothly and scale with structure.
           </p>
 
-          <button
-            className="flex items-center justify-center w-auto bg-crossLightPurple text-white px-2 h-40px rounded hover:bg-white hover:text-crossLightPurple hover:border-crossLightPurple hover:border"
+          {/* <button
+            className="flex items-center justify-center w-auto px-2 text-white rounded bg-crossLightPurple h-40px hover:bg-white hover:text-crossLightPurple hover:border-crossLightPurple hover:border"
 
             onClick={()=>{
               bookService('Business Process Documentation and Improvement')
             }}
           >
             Book Now
-          </button>
+          </button> */}
 
-          {consultingTitle && consultingTitle.includes('Business Process Documentation and Improvement') &&
+          {/* {consultingTitle && consultingTitle.includes('Business Process Documentation and Improvement') &&
           <ConsultingForm 
           consultingTitle={consultingTitle}
-          />}
-        </div>
+          />} */}
+        </Link>
 
 
 
-        <div className="flex flex-col items-center justify-center gap-1 px-1 py-2 bg-white border h-auto border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
+        <Link to='/our-solutions/management-consulting/corporate-performance-management' className="flex flex-col items-center justify-center h-auto gap-1 px-1 py-2 bg-white border border-crossIconBg large:w-30 text-15px rounded-20 small:w-100">
           <div className="flex items-center justify-center p-1 rounded-10 bg-crossIconBg h-50px w-50px">
             <FaUser className="text-crossLightPurple text-30px" />
           </div>
@@ -153,21 +138,22 @@ function ManagementConsultingPage() {
           Aligning strategy with execution drives sustainable growth. We integrate planning, performance metrics, budgeting, forecasting, and analytics, designing dashboards, defining KPIs, and enhancing capabilities through process redesign and effective change management.
           </p>
 
-          <button
-            className="flex items-center justify-center w-auto bg-crossLightPurple text-white px-2 h-40px rounded hover:bg-white hover:text-crossLightPurple hover:border-crossLightPurple hover:border"
+          {/* <button
+            className="flex items-center justify-center w-auto px-2 text-white rounded bg-crossLightPurple h-40px hover:bg-white hover:text-crossLightPurple hover:border-crossLightPurple hover:border"
              onClick={()=>{
               bookService('Corporate Performance Management')
             }}
           >
             Book Now
-          </button>
+          </button> */}
 
 
-          {consultingTitle && consultingTitle.includes('Corporate Performance Management') &&
+          {/* {consultingTitle && consultingTitle.includes('Corporate Performance Management') &&
           <ConsultingForm 
           consultingTitle={consultingTitle}
-          />}
-        </div>
+          />} */}
+        </Link>
+        
       </div>
 
 

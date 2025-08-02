@@ -1,48 +1,55 @@
 import React, { useContext, useState } from "react";
 import { CrossContext } from "../../Context/CrossContext";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import axios from "axios";
 import { VscClose } from "react-icons/vsc";
 import { RiFolderDownloadLine } from "react-icons/ri";
-
-
+import { MdOutlineMail } from "react-icons/md";
+import { FaWhatsapp } from "react-icons/fa";
 
 function ConsultingForm(props) {
+  const { consultingTitle, cta } = props;
 
-    const { consultingTitle } = props;
+  // const [screen, setScreen] = useState("form");
 
-    const [screen, setScreen] = useState("form");
+  const {
+    toggleDownloadScreen,
+    baseUrl,
+    setLoading,
+    setDownloadScreen,
+    setDownloadProgramScreen,
+    togglePresentationDownloadScreen,
+    bookService,
+  } = useContext(CrossContext);
 
-   const {toggleDownloadScreen, baseUrl, setLoading,  setDownloadScreen, setDownloadProgramScreen, togglePresentationDownloadScreen, bookService} = useContext(CrossContext);
+  //state for download
 
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [nameOfOrg, setNameOfOrg] = useState("");
+  const [orgSize, setOrgSize] = useState("");
+  const [role, setRole] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
 
+   const nameField = document.getElementById("nameField");
+   const emailField = document.getElementById("emailField");
+   const nameOfOrgField = document.getElementById("nameOfOrgField");
+   const roleField = document.getElementById("roleField");
+   const phoneField = document.getElementById("phoneField");
+   const messageField = document.getElementById("messageField");
 
-    //state for download
-   
-    const [fullName, setFullName] = useState("");
-    const [email, setEmail] = useState("");
-    const [nameOfOrg, setNameOfOrg] = useState("");
-    const [orgSize, setOrgSize] = useState("");
-    const [role, setRole] = useState("");
-    const [phone, setPhone] = useState("");
-    const [message, setMessage] = useState("");
-    
-    
-  
-    //funtion for enrollment
-  
-    const [contactErrors, setContactErrors] = useState({});
-    
-    
-    const bookSession = async () => {
-     
-     
-     const validationErrors = {};
-    
-     //To ensure valid inputs
-     if (!fullName.trim()) {
-       validationErrors.fullName = "full name is required";
-     }
+  //funtion for enrollment
+
+  const [contactErrors, setContactErrors] = useState({});
+
+  const bookSession = async () => {
+    const validationErrors = {};
+
+    //To ensure valid inputs
+    if (!fullName.trim()) {
+      validationErrors.fullName = "full name is required";
+    }
     if (!email.trim()) {
       validationErrors.email = "email is required";
     }
@@ -62,65 +69,106 @@ function ConsultingForm(props) {
       validationErrors.role = "role is required";
     }
 
-    
-     setContactErrors(validationErrors);
-    
-     const noError = Object.keys(validationErrors).length === 0;
-    
-     if (noError) {
-       try {
-         
-         setLoading(true);
-         const response = await axios.post(
-           `${baseUrl}/api/consulting`,
-           {
-            fullName: fullName,
-            email: email,
-            phone: phone,
-            nameOfOrg: nameOfOrg,
-            orgSize: orgSize,
-            message: message,
-            role: role,
-            service: consultingTitle,
-           }
-         );
-    
-         if (response.status === 201) {
-          
-           toast.success('Message sent successfully, we will reach out as soon as possible.');
-           bookService('exit')
-         }
-       } catch (error) {
-         
-         console.log("Error enrolling:", error);
-         
-       } finally {
-         setLoading(false);
-       }
-     }
-    };
+    setContactErrors(validationErrors);
 
-    
-    
+    const noError = Object.keys(validationErrors).length === 0;
+
+    if (noError) {
+      try {
+        setLoading(true);
+        const response = await axios.post(`${baseUrl}/api/consulting`, {
+          fullName: fullName,
+          email: email,
+          phone: phone,
+          nameOfOrg: nameOfOrg,
+          orgSize: orgSize,
+          message: message,
+          role: role,
+          service: consultingTitle,
+        });
+
+        if (response.status === 201) {
+          toast.success(
+            "Message sent successfully, we will reach out as soon as possible."
+          );
+          // bookService("exit");
+          
+          nameField.value = ''
+          emailField.value = ''
+          nameOfOrgField.value = ''
+          roleField.value = ''
+          phoneField.value = ''
+          messageField.value = ''
+        }
+      } catch (error) {
+        console.log("Error enrolling:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+
+  //split cta
+
+  function splitCtaLeft(sentence) {
+
+    let match = sentence.match(/([^,?]+)([?,])/);
+    if (match) {
+      return match[1] + match[2];
+    } else {
+      return sentence; // return original sentence if no comma or question mark found
+    }
+  }
+
+  function splitCtaRight(sentence) {
+    let match = sentence.match(/([^,?]+)([?,])(.*)/);
+
+    if (match) {
+      return [match[3].trim()];
+    }
+  }
+
+  
+  //default messages
+  const whatsAppMessage = encodeURIComponent(`Hello Crosstie, I have questions about ${consultingTitle}.`);
+  const emailMessage = encodeURIComponent(`Hello Crosstie, I have questions about ${consultingTitle}.`);
+  const subject = encodeURIComponent(consultingTitle);
+
+  
+
   return (
-    <div className={`fixed left-0 z-20 flex flex-col items-center justify-start py-5  top-0 min-h-100vh w-100vw bg-overlay large:text-15px small:text-13px`}>
-        
-        
-      <div className="flex flex-col items-center justify-center w-100 h-100">
-        {/* form */}
-        
-        {screen==="form" &&
-        <div className="flex flex-col items-center justify-center gap-2 py-3 text-black bg-white rounded-5 large:px-5 large:h-100 large:w-60 small:rounded-5 small:w-90 large:text-15px small:px-1 small:text-13px small:mt-2 large:mt-0 relative">
+    <div className="flex flex-col items-center justify-center py-5 border-t border-black large:w-83vw small:w-90vw h-100">
+      {/* form */}
 
-            <p className="large:w-100 small:w-80 large:text-center small:text-center">SERVICE: <span className="text-crossLightPurple">{consultingTitle && consultingTitle.toUpperCase()}</span></p>
+     
+        <div className="relative flex flex-col items-center justify-center gap-2 py-3 text-black bg-white shadow-lg rounded-5 large:px-5 large:h-100 large:w-60 small:rounded-5 small:w-90 large:text-15px small:px-1 small:text-13px small:mt-2 large:mt-0">
+          {/* <p className="large:w-100 small:w-80 large:text-center small:text-center"> <span className="font-semibold">Not sure where your culture stands?</span> Try our free On-Spot Culture Checker. It is a quick way to see what is working and what might be holding you back.</p> */}
 
-            <VscClose className='absolute text-crossLightPurple cursor-pointer large:top-3 large:right-5 large:text-30px small:text-25px small:right-3 small:top-1'
-            onClick={()=>{
-                  bookService('exit')
-                }}
-            />
-          
-          <div className="w-100 flex items-center justify-between h-auto">
+          <p className="large:w-100 small:w-80 large:text-center small:text-center">
+            {" "}
+            <span className="font-semibold">{splitCtaLeft(cta)}</span>{" "}
+            {splitCtaRight(cta)}
+          </p>
+
+          <div className="flex items-center h-auto gap-2 pb-3 border-b border-black large:w-100 small:w-100 small:justify-center">
+            <a
+              target="_blank"
+              href={`mailto:training@crosstiesolutions.com?subject=${subject}&body=${emailMessage}`}
+              className="flex items-center justify-center w-auto gap-1 px-1 border border-black rounded h-40px"
+            >
+              <MdOutlineMail className="text-20px" /> Email
+            </a>
+
+            <a
+              target="_blank"
+              href={`https://wa.me/2349160901017?text=${whatsAppMessage}`}
+              className="flex items-center justify-center w-auto gap-1 px-1 border border-black rounded h-40px"
+            >
+              <FaWhatsapp className="text-whatsAppGreen text-20px" /> Whatsapp
+            </a>
+          </div>
+
+          <div className="flex items-center justify-between h-auto mt-2 w-100">
             <div className="flex flex-col items-start h-auto w-45">
               <label htmlFor="fullName">Full Name</label>
               <input
@@ -150,13 +198,13 @@ function ConsultingForm(props) {
             </div>
           </div>
 
-          <div className="w-100 flex items-center justify-between h-auto">
+          <div className="flex items-center justify-between h-auto w-100">
             <div className="flex flex-col items-start h-auto w-45">
               <label htmlFor="nameOfOrg">Organization</label>
               <input
                 type="text"
                 name="nameOfOrg"
-                id=""
+                id="nameOfOrgField"
                 placeholder="Enter company name"
                 className="pl-1 border rounded border-crossLightPurple w-100 h-40px myField"
                 onChange={(e) => setNameOfOrg(e.target.value)}
@@ -171,7 +219,7 @@ function ConsultingForm(props) {
               <input
                 type="text"
                 name="role"
-                id=""
+                id="roleField"
                 className="pl-1 border rounded border-crossLightPurple w-100 h-40px myField"
                 placeholder="What is your role in the organization?"
                 onChange={(e) => setRole(e.target.value)}
@@ -182,13 +230,13 @@ function ConsultingForm(props) {
             </div>
           </div>
 
-          <div className="w-100 flex items-center justify-between h-auto">
+          <div className="flex items-center justify-between h-auto w-100">
             <div className="flex flex-col items-start h-auto w-45">
               <label htmlFor="phone">Phone</label>
               <input
                 type="text"
                 name="phone"
-                id=""
+                id="phoneField"
                 placeholder="Enter company name"
                 className="pl-1 border rounded border-crossLightPurple w-100 h-40px myField"
                 onChange={(e) => setPhone(e.target.value)}
@@ -198,12 +246,14 @@ function ConsultingForm(props) {
               </p>
             </div>
 
-
             <div className="flex flex-col items-start h-auto w-45">
               <label htmlFor="role">Company Size</label>
-              
-              <select name="companySize" id="" className="pl-1 border rounded border-crossLightPurple w-100 h-40px"
-               onChange={(e) => setOrgSize(e.target.value)}
+
+              <select
+                name="companySize"
+                id=""
+                className="pl-1 border rounded border-crossLightPurple w-100 h-40px"
+                onChange={(e) => setOrgSize(e.target.value)}
               >
                 <option value="">-select-</option>
                 <option value="5 - 10">5 - 10</option>
@@ -220,27 +270,30 @@ function ConsultingForm(props) {
           </div>
 
           <div className="flex flex-col items-start justify-center h-auto w-100">
-              <label htmlFor="message">Brief overview of how we can be of help</label>
-              <textarea name="message" id="" className="h-100px w-100 pl-1 border rounded border-crossLightPurple"
+            <label htmlFor="message">
+              Brief overview of how we can be of help
+            </label>
+            <textarea
+              name="message"
+              id="messageField"
+              className="pl-1 border rounded h-100px w-100 border-crossLightPurple"
               placeholder="let us know how we can be of help"
               onChange={(e) => setMessage(e.target.value)}
-              ></textarea>
+            ></textarea>
           </div>
-          
 
           <button
-            className="flex items-center justify-center border-none rounded h-40px w-100 hover:bg-crossYellow hover:text-crossLightPurple bg-crossLightPurple text-white"
+            className="flex items-center justify-center text-white border-none rounded h-40px w-100 hover:bg-crossYellow hover:text-crossLightPurple bg-crossLightPurple"
             onClick={bookSession}
           >
             Book Now
           </button>
-        </div>}
+        </div>
+    
 
+      {/* download */}
 
-
-        {/* download */}
-
-        {/* {screen==="download" &&
+      {/* {screen==="download" &&
             <div className="flex items-center justify-center bg-white rounded h-150px w-300px">
                 <a 
                 target="_blank"
@@ -250,13 +303,8 @@ function ConsultingForm(props) {
                 >Download Now <RiFolderDownloadLine className="large:text-25px small:text-20px" /></a>
             </div>
         } */}
-       
-      </div>
-      
     </div>
   );
 }
 
-
-
-export default ConsultingForm
+export default ConsultingForm;

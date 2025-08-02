@@ -232,6 +232,7 @@ function AddJob() {
                 <div className="flex flex-col w-40 h-auto">
                   <label htmlFor="role">Role</label>
                   <input
+                  required
                     type="text"
                     placeholder="Enter job role"
                     name="role"
@@ -252,6 +253,7 @@ function AddJob() {
                   <select name="mode" id=""
                   className="p-0.5 border rounded-4 cursor-pointer"
                   onChange={(e)=>setMode(e.target.value)}
+                  required
                   >
                     
                      <option value="">-select-</option>
@@ -293,6 +295,7 @@ function AddJob() {
                   <select name="type" id=""
                   className="p-0.5 border rounded-4 cursor-pointer"
                   onChange={(e)=>setType(e.target.value)}
+                  required
                   >
                     
                      <option value="">-select-</option>
@@ -337,6 +340,7 @@ function AddJob() {
                    placeholder='Enter job description...'
                    className="p-0.5 border rounded-4 h-100px"
                    onChange={(e)=>setDescription(e.target.value)}
+                   required
                  />
                  {jobErrors && (
                    <p className="text-13px text-vogueRed">
@@ -361,6 +365,7 @@ function AddJob() {
                           className="p-0.5 border rounded-4 w-85"
                           value={day}
                           onChange={(e) => updateResponsibility(index, e.target.value)}  
+                          required
                         />
                         
                         {
@@ -402,7 +407,7 @@ function AddJob() {
                           className="p-0.5 border rounded-4 w-85"
                           value={objective}
                           onChange={(e) => updateRequirement(index, e.target.value)}
-                          
+                          required
                         />
                         
                         {
@@ -487,7 +492,6 @@ function AddJob() {
                           className="p-0.5 border rounded-4 w-85"
                           value={note}
                           onChange={(e) => updateRecruitmentProcess(index, e.target.value)}
-                          
                         />
                         
                         {
