@@ -35,9 +35,9 @@ const WebinarCertificate = ({ name, courseTitle, date, certificateUrl }) => {
 
       const nameX = 350;
       const nameY = 330;
-      const courseX = 360;
+      const courseX = 350;
       const courseY = 275;
-      const dateX = 380;
+      const dateX = 360;
       const dateY = 220;
 
       firstPage.drawText(name, {
@@ -48,7 +48,7 @@ const WebinarCertificate = ({ name, courseTitle, date, certificateUrl }) => {
         color: rgb(0, 0, 0),
       });
 
-      firstPage.drawText(`"${courseTitle}"`, {
+      firstPage.drawText(`${courseTitle}`, {
         x: courseX,
         y: courseY,
         size: 13,

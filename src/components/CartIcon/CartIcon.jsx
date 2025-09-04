@@ -10,13 +10,11 @@ import { CrossContext } from '../../Context/CrossContext';
 function CartIcon() {
 
     const {getTotalCartItems} = useContext(CrossContext);
-
-
     
     
 
   return (
-    <Link to='/cart' className={`fixed z-30 ${getTotalCartItems() > 0 ? "flex" : "hidden"} items-center justify-center text-crossLightPurple rounded ${window.location.pathname==='/cart' ? "hidden" : "flex"} cursor-pointer top-70vh large:right-5 h-auto small:right-3 w-auto bg-transparent`}
+    <Link to='/cart' className={`fixed z-30 flex items-center justify-center text-crossLightPurple rounded ${window.location.pathname==='/cart' ? "hidden" : "flex"} cursor-pointer top-70vh large:right-5 h-auto small:right-3 w-auto bg-transparent`}
     >
       <div className='flex items-center justify-center w-100 h-100'>
         

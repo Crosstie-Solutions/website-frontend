@@ -10,15 +10,8 @@ import AdminContactFormAction from '../AdminContactFormAction/AdminContactFormAc
 
 
 function AllContactFormsTable() {
-
-    // const { currentProducts, handleProductsPageChange, currentProductsPage, totalProductsPages, toggleAdminProductAction, activeProduct, allProducts} = useContext(QxContext);
-
     
     const {
-        currentPrograms,
-        handleProgramsPageChange,
-        currentProgramsPage,
-        totalProgramsPages,
 
         currentContactForms,
         handleContactFormsPageChange,
@@ -29,6 +22,11 @@ function AllContactFormsTable() {
           activeContactForm, toggleAdminContactFormAction, viewAllContactForms, allContactForms, loadingAllContactForms
         
       } = useContext(CrossContext);
+
+      
+      const sortedContactForms = currentContactForms.sort(
+  (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+);
     
     
   return (
@@ -54,7 +52,7 @@ function AllContactFormsTable() {
         </div>
 
         {
-            currentContactForms && currentContactForms.map((enquiry, i)=>
+            sortedContactForms && sortedContactForms.map((enquiry, i)=>
                 <div className={`flex items-center justify-start h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-1`}
                 key={i}
                 >

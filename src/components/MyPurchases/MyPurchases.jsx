@@ -36,9 +36,6 @@ function MyPurchases() {
   
       viewPurchases();
     }, [me]);
-
-
-
     
   return (
     <div className='flex flex-col items-center h-auto gap-2 w-100'>
