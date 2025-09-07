@@ -65,6 +65,8 @@ import { AiOutlineProduct } from "react-icons/ai";
 import AddProduct from "../../components/AdminInteraction/AddProduct/AddProduct.jsx";
 import AllProductsTable from "../../components/AdminInteraction/AllProductsTable/AllProductsTable.jsx";
 import { AllWebinarFeedbacksTable } from "../../components/AdminInteraction/AllWebinarFeedbacksTable/AllWebinarFeedbacksTable.jsx";
+import AddDiscount from "../../components/AdminInteraction/AddDiscount/AddDiscount.jsx";
+import AllDiscountsTable from "../../components/AdminInteraction/AllDiscountsTable/AllDiscountsTable.jsx";
 
 
 
@@ -420,6 +422,14 @@ function AdminDashboard() {
             <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
              onClick={() => setActiveScreen("addProduct")}
             >Add Product</div>
+
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("addDiscount")}
+            >Add Discount</div>
+
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("activeDiscounts")}
+            >Active Discounts</div>
 
           </div>}
         </div>
@@ -812,6 +822,10 @@ function AdminDashboard() {
         {activeScreen === "allProducts" && <AllProductsTable />}
         
         {activeScreen === "webinarFeedbacks" && <AllWebinarFeedbacksTable />}
+        
+        {activeScreen === "addDiscount" && <AddDiscount />}
+        
+        {activeScreen === "activeDiscounts" && <AllDiscountsTable />}
         
         
         

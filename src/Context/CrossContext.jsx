@@ -2278,6 +2278,109 @@ const viewAllWebinarFeedbacks = async () => {
 
   const subject = encodeURIComponent("Crosstie EDGE.");
 
+
+
+  const [discounts, setDiscounts] = useState([]);
+
+  //get all discounts
+  const fetchActiveDiscounts = async () => {
+
+  try {
+    const response = await axios.get(`${baseUrl}/api/discount`);
+
+    setDiscounts(response.data.data.data);
+
+  } catch (dupError) {
+    console.log("error fetching all discounts:", dupError);
+  }
+
+};
+
+useEffect(()=>{
+  fetchActiveDiscounts();
+}, []);
+
+
+const [firstTimeDiscount, setFirstTimeDiscount] = useState(0);
+
+const checkFirstTimeBuyer = async (email) => {
+  
+        try {
+          setLoading(true);
+          const response = await axios.post(`${baseUrl}/api/users/first-time-buyer-status`, {
+            email
+          });
+  
+          if (response.status === 200) {    
+            toast.success(response.data.message);
+            const subTotal = getTotalCartAmount();
+            const percentage = response.data.percentage;
+            const discount = (percentage / 100) * subTotal;
+
+            setFirstTimeDiscount(discount);
+          }
+        } catch (error) {
+          if(error){
+            console.error("Error checking first time buyer:", error);
+            toast.error(error.response.data.message)
+          }
+          
+        } finally {
+          setLoading(false);
+        }
+      
+  };
+
+
+  const [generalDiscount, setGeneralDiscount] = useState(0);
+  const [generalDiscountError, setGeneralDiscountError] = useState('');
+
+
+const checkGeneralDiscount = async (code) => {
+
+      if(!code){
+        setGeneralDiscountError('Enter promo code');
+
+        return null;
+      }
+  
+        try {
+          setLoading(true);
+          const response = await axios.post(`${baseUrl}/api/users/general-discount-status`, {
+            code
+          });
+  
+          if (response.status === 200) {    
+            toast.success(response.data.message);
+            const subTotal = getTotalCartAmount();
+            const percentage = response.data.percentage;
+            const discount = (percentage / 100) * subTotal;
+
+            setGeneralDiscount(discount);
+          }
+        } catch (error) {
+          if(error){
+            console.error("Error checking general discount:", error);
+            toast.error(error.response.data.message)
+          }
+          
+        } finally {
+          setLoading(false);
+        }
+      
+  };
+
+  //active Discount
+const [activeDiscount, setActiveDiscount] = useState(null);
+
+
+const toggleDiscount = async (index)=> {
+
+  window.scrollTo({ top: 0, behavior: "auto" });
+
+  setActiveDiscount((prev) => (prev === index ? null : index));
+}
+
         
 
 
@@ -2295,7 +2398,7 @@ const viewAllWebinarFeedbacks = async () => {
 
   //value to export
   const contextValue = {
-    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program, toggleAdminProgramAction, activeProgram, deletingProgram, deleteProgram, viewAllCourseRegs, allCourseRegs, currentCourseRegs,  handleCourseRegsPageChange, currentCourseRegsPage, totalCourseRegsPages,
+    hideAboutDD, showAboutDD, aboutDD, solutionsDD, showSolutionsDD, hideSolutionsDD, firstTimeDiscount, coursesDD, showCoursesDD, hideCoursesDD, toggleAboutDD, toggleDiscount, activeDiscount, discounts, generalDiscountError, checkGeneralDiscount, toggleSolutionsDD, toggleCoursesDD, dropdownRef, toggleNav, navBar, setNavCourses, navCourses, toggleMobileSearch, mobileSearch, viewAllPrograms, allPrograms, formatDate, setProgramsSearchTerm, programsSearchTerm, setCurrentProgramsPage, currentPrograms, currentProgramsPage, totalProgramsPages,  programsStartIndex, programsEndIndex, generalDiscount,handleProgramsPageChange, toggleEnrollment, enrollmentForm, viewAllWebinars, upcomingWebinars, pastWebinars, webinarType, setWebinarType, loadingAllWebinars, setUpcomingSearchTerm, filteredUpcoming, setPastSearchTerm, filteredPast, me, baseUrl, loginToken, loading, setLoading, fetchMe, getLoginToken, fetchMyWebinars, myWebinars, current, setActiveScreen, activeScreen, toggleSideBar, viewAllCourses, allCourses, program, toggleAdminProgramAction, activeProgram, deletingProgram, deleteProgram, viewAllCourseRegs, allCourseRegs, currentCourseRegs,  handleCourseRegsPageChange, currentCourseRegsPage, totalCourseRegsPages,
     courseRegsSearchTerm, allCourseRegs, activeCourseReg, toggleAdminCourseRegAction,   activeWebinar, toggleAdminWebinarAction, deletingWebinar, deleteWebinar, currentUpcoming, handleUpcomingPageChange, totalUpcomingPages, currentUpcomingPage,
     currentPast, handlePastPageChange, currentPastPage, totalPastPages, pastSearchTerm,
   pastWebinars, activeWebinar, toggleActiveWebinarView, activeWebinarView, webinarEnrollment, toggleWebinarEnrollment, webinar, setWebinarEnrollment, loadingWebinar, viewAllEnquiries, toggleAdminEnquiryAction, activeEnquiry, allEnquiries, setActiveEnquiry, viewAllNewsletters, allNewsletters, viewAllTestimonials, allTestimonials, loadingAllTestimonials,  activeTestimonial, toggleAdminTestimonialAction, deletingTestimonial, deleteTestimonial,   activeContactForm, toggleAdminContactFormAction, viewAllContactForms, allContactForms, loadingAllContactForms, viewAllHighDemands, allHighDemands, toggleBio, userBio, currentTestimonials, handleTestimonialsPageChange, allBlogPosts, viewAllBlogPosts, handleBlogPostsPageChange, currentBlogPostsPage, deletingBlogPost, deleteBlogPost, blogPostsSearchTerm, activeBlogPost, currentBlogPosts, totalBlogPostsPages,setBlogPostsSearchTerm, toggleAdminBlogPostAction, currentTestimonialsPage, totalTestimonialsPages, loadingAllCaseStudies,
@@ -2348,7 +2451,7 @@ const viewAllWebinarFeedbacks = async () => {
         handleProductsPageChange, activeWebinarFeedback,
         activeProduct, toggleAdminProductAction, whatsAppMessage, emailMessage, subject,
         totalProductsPages, filteredWebinarFeedback,
-  totalEnquiriesPages,
+  totalEnquiriesPages, checkFirstTimeBuyer,
   activeJob, toggleJob, consultingTitle, bookService
   };
 

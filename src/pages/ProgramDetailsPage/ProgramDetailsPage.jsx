@@ -206,7 +206,10 @@ function ProgramDetailsPage() {
           email: email,
           phone: phone,
           message: message
-         }
+         },
+         {
+          headers: { "Content-Type": "application/json" }
+        }
        );
   
        if (response.status === 201) {

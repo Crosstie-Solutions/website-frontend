@@ -12,15 +12,16 @@ function CartPage() {
   const {
     cartItems,
     clearCart, toggleLogin, getTotalCartItems,
-    addToCart,
-    removeFromCart, productTotalPrice,
-    getTotalCartAmount,
-    allProducts, me, baseUrl, setLoading, loadingAllProducts
+    addToCart, checkGeneralDiscount, generalDiscountError,
+    removeFromCart, productTotalPrice, generalDiscount,
+    getTotalCartAmount, checkFirstTimeBuyer, firstTimeDiscount,
+    allProducts, me, baseUrl, setLoading, loadingAllProducts,
   } = useContext(CrossContext);
 
   //total cart amount
   let subTotal = getTotalCartAmount();
-  
+
+  const total = subTotal - firstTimeDiscount - generalDiscount;
 
   //for navigation
     const navigate = useNavigate();
@@ -40,10 +41,6 @@ function CartPage() {
 
   
 
-  // const total = (subTotal && subTotal + deliveryFee + vat);
-  
-  // const total = (subTotal && subTotal + deliveryFee);
-
 
    //states for billing
      const [checkoutErrors, setCheckoutErrors] = useState({});
@@ -52,10 +49,11 @@ function CartPage() {
       const [lastName, setLastName] = useState("");
       const [email, setEmail] = useState("");
       const [phone, setPhone] = useState("");
+      
+      const [promoCode, setPromoCode] = useState("");
   
   //to initiate transaction
   const [authorizationUrl, setAuthorizationUrl] = useState('');
-  console.log('authorizationUrl:', authorizationUrl);
 
 
   
@@ -98,13 +96,10 @@ function CartPage() {
             "lastName": lastName,
             "phone": phone,
             "email": email,
-            "amount": subTotal && subTotal,
+            "amount": total && total,
             // "userId": me && me._id,
             "cartItems": cartItemsToSend
           });
-
-          console.log('initiate response:', initiate.data);
-          console.log('initiate status:', initiate.data.data.status);
 
           setAuthorizationUrl(initiate.data.data.data.authorization_url);
 
@@ -231,27 +226,69 @@ function CartPage() {
               <div className="w-10"></div>
             </div>
 
-             <div className="flex justify-between h-auto border-b w-100">
-              <div className="font-semibold w-60">Total</div>
-              <div className="font-semibold 30">&#8358;{subTotal && subTotal.toLocaleString()}</div>
+            {generalDiscount > 0 &&
+            <div className="flex justify-between h-auto border-b w-100">
+              <div className="font-semibold w-60">Discount</div>
+              <div className="font-semibold 30">&#8358;{generalDiscount && generalDiscount.toLocaleString()}</div>
+              <div className="w-10"></div>
+            </div>}
+
+            {firstTimeDiscount > 0 &&
+            <div className="flex justify-between h-auto border-b w-100">
+              <div className="font-semibold w-60">First-timer discount</div>
+              <div className="font-semibold 30">&#8358;{firstTimeDiscount && firstTimeDiscount.toLocaleString()}</div>
+              <div className="w-10"></div>
+            </div>}
+
+            <div className="flex justify-between h-auto border-b w-100">
+              <div className="font-semibold w-60 text-crossBlue">Total</div>
+              <div className="font-semibold 30">&#8358;{total && total.toLocaleString()}</div>
               <div className="w-10"></div>
             </div>
 
+            {/* first time byer discount */}
+            {email !== '' && firstTimeDiscount === 0 && generalDiscount === 0 &&
+            <div className="flex items-center justify-center gap-1 mt-2 w-100 text-14px ">First time buyer? <button className="font-bold cursor-pointer text-crossBlue"
+            onClick={()=>{
+              checkFirstTimeBuyer(email)
+            }}
+            >Get discount</button></div>}
+
+            
             <div className="flex flex-col items-center h-auto gap-1 mt-3 w-100">
               <p className="text-13px text-crossTextGray">Secured by <span className="font-semibold text-black">paystack</span></p>
 
               <div className="flex flex-row items-center justify-center h-auto gap-2 border large:w-80 small:w-100">
-                 <img src={PHOTOS.paystack} alt="visa card" className="w-auto bg-white border h-30px"/>
-                <img src={PHOTOS.mastercard} alt="visa card" className="bg-white h-50px w-70px"/>
-                <img src={PHOTOS.visa} alt="visa card" className="bg-white h-50px w-50px"/>
+                 <img src={PHOTOS.paystack} alt="visa card" className="w-auto bg-white border h-20px"/>
+                <img src={PHOTOS.mastercard} alt="visa card" className="bg-white h-30px w-50px"/>
+                <img src={PHOTOS.visa} alt="visa card" className="bg-white h-30px w-30px"/>
                 <img src={PHOTOS.verve} alt="visa card" className="bg-white h-50px w-50px"/>
               </div>
 
               <p className="text-13px text-crossTextGray">Make payment using your debit and credit cards</p>
             </div>
 
+            {/* general discount */}
+            {generalDiscount === 0 && firstTimeDiscount === 0 &&
 
-            <div className="flex items-center justify-center w-auto px-2 mt-3 text-white rounded cursor-pointer bg-crossLightPurple h-40px hover:text-crossLightPurple hover:border hover:border-crossLightPurple hover:bg-white" onClick={checkout}>Place Order</div>
+            <div className="flex flex-col items-start h-auto gap-1 mt-3 text-13px w-100">
+                <div className="flex items-center justify-between h-auto mt-3 text-13px w-100">
+                <input type="text" placeholder="Enter promo code here..." className="px-1 border rounded h-40px w-70" 
+                onChange={(e)=>setPromoCode(e.target.value)}
+                />
+                
+                <button className="flex items-center justify-center w-auto px-1 text-white rounded h-40px bg-crossBlue"
+                onClick={()=>{
+                  checkGeneralDiscount(promoCode)
+                }}
+                >Apply Code</button>
+              </div>
+
+              <p className="text-vogueRed">{generalDiscountError}</p>
+            </div>
+            }
+
+            <button className="flex items-center justify-center w-auto px-2 mt-1 text-white rounded cursor-pointer bg-crossLightPurple h-40px hover:text-crossLightPurple hover:border hover:border-crossLightPurple hover:bg-white" onClick={checkout}>Place Order</button>
             
             <Link to='/our-solutions/resource-vault' className="flex items-center justify-center w-auto px-2 border rounded text-crossLightPurple border-crossDarkPurple h-40px">Back To Resource Vault</Link>
           </div>
