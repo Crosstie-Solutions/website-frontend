@@ -100,7 +100,6 @@ function Header() {
                 : "flex items-center gap-0.5"
             }
             to="/contact-us/"
-            // to="/jhbjhjhj"
           >
             Contact Us
           </NavLink>

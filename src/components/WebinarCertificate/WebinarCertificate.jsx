@@ -11,7 +11,7 @@ const WebinarCertificate = ({ name, courseTitle, date, certificateUrl }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   
-  //to convert rgba to hex
+  //to convert hex to rgb
   const hexToRgb = (hex) => {
   const sanitized = hex.replace('#', '');
   const bigint = parseInt(sanitized, 16);

@@ -15,7 +15,8 @@ function CrossContextProvider(props) {
 
   //base URL for API call
   // const baseUrl = "http://127.0.0.1:8000";
-  const baseUrl = "https://crosstie-backend.onrender.com";
+  const baseUrl = "https://crosstie-backend-1.onrender.com";
+  // const baseUrl = "https://crosstie-backend.onrender.com";
   // const baseUrl = "https://server.crosstiesolutions.com";
 
 
@@ -26,7 +27,7 @@ function CrossContextProvider(props) {
         } catch (error) {
           toast.error('failed to copy feedback link');
         }
-    };
+  };
 
 
 
@@ -2027,9 +2028,7 @@ const bookService = (title)=> {
 
 //for resource vault
 const [allProducts, setAllProducts] = useState();
-  const [loadingAllProducts, setLoadingAllProducts] = useState(false);
-
-  console.log("allProducts:", allProducts);
+const [loadingAllProducts, setLoadingAllProducts] = useState(false);
 
 
 

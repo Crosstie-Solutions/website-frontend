@@ -14,11 +14,11 @@ function CartIcon() {
     
 
   return (
-    <Link to='/cart' className={`fixed z-30 flex items-center justify-center text-crossLightPurple rounded ${window.location.pathname==='/cart' ? "hidden" : "flex"} cursor-pointer top-70vh large:right-5 h-auto small:right-3 w-auto bg-transparent`}
+    <Link to='/cart' className={`items-center justify-center text-white rounded flex cursor-pointer h-auto w-auto bg-transparent`}
     >
       <div className='flex items-center justify-center w-100 h-100'>
         
-        <IoCartOutline className='text-30px'/> <span className='relative flex items-center justify-center text-white rounded-full bottom-1.5 right-1 bg-crossLightPurple h-30px w-30px'>{getTotalCartItems()}</span>
+        <IoCartOutline className='text-25px'/> <span className='relative flex items-center justify-center text-black rounded-full bottom-1.5 right-1 bg-crossYellow h-20px w-20px text-13px'>{getTotalCartItems()}</span>
       </div>
       
       </Link>

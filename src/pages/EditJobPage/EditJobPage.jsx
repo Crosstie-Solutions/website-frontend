@@ -5,8 +5,6 @@ import { CrossContext } from '../../Context/CrossContext';
 import { useParams } from 'react-router-dom';
 
 
-
-
 function EditJobPage() {
 
     const {
@@ -18,16 +16,12 @@ function EditJobPage() {
         allCourses, setActiveScreen, executiveCourse
       } = useContext(CrossContext);
 
-
-
       const jobId = useParams().jobId
       
           // view job
       
           const [job, setJob] = useState();
               const [loadingJob, setLoadingJob] = useState(false);
-              
-           console.log("job:", job)
           
           useEffect(()=>{
             
@@ -52,8 +46,6 @@ function EditJobPage() {
       //to add and remove more responsibilities
       const [responsibilities, setResponsibilities] = useState([""]);
 
-      console.log("responsibilities:", responsibilities);
-
       const addResponsibility = () => {
         setResponsibilities([...responsibilities, ""]);
       };
@@ -75,8 +67,6 @@ function EditJobPage() {
   
   //to add and remove requirements
   const [requirements, setRequirements] = useState([""]);
-
-  console.log("requirements:", requirements);
 
   const addRequirement = () => {
     setRequirements([...requirements, ""]);
@@ -101,8 +91,6 @@ function EditJobPage() {
       //to add and remove benefits
   const [benefits, setBenefits] = useState([""]);
 
-  console.log("benefits:", benefits);
-
   const addBenefits = () => {
     setBenefits([...benefits, ""]);
   };
@@ -124,8 +112,6 @@ function EditJobPage() {
 
    //to add and remove recruitment Process
    const [recruitmentProcess, setRecruitmentProcess] = useState([""]);
-
-   console.log("recruitmentProcess:", recruitmentProcess);
  
    const addRecruitmentProcess = () => {
      setRecruitmentProcess([...recruitmentProcess, ""]);
@@ -167,7 +153,7 @@ function EditJobPage() {
         const [jobErrors, setJobErrors] = useState({});
        
               
-        const updateProduct = async (jobId, updatedFields) => {
+        const updateJob = async (jobId, updatedFields) => {
           try {
             setLoading(true)
             const formData = new FormData();
@@ -178,9 +164,7 @@ function EditJobPage() {
               const value = updatedFields[key];
         
               if (value === null || value === undefined || value === '') continue;
-        
-                formData.append(key, value);
-              
+                formData.append(key, value);        
             }
         
             for (let pair of formData.entries()) {
@@ -190,7 +174,12 @@ function EditJobPage() {
         
             const response = await axios.patch(
               `${baseUrl}/api/job/edit/${jobId}`,
-              formData
+              formData,
+              {
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
             );
         
              if(response.status === 200){
@@ -224,9 +213,7 @@ function EditJobPage() {
             recruitmentProcess: recruitmentProcess || null,
           };
         
-          console.log("edit job formData:", updatedFields);
-        
-          await updateProduct(jobId, updatedFields);
+          await updateJob(jobId, updatedFields);
           
         };
       

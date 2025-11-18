@@ -3,6 +3,7 @@ import { FaPhone } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { CrossContext } from '../../Context/CrossContext';
+import CartIcon from '../CartIcon/CartIcon';
 
 
 
@@ -27,6 +28,8 @@ function TopBar() {
       target='_blank'
       href= {`mailto:enquiries@crosstiesolutions.com?subject=${subject}&body=${emailMessage}`}
       className='items-center justify-center w-30 large:flex large:gap-1 small:hidden'><MdOutlineMail className='text-25px'/> enquiries@crosstiesolutions.com</a>
+
+      <CartIcon />
       
     </div>
   )
