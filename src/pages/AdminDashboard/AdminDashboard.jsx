@@ -67,11 +67,9 @@ import AllProductsTable from "../../components/AdminInteraction/AllProductsTable
 import { AllWebinarFeedbacksTable } from "../../components/AdminInteraction/AllWebinarFeedbacksTable/AllWebinarFeedbacksTable.jsx";
 import AddDiscount from "../../components/AdminInteraction/AddDiscount/AddDiscount.jsx";
 import AllDiscountsTable from "../../components/AdminInteraction/AllDiscountsTable/AllDiscountsTable.jsx";
-
-
-
-
-
+import { GrUserAdmin } from "react-icons/gr";
+import AllMembersTable from "../../components/AdminInteraction/AllMembersTable/AllMembersTable.jsx";
+import AddMember from "../../components/AdminInteraction/AddMember/AddMember.jsx";
 
 
 function AdminDashboard() {
@@ -126,6 +124,13 @@ function AdminDashboard() {
       setEventsDD(!eventsDD);
     }
 
+      //members dropdown
+    const [membersDD, setMembersDD] = useState(false);
+
+    const toggleMembersDD = ()=>{
+      setMembersDD(!membersDD);
+    }
+
     //jobs dropdown
     const [jobsDD, setJobsDD] = useState(false);
 
@@ -140,8 +145,6 @@ function AdminDashboard() {
   const toggleProgramsDD = ()=>{
     setProgramsDD(!programsDD);
   }
-
-
   
   //webinars dropdown
   const [webinarsDD, setWebinarsDD] = useState(false);
@@ -328,6 +331,36 @@ function AdminDashboard() {
           </div>}
         </div>
 
+        {/* Manage Members */}
+        <div
+          className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
+        >
+          <div className={`${ activeScreen === "addMember" || activeScreen === "allMembers" ? "bg-gray-300" : "" } h-40px w-100 flex justify-between items-center pl-3 pr-2`}
+          onClick={toggleMembersDD}
+          >            
+            <div className="flex gap-1">
+              <GrUserAdmin className="text-20px" />
+              Crosstiens
+            </div>
+            
+            <IoChevronDown className={`text-20px ${membersDD ? "rotate-180" : ""}`}/>
+          </div>
+
+          {membersDD &&
+          <div className="flex flex-col items-center gap-1 w-100">
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("allMembers")}
+            >All Members</div>
+            
+            
+            <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("addMember")}
+            >Add Member</div>
+
+          </div>}
+        </div>
+
 
          {/* manage Partners */}
         <div
@@ -391,7 +424,6 @@ function AdminDashboard() {
 
           </div>}
         </div>
-
 
         {/* Manage Products */}
 
@@ -624,7 +656,6 @@ function AdminDashboard() {
         </div>
 
 
-
         {/* manage reports */}
         <div
           className={`flex items-center flex-col justify-start gap-1 cursor-pointer h-auto w-100 text-15px`}
@@ -789,9 +820,13 @@ function AdminDashboard() {
         
         {activeScreen === "allEvents" && <AllEventsTable />}
         
+        {activeScreen === "allMembers" && <AllMembersTable />}
+        
         {activeScreen === "addPartner" && <AddPartner />}
         
         {activeScreen === "addEvent" && <AddEvent />}
+        
+        {activeScreen === "addMember" && <AddMember />}
         
         {activeScreen === "addAdmin" && <AddNewAdmin />}
 

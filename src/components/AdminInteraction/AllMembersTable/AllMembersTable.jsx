@@ -9,44 +9,36 @@ import PartnersFilter from "../../PartnersFilter/PartnersFilter";
 import EventsFilter from "../../MembersFilter/MembersFilter";
 import DeleteEvent from "../../DeleteEvent/DeleteEvent";
 import AdminEventAction from "../AdminEventAction/AdminEventAction";
+import MembersFilter from "../../MembersFilter/MembersFilter";
+import AdminMemberAction from "../AdminMemberAction/AdminMemberAction";
 
 
-
-
-function AllEventsTable() {
+function AllMembersTable() {
 
   
   const {
-    
-    loadPartners,
-    currentPartners,
-    currentPartnersPage,
-    totalPartnersPages,
-    handlePartnersPageChange,
-    allPartners,
-
-    activePartner, togglePartner,
-
-
-    loadEvents,
-        currentEvents,
-        currentEventsPage,
-        totalEventsPages,
-        handleEventsPageChange,
-        allEvents,
-    
-        activeEvent, toggleEvent
+    loadMembers,
+    currentMembers,
+    currentMembersPage,
+    totalMembersPages,
+    handleMembersPageChange,
+    allMembers,
+    activeMember, 
+    toggleMember,
+    fetchMembers
   } = useContext(CrossContext);
 
-  
+  useEffect(()=>{
+    fetchMembers();
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center h-auto gap-3 py-3 large:px-2 bg-vogueWhite w-100 rounded-10 large:text-15px small:text-10px">
 
       <div className='flex items-center justify-between h-auto gap-5 w-100'>
-        <h4 className="self-start font-bold text-crossLightPurple small:hidden large:block">All Events({allEvents && allEvents.length})</h4>
+        <h4 className="self-start font-bold text-crossLightPurple small:hidden large:block">All Members({allMembers && allMembers.length})</h4>
         <div className='large:w-70 h-40px small:w-100'>
-            <EventsFilter />
+            <MembersFilter />
         </div>
       </div>
       
@@ -55,46 +47,47 @@ function AllEventsTable() {
         <div className="flex flex-row items-center justify-between h-auto font-bold border-b border-blue-300 text-crossBlue w-100">
           
           <div className="w-10">S/N</div>
-          <div className="w-20">Event</div>
-          <div className="w-20">Client</div>
-          <div className="w-20">Date</div>
+          <div className="w-20">Name</div>
+          <div className="w-20">Tier</div>
+          <div className="w-20">Role</div>
           <div className="w-10">Index</div>
           <div className="w-10">Image</div>
         </div>
 
-        {currentEvents &&
-          currentEvents.map((event, i) => {
+        {currentMembers &&
+          currentMembers.map((event, i) => {
             return (
               <div
                 key={i}
                 className={`${i % 2 === 0 ? "bg-gray-100" : "bg-white"} flex items-center w-100 h-auto gap-2`}
               >
-                <div className="w-10 flex justify-start">{i + 1}.</div>
+                <div className="flex justify-start w-10">{i + 1}.</div>
                 <div className={`flex flex-col gap-0.5 w-20 break-words items-start`}>
-                  {event.title}
+                  {event.name}
                   
                  
                   <div  
                     className='flex items-center justify-center text-white rounded cursor-pointer h-30px w-100px bg-crossLightPurple text-11px'
-                    onClick={()=>toggleEvent(i)}
+                    onClick={()=>toggleMember(i)}
                     >Action</div>
                 </div>
 
-                <div className="w-20 break-words flex justify-start">{event.client}</div>
+                <div className="flex justify-start w-20 break-words">{event.tier}</div>
 
-                <div className="w-10 flex justify-start">{event.date}</div>
-                <div className="w-10 flex justify-end">{event.priorityIndex}</div>
+                <div className="flex justify-start w-10">{event.role}</div>
+                <div className="flex justify-end w-10">{event.priorityIndex}</div>
 
-                <div className="w-10 flex justify-end"><img src={event.eventImages[0]} alt="partner logo" className="rounded h-50px w-50px"/></div>
+                {event.memberImage &&
+                <div className="flex justify-end w-10"><img src={event.memberImage ? event.memberImage.url : ''} alt="member image" className="rounded h-50px w-50px"/></div>}
 
-                {activeEvent === i && (
+                {activeMember === i && (
                     <div>
-                      <AdminEventAction 
+                      <AdminMemberAction 
                       eventNo={i + 1}
-                      eventEnd={allEvents.length + 1}
-                      eventId={event.id}
-                      client={event.client}
-                      title={event.title}
+                      eventEnd={allMembers.length + 1}
+                      eventId={event._id}
+                      name={event.name}
+                      tier={event.tier}
                       />
                     </div>)}
               </div>
@@ -104,24 +97,24 @@ function AllEventsTable() {
 
 
       {/* Pagination */}
-      {!loadEvents && currentEvents && currentEvents.length > 0 && (
+      {!loadMembers && currentMembers && currentMembers.length > 0 && (
         <div className="flex items-center justify-between w-auto h-auto gap-3 mt-4">
           <button
             className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
-            disabled={currentEventsPage === 1}
-            onClick={() => handleEventsPageChange(currentEventsPage - 1)}
+            disabled={currentMembersPage === 1}
+            onClick={() => handleMembersPageChange(currentMembersPage - 1)}
           >
             <CgChevronLeft className="text-20px" />
           </button>
 
           <div className="text-sm">
-            Page {currentEventsPage} of {totalEventsPages}
+            Page {currentMembersPage} of {totalMembersPages}
           </div>
 
           <button
             className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
-            disabled={currentEventsPage === totalEventsPages}
-            onClick={() => handleEventsPageChange(currentEventsPage + 1)}
+            disabled={currentMembersPage === totalMembersPages}
+            onClick={() => handleMembersPageChange(currentMembersPage + 1)}
           >
             <HiOutlineChevronRight className="text-20px" />
           </button>
@@ -129,15 +122,15 @@ function AllEventsTable() {
       )}
 
 
-      {loadEvents && (
-        <p className="mt-5 font-bold text-center w-100">Loading events...</p>
+      {loadMembers && (
+        <p className="mt-5 text-center w-100">Loading members...</p>
       )}
 
-      {!loadEvents && currentEvents && currentEvents.length < 1 && (
-        <p className="mt-5 font-bold text-center w-100">Event not found.</p>
+      {!loadMembers && currentMembers && currentMembers.length < 1 && (
+        <p className="mt-5 text-center w-100">Members not found.</p>
       )}
     </div>
   );
 }
 
-export default AllEventsTable;
+export default AllMembersTable;

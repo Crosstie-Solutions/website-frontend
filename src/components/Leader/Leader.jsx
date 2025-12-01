@@ -12,8 +12,6 @@ function Leader(member) {
   
   const {toggleBio, userBio} = useContext(CrossContext);
 
-  
-  
   return (
     <div className='flex flex-col items-center justify-between h-auto gap-2 border shadow-lg large:w-250px rounded-10 large:text-15px small:w-40vw small:text-11px rounded-tl-10 rounded-tr-10'>
         
@@ -46,9 +44,9 @@ function Leader(member) {
         userBio && userBio === index &&
 
         <Bio 
-        name={member.name}
-        image={member.image}
-        bio={member.bio}
+        name={name}
+        image={image}
+        bio={bio}
       />
       
       }

@@ -87,6 +87,7 @@ import CultureAssessmentPage from "./pages/CultureAssessmentPage/CultureAssessme
 import StrategyDevelopmentPage from "./pages/StrategyDevelopmentPage/StrategyDevelopmentPage";
 import BusinessProcessPage from "./pages/BusinessProcessPage/BusinessProcessPage";
 import CorporatePerformancePage from "./pages/CorporatePerformancePage/CorporatePerformancePage";
+import EditMemberPage from "./pages/EditMemberPage/EditMemberPage";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -283,6 +284,8 @@ function App() {
           <Route path="/contact-us" element={<ContactPage />} />
           <Route path="/about-us/our-story" element={<OurStoryPage />} />
           <Route path="/about-us/leadership" element={<LeadershipPage />} />
+          
+          <Route path="/about-us/leadership/edit/:memberId" element={<EditMemberPage />} />
           <Route path="/about-us/our-clients" element={<OurClientsPage />} />
           <Route path="/about-us/feedbacks" element={<FeedbacksPage />} />
           <Route path="/about-us/satisfaction" element={<SatisfactionPage />} />

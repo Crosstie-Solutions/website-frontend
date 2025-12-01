@@ -1,66 +1,79 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { CgChevronLeft } from "react-icons/cg";
 // import AdminCourseRegAction from '../AdminCourseRegAction/AdminCourseRegAction';
-import { CrossContext } from '../../../Context/CrossContext';
-import AdminEnquiriesAction from '../AdminEnquiriesAction/AdminEnquiriesAction';
-
-
-
+import { CrossContext } from "../../../Context/CrossContext";
+import AdminEnquiriesAction from "../AdminEnquiriesAction/AdminEnquiriesAction";
 
 function AllDownloadsTable() {
+  const {
+    currentDownloads,
+    handleDownloadsPageChange,
+    currentDownloadsPage,
+    totalDownloadsPages,
+    allDownloads,
+  } = useContext(CrossContext);
 
-    // const { currentProducts, handleProductsPageChange, currentProductsPage, totalProductsPages, toggleAdminProductAction, activeProduct, allProducts} = useContext(QxContext);
+  function formatTimestamp(timestamp) {
+    const date = new Date(timestamp);
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
 
-    
-    const {
-        currentDownloads,
-        handleDownloadsPageChange,
-        currentDownloadsPage,
-        totalDownloadsPages,
-
-        allDownloads,
-        
-      } = useContext(CrossContext);
-    
-    
   return (
-    <div className='flex flex-col items-center h-auto gap-2 w-100'>
-      <div className='flex items-center h-auto gap-5 w-100'>
-        <h4 className="self-start text-crossLightPurple small:hidden large:block">File Downloads({allDownloads && allDownloads.length})</h4>
+    <div className="flex flex-col items-center h-auto gap-2 w-100">
+      <div className="flex items-center h-auto gap-5 w-100">
+        <h4 className="self-start text-crossLightPurple small:hidden large:block">
+          File Downloads({allDownloads && allDownloads.length})
+        </h4>
         {/* <div className='large:w-70 h-40px small:w-100'>
             <AdminProductsFilter />
         </div> */}
       </div>
-      
-      
 
-      <div className='flex flex-col h-auto gap-1 w-100 large:text-15px small:text-13px'>
-      
-        <div className='flex justify-between h-auto gap-2 border-b border-gray-200 large:font-semibold small:font-semibold w-100'>
-            <div>S/N</div>
-            <div className='w-20 large:relative'>Name</div>
-            <div className='w-20 large:relative'>Email</div>
-            <div className='w-20 large:relative'>File Title</div>
+      <div className="flex flex-col h-auto gap-1 w-100 large:text-15px small:text-13px">
+        <div className="flex justify-between h-auto gap-2 border-b border-gray-200 large:font-semibold small:font-semibold w-100">
+          <div>S/N</div>
+          <div className="w-20 large:relative">Name</div>
+          <div className="w-20 large:relative">Email</div>
+          <div className="w-20 large:relative">File Title</div>
+          <div className="w-20 large:relative">Date</div>
         </div>
 
-        {
-            currentDownloads && currentDownloads.map((file, i)=>
-                <div className={`flex items-center justify-between h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-2`}>
-                    <div>{i + 1}.</div>
-                    
-                    <div className='flex flex-col gap-1 break-words large:w-10 small:w-20'>{file.fullName}</div>
-                    
-                    <div className={`relative  small:right-1 text-vogueRed large:w-20 small:hidden large:flex break-words`}>{file.email}</div>
+        {currentDownloads &&
+          currentDownloads.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((file, i) => (
+            <div
+              className={`flex items-center justify-between h-auto w-100 ${
+                i % 2 === 0 ? "bg-gray-100" : "bg-white"
+              } pl-1 py-1 gap-2`}
+            >
+              <div>{i + 1}.</div>
 
-                    <div className={`relative small:right-1 large:w-20 small:hidden large:flex`}>{file.title}</div>
-                    
-                    
-                </div>
-            )
-        }
-        
-        
+              <div className="flex flex-col gap-1 break-words large:w-10 small:w-20">
+                {file.fullName}
+              </div>
+
+              <div
+                className={`text-vogueRed large:flex flex-col gap-1 break-words large:w-20 small:hidden`}
+              >
+                {file.email}
+              </div>
+
+              <div
+                className={`relative small:right-1 large:w-20 small:hidden large:flex`}
+              >
+                {file.title}
+              </div>
+
+              <div
+                className={`relative small:right-1 large:w-20 small:hidden large:flex`}
+              >
+                {formatTimestamp(file.createdAt)}
+              </div>
+            </div>
+          ))}
       </div>
 
       {/* Pagination */}
@@ -88,11 +101,11 @@ function AllDownloadsTable() {
         </div>
       )}
 
-    {currentDownloads && currentDownloads.length < 1 && (
+      {currentDownloads && currentDownloads.length < 1 && (
         <p className="mt-5 text-center w-100 text-15px">No result found.</p>
       )}
     </div>
-  )
+  );
 }
 
 export default AllDownloadsTable;
