@@ -43,7 +43,7 @@ function AllDownloadsTable() {
         </div>
 
         {currentDownloads &&
-          currentDownloads.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((file, i) => (
+          currentDownloads.map((file, i) => (
             <div
               className={`flex items-center justify-between h-auto w-100 ${
                 i % 2 === 0 ? "bg-gray-100" : "bg-white"

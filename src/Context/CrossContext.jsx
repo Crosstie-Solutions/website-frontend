@@ -829,8 +829,6 @@ function CrossContextProvider(props) {
 
   const [allDownloads, setAllDownloads] = useState(null);
 
-  console.log("allDownloads:", allDownloads);
-
   const [loadingAllDownloads, setLoadingAllDownloads] = useState(false);
 
   const viewAllDownloads = async () => {
@@ -838,7 +836,7 @@ function CrossContextProvider(props) {
       setLoadingAllDownloads(true);
       const response = await axios.get(`${baseUrl}/api/download`);
 
-      setAllDownloads(response.data.data.data);
+      setAllDownloads(response.data.data.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
     } catch (dupError) {
       console.log("error fetching all Downloads:", dupError);
     } finally {
