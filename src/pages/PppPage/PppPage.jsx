@@ -2,13 +2,13 @@ import React from "react";
 
 function PppPage() {
   return (
-    <main className="flex flex-col items-center h-100 large:mt-20 small:mt-12 gap-7 w-100vw font-inter">
-      <div className="w-760px bg-white px-2 pt-2 pb-5 flex flex-col items-center gap-3 rounded-lg shadow-lg">
-        <h1 className="text-24px font-semibold text-center">
+    <main className="flex flex-col items-center h-100 large:mt-20 small:mt-15 gap-7 w-100vw font-inter">
+      <div className="flex flex-col items-center gap-3 pt-3 pb-5 bg-white rounded-lg shadow-lg large:px-2 large:w-60 small:w-90vw small:px-1">
+        <h1 className="font-semibold text-center text-24px">
           Operational Reference Frameworks in Management Consulting
         </h1>
-        <div className="flex flex-col w-100 h-auto items-center gap-3">
-          <div className="flex flex-col w-100 h-auto items-center gap-1">
+        <div className="flex flex-col items-center h-auto gap-3 w-100">
+          <div className="flex flex-col items-center h-auto gap-1 w-100">
             <h2 className="font-semibold leading-[1.4] text-18px">
               Section 1: Context
             </h2>
@@ -22,7 +22,7 @@ function PppPage() {
             </p>
           </div>
 
-          <div className="flex flex-col w-100 h-auto items-center gap-1">
+          <div className="flex flex-col items-center h-auto gap-1 w-100">
             <h2 className="font-semibold leading-[1.4] text-18px">
               Section 2: Use of Reference Frameworks
             </h2>
@@ -41,7 +41,7 @@ function PppPage() {
             </p>
           </div>
 
-          <div className="flex flex-col w-100 h-auto items-center gap-1">
+          <div className="flex flex-col items-center h-auto gap-1 w-100">
             <h2 className="font-semibold leading-[1.4] text-18px">
               Section 3: Reference to the Personal Productivity Program (PPP)
             </h2>
@@ -63,7 +63,7 @@ function PppPage() {
             </p>
           </div>
 
-          <div className="flex flex-col w-100 h-auto items-center gap-1">
+          <div className="flex flex-col items-center h-auto gap-1 w-100">
             <h2 className="font-semibold leading-[1.4] text-18px">
               Section 4: Scope and Independence
             </h2>
@@ -82,7 +82,7 @@ function PppPage() {
             </p>
           </div>
 
-          <div className="flex flex-col w-100 h-auto items-center gap-1">
+          <div className="flex flex-col items-center h-auto gap-1 w-100">
             <h2 className="font-semibold leading-[1.4] text-18px">
               Section 5: Internal Practice Note
             </h2>
