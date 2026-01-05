@@ -15,6 +15,7 @@ export default {
         '35px': '35px',
         '30px': '30px',
         '25px': '25px',
+        '24px': '24px',
         '20px': '20px',
         '18px': '18px',
         '17px': '17px',
@@ -31,6 +32,7 @@ export default {
 
       fontFamily: {
         'custom-font': ['Roboto', 'sans-serif'],
+        inter: ['Inter']
       },
 
 
@@ -68,6 +70,7 @@ export default {
         '400px': '400px',
         '500px': '500px',
         '600px': '600px',
+        '760px': '760px',
         '100vw': '100vw',
         '99w': '99vw',
         '95vw': '95vw',

@@ -26,7 +26,6 @@ function AddNewAdmin() {
     phone: '',
  });
 
- console.log('formData:', formData);
 
  const handleChange = (e) =>{
     const { name, value } = e.target;

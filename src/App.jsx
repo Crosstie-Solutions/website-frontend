@@ -88,6 +88,7 @@ import StrategyDevelopmentPage from "./pages/StrategyDevelopmentPage/StrategyDev
 import BusinessProcessPage from "./pages/BusinessProcessPage/BusinessProcessPage";
 import CorporatePerformancePage from "./pages/CorporatePerformancePage/CorporatePerformancePage";
 import EditMemberPage from "./pages/EditMemberPage/EditMemberPage";
+import PppPage from "./pages/PppPage/PppPage";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -279,6 +280,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/consulting-approach/reference-frameworks" element={<PppPage />} />
           <Route path="/ip-geo" element={<IPGeolocation />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact-us" element={<ContactPage />} />

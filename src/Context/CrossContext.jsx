@@ -250,11 +250,10 @@ function CrossContextProvider(props) {
   const [enrollmentForm, setEnrollmentForm] = useState(null);
 
   const [program, setProgram] = useState(null);
-  console.log("program:", program);
 
   //for other courses aside open executive
   const toggleEnrollment = async (index) => {
-    console.log("slug received:", index);
+    // console.log("slug received:", index);
 
     window.scrollTo({ top: 0, behavior: "auto" });
     // setEnrollmentForm(!enrollmentForm);
@@ -511,7 +510,7 @@ function CrossContextProvider(props) {
         `${baseUrl}/api/program/${programId && programId}`
       );
 
-      console.log("program delete response:", response.data);
+      // console.log("program delete response:", response.data);
       if (response.data.status === "success") {
         toast.success("Program deleted successfully.");
         toggleAdminProgramAction("exit");
@@ -618,8 +617,6 @@ function CrossContextProvider(props) {
   //Edge apps
 
   const [allEdgeApps, setAllEdgeApps] = useState(null);
-
-  console.log("allEdgeApps:", allEdgeApps);
 
   const [loadingAllEdgeApps, setLoadingAllEdgeApps] = useState(false);
 
@@ -735,7 +732,7 @@ function CrossContextProvider(props) {
         `${baseUrl}/api/webinar/${webinarId && webinarId}`
       );
 
-      console.log("Webinar delete response:", response.data);
+      // console.log("Webinar delete response:", response.data);
       if (response.status === 200) {
         toast.success("Webinar deleted successfully.");
         toggleAdminWebinarAction("exit");
@@ -951,7 +948,7 @@ function CrossContextProvider(props) {
         `${baseUrl}/api/testimonial/${testimonialId && testimonialId}`
       );
 
-      console.log("Testimonial delete response:", response.data);
+      // console.log("Testimonial delete response:", response.data);
       if (response.data.status === "success") {
         toast.success("Testimonial deleted successfully.");
         toggleAdminTestimonialAction("exit");
@@ -1245,7 +1242,7 @@ function CrossContextProvider(props) {
         `${baseUrl}/api/report/${postId && postId}`
       );
 
-      console.log("report delete response:", response.data);
+      // console.log("report delete response:", response.data);
       if (response.data.status === "success") {
         toast.success("Media report deleted successfully.");
         toggleAdminReportAction("exit");
@@ -1447,7 +1444,7 @@ function CrossContextProvider(props) {
 
     setExecutiveEnrollmentData({ ...executiveEnrollmentData, [name]: value });
 
-    console.log("executiveEnrollmentData:", executiveEnrollmentData);
+    // console.log("executiveEnrollmentData:", executiveEnrollmentData);
   };
 
   //for admin to fetch all Events
@@ -1740,7 +1737,7 @@ function CrossContextProvider(props) {
         `${baseUrl}/api/job/${jobId && jobId}`
       );
 
-      console.log("job delete response:", response.data);
+      // console.log("job delete response:", response.data);
       if (response.status === 200) {
         toast.success("Job deleted successfully.");
         toggleJob("exit");
@@ -1978,8 +1975,6 @@ function CrossContextProvider(props) {
   //Edge apps
 
   const [allWebinarFeedbacks, setAllWebinarFeedbacks] = useState(null);
-
-  console.log("allWebinarFeedbacks:", allWebinarFeedbacks);
 
   const [loadingAllWebinarFeedbacks, setLoadingAllWebinarFeedbacks] =
     useState(false);
