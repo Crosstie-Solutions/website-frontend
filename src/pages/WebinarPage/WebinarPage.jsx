@@ -119,6 +119,7 @@ function WebinarPage() {
                         presenter={webinar.presenter}
                         youtubeLink={webinar.youtubeLink}
                         topic={webinar.topic}
+                        actualDate={webinar.actualDate}
                     />
                 )
             }

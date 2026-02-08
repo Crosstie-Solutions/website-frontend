@@ -162,6 +162,7 @@ function JobDetailsPage() {
       for admins only */}
       {
         me && me.role.toLowerCase().includes('admin') &&
+        
       <div className='flex flex-col items-start h-auto gap-2 pt-3 pb-5 mt-3 bg-white large:w-83vw small:w-90vw'>
         
         <h3 className='p-1 text-left text-white large:w-100 large:text-20px bg-crossLightPurple small:w-90vw'>Applicants({job && job.applicants.length})</h3>
@@ -196,6 +197,7 @@ function JobDetailsPage() {
                 <div className='w-10 small:hidden large:flex'>&#8358;{app.expectedSalary.toLocaleString()}</div>
                 <a 
                 href={app.resume}
+                target='_blank'
                 download="material.pdf"
                 className='flex items-center large:w-10 small:w-30 gap-0.5 text-13px bg-crossLightPurple text-white h-30px rounded justify-center cursor-pointer'><MdOutlineFileDownload className='text-17px'/> Download</a>
               </div>

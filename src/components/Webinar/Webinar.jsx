@@ -22,8 +22,6 @@ function Webinar(webinar) {
         setShowMore(!showMore)
     };
 
-    
-
   return (
     <div className='flex flex-col items-start h-auto bg-white border w-300px border-crossLightPurple rounded-10 text-15px'>
 
@@ -82,9 +80,9 @@ function Webinar(webinar) {
 
         <h4 className='font-semibold text-center w-100'>{topic}</h4>
 
-        
+        <p className='text-center text-11px w-100 text-crossTextGray'>{formatWebinarDate(actualDate)}</p>
 
-        <a href={`${youtubeLink}`} className='flex items-center self-center justify-center w-auto px-3 mt-2 border h-30px rounded-20 border-crossLightPurple text-crossLightPurple'>View Recording</a>
+        <a href={`${youtubeLink}`} target='_blank' className='flex items-center self-center justify-center w-auto px-3 mt-1 border h-30px rounded-20 border-crossLightPurple text-crossLightPurple'>View Recording</a>
       </div>}
 
 
