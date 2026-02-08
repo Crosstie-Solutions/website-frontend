@@ -39,7 +39,7 @@ function AdminWebinarAction(webinar) {
       setShowParticipants(!showParticipants);
     }
 
-
+    
     //to delete Webinar
     const [deleteWebinarMode, setDeleteWebinarMode] = useState(false)
 
@@ -135,10 +135,15 @@ function AdminWebinarAction(webinar) {
       {viewMode &&
       <div className={`flex flex-col items-center justify-center h-100vh px-2 bg-white large:py-2 small:py-2 large:gap-3 large:w-60vw rounded-10 small:w-90vw small:gap-1 large:mt-30 ${totalAttendees > 0 ? "small:mt-35" : "small:mt-10"}`}>
 
-        <h2 className='font-semibold text-20px'>{topic}</h2>
+       <div className='flex items-center justify-center gap-5 w-100'>
+         <h2 className='font-semibold text-20px'>{topic}</h2>
 
-     
-       <div className='flex flex-col h-100 gap-1 large:w-90 small:w-100'>
+        {totalAttendees > 0 &&
+         <button onClick={()=>toggleParticipants()} className='px-2 border rounded-lg text-crossDarkPurple border-crossDarkPurple py-0.5 text-11px font-semibold'>{showParticipants ? 'Hide' : 'See'} Participants</button>}
+       </div>
+
+     {!showParticipants &&
+       <div className='flex flex-col gap-1 h-100 large:w-90 small:w-100'>
         
         <h5 className='pl-2 font-semibold text-white large:w-100 bg-crossLightPurple small:w-100'>Webinar Details</h5>
         
@@ -157,11 +162,11 @@ function AdminWebinarAction(webinar) {
           <div>Webinar Status: <span className='font-semibold'>{past===true ? "Past" : "Upcoming"} Webinar</span></div>
           
         </div>
-       </div>
+       </div>}
 
        
-        {totalAttendees > 0 &&
-       <div className='flex flex-col h-100 gap-2 large:w-90 small:w-100 overflow-y-scroll'>
+        {totalAttendees > 0 && showParticipants &&
+       <div className='flex flex-col gap-2 p-2 pb-3 overflow-y-scroll border h-100 large:w-90 small:w-100'>
           <h5 className='pl-2 font-semibold text-white large:w-100 bg-crossLightPurple small:w-100'>Attendees({totalAttendees})</h5>
 
           <div className='flex flex-col items-start h-auto gap-2 w-100'>
