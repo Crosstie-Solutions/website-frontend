@@ -17,14 +17,13 @@ function AllProgramsTable() {
         handleProgramsPageChange,
         currentProgramsPage,
         totalProgramsPages,
-        
+        programsPerPage,
         programsSearchTerm,
         allPrograms,
         toggleAdminProgramAction,
         activeProgram
       } = useContext(CrossContext);
-    
-    
+
   return (
     <div className='flex flex-col items-center h-auto gap-2 w-100'>
       <div className='flex items-center justify-between h-auto gap-5 w-100'>
@@ -33,8 +32,6 @@ function AllProgramsTable() {
             <ProgramsFilter />
         </div>
       </div>
-      
-      
 
       <div className='flex flex-col h-auto gap-1 w-100 large:text-15px small:text-13px'>
       
@@ -51,7 +48,7 @@ function AllProgramsTable() {
         {
             currentPrograms && currentPrograms.map((program, i)=>
                 <div className={`flex items-center justify-between h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1`}>
-                    <div className='w-10'>{i + 1}.</div>
+                    <div className='w-10'>{(currentProgramsPage - 1) * programsPerPage + i + 1}.</div>
                     
                     <div className='flex flex-col gap-1 break-words large:w-20 small:w-20'>{program.title}
                         
@@ -66,7 +63,7 @@ function AllProgramsTable() {
                     
                     <div className='w-10'>{program.duration}</div>
 
-                    <div className={`w-20`}>{program.time}</div>
+                    <div className={`w-20 pr-1`}>{program.time}</div>
 
                     <div className={`w-20`}>{program.category}</div>
                     

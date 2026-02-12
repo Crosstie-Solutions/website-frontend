@@ -16,7 +16,7 @@ function CrossContextProvider(props) {
   // const baseUrl = "https://crosstie-backend.onrender.com";
   // const baseUrl = "https://server.crosstiesolutions.com";
 
-   //fetch logged in user
+  //fetch logged in user
   const [loadMe, setLoadMe] = useState(false);
   const [me, setMe] = useState(null);
   const fetchMe = async () => {
@@ -218,18 +218,15 @@ function CrossContextProvider(props) {
   const [fetchedPrograms, setFetchedPrograms] = useState();
   const [loadingAllPrograms, setLoadingAllPrograms] = useState(false);
 
-  const allPrograms = me && me.role === "admin" || me && me.role === "superAdmin"
-          ? fetchedPrograms
-          : fetchedPrograms && fetchedPrograms.filter((p) => !p.isPrivate);
+  const allPrograms =
+    (me && me.role === "admin") || (me && me.role === "superAdmin")
+      ? fetchedPrograms
+      : fetchedPrograms && fetchedPrograms.filter((p) => !p.isPrivate);
 
   const viewAllPrograms = async () => {
     try {
       setLoadingAllPrograms(true);
       const response = await axios.get(`${baseUrl}/api/program`);
-      // const sanitizedPrograms =
-      //   me && me.role === "admin" || me && me.role === "superAdmin"
-      //     ? response.data.data.data
-      //     : response.data.data.data.filter((p) => !p.isPrivate);
 
       setFetchedPrograms(response.data.data.data);
     } catch (dupError) {
@@ -478,7 +475,6 @@ function CrossContextProvider(props) {
     setLoginToken(token);
   };
 
-
   //fetch my webinars
   const [myWebinars, setMyWebinars] = useState(null);
 
@@ -567,7 +563,21 @@ function CrossContextProvider(props) {
       setLoadingAllCourseRegs(true);
       const response = await axios.get(`${baseUrl}/api/course-reg`);
 
-      setAllCourseRegs(response.data.data.data);
+      // setAllCourseRegs(response.data.data.data.sort(
+      //     (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+      //   ));
+      setAllCourseRegs(
+        [...response.data.data.data].sort((a, b) => {
+          const dateA = a.createdAt
+            ? new Date(a.createdAt).getTime()
+            : -Infinity;
+          const dateB = b.createdAt
+            ? new Date(b.createdAt).getTime()
+            : -Infinity;
+
+          return dateB - dateA;
+        }),
+      );
     } catch (dupError) {
       console.log("error fetching all course regs:", dupError);
     } finally {
@@ -2146,6 +2156,7 @@ function CrossContextProvider(props) {
   //value to export
   const contextValue = {
     hideAboutDD,
+    programsPerPage,
     showAboutDD,
     aboutDD,
     solutionsDD,
@@ -2221,6 +2232,7 @@ function CrossContextProvider(props) {
     viewAllCourseRegs,
     allCourseRegs,
     currentCourseRegs,
+    courseRegsPerPage,
     handleCourseRegsPageChange,
     currentCourseRegsPage,
     totalCourseRegsPages,

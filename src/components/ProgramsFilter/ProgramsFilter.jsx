@@ -18,14 +18,14 @@ function ProgramsFilter() {
           
           <input
             type="text"
-            placeholder="Search Courses"
+            placeholder="Search by program title or category..."
             value={programsSearchTerm}
             onChange={(e) => {
               setProgramsSearchTerm(e.target.value);
               setCurrentProgramsPage(1); // Reset to first page on search
               // setProgramsMonthSearchTerm("")
             }}
-            className="px-1 py-2 bg-transparent rounded large:w-90 focus:outline-none h-100 small:w-80"
+            className="px-1 py-2 bg-transparent rounded large:w-90 focus:outline-none h-100 small:w-80 placeholder:text-12px"
           />
 
           <IoIosSearch className='text-20px text-cribGray text-crossTextGray'/>
