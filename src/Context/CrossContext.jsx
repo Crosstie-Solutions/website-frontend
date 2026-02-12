@@ -9,12 +9,50 @@ export const CrossContext = createContext(null);
 
 function CrossContextProvider(props) {
   //new credentials
-  // const baseUrl = "http://127.0.0.1:8000";
+  const baseUrl = "http://127.0.0.1:8000";
   // const baseUrl = "https://crosstie-backend-1.onrender.com";
 
   // old credentials
   // const baseUrl = "https://crosstie-backend.onrender.com";
-  const baseUrl = "https://server.crosstiesolutions.com";
+  // const baseUrl = "https://server.crosstiesolutions.com";
+
+   //fetch logged in user
+  const [loadMe, setLoadMe] = useState(false);
+  const [me, setMe] = useState(null);
+  const fetchMe = async () => {
+    try {
+      setLoadMe(true);
+      const response = await axios.get(`${baseUrl}/api/users/owner/me`, {
+        headers: {
+          Authorization: `Bearer ${loginToken ? loginToken : ""}`,
+          withCredentials: true,
+        },
+      });
+
+      // console.log('fetchedUser:', response.data.data.data);
+      setMe(response.data.data.data);
+    } catch (error) {
+      console.error("Error fetching user data:", error.response.data.message);
+
+      if (error.response.data.message === "jwt expired") {
+        localStorage.clear();
+      }
+      if (
+        error.response.data.message ===
+        "Your token has expired, please log in again."
+      ) {
+        localStorage.clear();
+      }
+      if (
+        error.response.data.message ===
+        "User recently changed password! Please log in again."
+      ) {
+        localStorage.clear();
+      }
+    } finally {
+      setLoadMe(false);
+    }
+  };
 
   const copyToClipboard = (text) => {
     try {
@@ -177,15 +215,23 @@ function CrossContextProvider(props) {
     return `${day}-${month}-${year}`;
   }
 
-  const [allPrograms, setAllPrograms] = useState();
+  const [fetchedPrograms, setFetchedPrograms] = useState();
   const [loadingAllPrograms, setLoadingAllPrograms] = useState(false);
+
+  const allPrograms = me && me.role === "admin" || me && me.role === "superAdmin"
+          ? fetchedPrograms
+          : fetchedPrograms && fetchedPrograms.filter((p) => !p.isPrivate);
 
   const viewAllPrograms = async () => {
     try {
       setLoadingAllPrograms(true);
       const response = await axios.get(`${baseUrl}/api/program`);
+      // const sanitizedPrograms =
+      //   me && me.role === "admin" || me && me.role === "superAdmin"
+      //     ? response.data.data.data
+      //     : response.data.data.data.filter((p) => !p.isPrivate);
 
-      setAllPrograms(response.data.data.data);
+      setFetchedPrograms(response.data.data.data);
     } catch (dupError) {
       console.log("error fetching all programs:", dupError);
     } finally {
@@ -206,14 +252,14 @@ function CrossContextProvider(props) {
     allPrograms.filter((program) =>
       `${program.title} ${program.category}`
         .toLowerCase()
-        .includes(programsSearchTerm.toLowerCase())
+        .includes(programsSearchTerm.toLowerCase()),
     );
 
   //to filter programs based on month
   const open =
     allPrograms &&
     allPrograms.filter((program) =>
-      program.category.toLowerCase().includes("open")
+      program.category.toLowerCase().includes("open"),
     );
 
   //sort by index
@@ -225,7 +271,7 @@ function CrossContextProvider(props) {
     allPrograms.filter((program) =>
       `${program.title} ${program.category}`
         .toLowerCase()
-        .includes(headerProgramsSearchTerm.toLowerCase())
+        .includes(headerProgramsSearchTerm.toLowerCase()),
     );
 
   // // Calculate total pages
@@ -368,7 +414,7 @@ function CrossContextProvider(props) {
     upcomingWebinars.filter((webinar) =>
       `${webinar.topic} ${webinar.presenter}`
         .toLowerCase()
-        .includes(upcomingSearchTerm.toLowerCase())
+        .includes(upcomingSearchTerm.toLowerCase()),
     );
 
   // // Calculate total pages
@@ -402,7 +448,7 @@ function CrossContextProvider(props) {
     pastWebinars.filter((webinar) =>
       `${webinar.topic} ${webinar.presenter}`
         .toLowerCase()
-        .includes(pastSearchTerm.toLowerCase())
+        .includes(pastSearchTerm.toLowerCase()),
     );
 
   // Calculate total pages
@@ -432,47 +478,6 @@ function CrossContextProvider(props) {
     setLoginToken(token);
   };
 
-  //fetch logged in user
-  const [loadMe, setLoadMe] = useState(false);
-  const [me, setMe] = useState(null);
-
-  // console.log("me:", me);
-
-  // Function to fetch logged in user details
-  const fetchMe = async () => {
-    try {
-      setLoadMe(true);
-      const response = await axios.get(`${baseUrl}/api/users/owner/me`, {
-        headers: {
-          Authorization: `Bearer ${loginToken ? loginToken : ""}`,
-          withCredentials: true,
-        },
-      });
-
-      // console.log('fetchedUser:', response.data.data.data);
-      setMe(response.data.data.data);
-    } catch (error) {
-      console.error("Error fetching user data:", error.response.data.message);
-
-      if (error.response.data.message === "jwt expired") {
-        localStorage.clear();
-      }
-      if (
-        error.response.data.message ===
-        "Your token has expired, please log in again."
-      ) {
-        localStorage.clear();
-      }
-      if (
-        error.response.data.message ===
-        "User recently changed password! Please log in again."
-      ) {
-        localStorage.clear();
-      }
-    } finally {
-      setLoadMe(false);
-    }
-  };
 
   //fetch my webinars
   const [myWebinars, setMyWebinars] = useState(null);
@@ -481,7 +486,7 @@ function CrossContextProvider(props) {
   const fetchMyWebinars = async () => {
     try {
       const response = await axios.get(
-        `${baseUrl}/api/webinar/my-webinars/${me && me._id}`
+        `${baseUrl}/api/webinar/my-webinars/${me && me._id}`,
       );
 
       // console.log('fetchedUser:', response.data.data.data);
@@ -507,7 +512,7 @@ function CrossContextProvider(props) {
       setDeletingProgram(true);
 
       const response = await axios.delete(
-        `${baseUrl}/api/program/${programId && programId}`
+        `${baseUrl}/api/program/${programId && programId}`,
       );
 
       // console.log("program delete response:", response.data);
@@ -535,7 +540,7 @@ function CrossContextProvider(props) {
           headers: {
             Authorization: `Bearer ${loginToken ? loginToken : ""}`,
           },
-        }
+        },
       );
 
       if (response.data.status === "success") {
@@ -581,7 +586,7 @@ function CrossContextProvider(props) {
     allCourseRegs.filter((program) =>
       `${program.title} ${program.category}`
         .toLowerCase()
-        .includes(courseRegsSearchTerm.toLowerCase())
+        .includes(courseRegsSearchTerm.toLowerCase()),
     );
 
   // // Calculate total pages
@@ -651,7 +656,7 @@ function CrossContextProvider(props) {
   const allConsultingReqs =
     consultingReqs &&
     consultingReqs.sort(
-      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
     );
 
   const viewAllConsultingReqs = async () => {
@@ -678,7 +683,7 @@ function CrossContextProvider(props) {
     allConsultingReqs.filter((program) =>
       `${program.title} ${program.category}`
         .toLowerCase()
-        .includes(consultingReqsSearchTerm.toLowerCase())
+        .includes(consultingReqsSearchTerm.toLowerCase()),
     );
 
   // // Calculate total pages
@@ -695,7 +700,7 @@ function CrossContextProvider(props) {
     filteredConsultingReqs &&
     filteredConsultingReqs.slice(
       consultingReqsStartIndex,
-      consultingReqsEndIndex
+      consultingReqsEndIndex,
     );
 
   // Handle page change
@@ -729,7 +734,7 @@ function CrossContextProvider(props) {
       setDeletingWebinar(true);
 
       const response = await axios.delete(
-        `${baseUrl}/api/webinar/${webinarId && webinarId}`
+        `${baseUrl}/api/webinar/${webinarId && webinarId}`,
       );
 
       // console.log("Webinar delete response:", response.data);
@@ -783,7 +788,11 @@ function CrossContextProvider(props) {
       setLoadingAllEnquiries(true);
       const response = await axios.get(`${baseUrl}/api/enquiry`);
 
-      setAllEnquiries(response.data.data.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
+      setAllEnquiries(
+        response.data.data.data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+        ),
+      );
     } catch (dupError) {
       console.log("error fetching all enquiries:", dupError);
     } finally {
@@ -833,7 +842,11 @@ function CrossContextProvider(props) {
       setLoadingAllDownloads(true);
       const response = await axios.get(`${baseUrl}/api/download`);
 
-      setAllDownloads(response.data.data.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
+      setAllDownloads(
+        response.data.data.data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+        ),
+      );
     } catch (dupError) {
       console.log("error fetching all Downloads:", dupError);
     } finally {
@@ -945,7 +958,7 @@ function CrossContextProvider(props) {
       setDeletingTestimonial(true);
 
       const response = await axios.delete(
-        `${baseUrl}/api/testimonial/${testimonialId && testimonialId}`
+        `${baseUrl}/api/testimonial/${testimonialId && testimonialId}`,
       );
 
       // console.log("Testimonial delete response:", response.data);
@@ -1067,7 +1080,7 @@ function CrossContextProvider(props) {
     try {
       setLoadingAllHighDemands(true);
       const response = await axios.get(
-        `${baseUrl}/api/program/high-demand/all`
+        `${baseUrl}/api/program/high-demand/all`,
       );
 
       setAllHighDemands(response.data.data.data);
@@ -1118,7 +1131,7 @@ function CrossContextProvider(props) {
     allBlogPosts.filter((blogPost) =>
       `${blogPost.title}`
         .toLowerCase()
-        .includes(blogPostsSearchTerm.toLowerCase())
+        .includes(blogPostsSearchTerm.toLowerCase()),
     );
 
   // // Calculate total pages
@@ -1155,7 +1168,7 @@ function CrossContextProvider(props) {
       setDeletingBlogPost(true);
 
       const response = await axios.delete(
-        `${baseUrl}/api/blog/${postId && postId}`
+        `${baseUrl}/api/blog/${postId && postId}`,
       );
 
       console.log("Blog post delete response:", response.data);
@@ -1202,7 +1215,7 @@ function CrossContextProvider(props) {
   const filteredReports =
     allReports &&
     allReports.filter((Report) =>
-      `${Report.title}`.toLowerCase().includes(reportsSearchTerm.toLowerCase())
+      `${Report.title}`.toLowerCase().includes(reportsSearchTerm.toLowerCase()),
     );
 
   // // Calculate total pages
@@ -1239,7 +1252,7 @@ function CrossContextProvider(props) {
       setDeletingReport(true);
 
       const response = await axios.delete(
-        `${baseUrl}/api/report/${postId && postId}`
+        `${baseUrl}/api/report/${postId && postId}`,
       );
 
       // console.log("report delete response:", response.data);
@@ -1289,7 +1302,7 @@ function CrossContextProvider(props) {
     allUsers.filter((user) =>
       `${user.firstName} ${user.lastName} ${user.email} ${user.phone}`
         .toLowerCase()
-        .includes(usersSearchTerm.toLowerCase())
+        .includes(usersSearchTerm.toLowerCase()),
     );
 
   // Calculate total pages
@@ -1354,7 +1367,7 @@ function CrossContextProvider(props) {
     allPartners.filter((partner) =>
       `${partner.partnerName}`
         .toLowerCase()
-        .includes(partnersSearchTerm.toLowerCase())
+        .includes(partnersSearchTerm.toLowerCase()),
     );
 
   // Calculate total pages
@@ -1395,7 +1408,7 @@ function CrossContextProvider(props) {
       setLoadAllHighDemand(true);
 
       const response = await axios.get(
-        `${baseUrl}/api/program/high-demand/all`
+        `${baseUrl}/api/program/high-demand/all`,
       );
 
       setAllHighDemand(response.data.data.data);
@@ -1481,7 +1494,7 @@ function CrossContextProvider(props) {
     allEvents.filter((event) =>
       `${event.title} ${event.client}`
         .toLowerCase()
-        .includes(eventsSearchTerm.toLowerCase())
+        .includes(eventsSearchTerm.toLowerCase()),
     );
 
   // Calculate total pages
@@ -1562,7 +1575,7 @@ function CrossContextProvider(props) {
     allMembers.filter((member) =>
       `${member.name} ${member.role} ${member.tier}`
         .toLowerCase()
-        .includes(membersSearchTerm.toLowerCase())
+        .includes(membersSearchTerm.toLowerCase()),
     );
 
   // Calculate total pages
@@ -1637,7 +1650,7 @@ function CrossContextProvider(props) {
     allCaseStudies.filter((caseStudy) =>
       `${caseStudy.title} ${caseStudy.author}`
         .toLowerCase()
-        .includes(caseStudiesSearchTerm.toLowerCase())
+        .includes(caseStudiesSearchTerm.toLowerCase()),
     );
 
   // // Calculate total pages
@@ -1698,7 +1711,7 @@ function CrossContextProvider(props) {
   const filteredJobs =
     allJobs &&
     allJobs.filter((job) =>
-      `${job.role}`.toLowerCase().includes(jobsSearchTerm.toLowerCase())
+      `${job.role}`.toLowerCase().includes(jobsSearchTerm.toLowerCase()),
     );
 
   // // Calculate total pages
@@ -1734,7 +1747,7 @@ function CrossContextProvider(props) {
       setDeletingJob(true);
 
       const response = await axios.delete(
-        `${baseUrl}/api/job/${jobId && jobId}`
+        `${baseUrl}/api/job/${jobId && jobId}`,
       );
 
       // console.log("job delete response:", response.data);
@@ -1826,7 +1839,7 @@ function CrossContextProvider(props) {
     allProducts.filter((product) =>
       `${product.title} ${product.price}`
         .toLowerCase()
-        .includes(productsSearchTerm.toLowerCase())
+        .includes(productsSearchTerm.toLowerCase()),
     );
 
   // Calculate total pages
@@ -1865,7 +1878,7 @@ function CrossContextProvider(props) {
       setDeletingProduct(true);
 
       const response = await axios.delete(
-        `${baseUrl}/api/product/delete/${productId && productId}`
+        `${baseUrl}/api/product/delete/${productId && productId}`,
       );
 
       console.error("product delete response:", response.data);
@@ -2011,14 +2024,14 @@ function CrossContextProvider(props) {
     allWebinarFeedbacks.filter((webinar) =>
       `${webinar.webinarId.topic} ${webinar.webinarId.presenter}`
         .toLowerCase()
-        .includes(webinarFeedbackSearchTerm.toLowerCase())
+        .includes(webinarFeedbackSearchTerm.toLowerCase()),
     );
 
   const whatsAppMessage = encodeURIComponent(
-    "Hello Crosstie, I have questions about Crosstie EDGE."
+    "Hello Crosstie, I have questions about Crosstie EDGE.",
   );
   const emailMessage = encodeURIComponent(
-    "Hello Crosstie, I have questions about Crosstie EDGE."
+    "Hello Crosstie, I have questions about Crosstie EDGE.",
   );
 
   const subject = encodeURIComponent("Crosstie EDGE.");
@@ -2049,7 +2062,7 @@ function CrossContextProvider(props) {
         `${baseUrl}/api/users/first-time-buyer-status`,
         {
           email,
-        }
+        },
       );
 
       if (response.status === 200) {
@@ -2086,7 +2099,7 @@ function CrossContextProvider(props) {
         `${baseUrl}/api/users/general-discount-status`,
         {
           code,
-        }
+        },
       );
 
       if (response.status === 200) {
@@ -2182,7 +2195,10 @@ function CrossContextProvider(props) {
     filteredUpcoming,
     setPastSearchTerm,
     filteredPast,
-    me, membersSearchTerm, setMembersSearchTerm, setCurrentMembersPage,
+    me,
+    membersSearchTerm,
+    setMembersSearchTerm,
+    setCurrentMembersPage,
     baseUrl,
     loginToken,
     loading,
@@ -2208,7 +2224,8 @@ function CrossContextProvider(props) {
     handleCourseRegsPageChange,
     currentCourseRegsPage,
     totalCourseRegsPages,
-    courseRegsSearchTerm, fetchMembers,
+    courseRegsSearchTerm,
+    fetchMembers,
     allCourseRegs,
     activeCourseReg,
     toggleAdminCourseRegAction,
@@ -2220,7 +2237,9 @@ function CrossContextProvider(props) {
     handleUpcomingPageChange,
     totalUpcomingPages,
     currentUpcomingPage,
-    currentPast, deletingMember, deleteMember,
+    currentPast,
+    deletingMember,
+    deleteMember,
     handlePastPageChange,
     currentPastPage,
     totalPastPages,

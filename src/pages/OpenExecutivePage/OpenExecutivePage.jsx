@@ -19,8 +19,6 @@ import OpenProgramsFilter from "../../components/OpenProgramsFilter/OpenPrograms
 
 function OpenExecutivePage() {
 
-  
-
   const {
      loadingAllPrograms,
 

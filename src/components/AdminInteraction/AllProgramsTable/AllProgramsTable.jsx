@@ -11,9 +11,6 @@ import ProgramsFilter from '../../ProgramsFilter/ProgramsFilter';
 
 
 function AllProgramsTable() {
-
-    // const { currentProducts, handleProductsPageChange, currentProductsPage, totalProductsPages, toggleAdminProductAction, activeProduct, allProducts} = useContext(QxContext);
-
     
     const {
         currentPrograms,
@@ -82,6 +79,7 @@ function AllProgramsTable() {
                       programId={program.id}
                       title={program.title}
                       slug={program.slug}
+                      isPrivate={program.isPrivate}
                       />
                     </div>)}
                 </div>
