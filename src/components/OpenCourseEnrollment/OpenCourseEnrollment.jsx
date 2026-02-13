@@ -138,16 +138,18 @@ function OpenCourseEnrollment() {
             <GiDuration className="text-20px text-crossLightPurple" />
             {program && program.duration}
           </div>
+           {program && program.physicalCost !==0 &&
 
           <div className="flex items-center justify-start gap-1 border rounded h-30px px-0.5">
             <TbMoneybag className="text-20px text-crossLightPurple" /> Physical -
             &#8358;{program && program.physicalCost.toLocaleString()}/participant
-          </div>
+          </div>}
 
+             {program && program.onlineCost !==0 &&
           <div className="flex items-center justify-start gap-1 border rounded h-30px px-0.5">
             <TbMoneybag className="text-20px text-crossLightPurple" /> Online -
             &#8358;{program && program.onlineCost.toLocaleString()}/participant
-          </div>
+          </div>}
         </div>
         
         
