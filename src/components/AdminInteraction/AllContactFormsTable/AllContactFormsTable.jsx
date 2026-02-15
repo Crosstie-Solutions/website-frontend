@@ -5,6 +5,10 @@ import { CgChevronLeft } from "react-icons/cg";
 import { CrossContext } from '../../../Context/CrossContext';
 import AdminEnquiriesAction from '../AdminEnquiriesAction/AdminEnquiriesAction';
 import AdminContactFormAction from '../AdminContactFormAction/AdminContactFormAction';
+import { RiDeleteBin6Line } from 'react-icons/ri';
+import { useState } from 'react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
 
@@ -19,14 +23,61 @@ function AllContactFormsTable() {
         totalContactFormsPages,
 
 
-          activeContactForm, toggleAdminContactFormAction, viewAllContactForms, allContactForms, loadingAllContactForms
-        
+          activeContactForm, toggleAdminContactFormAction, viewAllContactForms, allContactForms, loadingAllContactForms,
+        baseUrl,
       } = useContext(CrossContext);
 
       
       const sortedContactForms = currentContactForms.sort(
   (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
 );
+
+ const formatEnquiryDate = (dateString) => {
+  const date = new Date(dateString);
+
+  const day = date.getDate();
+  const month = date.toLocaleString("en-GB", { month: "long" });
+  const year = date.getFullYear();
+
+  const getOrdinalSuffix = (n) => {
+    if (n > 3 && n < 21) return "th";
+    switch (n % 10) {
+      case 1: return "st";
+      case 2: return "nd";
+      case 3: return "rd";
+      default: return "th";
+    }
+  };
+
+  // Format time
+  let hours = date.getHours();
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+
+  const period = hours >= 12 ? "pm" : "am";
+
+  hours = hours % 12 || 12; // convert 0 -> 12
+  hours = hours.toString().padStart(2, "0");
+
+  return `${day}${getOrdinalSuffix(day)} ${month} ${year} - ${hours}:${minutes}${period}`;
+};
+
+ const [deleting, setDeleting] = useState(false);
+
+const deleteContactForm = async (itemId) => {
+      try {
+        setDeleting(true);
+        const response = await axios.delete(`${baseUrl}/api/contact/delete/${itemId}`);
+        
+        if(response.status ===200){
+          toast.success('Record deleted');
+          viewAllContactForms()
+        }
+      } catch (dupError) {
+        console.log("error deleting contact form:", dupError);
+      } finally {
+        setDeleting(false);
+      }
+    };
     
     
   return (
@@ -48,17 +99,17 @@ function AllContactFormsTable() {
             <div className='flex justify-start w-20 text-vogueRed'>Email</div>
             <div className='flex justify-start w-20'>Phone</div>
             <div className='flex justify-start w-20'>Service</div>
-            <div className='flex justify-start w-20'>Message</div>
+            <div className='flex justify-start w-20'>Date/Time</div>
         </div>
 
         {
             sortedContactForms && sortedContactForms.map((enquiry, i)=>
-                <div className={`flex items-center justify-start h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-1`}
+                <div className={`flex items-center justify-start h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} p-1 py-1 gap-1`}
                 key={i}
                 >
-                    <div>{i + 1}.</div>
+                    <div>{(currentContactFormsPage - 1) * 10 + i + 1}.</div>
                     
-                    <div className='flex flex-col gap-1 break-words large:w-20 small:w-20'>{enquiry.fullName} 
+                    <div className='w-20'>{enquiry.fullName} 
                         
                         <div  
                         className='flex items-center justify-center h-auto text-white rounded cursor-pointer w-60px bg-crossLightPurple'
@@ -66,13 +117,21 @@ function AllContactFormsTable() {
                         >View</div>
                     </div>
                     
-                    <div className={`small:right-1 text-vogueRed large:w-20 small:hidden large:flex justify-start`}>{enquiry.email.slice(0, 10)}...</div>
+                    <div className={`w-20`}>{enquiry.email.slice(0, 10)}...</div>
 
-                    <div className={`small:right-1 large:w-20 small:hidden large:flex justify-start`}>{enquiry.phone}</div>
+                    <div className={`w-20`}>{enquiry.phone}</div>
                     
-                    <div className='flex justify-start small:right-2 large:w-20'>{enquiry.service}</div>
+                    <div className='w-20'>{enquiry.service}</div>
                     
-                    <div className='flex justify-start text-center small:right-1 large:w-20'>{enquiry.message.slice(0, 80)}...</div>
+                    <div className='w-20'>{formatEnquiryDate(enquiry.createdAt)}</div>
+                    <button className="cursor-pointer"
+                      onClick={()=>{
+                        deleteContactForm(enquiry._id)
+                      }}
+                      >
+                        {deleting ? <div className="border-t-4 border-r-4 rounded-full border-crossLightPurple w-20px h-20px animate-spin"></div> :
+                        <RiDeleteBin6Line className="text-vogueRed" />}
+                      </button>
                     
                   
                     

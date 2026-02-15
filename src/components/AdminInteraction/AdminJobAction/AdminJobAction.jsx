@@ -3,20 +3,21 @@ import { VscClose } from "react-icons/vsc";
 import { Link } from 'react-router-dom';
 import { CrossContext } from '../../../Context/CrossContext';
 import { DeletingBtn } from '../../LoadingBtn/LoadingBtn';
-
-
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
 function AdminJobAction(job) {
 
-    const { jobId, role } = job;
+    const { jobId, role, expired } = job;
 
     
     const { 
       toggleJob,
       deleteJob,
       deletingJob,
-      
+      viewAllJobs,
+      baseUrl
     } = useContext(CrossContext);
 
 
@@ -27,6 +28,26 @@ function AdminJobAction(job) {
       setDeleteJobMode(!deleteJobMode);
     }
 
+      const [marking, setMarking] = useState(false);
+    
+      const toggleProgramPrivacy = async () => {
+      try {
+          setMarking(true);
+        const response = await axios.patch(`${baseUrl}/api/job/validity/${jobId}`,
+          {}
+        );
+    
+        if(response.status === 200){
+          toast.success(response.data.message);
+          viewAllJobs();
+        }
+    
+      } catch (error) {
+        console.error(error.response?.data || error.message);
+      }finally{
+    setMarking(false);
+      }
+    };
 
     
   return (
@@ -38,6 +59,23 @@ function AdminJobAction(job) {
 
       {!deleteJobMode &&
       <div className='flex flex-col items-center justify-center h-auto px-2 py-3 bg-white large:gap-2 large:w-30vw rounded-10 small:w-90vw small:gap-1'>
+        <div className="flex flex-col items-end h-auto gap-1 w-100">
+            <span className="text-crossBlue text-13px">Mark as expired</span>
+            <button
+              onClick={toggleProgramPrivacy}
+              disabled={marking}
+              className={`h-20px w-50px rounded-full transition-all duration-300 ${
+                expired ? "bg-[#7232A1]" : "bg-gray-600"
+              } ${marking ? "opacity-50 cursor-not-allowed" : ""} flex items-center`}
+              
+            >
+              <span
+                className={`h-15px w-15px rounded-full bg-white shadow-md transition-transform duration-300 ${
+                  expired ? "translate-x-3" : "translate-x-0.5"
+                }`}
+              />
+            </button>
+          </div>
        
         <Link 
         // to='/' 

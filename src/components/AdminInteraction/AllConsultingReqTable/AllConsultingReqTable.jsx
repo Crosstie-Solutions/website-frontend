@@ -29,7 +29,7 @@ function AllConsultingReqTable() {
     <div className="flex flex-col items-center h-auto gap-2 w-100">
       <div className="flex items-center h-auto gap-5 w-100">
         <h4 className="self-start text-crossLightPurple small:hidden large:block">
-          Course Registrations({allConsultingReqs && allConsultingReqs.length})
+          Consulting Request({allConsultingReqs && allConsultingReqs.length})
         </h4>
         {/* <div className='large:w-70 h-40px small:w-100'>
             <AdminProductsFilter />
@@ -42,7 +42,7 @@ function AllConsultingReqTable() {
           <div className="w-20">Name</div>
           <div className="w-20">Service</div>
           <div className="w-20">Phone</div>
-          <div className="text-vogueRed w-20">Email</div>
+          <div className="w-20 text-vogueRed">Email</div>
           <div className="w-20">Organization</div>
         </div>
 
@@ -53,7 +53,7 @@ function AllConsultingReqTable() {
                 i % 2 === 0 ? "bg-gray-100" : "bg-white"
               } pl-1 py-1`}
             >
-              <div>{i + 1}.</div>
+              <div>{(currentConsultingReqsPage - 1) * 10 + i + 1}.</div>
               <div className="flex flex-col gap-1 break-words large:w-15 small:w-20">
                 {reg.fullName}
 
@@ -94,6 +94,7 @@ function AllConsultingReqTable() {
                       email={reg.email}
                       phone={reg.phone}
                       message={reg.message}
+                      createdAt={reg.createdAt}
                       />
                     </div>)}
             </div>

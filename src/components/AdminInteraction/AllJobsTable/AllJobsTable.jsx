@@ -79,6 +79,7 @@ function AllJobsTable() {
                       <AdminJobAction 
                       jobId={job._id}
                       role={job.role}
+                      expired={job.expired}
                       />
                     </div>)}
               </div>

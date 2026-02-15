@@ -9,16 +9,11 @@ function AllEnquiriesTable() {
   // const { currentProducts, handleProductsPageChange, currentProductsPage, totalProductsPages, toggleAdminProductAction, activeProduct, allProducts} = useContext(QxContext);
 
   const {
-    currentPrograms,
-    handleProgramsPageChange,
-    currentProgramsPage,
-    totalProgramsPages,
 
     allEnquiries,
 
     activeEnquiry,
 
-    activeCourseReg,
     toggleAdminEnquiryAction,
 
     currentEnquiries,
@@ -87,7 +82,7 @@ function AllEnquiriesTable() {
             <div
               className={`flex items-center justify-between h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-2`}
             >
-              <div>{i + 1}.</div>
+              <div>{(currentEnquiriesPage - 1) * 10 + i + 1}.</div>
 
               <div className="flex flex-col gap-1 break-words large:w-20 small:w-20">
                 {enquiry.fullName}

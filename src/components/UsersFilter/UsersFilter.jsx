@@ -13,7 +13,7 @@ function UsersFilter() {
         <IoIosSearch className='text-20px text-cribGray'/>
         <input
           type="text"
-          placeholder="Search by name, email, phone..."
+          placeholder="Search by name, email, phone or role"
           value={usersSearchTerm}
           onChange={(e) => {
             setUsersSearchTerm(e.target.value);

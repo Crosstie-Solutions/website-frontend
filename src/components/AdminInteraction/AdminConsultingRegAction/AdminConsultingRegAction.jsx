@@ -7,14 +7,42 @@ import { CrossContext } from '../../../Context/CrossContext';
 
 function AdminConsultingRegAction(reg) {
 
-    const { regNo, regEnd, regId, service, nameOfOrg, role, fullName, email, phone, message } = reg;
+    const { regNo, regEnd, regId, service, nameOfOrg, role, fullName, email, phone, message, createdAt } = reg;
 
     
     const {  
        toggleAdminConsultingReqAction
     } = useContext(CrossContext);
 
+      const formatDate = (dateString) => {
+    if(!dateString) return 'Not available';
+  const date = new Date(dateString);
 
+  const day = date.getDate();
+  const month = date.toLocaleString("en-GB", { month: "long" });
+  const year = date.getFullYear();
+
+  const getOrdinalSuffix = (n) => {
+    if (n > 3 && n < 21) return "th";
+    switch (n % 10) {
+      case 1: return "st";
+      case 2: return "nd";
+      case 3: return "rd";
+      default: return "th";
+    }
+  };
+
+  // Format time
+  let hours = date.getHours();
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+
+  const period = hours >= 12 ? "pm" : "am";
+
+  hours = hours % 12 || 12; // convert 0 -> 12
+  hours = hours.toString().padStart(2, "0");
+
+  return `${day}${getOrdinalSuffix(day)} ${month} ${year} - ${hours}:${minutes}${period}`;
+};
     
   return (
     <div className='absolute top-0 left-0 z-20 flex flex-col items-center justify-center h-auto py-10 w-100vw bg-overlay'>
@@ -48,6 +76,7 @@ function AdminConsultingRegAction(reg) {
           <div>Phone number: <span className='font-semibold'>{phone}</span></div>
           <div>Email: <span className='font-semibold'>{email}</span></div>
           <div>Message: <span className='font-semibold'>{message}</span></div>
+          <div>Date/Time: <span className='font-semibold'>{formatDate(createdAt)}</span></div>
         </div>
        </div>
        

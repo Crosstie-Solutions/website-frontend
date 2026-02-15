@@ -8,9 +8,6 @@ import AdminWebinarAction from '../AdminWebinarAction/AdminWebinarAction';
 // import AdminProgramAction from '../AdminProgramAction/AdminProgramAction';
 
 
-
-
-
 function UpcomingWebinarsTable() {
 
     
@@ -40,20 +37,20 @@ function UpcomingWebinarsTable() {
 
       <div className='flex flex-col h-auto gap-1 w-100 large:text-15px small:text-13px'>
       
-        <div className='flex justify-between h-auto border-b border-gray-200 large:font-semibold small:font-semibold w-100'>
+        <div className='flex justify-start h-auto gap-1 border-b border-gray-200 large:font-semibold small:font-semibold w-100'>
             <div>S/N</div>
-            <div className='large:relative large:right-3'>Topic</div>
-            <div className='large:relative large:right-2'>Date</div>
-            <div className='large:relative large:right-2'>Time</div>
-            <div className='large:relative large:right-2'>Duration</div>
-            <div className='large:relative large:right-3'>Presenter</div>
+            <div className='w-20'>Topic</div>
+            <div className='w-20'>Date</div>
+            <div className='w-20'>Time</div>
+            <div className='w-20'>Duration</div>
+            <div className='w-20'>Presenter</div>
         </div>
 
         {
             currentUpcoming && currentUpcoming.map((webinar, i)=>
-                <div className={`flex items-center justify-between h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1`}>
-                    <div>{i + 1}.</div>
-                    <div className='flex flex-col gap-1 break-words large:w-10 small:w-20'>{webinar.topic}
+                <div className={`flex items-center justify-start h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-1`}>
+                    <div>{(currentUpcomingPage - 1) * 10 + i + 1}.</div>
+                    <div className='flex flex-col w-20 gap-1 break-words'>{webinar.topic}
                         
                         <div  
                         className='flex items-center justify-center h-auto text-white rounded cursor-pointer w-60px bg-crossLightPurple'
@@ -61,12 +58,11 @@ function UpcomingWebinarsTable() {
                         >Action</div>
                     </div>
                     
-                    <div className='relative large:right-2 small:right-2'>{webinar.date}</div>
-                    <div className='relative large:right-2 small:right-1'>{webinar.time}</div>
+                    <div className='w-20'>{webinar.date}</div>
+                    <div className='w-20'>{webinar.time}</div>
                     
-                    <div className={`relative large:right-3 small:right-1`}>{webinar.duration}</div>
-
-                    <div className={`relative large:right-3 small:right-1`}>{webinar.presenter}</div>
+                    <div className='w-20'>{webinar.duration}</div>
+                    <div className='w-20'>{webinar.presenter}</div>
                     
                        
                     {activeWebinar === i && (

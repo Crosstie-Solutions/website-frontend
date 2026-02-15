@@ -16,6 +16,36 @@ function AllCourseRegsTable() {
     toggleAdminCourseRegAction,
   } = useContext(CrossContext);
 
+   const formatEnquiryDate = (dateString) => {
+    if(!dateString) return 'Not available';
+  const date = new Date(dateString);
+
+  const day = date.getDate();
+  const month = date.toLocaleString("en-GB", { month: "long" });
+  const year = date.getFullYear();
+
+  const getOrdinalSuffix = (n) => {
+    if (n > 3 && n < 21) return "th";
+    switch (n % 10) {
+      case 1: return "st";
+      case 2: return "nd";
+      case 3: return "rd";
+      default: return "th";
+    }
+  };
+
+  // Format time
+  let hours = date.getHours();
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+
+  const period = hours >= 12 ? "pm" : "am";
+
+  hours = hours % 12 || 12; // convert 0 -> 12
+  hours = hours.toString().padStart(2, "0");
+
+  return `${day}${getOrdinalSuffix(day)} ${month} ${year} - ${hours}:${minutes}${period}`;
+};
+
 
   return (
     <div className="flex flex-col items-center h-auto gap-2 w-100">
@@ -27,15 +57,15 @@ function AllCourseRegsTable() {
 
       <div className="flex flex-col h-auto gap-1 w-100 large:text-15px small:text-13px">
         
-        <div className="flex justify-start h-auto border-b border-gray-200 large:font-semibold small:font-semibold w-100 gap-3">
+        <div className="flex justify-start h-auto gap-3 border-b border-gray-200 large:font-semibold small:font-semibold w-100">
           <div className='w-20px'>S/N</div>
           <div className="w-20">Name</div>
           <div className="w-20">Course</div>
           <div className="w-20">Phone</div>
-          <div className="text-vogueRed w-20">
+          <div className="w-20 text-vogueRed">
             Email
           </div>
-          <div className="w-20">Location</div>
+          <div className="w-20">Date/Time</div>
         </div>
 
         {currentCourseRegs &&
@@ -44,7 +74,7 @@ function AllCourseRegsTable() {
               className={`flex items-center justify-start h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-3`}
             >
               <div className='w-20px'>{(currentCourseRegsPage - 1) * courseRegsPerPage + i + 1}.</div>
-              <div className="flex flex-col gap-1 break-words w-20">
+              <div className="flex flex-col w-20 gap-1 break-words">
                 {reg.fullName}
                 <div
                   className="flex items-center justify-center h-auto text-white rounded cursor-pointer w-60px bg-crossLightPurple"
@@ -69,7 +99,7 @@ function AllCourseRegsTable() {
               </div>
 
               <div className={`w-20`}>
-                {reg.location}
+                {formatEnquiryDate(reg.createdAt)}
               </div>
 
               {activeCourseReg === i && (

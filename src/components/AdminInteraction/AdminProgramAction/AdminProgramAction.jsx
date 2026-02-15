@@ -19,12 +19,7 @@ function AdminProgramAction(program) {
     setDeleteProgramMode(!deleteProgramMode);
   };
 
-  const [privacy, setPrivacy] = useState(false);
   const [marking, setMarking] = useState(false);
-  
-  const togglePrivacy = () => {
-    setPrivacy(!privacy);
-  };
 
   const toggleProgramPrivacy = async () => {
   try {
@@ -56,8 +51,9 @@ setMarking(false);
 
       {!deleteProgramMode && (
         <div className="flex flex-col items-center justify-center h-auto px-2 py-3 bg-white large:gap-2 large:w-30vw rounded-10 small:w-90vw small:gap-1">
-          <div className="w-100 flex items-end h-auto flex-col gap-1">
-            <span className="text-crossBlue text-13px">Make {isPrivate ? 'public' : 'private'}</span>
+          
+          <div className="flex flex-col items-end h-auto gap-1 w-100">
+            <span className="text-crossBlue text-13px">Make private</span>
             <button
               onClick={toggleProgramPrivacy}
               disabled={marking}

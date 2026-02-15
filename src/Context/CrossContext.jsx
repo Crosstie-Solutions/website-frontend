@@ -897,11 +897,35 @@ function CrossContextProvider(props) {
       setLoadingAllNewsletters(true);
       const response = await axios.get(`${baseUrl}/api/newsletter`);
 
-      setAllNewsletters(response.data.data.data);
+      setAllNewsletters(response.data.data.data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+        ));
     } catch (dupError) {
       console.log("error fetching all newsletters:", dupError);
     } finally {
       setLoadingAllNewsletters(false);
+    }
+  };
+
+  //for admin to filter Newsletters
+  const [currentNewslettersPage, setCurrentNewslettersPage] = useState(1);
+  const newslettersPerPage = 10;
+
+  // // Calculate total pages
+  const totalNewslettersPages =
+    allNewsletters && Math.ceil(allNewsletters.length / newslettersPerPage);
+
+  // Get requests for the current page
+  const newslettersStartIndex = (currentNewslettersPage - 1) * newslettersPerPage;
+  const newslettersEndIndex = newslettersStartIndex + newslettersPerPage;
+  const currentNewsletters =
+    allNewsletters && allNewsletters.slice(newslettersStartIndex, newslettersEndIndex);
+
+  // Handle page change
+  const handleNewslettersPageChange = (page) => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    if (page > 0 && page <= totalNewslettersPages) {
+      setCurrentNewslettersPage(page);
     }
   };
 
@@ -1310,7 +1334,7 @@ function CrossContextProvider(props) {
   const filteredUsers =
     allUsers &&
     allUsers.filter((user) =>
-      `${user.firstName} ${user.lastName} ${user.email} ${user.phone}`
+      `${user.firstName} ${user.lastName} ${user.email} ${user.phone} ${user.role}`
         .toLowerCase()
         .includes(usersSearchTerm.toLowerCase()),
     );
@@ -2157,8 +2181,11 @@ function CrossContextProvider(props) {
   const contextValue = {
     hideAboutDD,
     programsPerPage,
-    showAboutDD,
-    aboutDD,
+    showAboutDD, usersPerPage,
+    aboutDD, currentNewsletters,
+    handleNewslettersPageChange,
+    currentNewslettersPage,
+    totalNewslettersPages,
     solutionsDD,
     showSolutionsDD,
     hideSolutionsDD,

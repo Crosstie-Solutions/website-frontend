@@ -61,12 +61,11 @@ function AllMembersTable() {
                 key={i}
                 className={`${i % 2 === 0 ? "bg-gray-100" : "bg-white"} flex items-center w-100 h-auto gap-2`}
               >
-                <div className="flex justify-start w-10">{i + 1}.</div>
+                <div className="flex justify-start w-10">{(currentMembersPage - 1) * 10 + i + 1}.</div>
                 <div className={`flex flex-col gap-0.5 w-20 break-words items-start`}>
                   {event.name}
                   
-                 
-                  <div  
+                <div  
                     className='flex items-center justify-center text-white rounded cursor-pointer h-30px w-100px bg-crossLightPurple text-11px'
                     onClick={()=>toggleMember(i)}
                     >Action</div>

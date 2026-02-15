@@ -32,6 +32,7 @@ function CareersPage() {
                 budget={job.budget}
                 recruitmentProcess={job.recruitmentProcess}
                 createdAt={job.createdAt}
+                expired={job.expired}
                 jobId={job._id}
                 />
             )

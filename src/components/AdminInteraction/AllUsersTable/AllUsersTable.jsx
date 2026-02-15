@@ -8,11 +8,7 @@ import UsersFilter from "../../UsersFilter/UsersFilter";
 import RemoveAdmin from "../../RemoveAdmin/RemoveAdmin";
 
 
-
-
-function AllUsersTable() {
-
-  
+function AllUsersTable() {  
   const {
     loadUsers,
     currentUsers,
@@ -22,12 +18,11 @@ function AllUsersTable() {
     exportUserData,
     allUsers,
     me,
-
+    usersPerPage,
     activeAdmin, toggleRemoveAdmin
   } = useContext(CrossContext);
 
   
-
   return (
     <div className="flex flex-col items-center justify-center h-auto gap-3 py-3 large:px-2 bg-vogueWhite w-100 rounded-10 large:text-15px small:text-10px">
 
@@ -55,7 +50,7 @@ function AllUsersTable() {
                 key={i}
                 className={`${i % 2 === 0 ? "bg-gray-100" : "bg-white"} flex gap-1`}
               >
-                <div className="w-auto">{i + 1}.</div>
+                <div className="w-auto">{(currentUsersPage - 1) * usersPerPage + i + 1}.</div>
                 <div className={`flex flex-col gap-0.5 w-20`}>
                   {user.firstName} {user.lastName}
                   

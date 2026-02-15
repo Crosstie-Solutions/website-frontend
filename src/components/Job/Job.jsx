@@ -6,7 +6,7 @@ import { CrossContext } from '../../Context/CrossContext';
 
 function Job(job) {
 
-    const {role, mode, location, type, description, responsibilites, requirements, benefits, budget, recruitmentProcess, createdAt, jobId} = job;
+    const {role, mode, location, type, description, responsibilites, requirements, benefits, budget, recruitmentProcess, createdAt, jobId, expired} = job;
 
     
     const {timeAgo} = useContext(CrossContext);
@@ -16,7 +16,7 @@ function Job(job) {
   return (
     <Link 
     to={`/careers/job/${jobId}`}
-    className='flex justify-start h-auto gap-5 py-3 bg-white border rounded large:px-2 large:items-center large:flex-row w-100 hover:bg-purple-50 small:flex-col small:items-start small:px-1'>
+    className='relative flex justify-start h-auto gap-5 py-3 bg-white border rounded large:px-2 large:items-center large:flex-row w-100 hover:bg-purple-50 small:flex-col small:items-start small:px-1'>
         
       <img src={PHOTOS.logo} alt="logo" className='w-auto h-20px'/>
 
@@ -36,6 +36,8 @@ function Job(job) {
         
         <div className='large:text-15px text-crossTextGray small:text-13px'>Posted {timeAgo(createdAt)}</div>
       </div>
+        {expired &&
+      <span className='absolute px-1 py-0.5 bg-gray-200 border rounded-3xl top-1 right-1 text-crossLightPurple'>Expire</span>}
     </Link>
   )
 }

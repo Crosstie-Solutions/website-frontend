@@ -38,7 +38,8 @@ function AllProgramsTable() {
         <div className='flex justify-between h-auto border-b border-gray-200 large:font-semibold small:font-semibold w-100'>
             <div className='w-10'>S/N</div>
             <div className='w-20'>Title</div>
-            <div className='w-20'>Mode</div>
+            <div className='w-10'>Mode</div>
+            <div className='w-10'>Reg.</div>
             <div className='w-10'>Duration</div>
            
             <div className='w-20'>Time</div>
@@ -59,7 +60,8 @@ function AllProgramsTable() {
                         >Action</div>
                     </div>
                     
-                    <div className='w-20'>{program.mode}</div>
+                    <div className='w-10 break-words'>{program.mode}</div>
+                    <div className='w-10'>{program.registrationCount}</div>
                     
                     <div className='w-10'>{program.duration}</div>
 

@@ -72,6 +72,7 @@ function JobDetailsPage() {
             budget={job && job.budget}
             recruitmentProcess={job && job.recruitmentProcess}
             createdAt={job && job.createdAt}
+            expired={job && job.expired}
             jobId={job && job._id}
         />
       </div>}
@@ -85,7 +86,8 @@ function JobDetailsPage() {
             <div className='flex items-center justify-between h-auto large:w-30 '>
                 <h3 className='font-semibold text-17px'>Description</h3>
 
-                <button className='flex items-center justify-center w-auto px-2 text-white rounded h-40px bg-crossLightPurple'
+                <button className='flex items-center justify-center w-auto px-2 text-white rounded h-40px bg-crossLightPurple disabled:bg-gray-400 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:bg-gray-400'
+                disabled={job && job.expired}
                 onClick={applyNow}
                 >Apply Now</button>
                 
@@ -138,8 +140,9 @@ function JobDetailsPage() {
             </ul>
         </div>
 
-        <button className='flex items-center justify-center w-auto px-2 text-white rounded h-40px bg-crossLightPurple'
+        <button className='flex items-center justify-center w-auto px-2 text-white rounded h-40px bg-crossLightPurple disabled:bg-gray-400 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:bg-gray-400'
         onClick={applyNow}
+         disabled={job && job.expired}
         >Apply Now</button>
 
         
