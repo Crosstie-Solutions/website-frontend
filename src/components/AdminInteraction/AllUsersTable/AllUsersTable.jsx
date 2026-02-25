@@ -48,11 +48,11 @@ function AllUsersTable() {
       </div>
       
       <div className="flex flex-col h-auto gap-1 w-100">
-        <div className="flex flex-row gap-1 font-bold border-b border-blue-300 text-crossBlue">
+        <div className="flex flex-row justify-between gap-1 font-bold border-b border-blue-300 text-crossBlue">
           <div className="w-auto">S/N</div>
           <div className="w-20">Name</div>
           <div className="w-20">Phone</div>
-          <div className="w-40">Email</div>
+          <div className="w-20">Email</div>
           <div className="w-10">Role</div>
           <div className="w-10">Date</div>
         </div>
@@ -62,7 +62,7 @@ function AllUsersTable() {
             return (
               <div
                 key={i}
-                className={`${i % 2 === 0 ? "bg-gray-100" : "bg-white"} flex gap-1`}
+                className={`${i % 2 === 0 ? "bg-gray-100" : "bg-white"} flex gap-1 flex-row justify-between`}
               >
                 <div className="w-auto">{(currentUsersPage - 1) * usersPerPage + i + 1}.</div>
                 <div className={`flex flex-col gap-0.5 w-20`}>
@@ -83,7 +83,7 @@ function AllUsersTable() {
                 </div>
 
                 <div className="w-20">{user.phone}</div>
-                <div className="w-40 break-words">{user.email}</div>
+                <div className="w-20 break-words">{user.email}</div>
 
                 <div className={`text-black w-10`}>{user.role}</div>
                 <div className={`text-black w-10`}>{formatDate(user.createdAt)}</div>
