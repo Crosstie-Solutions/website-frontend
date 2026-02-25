@@ -32,7 +32,6 @@ function OpenExecutivePage() {
   const title = allCourses && allCourses.length > 0 && allCourses[0].courseTitle;
 
   
-
   const [filteredPrograms, setFilteredPrograms] = useState(allOpenPrograms);
 
 
@@ -65,7 +64,6 @@ function OpenExecutivePage() {
         buttonText="Download OEP Course Brochure"
         line1= "Adaptable. Collaborative. Designed for Growth."
         line2= "Flexible training options for small and medium-sized organisations with limited staff in specific roles, as well as professionals seeking to learn and network with peers across their industry."
-
       />
 
       <div className="flex flex-col items-center h-auto w-100">

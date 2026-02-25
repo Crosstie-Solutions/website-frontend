@@ -21,8 +21,8 @@ function OpenCourseEnrollment() {
 
   //state for enrollment
   const [enrollmentData, setEnrollmentData] =useState({
-    
     program: "",
+    programId: program && program._id,
     nameOfOrg: "",
     mode: "",
     duration: "",
@@ -35,17 +35,13 @@ function OpenCourseEnrollment() {
     email: "",
     phone: "",
     message: ""
-    
   });
-
   
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     setEnrollmentData({ ...enrollmentData, [name]: value });
-
-    console.log("enrollmentData:", enrollmentData);
   };
 
   
@@ -55,6 +51,7 @@ function OpenCourseEnrollment() {
       setEnrollmentData(prev => ({
         ...prev,
         program: program.title,
+        programId: program._id,
       }));
     }
   }, [program]);

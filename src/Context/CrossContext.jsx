@@ -527,6 +527,8 @@ function CrossContextProvider(props) {
   const [deletingUser, setDeletingUser] = useState(false);
 
   const deleteUser = async (userId) => {
+    if(!userId) return null;
+    
     try {
       setDeletingUser(true);
 

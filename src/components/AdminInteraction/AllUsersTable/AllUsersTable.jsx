@@ -78,7 +78,7 @@ function AllUsersTable() {
                       <RemoveAdmin 
                       adminNo={i + 1}
                       adminEnd={allUsers.length + 1}
-                      adminId={user.id}
+                      adminId={user._id}
                       firstName={user.firstName}
                       lastName={user.lastName}
                       role={user.role}
