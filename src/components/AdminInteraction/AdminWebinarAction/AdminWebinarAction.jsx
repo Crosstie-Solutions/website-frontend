@@ -47,6 +47,20 @@ function AdminWebinarAction(webinar) {
       setDeleteWebinarMode(!deleteWebinarMode);
     }
 
+    const formatDate = (timestamp)=> {
+        if (!timestamp) return "Nill";
+
+        const date = new Date(timestamp);
+
+        if (isNaN(date.getTime())) return "Nill";
+
+        const day = String(date.getUTCDate()).padStart(2, "0");
+        const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+        const year = date.getUTCFullYear();
+
+        return `${day}/${month}/${year}`;
+      }
+
 
     
   return (
@@ -171,9 +185,10 @@ function AdminWebinarAction(webinar) {
 
           <div className='flex flex-col items-start h-auto gap-2 w-100'>
             <div className='flex gap-5 border-b w-100 border-crossLightPurple'>
-              <div className='w-30'>Name</div>
-              <div className='w-30'>Email</div>
-              <div className='w-30'>Phone</div>
+              <div className='w-20'>Name</div>
+              <div className='w-20'>Email</div>
+              <div className='w-20'>Phone</div>
+              <div className='w-20'>Date</div>
             </div>
 
             <div className='flex flex-col items-start h-auto gap-2 w-100'>
@@ -183,9 +198,10 @@ function AdminWebinarAction(webinar) {
                     <div className='flex h-auto gap-5 w-100'
                     key={i}
                     >
-                      <div className='break-words w-30'>{user.firstName} {user.lastName}</div>
-                      <div className='break-words w-30'>{user.email}</div>
-                      <div className='break-words w-30'>{user.phone}</div>
+                      <div className='w-20 break-words'>{user.firstName} {user.lastName}</div>
+                      <div className='w-20 break-words'>{user.email}</div>
+                      <div className='w-20 break-words'>{user.phone}</div>
+                      <div className='w-20 break-words'>{formatDate(user.createdAt)}</div>
                     </div>
                   )
                 }

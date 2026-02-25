@@ -22,6 +22,20 @@ function AllUsersTable() {
     activeAdmin, toggleRemoveAdmin
   } = useContext(CrossContext);
 
+  const formatDate = (timestamp)=> {
+        if (!timestamp) return "Nill";
+
+        const date = new Date(timestamp);
+
+        if (isNaN(date.getTime())) return "Nill";
+
+        const day = String(date.getUTCDate()).padStart(2, "0");
+        const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+        const year = date.getUTCFullYear();
+
+        return `${day}/${month}/${year}`;
+      }
+
   
   return (
     <div className="flex flex-col items-center justify-center h-auto gap-3 py-3 large:px-2 bg-vogueWhite w-100 rounded-10 large:text-15px small:text-10px">
@@ -40,7 +54,7 @@ function AllUsersTable() {
           <div className="w-20">Phone</div>
           <div className="w-40">Email</div>
           <div className="w-10">Role</div>
-          {/* <td>Verif. status</td> */}
+          <div className="w-10">Date</div>
         </div>
 
         {currentUsers &&
@@ -72,6 +86,7 @@ function AllUsersTable() {
                 <div className="w-40 break-words">{user.email}</div>
 
                 <div className={`text-black w-10`}>{user.role}</div>
+                <div className={`text-black w-10`}>{formatDate(user.createdAt)}</div>
 
                 {activeAdmin === i && (
                     <div>
