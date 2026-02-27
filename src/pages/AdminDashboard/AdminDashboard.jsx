@@ -70,7 +70,8 @@ import AllDiscountsTable from "../../components/AdminInteraction/AllDiscountsTab
 import { GrUserAdmin } from "react-icons/gr";
 import AllMembersTable from "../../components/AdminInteraction/AllMembersTable/AllMembersTable.jsx";
 import AddMember from "../../components/AdminInteraction/AddMember/AddMember.jsx";
-
+import OepFilesModal from "../../components/AdminInteraction/OepFilesModal/OepFilesModal.jsx";
+ import { BsUpload } from "react-icons/bs";
 
 function AdminDashboard() {
 
@@ -166,6 +167,8 @@ function AdminDashboard() {
   const toggleBlogDD = ()=>{
     setBlogDD(!blogDD);
   }
+
+  const [isOepFilesModalOpen, setIsOepFilesModalOpen] = useState(false);
   
 
   const {
@@ -231,7 +234,7 @@ function AdminDashboard() {
           </div>
 
           {programsDD &&
-          <div className="flex flex-col items-center gap-1 w-100">
+          <div className="flex flex-col items-center gap-1 w-100 text-13px">
             <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
              onClick={() => setActiveScreen("allPrograms")}
             >All Programs</div>
@@ -252,13 +255,11 @@ function AdminDashboard() {
              onClick={() => setActiveScreen("addHighDemand")}
             >Add High Demand Program</div>
 
-            
+            <div className="flex items-center h-auto gap-2 cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setIsOepFilesModalOpen(true)}
+            >Update OEP Files <BsUpload /></div>
           </div>}
-          
-          
         </div>
-
-          
         
         {/* manage users */}
         <div
@@ -863,7 +864,10 @@ function AdminDashboard() {
         {activeScreen === "activeDiscounts" && <AllDiscountsTable />}
         
         
-        
+        <OepFilesModal 
+          isOpen={isOepFilesModalOpen} 
+          onClose={() => setIsOepFilesModalOpen(false)} 
+        />
       </div>
       
 

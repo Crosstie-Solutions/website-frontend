@@ -15,6 +15,7 @@ function CrossContextProvider(props) {
   // old credentials
   // const baseUrl = "https://crosstie-backend.onrender.com";
   // const baseUrl = "https://server.crosstiesolutions.com";
+  // const baseUrl = "https://api.crosstiesolutions.com";
 
   //fetch logged in user
   const [loadMe, setLoadMe] = useState(false);

@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import { TbFileTypePdf } from "react-icons/tb";
 import { CrossContext } from "../../Context/CrossContext";
 import { PHOTOS } from "../../assets/images";
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 
 
 
@@ -10,14 +13,32 @@ function AboutHero(props) {
 
   const {tag, buttonText, line1, line2} = props;
 
-    const {togglePresentationDownloadScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen} = useContext(CrossContext);
+    const {togglePresentationDownloadScreen, courseBrochureDownloadScreen, toggleCourseBrochureDownloadScreen, baseUrl} = useContext(CrossContext);
 
    
     // const videoId = 'BdWLMvrkidU';
     
     const videoId = 'Idni8o4Nxj4';
+    
+    const [oepImage, setOepImage] = useState('');
 
-    // <iframe width="560" height="315" src="https://www.youtube.com/embed/Idni8o4Nxj4?si=9zG8DAcAqu_fahWG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    console.log('oepImage:', oepImage);
+
+    const getOepImage = async () => {
+    
+        try {
+          const response = await axios.get(`${baseUrl}/api/course/67ff9cbca1006d0864edd932`);
+          if(response.status === 200){
+            setOepImage(response.data.data.data.courseBanner);
+          }
+        } catch (error) {
+          console.log("error fetching oep image:", error);
+        }
+      };
+
+      useEffect(()=>{
+        getOepImage();
+      }, []);
     
 
     
@@ -183,8 +204,8 @@ function AboutHero(props) {
 
 
         {/* open executive */}
-        {window.location.pathname==='/our-courses/' &&
-        <img src={PHOTOS.Open_Executive} alt="image" className="bg-gray-400 border-t-8 border-r-8 border-crossLightPurple large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center small:relative large:static small:top-3"/>} 
+        {window.location.pathname==='/our-courses/' && oepImage &&
+        <img src={oepImage ? oepImage : ''} alt="image" className="bg-gray-400 border-t-8 border-r-8 border-crossLightPurple large:h-auto large:w-35 large:rounded-10 small:h-auto small:w-80 small:rounded-5 small:self-center small:relative large:static small:top-3"/>} 
 
 
          {/* executive leadership*/}
