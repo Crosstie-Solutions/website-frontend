@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Check, ChevronsUpDown, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/popover";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { CrossContext } from "@/Context/CrossContext";
 
 // Mock Data
 const mockCountries = [
@@ -106,6 +107,7 @@ const skillsList = [
 
 
 export default function TalentNetworkForm() {
+  const { baseUrl } = useContext(CrossContext);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -271,16 +273,9 @@ export default function TalentNetworkForm() {
       formDataToSend.append("summary", formData.summary);
     }
 
-    await axios.post("/api/talent/register", formDataToSend, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    await axios.post(`${baseUrl}/api/talent`, formDataToSend);
 
-    toast.success("Application submitted successfully! We'll be in touch soon.", {
-      position: "top-right",
-      autoClose: 5000,
-    });
+    toast.success("Application submitted successfully! We'll be in touch soon.");
 
     // Reset form
     setFormData({
@@ -330,14 +325,15 @@ export default function TalentNetworkForm() {
 };
 
   return (
-    <div className="flex items-center justify-center h-auto px-3 py-5 mt-20 text-black bg-white rounded-lg shadow-lg">
-      <div className="max-w-4xl mx-auto">
+    <div className="flex items-center justify-center h-auto py-5 mt-20 text-black bg-white rounded-lg shadow-lg large:px-3 large:w-60vw small:w-90vw small:px-1">
+      
+      <div className="mx-auto w-100">
         {/* Header */}
         <div className="flex flex-col items-center mb-4">
-          <h1 className="mb-1 text-3xl font-bold text-crossLightPurple">
+          <h1 className="mb-1 text-3xl font-bold text-center text-crossLightPurple">
             Join Crosstie's Talent Network
           </h1>
-          <p className="text-15px text-[#727477]">
+          <p className="text-15px text-[#727477] text-center">
             Register for essential career advice, industry insights, and exciting job opportunities.
           </p>
         </div>
@@ -432,7 +428,7 @@ export default function TalentNetworkForm() {
                       <span className={formData.country ? "text-black" : "text-[#6B7280]"}>
                         {formData.country || "Select country"}
                       </span>
-                      <ChevronsUpDown className="ml-2 opacity-50 h-3px w-3px shrink-0" />
+                      <ChevronsUpDown className="ml-2 opacity-50 h-2px w-2px shrink-0" />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="p-0">
@@ -458,7 +454,7 @@ export default function TalentNetworkForm() {
                             >
                               <Check
                                 className={cn(
-                                  "mr-2 h-4 w-4",
+                                  "mr-2 h-2 w-2",
                                   formData.country === country.name ? "opacity-100" : "opacity-0"
                                 )}
                               />
@@ -484,7 +480,7 @@ export default function TalentNetworkForm() {
                       variant="outline"
                       role="combobox"
                       disabled={!selectedCountryId}
-                      className="w-full justify-between border-[#2A333F] bg-[#262A2F] text-black hover:bg-[#2A333F] hover:text-black disabled:opacity-50"
+                      className="justify-between w-full text-black border-gray-300 disabled:opacity-50"
                     >
                       <span className={formData.state ? "text-black" : "text-[#6B7280]"}>
                         {formData.state || "Select state"}
@@ -492,8 +488,8 @@ export default function TalentNetworkForm() {
                       <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-full border-[#2A333F] bg-[#212529] p-0">
-                    <Command className="bg-[#212529]">
+                  <PopoverContent className="w-full p-0">
+                    <Command className="">
                       <CommandInput placeholder="Search state..." className="text-black" />
                       <CommandList>
                         <CommandEmpty className="py-6 text-center text-sm text-[#6B7280]">
@@ -509,7 +505,7 @@ export default function TalentNetworkForm() {
                                 setSelectedStateId(state.id);
                                 setIsStateOpen(false);
                               }}
-                              className="text-black hover:bg-[#2A333F]"
+                              className="text-black"
                             >
                               <Check
                                 className={cn(
@@ -539,7 +535,7 @@ export default function TalentNetworkForm() {
                       variant="outline"
                       role="combobox"
                       disabled={!selectedStateId}
-                      className="w-full justify-between border-[#2A333F] bg-[#262A2F] text-black hover:bg-[#2A333F] hover:text-black disabled:opacity-50"
+                      className="justify-between w-full text-black border-gray-300 disabled:opacity-50"
                     >
                       <span className={formData.city ? "text-black" : "text-[#6B7280]"}>
                         {formData.city || "Select city"}
@@ -547,8 +543,8 @@ export default function TalentNetworkForm() {
                       <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-full border-[#2A333F] bg-[#212529] p-0">
-                    <Command className="bg-[#212529]">
+                  <PopoverContent className="w-full border-[#2A333F] p-0">
+                    <Command className="">
                       <CommandInput placeholder="Search city..." className="text-black" />
                       <CommandList>
                         <CommandEmpty className="py-6 text-center text-sm text-[#6B7280]">
@@ -563,7 +559,7 @@ export default function TalentNetworkForm() {
                                 setFormData((prev) => ({ ...prev, city: city.name }));
                                 setIsCityOpen(false);
                               }}
-                              className="text-black hover:bg-[#2A333F]"
+                              className="text-black"
                             >
                               <Check
                                 className={cn(
@@ -615,7 +611,7 @@ export default function TalentNetworkForm() {
                   <Button
                     variant="outline"
                     role="combobox"
-                    className="w-full justify-between border-[#2A333F] bg-[#262A2F] text-black hover:bg-[#2A333F] hover:text-black"
+                    className="justify-between w-full text-black border-gray-300"
                   >
                     <span className={formData.department.length > 0 ? "text-black" : "text-[#6B7280]"}>
                       {formData.department.length > 0
@@ -625,8 +621,8 @@ export default function TalentNetworkForm() {
                     <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-full border-[#2A333F] bg-[#212529] p-0">
-                  <Command className="bg-[#212529]">
+                <PopoverContent className="w-full p-0">
+                  <Command className="">
                     <CommandInput placeholder="Search department..." className="text-black" />
                     <CommandList>
                       <CommandEmpty className="py-6 text-center text-sm text-[#6B7280]">
@@ -638,7 +634,7 @@ export default function TalentNetworkForm() {
                             key={dept}
                             value={dept}
                             onSelect={() => toggleDepartment(dept)}
-                            className="text-black hover:bg-[#2A333F]"
+                            className="text-black"
                           >
                             <Check
                               className={cn(
@@ -659,7 +655,7 @@ export default function TalentNetworkForm() {
                   {formData.department.map((dept) => (
                     <span
                       key={dept}
-                      className="inline-flex items-center gap-1 rounded-md bg-[#2A333F] px-2 py-1 text-xs text-black"
+                      className="inline-flex items-center gap-1 px-2 py-1 text-xs text-black border border-gray-300 rounded-md"
                     >
                       {dept}
                       <button onClick={() => toggleDepartment(dept)} className="hover:text-vogueRed">
@@ -688,7 +684,7 @@ export default function TalentNetworkForm() {
             </div>
 
             {/* Mode and Job Type */}
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               {/* Job Mode */}
               <div className="flex-1">
                 <label className="block mb-2 text-sm font-medium text-black">
@@ -699,7 +695,7 @@ export default function TalentNetworkForm() {
                     <Button
                       variant="outline"
                       role="combobox"
-                      className="w-full justify-between border-[#2A333F] bg-[#262A2F] text-black hover:bg-[#2A333F] hover:text-black"
+                      className="justify-between w-full text-black border-gray-300 hover:text-black"
                     >
                       <span className={formData.mode ? "text-black" : "text-[#6B7280]"}>
                         {formData.mode || "Select mode"}
@@ -707,8 +703,8 @@ export default function TalentNetworkForm() {
                       <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-full border-[#2A333F] bg-[#212529] p-0">
-                    <Command className="bg-[#212529]">
+                  <PopoverContent className="w-full p-0 border-gray-300">
+                    <Command className="">
                       <CommandList>
                         <CommandGroup>
                           {jobModes.map((mode) => (
@@ -719,7 +715,7 @@ export default function TalentNetworkForm() {
                                 setFormData((prev) => ({ ...prev, mode }));
                                 setIsModeOpen(false);
                               }}
-                              className="text-black hover:bg-[#2A333F]"
+                              className="text-black"
                             >
                               <Check
                                 className={cn(
@@ -748,7 +744,7 @@ export default function TalentNetworkForm() {
                     <Button
                       variant="outline"
                       role="combobox"
-                      className="w-full justify-between border-[#2A333F] bg-[#262A2F] text-black hover:bg-[#2A333F] hover:text-black"
+                      className="justify-between w-full text-black border-gray-300"
                     >
                       <span className={formData.jobType ? "text-black" : "text-[#6B7280]"}>
                         {formData.jobType || "Select type"}
@@ -756,8 +752,8 @@ export default function TalentNetworkForm() {
                       <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-full border-[#2A333F] bg-[#212529] p-0">
-                    <Command className="bg-[#212529]">
+                  <PopoverContent className="w-full p-0 border-gray-300">
+                    <Command className="">
                       <CommandList>
                         <CommandGroup>
                           {jobTypes.map((type) => (
@@ -768,7 +764,7 @@ export default function TalentNetworkForm() {
                                 setFormData((prev) => ({ ...prev, jobType: type }));
                                 setIsJobTypeOpen(false);
                               }}
-                              className="text-black hover:bg-[#2A333F]"
+                              className="text-black"
                             >
                               <Check
                                 className={cn(
@@ -798,7 +794,7 @@ export default function TalentNetworkForm() {
               type="file"
               accept=".pdf,.doc,.docx"
               onChange={handleResumeChange}
-              className="w-full rounded-lg border border-gray-300 px-1 h-40px text-sm text-black file:mr-4 file:rounded file:border-0 file:bg-crossBlue file:px-4 file:py-1.5 file:text-sm file:font-medium file:text-black hover:file:bg-[#2563EB] focus:outline-none"
+              className="w-full rounded-lg border border-gray-300 px-1 h-40px text-sm text-black file:mr-4 file:rounded file:border-0 file:bg-gray-300 file:px-4 file:py-1.5 file:text-sm file:font-medium file:text-black focus:outline-none file:cursor-pointer"
             />
             {formData.resume && (
               <p className="mt-2 text-sm text-[#9CA3AF]">
@@ -854,7 +850,7 @@ export default function TalentNetworkForm() {
                 <Button
                   variant="outline"
                   role="combobox"
-                  className="w-full justify-between border-[#2A333F] bg-[#262A2F] text-black hover:bg-[#2A333F] hover:text-black"
+                  className="justify-between w-full text-black border-gray-300"
                 >
                   <span className={formData.yearsOfExperience ? "text-black" : "text-[#6B7280]"}>
                     {formData.yearsOfExperience || "Select experience"}
@@ -862,8 +858,8 @@ export default function TalentNetworkForm() {
                   <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-full border-[#2A333F] bg-[#212529] p-0">
-                <Command className="bg-[#212529]">
+              <PopoverContent className="w-full p-0 border-gray-300">
+                <Command className="">
                   <CommandList>
                     <CommandGroup>
                       {experienceLevels.map((exp) => (
@@ -874,7 +870,7 @@ export default function TalentNetworkForm() {
                             setFormData((prev) => ({ ...prev, yearsOfExperience: exp }));
                             setIsExperienceOpen(false);
                           }}
-                          className="text-black hover:bg-[#2A333F]"
+                          className="text-black"
                         >
                           <Check
                             className={cn(
@@ -913,11 +909,11 @@ export default function TalentNetworkForm() {
                   <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-full border-[#2A333F] bg-[#212529] p-0">
-                <Command className="bg-[#212529]">
+              <PopoverContent className="w-full p-0 border-gray-300">
+                <Command className="border-gray-300">
                   <CommandInput placeholder="Search skills..." className="text-black" />
                   <CommandList>
-                    <CommandEmpty className="py-6 text-center text-sm text-[#6B7280]">
+                    <CommandEmpty className="py-2 text-center text-sm text-[#6B7280]">
                       No skill found.
                     </CommandEmpty>
                     <CommandGroup>
@@ -947,7 +943,7 @@ export default function TalentNetworkForm() {
                 {formData.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-flex items-center gap-1 rounded-md bg-[#2A333F] px-2 py-1 text-xs text-black"
+                    className="inline-flex items-center gap-1 px-2 py-1 text-xs text-black border border-gray-300 rounded-md"
                   >
                     {skill}
                     <button onClick={() => toggleSkill(skill)} className="hover:text-vogueRed">
@@ -998,7 +994,7 @@ export default function TalentNetworkForm() {
               value={formData.summary}
               onChange={(e) => setFormData((prev) => ({ ...prev, summary: e.target.value }))}
               rows={4}
-              className="w-full rounded-lg border border-gray-300 px-1 h-150px text-sm placeholder-[#6B7280] focus:outline-none"
+              className="w-full rounded-lg border border-gray-300 p-2 h-150px text-sm placeholder-[#6B7280] focus:outline-none"
               placeholder="Brief summary of your professional background and career goals..."
             />
           </div>
@@ -1008,7 +1004,7 @@ export default function TalentNetworkForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex items-center justify-center px-1 py-1 text-sm text-black transition-colors rounded-lg bg-crossLightPurple hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex items-center justify-center px-1 py-1 text-sm text-white transition-colors rounded-lg bg-crossLightPurple hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {isSubmitting ? (
                 <>
