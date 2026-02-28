@@ -89,6 +89,7 @@ import BusinessProcessPage from "./pages/BusinessProcessPage/BusinessProcessPage
 import CorporatePerformancePage from "./pages/CorporatePerformancePage/CorporatePerformancePage";
 import EditMemberPage from "./pages/EditMemberPage/EditMemberPage";
 import PppPage from "./pages/PppPage/PppPage";
+import TalentNetworkForm from "./pages/TalentNetworkForm/TalentNetworkForm";
 
 
 // import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
@@ -322,6 +323,7 @@ function App() {
           <Route path="/case-studies" element={<CaseStudyPage />} />
           
           <Route path="/careers" element={<CareersPage />} />
+          <Route path="/careers/talent-community" element={<TalentNetworkForm />} />
           
           <Route path="/careers/job/:jobId" element={<JobDetailsPage />} />
           

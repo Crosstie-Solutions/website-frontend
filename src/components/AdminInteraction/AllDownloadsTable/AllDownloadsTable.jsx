@@ -49,7 +49,7 @@ function AllDownloadsTable() {
                 i % 2 === 0 ? "bg-gray-100" : "bg-white"
               } pl-1 py-1 gap-2`}
             >
-              <div>{i + 1}.</div>
+              <div>{(currentDownloadsPage - 1) * 10 + i + 1}.</div>
 
               <div className="flex flex-col gap-1 break-words large:w-10 small:w-20">
                 {file.fullName}
