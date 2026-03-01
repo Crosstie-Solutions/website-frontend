@@ -1036,6 +1036,7 @@ function CrossContextProvider(props) {
 
   const [allTalents, setAllTalents] = useState(null);
 
+  const [talentsSearchTerm, setTalentsSearchTerm] = useState('');
   const [loadingAllTalents, setLoadingAllTalents] = useState(false);
 
   const viewAllTalents = async () => {
@@ -1061,11 +1062,30 @@ function CrossContextProvider(props) {
   const totalTalentsPages =
     allTalents && Math.ceil(allTalents.length / talentsPerPage);
 
+    const filteredTalents = allTalents?.filter((talent) => {
+  // const searchTerm = talentsSearchTerm.toLowerCase();
+  const searchTerm = (talentsSearchTerm || '').toString().toLowerCase();
+
+  // Check role
+  const matchesRole = talent.role.toLowerCase().includes(searchTerm);
+
+  // Check department (array of strings)
+  const matchesDepartment =
+    talent.department?.some((dept) => dept.toLowerCase().includes(searchTerm));
+
+  // Check skills (array of strings)
+  const matchesSkills =
+    talent.skills?.some((skill) => skill.toLowerCase().includes(searchTerm));
+
+  // Return true if any match
+  return matchesRole || matchesDepartment || matchesSkills;
+});
+
   // Get requests for the current page
   const talentsStartIndex = (currentTalentsPage - 1) * talentsPerPage;
   const talentsEndIndex = talentsStartIndex + talentsPerPage;
   const currentTalents =
-    allTalents && allTalents.slice(talentsStartIndex, talentsEndIndex);
+    filteredTalents && filteredTalents.slice(talentsStartIndex, talentsEndIndex);
 
   // Handle page change
   const handleTalentsPageChange = (page) => {
@@ -2339,7 +2359,7 @@ function CrossContextProvider(props) {
 
   //value to export
   const contextValue = {
-    viewAllTalents,
+    viewAllTalents, talentsSearchTerm, setTalentsSearchTerm, setCurrentTalentsPage,
     departments,
     allTalents,
     currentTalents,

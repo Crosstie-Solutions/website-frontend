@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useState } from "react";
 import TalentDetailsModal from "../TalentDetailsModal/TalentDetailsModal";
+import TalentsFilter from "@/components/TalentsFilter/TalentsFilter";
 
 function AllTalentsTable() {
 
@@ -95,9 +96,9 @@ const handleViewDetails = (talent) => {
         <h4 className="self-start text-crossLightPurple small:hidden large:block">
           All Talents({allTalents && allTalents.length})
         </h4>
-        {/* <div className='large:w-70 h-40px small:w-100'>
-            <AdminProductsFilter />
-        </div> */}
+        <div className='large:w-70 h-40px small:w-100'>
+            <TalentsFilter />
+        </div>
       </div>
 
       <div className="flex flex-col h-auto gap-1 w-100 large:text-15px small:text-13px">
