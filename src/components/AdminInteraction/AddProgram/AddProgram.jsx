@@ -180,8 +180,6 @@ function AddProgram() {
           console.log("course:", course);
         };
         
-
-        
       
         //product errors
         const [productErrors, setProductErrors] = useState({});

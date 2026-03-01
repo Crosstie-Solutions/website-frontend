@@ -76,6 +76,7 @@ export default {
   			'60px': '60px',
   			'70px': '70px',
   			'80px': '80px',
+  			'90px': '90px',
   			'100px': '100px',
   			'120px': '120px',
   			'130px': '130px',

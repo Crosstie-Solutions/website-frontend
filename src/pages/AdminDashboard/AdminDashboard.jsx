@@ -72,6 +72,7 @@ import AllMembersTable from "../../components/AdminInteraction/AllMembersTable/A
 import AddMember from "../../components/AdminInteraction/AddMember/AddMember.jsx";
 import OepFilesModal from "../../components/AdminInteraction/OepFilesModal/OepFilesModal.jsx";
  import { BsUpload } from "react-icons/bs";
+import AllTalentsTable from "@/components/AdminInteraction/AllTalentsTable/AllTalentsTable";
 
 function AdminDashboard() {
 
@@ -546,6 +547,10 @@ function AdminDashboard() {
              onClick={() => setActiveScreen("addJob")}
             >Add Job</div>
 
+             <div className="h-auto cursor-pointer w-50 hover:bg-gray-300"
+             onClick={() => setActiveScreen("talentPool")}
+            >Talent Pool</div>
+
           </div>}
         </div>
 
@@ -840,6 +845,8 @@ function AdminDashboard() {
         {activeScreen === "addCaseStudy" && <AddCaseStudy />}
         
         {activeScreen === "allJobs" && <AllJobsTable />}
+        
+        {activeScreen === "talentPool" && <AllTalentsTable />}
         
         {activeScreen === "addJob" && <AddJob />}
 

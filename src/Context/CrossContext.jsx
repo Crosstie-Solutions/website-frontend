@@ -11,11 +11,108 @@ function CrossContextProvider(props) {
   //new credentials
   const baseUrl = "http://127.0.0.1:8000";
   // const baseUrl = "https://crosstie-backend-1.onrender.com";
+  const statesUrl = "https://nigeria-states-cities.onrender.com/api";
+  // const statesUrl = 'http://127.0.0.1:8000/api';
 
   // old credentials
   // const baseUrl = "https://crosstie-backend.onrender.com";
   // const baseUrl = "https://server.crosstiesolutions.com";
   // const baseUrl = "https://api.crosstiesolutions.com";
+
+  const LocationApiKey = import.meta.env.VITE_STATES_CITIES_KEY;
+
+
+  const [countries, setCountries] = useState([]);
+  const [states, setStates] = useState([]);
+
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+  const [street, setStreet] = useState("");
+  const [stateCode, setStateCode] = useState("");
+
+  const getAllCountries = async () => {
+    const url = `${statesUrl}/countries/all`;
+
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${LocationApiKey}`,
+        },
+      });
+
+      setCountries(response.data.data.countries);
+      // return response.data;
+    } catch (error) {
+      if (error) {
+        console.error("Error fetching countries:", error);
+      } else {
+        console.error("Error Message:", error.message);
+      }
+    }
+  };
+
+  useEffect(() => {
+    getAllCountries();
+  }, []);
+
+  const getAllStates = async () => {
+    const url = `${statesUrl}/states/all`;
+
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${LocationApiKey}`,
+        },
+      });
+
+      setStates(response.data.data.states);
+      return response.data;
+    } catch (error) {
+      if (error.response) {
+        console.error("Error Response:", error.response.data);
+        console.error("Status Code:", error.response.status);
+      } else {
+        console.error("Error Message:", error.message);
+      }
+    }
+  };
+
+  useEffect(() => {
+    getAllStates();
+  }, []);
+
+  const [cities, setCities] = useState([]);
+  
+
+  const getCities = async () => {
+    if (!stateCode) return null;
+
+    const url = `${statesUrl}/cities/${stateCode && stateCode}`;
+
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${LocationApiKey}`,
+        },
+      });
+
+      // console.log('cities:', response.data.data.state.cities);
+
+      setCities(response.data.data.state.cities);
+    } catch (error) {
+      if (error.response) {
+        console.error("Error Response:", error.response.data);
+        console.error("Status Code:", error.response.status);
+      } else {
+        console.error("Error Message:", error.message);
+      }
+    }
+  };
+
+  useEffect(() => {
+    getCities();
+  }, [selectedState, stateCode]);
 
   //fetch logged in user
   const [loadMe, setLoadMe] = useState(false);
@@ -931,6 +1028,53 @@ function CrossContextProvider(props) {
       setCurrentNewslettersPage(page);
     }
   };
+
+
+
+
+  //Talents
+
+  const [allTalents, setAllTalents] = useState(null);
+
+  const [loadingAllTalents, setLoadingAllTalents] = useState(false);
+
+  const viewAllTalents = async () => {
+    try {
+      setLoadingAllTalents(true);
+      const response = await axios.get(`${baseUrl}/api/talent`);
+
+      setAllTalents(response.data.data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+        ));
+    } catch (dupError) {
+      console.log("error fetching all talents:", dupError);
+    } finally {
+      setLoadingAllTalents(false);
+    }
+  };
+
+  //for admin to filter Talents
+  const [currentTalentsPage, setCurrentTalentsPage] = useState(1);
+  const talentsPerPage = 10;
+
+  // Calculate total pages
+  const totalTalentsPages =
+    allTalents && Math.ceil(allTalents.length / talentsPerPage);
+
+  // Get requests for the current page
+  const talentsStartIndex = (currentTalentsPage - 1) * talentsPerPage;
+  const talentsEndIndex = talentsStartIndex + talentsPerPage;
+  const currentTalents =
+    allTalents && allTalents.slice(talentsStartIndex, talentsEndIndex);
+
+  // Handle page change
+  const handleTalentsPageChange = (page) => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    if (page > 0 && page <= totalTalentsPages) {
+      setCurrentTalentsPage(page);
+    }
+  };
+
 
   //Testimonials
 
@@ -2178,12 +2322,32 @@ function CrossContextProvider(props) {
     activeWebinar,
   ]);
 
+  const departments = [
+  "Engineering",
+  "Product",
+  "Design",
+  "Marketing",
+  "Sales",
+  "Customer Success",
+  "Human Resources",
+  "Finance",
+  "Operations",
+  "Legal",
+];
+
   const [count, setCount] = useState(0);
 
   //value to export
   const contextValue = {
-    hideAboutDD,
-    programsPerPage,
+    viewAllTalents,
+    departments,
+    allTalents,
+    currentTalents,
+    handleTalentsPageChange,
+    currentTalentsPage,
+    totalTalentsPages,
+    hideAboutDD, countries, setStateCode,
+    programsPerPage, states, cities,
     showAboutDD, usersPerPage,
     aboutDD, currentNewsletters,
     handleNewslettersPageChange,

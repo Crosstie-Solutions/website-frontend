@@ -19,68 +19,11 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { CrossContext } from "@/Context/CrossContext";
 
-// Mock Data
-const mockCountries = [
-  { id: "1", name: "Nigeria" },
-  { id: "2", name: "United States" },
-  { id: "3", name: "United Kingdom" },
-  { id: "4", name: "Canada" },
-  { id: "5", name: "Ghana" },
-];
 
-const mockStates = {
-  "1": [
-    { id: "1", name: "Lagos" },
-    { id: "2", name: "Abuja" },
-    { id: "3", name: "Kano" },
-  ],
-  "2": [
-    { id: "4", name: "California" },
-    { id: "5", name: "New York" },
-    { id: "6", name: "Texas" },
-  ],
-  "3": [
-    { id: "7", name: "London" },
-    { id: "8", name: "Manchester" },
-    { id: "9", name: "Birmingham" },
-  ],
-};
-
-const mockCities = {
-  "1": [
-    { id: "1", name: "Ikeja" },
-    { id: "2", name: "Victoria Island" },
-    { id: "3", name: "Lekki" },
-  ],
-  "2": [
-    { id: "4", name: "Garki" },
-    { id: "5", name: "Maitama" },
-    { id: "6", name: "Wuse" },
-  ],
-  "4": [
-    { id: "7", name: "Los Angeles" },
-    { id: "8", name: "San Francisco" },
-    { id: "9", name: "San Diego" },
-  ],
-};
-
-// Options
-const departments = [
-  "Engineering",
-  "Product",
-  "Design",
-  "Marketing",
-  "Sales",
-  "Customer Success",
-  "Human Resources",
-  "Finance",
-  "Operations",
-  "Legal",
-];
 
 const jobModes = ["Remote", "Hybrid", "On-site"];
 const jobTypes = ["Full-time", "Part-time", "Contract", "Internship"];
-const experienceLevels = ["0-1 years", "1-3 years", "3-5 years", "5-10 years", "10+ years"];
+const experienceLevels = ["1", "2", "3", "4", "5", "6", "7", "8+"];
 
 const skillsList = [
   "JavaScript",
@@ -107,7 +50,7 @@ const skillsList = [
 
 
 export default function TalentNetworkForm() {
-  const { baseUrl } = useContext(CrossContext);
+  const { baseUrl, countries, states, cities, setStateCode, departments } = useContext(CrossContext);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -145,14 +88,11 @@ export default function TalentNetworkForm() {
   const [isJobTypeOpen, setIsJobTypeOpen] = useState(false);
   const [isExperienceOpen, setIsExperienceOpen] = useState(false);
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
-
-  // Get filtered data
-  const countries = mockCountries;
-  const states = selectedCountryId ? mockStates[selectedCountryId] || [] : [];
-  const cities = selectedStateId ? mockCities[selectedStateId] || [] : [];
+  
+  const [wordCount, setWordCount] = useState(0);
 
   // Show address field only if country is not Nigeria
-  const showAddressField = formData.country && formData.country !== "Nigeria";
+  const showAddressField = formData.country === '' || formData.country !== "Nigeria";
 
   // Handle resume file
   const handleResumeChange = (e) => {
@@ -210,8 +150,8 @@ export default function TalentNetworkForm() {
   if (!formData.email) newErrors.email = "Email is required";
   if (!formData.phone) newErrors.phone = "Phone is required";
   if (!formData.country) newErrors.country = "Country is required";
-  if (!formData.state) newErrors.state = "State is required";
-  if (!formData.city) newErrors.city = "City is required";
+  if (formData.country==='Nigeria' && !formData.state) newErrors.state = "State is required";
+  if (formData.country==='Nigeria' && !formData.city) newErrors.city = "City is required";
   if (showAddressField && !formData.address) newErrors.address = "Address is required";
   if (formData.department.length === 0) newErrors.department = "Select at least one department";
   if (!formData.role) newErrors.role = "Role is required";
@@ -250,7 +190,7 @@ export default function TalentNetworkForm() {
       formDataToSend.append("address", formData.address);
     }
 
-    formDataToSend.append("department", JSON.stringify(formData.department));
+    formData.department.forEach(item => formDataToSend.append("department[]", item));
     formDataToSend.append("role", formData.role);
     formDataToSend.append("mode", formData.mode);
     formDataToSend.append("jobType", formData.jobType);
@@ -262,7 +202,7 @@ export default function TalentNetworkForm() {
     formDataToSend.append("currentSalary", formData.currentSalary);
     formDataToSend.append("expectedSalary", formData.expectedSalary);
     formDataToSend.append("yearsOfExperience", formData.yearsOfExperience);
-    formDataToSend.append("skills", JSON.stringify(formData.skills));
+     formData.skills.forEach(item => formDataToSend.append("skills[]", item));
     formDataToSend.append("linkedinUrl", formData.linkedinUrl);
 
     if (formData.portfolio) {
@@ -273,51 +213,45 @@ export default function TalentNetworkForm() {
       formDataToSend.append("summary", formData.summary);
     }
 
-    await axios.post(`${baseUrl}/api/talent`, formDataToSend);
+    const res = await axios.post(`${baseUrl}/api/talent`, formDataToSend);
 
-    toast.success("Application submitted successfully! We'll be in touch soon.");
+    if(res.status === 201){
+      toast.success("Application submitted successfully! We'll be in touch soon.");
 
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      country: "",
-      state: "",
-      city: "",
-      address: "",
-      department: [],
-      role: "",
-      mode: "",
-      jobType: "",
-      resume: null,
-      currentSalary: "",
-      expectedSalary: "",
-      yearsOfExperience: "",
-      skills: [],
-      linkedinUrl: "",
-      portfolio: "",
-      summary: "",
-    });
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        country: "",
+        state: "",
+        city: "",
+        address: "",
+        department: [],
+        role: "",
+        mode: "",
+        jobType: "",
+        resume: null,
+        currentSalary: "",
+        expectedSalary: "",
+        yearsOfExperience: "",
+        skills: [],
+        linkedinUrl: "",
+        portfolio: "",
+        summary: "",
+      });
 
-    setSelectedCountryId("");
-    setSelectedStateId("");
-    setErrors({});
+      setSelectedCountryId("");
+      setSelectedStateId("");
+      setErrors({});
+    }
   } catch (error) {
     if (axios.isAxiosError(error)) {
       toast.error(
-        error.response?.data?.message || "Failed to submit application",
-        {
-          position: "top-right",
-          autoClose: 5000,
-        }
-      );
+        error.response?.data?.message || "Failed to submit application");
     } else {
-      toast.error("An unexpected error occurred", {
-        position: "top-right",
-        autoClose: 5000,
-      });
+      toast.error("An unexpected error occurred");
     }
   } finally {
     setIsSubmitting(false);
@@ -440,13 +374,13 @@ export default function TalentNetworkForm() {
                         </CommandEmpty>
                         
                         <CommandGroup>
-                          {countries.map((country) => (
+                          {countries && countries.map((country) => (
                             <CommandItem
-                              key={country.id}
+                              key={country.isoCode}
                               value={country.name}
                               onSelect={() => {
                                 setFormData((prev) => ({ ...prev, country: country.name, state: "", city: "", address: "" }));
-                                setSelectedCountryId(country.id);
+                                setSelectedCountryId(country.isoCode);
                                 setSelectedStateId("");
                                 setIsCountryOpen(false);
                               }}
@@ -470,6 +404,7 @@ export default function TalentNetworkForm() {
               </div>
 
               {/* State */}
+              {!showAddressField &&
               <div className="flex-1">
                 <label className="block mb-2 text-sm font-medium text-black">
                   State <span className="text-vogueRed">*</span>
@@ -496,13 +431,14 @@ export default function TalentNetworkForm() {
                           No state found.
                         </CommandEmpty>
                         <CommandGroup>
-                          {states.map((state) => (
+                          {states && states.map((state) => (
                             <CommandItem
-                              key={state.id}
-                              value={state.name}
+                              key={state.stateCode}
+                              value={state.stateName}
                               onSelect={() => {
-                                setFormData((prev) => ({ ...prev, state: state.name, city: "" }));
-                                setSelectedStateId(state.id);
+                                setFormData((prev) => ({ ...prev, state: state.stateName, city: "" }));
+                                setSelectedStateId(state.stateCode);
+                                setStateCode(state.stateCode);
                                 setIsStateOpen(false);
                               }}
                               className="text-black"
@@ -510,10 +446,10 @@ export default function TalentNetworkForm() {
                               <Check
                                 className={cn(
                                   "mr-2 h-4 w-4",
-                                  formData.state === state.name ? "opacity-100" : "opacity-0"
+                                  formData.state === state.stateName ? "opacity-100" : "opacity-0"
                                 )}
                               />
-                              {state.name}
+                              {state.stateName}
                             </CommandItem>
                           ))}
                         </CommandGroup>
@@ -522,9 +458,10 @@ export default function TalentNetworkForm() {
                   </PopoverContent>
                 </Popover>
                 {errors.state && <p className="mt-1 text-sm text-vogueRed">{errors.state}</p>}
-              </div>
+              </div>}
 
               {/* City */}
+              {!showAddressField &&
               <div className="flex-1">
                 <label className="block mb-2 text-sm font-medium text-black">
                   City <span className="text-vogueRed">*</span>
@@ -553,10 +490,10 @@ export default function TalentNetworkForm() {
                         <CommandGroup>
                           {cities.map((city) => (
                             <CommandItem
-                              key={city.id}
-                              value={city.name}
+                              key={city}
+                              value={city}
                               onSelect={() => {
-                                setFormData((prev) => ({ ...prev, city: city.name }));
+                                setFormData((prev) => ({ ...prev, city: city }));
                                 setIsCityOpen(false);
                               }}
                               className="text-black"
@@ -564,10 +501,10 @@ export default function TalentNetworkForm() {
                               <Check
                                 className={cn(
                                   "mr-2 h-4 w-4",
-                                  formData.city === city.name ? "opacity-100" : "opacity-0"
+                                  formData.city === city ? "opacity-100" : "opacity-0"
                                 )}
                               />
-                              {city.name}
+                              {city}
                             </CommandItem>
                           ))}
                         </CommandGroup>
@@ -576,7 +513,7 @@ export default function TalentNetworkForm() {
                   </PopoverContent>
                 </Popover>
                 {errors.city && <p className="mt-1 text-sm text-vogueRed">{errors.city}</p>}
-              </div>
+              </div>}
             </div>
           </div>
 
@@ -986,21 +923,26 @@ export default function TalentNetworkForm() {
           </div>
 
           {/* Summary (Optional) */}
-          <div>
+          <div className="flex flex-col">
             <label className="block mb-2 text-sm font-medium text-black">
               Professional Summary
             </label>
             <textarea
               value={formData.summary}
-              onChange={(e) => setFormData((prev) => ({ ...prev, summary: e.target.value }))}
+              onChange={(e) => {
+                setFormData((prev) => ({ ...prev, summary: e.target.value }));
+                setWordCount(e.target.value.length);
+              }}
               rows={4}
+              maxLength={500}
               className="w-full rounded-lg border border-gray-300 p-2 h-150px text-sm placeholder-[#6B7280] focus:outline-none"
               placeholder="Brief summary of your professional background and career goals..."
             />
+            <div className="self-end mt-1 text-gray-500">{wordCount}/500</div>
           </div>
 
           {/* Submit Button */}
-          <div className="flex justify-end pt-4">
+          <div className="flex justify-end">
             <button
               type="submit"
               disabled={isSubmitting}

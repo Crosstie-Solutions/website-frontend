@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { CgChevronLeft } from "react-icons/cg";
 import { CrossContext } from "../../../Context/CrossContext";
@@ -6,17 +6,27 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useState } from "react";
+import TalentDetailsModal from "../TalentDetailsModal/TalentDetailsModal";
 
-function AllNewsletterTable() {
+function AllTalentsTable() {
 
   const {
-    viewAllNewsletters,
-    allNewsletters,
-    currentNewsletters,
-    handleNewslettersPageChange,
-    currentNewslettersPage,
-    totalNewslettersPages,baseUrl
+    viewAllTalents,
+    baseUrl,
+
+
+    allTalents,
+
+    currentTalents,
+    handleTalentsPageChange,
+    currentTalentsPage,
+    totalTalentsPages,
   } = useContext(CrossContext);
+
+  
+  useEffect(()=>{
+    viewAllTalents();
+  },[]);
 
   const [deleting, setDeleting] = useState('');
 
@@ -54,14 +64,14 @@ function AllNewsletterTable() {
     return `${day}${getOrdinalSuffix(day)} ${month} ${year} - ${hours}:${minutes}${period}`;
   };
 
-   const deleteNewsletter = async (itemId) => {
+   const deleteTalent = async (itemId) => {
       try {
         setDeleting(itemId);
-        const response = await axios.delete(`${baseUrl}/api/newsletter/delete/${itemId}`);
+        const response = await axios.delete(`${baseUrl}/api/talent/${itemId}`);
         
         if(response.status ===200){
-          toast.success('Record deleted');
-          viewAllNewsletters();
+          toast.success(response.data.message);
+          viewAllTalents();
         }
       } catch (dupError) {
         console.log("error fetching all courses:", dupError);
@@ -70,11 +80,20 @@ function AllNewsletterTable() {
       }
     };
 
+    const [selectedTalent, setSelectedTalent] = useState(null);
+const [isModalOpen, setIsModalOpen] = useState(false);
+
+// When clicking on a talent row
+const handleViewDetails = (talent) => {
+  setSelectedTalent(talent);
+  setIsModalOpen(true);
+};
+
   return (
     <div className="flex flex-col items-center h-auto gap-2 w-100">
       <div className="flex items-center h-auto gap-5 w-100">
         <h4 className="self-start text-crossLightPurple small:hidden large:block">
-          Newsletter subscribers({allNewsletters && allNewsletters.length})
+          All Talents({allTalents && allTalents.length})
         </h4>
         {/* <div className='large:w-70 h-40px small:w-100'>
             <AdminProductsFilter />
@@ -85,26 +104,33 @@ function AllNewsletterTable() {
        
         <div className="flex justify-start h-auto gap-1 border-b border-gray-200 large:font-semibold small:font-semibold w-100">
           <div>S/N</div>
-          <div className="w-30">Name</div>
-          <div className="w-30">Email</div>
-          <div className="w-30">Date/Time</div>
+          <div className="w-20">Name</div>
+          <div className="w-20">Email</div>
+          <div className="w-20">Role</div>
+          <div className="w-20">Date/Time</div>
         </div>
 
-        {currentNewsletters &&
-          currentNewsletters.map((user, i) => (
+        {currentTalents &&
+          currentTalents.map((user, i) => (
             <div
               className={`flex items-center justify-start h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-1`}
               key={i}
             >
-              <div>{(currentNewslettersPage - 1) * 10 + i + 1}.</div>
+              <div>{(currentTalentsPage - 1) * 10 + i + 1}.</div>
 
-              <div className={`w-30 break-words`}>{user.firstName} {user.lastName}</div>
-              <div className={`text-vogueRed w-30 break-words`}>{user.email}</div>
-              <div className={`w-30`}>{formatDate(user.createdAt)}</div>
+              <div className={`w-20 break-words`}>{user.firstName} {user.lastName}
+                <div  
+                  className='flex items-center justify-center text-white rounded cursor-pointer h-20px w-90px bg-crossLightPurple text-11px'
+                  onClick={()=>handleViewDetails(user)}
+                  >view Details</div>
+              </div>
+              <div className={`w-20 break-words`}>{user.email}</div>
+              <div className={`w-20 break-words`}>{user.role}</div>
+              <div className={`w-20`}>{formatDate(user.createdAt)}</div>
               
               <button className="cursor-pointer"
               onClick={()=>{
-                deleteNewsletter(user._id)
+                deleteTalent(user._id)
               }}
               >
                 {deleting=== user._id ? <div className="border-t-4 border-r-4 rounded-full border-crossLightPurple w-20px h-20px animate-spin"></div> :
@@ -115,27 +141,27 @@ function AllNewsletterTable() {
       </div>
 
       {/* Pagination */}
-      {allNewsletters && allNewsletters.length > 0 && (
+      {allTalents && allTalents.length > 0 && (
         <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
             className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
-            disabled={currentNewslettersPage === 1}
+            disabled={currentTalentsPage === 1}
             onClick={() =>
-              handleNewslettersPageChange(currentNewslettersPage - 1)
+              handleTalentsPageChange(currentTalentsPage - 1)
             }
           >
             <CgChevronLeft className="text-20px" />
           </button>
 
           <div className="text-sm">
-            Page {currentNewslettersPage} of {totalNewslettersPages}
+            Page {currentTalentsPage} of {totalTalentsPages}
           </div>
 
           <button
             className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
-            disabled={currentNewslettersPage === totalNewslettersPages}
+            disabled={currentTalentsPage === totalTalentsPages}
             onClick={() =>
-              handleNewslettersPageChange(currentNewslettersPage + 1)
+              handleTalentsPageChange(currentTalentsPage + 1)
             }
           >
             <HiOutlineChevronRight className="text-20px" />
@@ -143,11 +169,17 @@ function AllNewsletterTable() {
         </div>
       )}
 
-      {allNewsletters && allNewsletters.length < 1 && (
+      {allTalents && allTalents.length < 1 && (
         <p className="mt-5 text-center w-100 text-15px">No result found.</p>
       )}
+
+      <TalentDetailsModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        talent={selectedTalent}
+      />
     </div>
   );
 }
 
-export default AllNewsletterTable;
+export default AllTalentsTable;
