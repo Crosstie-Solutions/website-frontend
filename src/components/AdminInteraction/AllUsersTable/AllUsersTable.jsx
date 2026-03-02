@@ -22,19 +22,36 @@ function AllUsersTable() {
     activeAdmin, toggleRemoveAdmin
   } = useContext(CrossContext);
 
-  const formatDate = (timestamp)=> {
-        if (!timestamp) return "Nill";
 
-        const date = new Date(timestamp);
+      const formatDate = (dateString) => {
+    if(!dateString) return 'Not available';
+  const date = new Date(dateString);
 
-        if (isNaN(date.getTime())) return "Nill";
+  const day = date.getDate();
+  const month = date.toLocaleString("en-GB", { month: "long" });
+  const year = date.getFullYear();
 
-        const day = String(date.getUTCDate()).padStart(2, "0");
-        const month = String(date.getUTCMonth() + 1).padStart(2, "0");
-        const year = date.getUTCFullYear();
+  const getOrdinalSuffix = (n) => {
+    if (n > 3 && n < 21) return "th";
+    switch (n % 10) {
+      case 1: return "st";
+      case 2: return "nd";
+      case 3: return "rd";
+      default: return "th";
+    }
+  };
 
-        return `${day}/${month}/${year}`;
-      }
+  // Format time
+  let hours = date.getHours();
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+
+  const period = hours >= 12 ? "pm" : "am";
+
+  hours = hours % 12 || 12; // convert 0 -> 12
+  hours = hours.toString().padStart(2, "0");
+
+  return `${day}${getOrdinalSuffix(day)} ${month} ${year} - ${hours}:${minutes}${period}`;
+      };
 
   
   return (

@@ -663,21 +663,21 @@ function CrossContextProvider(props) {
       setLoadingAllCourseRegs(true);
       const response = await axios.get(`${baseUrl}/api/course-reg`);
 
-      // setAllCourseRegs(response.data.data.data.sort(
-      //     (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
-      //   ));
-      setAllCourseRegs(
-        [...response.data.data.data].sort((a, b) => {
-          const dateA = a.createdAt
-            ? new Date(a.createdAt).getTime()
-            : -Infinity;
-          const dateB = b.createdAt
-            ? new Date(b.createdAt).getTime()
-            : -Infinity;
+      setAllCourseRegs(response.data.data.data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+        ));
+      // setAllCourseRegs(
+      //   [...response.data.data.data].sort((a, b) => {
+      //     const dateA = a.createdAt
+      //       ? new Date(a.createdAt).getTime()
+      //       : -Infinity;
+      //     const dateB = b.createdAt
+      //       ? new Date(b.createdAt).getTime()
+      //       : -Infinity;
 
-          return dateB - dateA;
-        }),
-      );
+      //     return dateB - dateA;
+      //   }),
+      // );
     } catch (dupError) {
       console.log("error fetching all course regs:", dupError);
     } finally {
