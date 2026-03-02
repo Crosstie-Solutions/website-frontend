@@ -90,12 +90,23 @@ import CorporatePerformancePage from "./pages/CorporatePerformancePage/Corporate
 import EditMemberPage from "./pages/EditMemberPage/EditMemberPage";
 import PppPage from "./pages/PppPage/PppPage";
 import TalentNetworkForm from "./pages/TalentNetworkForm/TalentNetworkForm";
+import { pageView as trackMetaPageView } from "./lib/metaPixel";
+import { trackPageView } from "./lib/googleAnalytics";
 
 
-// import HeaderAndFooterWrapper from "./Components/HeaderAndFooterWrapper/HeaderAndFooterWrapper";
-// import { Protected } from "./Components/Protected/Protected";
+function PageViewTracker() {
+  const location = useLocation();
 
+  useEffect(() => {
+    // Track in Google Analytics
+    trackMetaPageView();
 
+    // Track in Google Analytics
+    trackPageView(location.pathname + location.search, document.title);
+  }, [location]);
+
+  return null;
+}
 
 function App() {  
 
@@ -252,7 +263,7 @@ function App() {
       <BackToTop />
 
       <Router>
-      
+         <PageViewTracker />
         <ScrollToTop />
         
         {/* <HeaderAndFooterWrapper>
