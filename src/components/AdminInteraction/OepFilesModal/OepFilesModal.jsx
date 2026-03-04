@@ -119,13 +119,13 @@ export default function OepFilesModal(props) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
       
-      <div className="w-50vw rounded-lg bg-[#212529] p-3 h-80vh flex flex-col justify-center">
+      <div className="flex flex-col justify-center p-3 text-black bg-white rounded-lg w-50vw h-80vh">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-white">Upload Course Files</h2>
+          <h2 className="text-xl font-semibold">Upload Course Files</h2>
           <button
             onClick={onClose}
-            className="rounded-full p-1 text-[#9CA3AF] transition-colors hover:bg-[#2A333F] hover:text-white"
+            className="rounded-full p-1 transition-colors hover:bg-[#2A333F] hover:text-white"
           >
             <X size={20} />
           </button>
@@ -135,7 +135,7 @@ export default function OepFilesModal(props) {
         <div className="space-y-3">
         {/* Course Banner */}
         <div>
-            <label className="block mb-2 text-sm font-medium text-white">
+            <label className="block mb-2 text-sm font-medium">
             Course Banner
             </label>
             
@@ -143,11 +143,11 @@ export default function OepFilesModal(props) {
             type="file"
             accept="image/*"
             onChange={handleBannerChange}
-            className="w-full rounded-lg border border-[#2A333F] bg-[#262A2F] text-sm text-white file:mr-4 file:rounded file:border-0 file:bg-crossBlue file:px-4 file:py-1 file:text-sm file:font-medium file:text-white hover:file:bg-[#2563EB] focus:outline-none file:cursor-pointer"
+            className="w-full rounded-lg bg-[#262A2F] text-sm text-white file:mr-4 file:rounded file:border-0 file:bg-crossBlue file:px-4 file:py-1 file:text-sm file:font-medium file:text-white hover:file:bg-[#2563EB] focus:outline-none file:cursor-pointer"
             />
 
             {courseBanner && (
-            <p className="mt-2 text-sm text-[#9CA3AF]">
+            <p className="mt-2 text-sm">
                 Selected: {courseBanner.name}
             </p>
             )}
@@ -159,7 +159,7 @@ export default function OepFilesModal(props) {
 
         {/* Course Brochure */}
         <div>
-            <label className="block mb-2 text-sm font-medium text-white">
+            <label className="block mb-2 text-sm font-medium">
             Course Brochure
             </label>
             
@@ -167,11 +167,11 @@ export default function OepFilesModal(props) {
             type="file"
             accept="application/pdf"
             onChange={handleBrochureChange}
-            className="w-full rounded-lg border border-[#2A333F] bg-[#262A2F] text-sm text-white file:mr-4 file:rounded file:border-0 file:bg-crossBlue file:px-4 file:py-1 file:text-sm file:font-medium file:text-white hover:file:bg-[#2563EB] focus:outline-none file:cursor-pointer"
+            className="w-full rounded-lg bg-[#262A2F] text-sm text-white file:mr-4 file:rounded file:border-0 file:bg-crossBlue file:px-4 file:py-1 file:text-sm file:font-medium file:text-white hover:file:bg-[#2563EB] focus:outline-none file:cursor-pointer"
             />
 
             {courseBrochure && (
-            <p className="mt-2 text-sm text-[#9CA3AF]">
+            <p className="mt-2 text-sm">
                 Selected: {courseBrochure.name} ({(courseBrochure.size / 1024 / 1024).toFixed(2)} MB)
             </p>
             )}
@@ -190,7 +190,7 @@ export default function OepFilesModal(props) {
           <button
             onClick={onClose}
             disabled={isUploading}
-            className="rounded-lg border border-[#2A333F] px-2 py-1 text-sm font-medium text-white transition-colors hover:bg-[#2A333F] disabled:opacity-50"
+            className="rounded-lg border border-[#2A333F] px-2 py-1 text-sm font-medium transition-colors disabled:opacity-50"
           >
             Cancel
           </button>

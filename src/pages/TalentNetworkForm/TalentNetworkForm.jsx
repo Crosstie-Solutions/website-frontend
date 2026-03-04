@@ -20,37 +20,8 @@ import axios from "axios";
 import { CrossContext } from "@/Context/CrossContext";
 
 
-
-const jobModes = ["Remote", "Hybrid", "On-site"];
-const jobTypes = ["Full-time", "Part-time", "Contract", "Internship"];
-const experienceLevels = ["1", "2", "3", "4", "5", "6", "7", "8+"];
-
-const skillsList = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Node.js",
-  "Python",
-  "Java",
-  "C++",
-  "AWS",
-  "Azure",
-  "Docker",
-  "Kubernetes",
-  "SQL",
-  "MongoDB",
-  "GraphQL",
-  "Git",
-  "Agile",
-  "Scrum",
-  "Project Management",
-  "UI/UX Design",
-  "Figma",
-];
-
-
 export default function TalentNetworkForm() {
-  const { baseUrl, countries, states, cities, setStateCode, departments } = useContext(CrossContext);
+  const { baseUrl, countries, states, cities, setStateCode, departments, jobModes, jobTypes, experienceLevels, skillsList } = useContext(CrossContext);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
