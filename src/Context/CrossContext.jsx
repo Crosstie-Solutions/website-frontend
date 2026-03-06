@@ -9,7 +9,7 @@ export const CrossContext = createContext(null);
 
 function CrossContextProvider(props) {
   //new credentials
-  const baseUrl = "http://127.0.0.1:8000";
+  // const baseUrl = "http://127.0.0.1:8000";
   // const baseUrl = "https://crosstie-backend-1.onrender.com";
   const statesUrl = "https://nigeria-states-cities.onrender.com/api";
   // const statesUrl = 'http://127.0.0.1:8000/api';
@@ -17,7 +17,7 @@ function CrossContextProvider(props) {
   // old credentials
   // const baseUrl = "https://crosstie-backend.onrender.com";
   // const baseUrl = "https://server.crosstiesolutions.com";
-  // const baseUrl = "https://api.crosstiesolutions.com";
+  const baseUrl = "https://api.crosstiesolutions.com";
 
   const LocationApiKey = import.meta.env.VITE_STATES_CITIES_KEY;
 
@@ -510,7 +510,8 @@ function CrossContextProvider(props) {
       `${webinar.topic} ${webinar.presenter}`
         .toLowerCase()
         .includes(upcomingSearchTerm.toLowerCase()),
-    );
+    ).sort(
+          (a, b) => new Date(a.actualDate) - new Date(b.actualDate));
 
   // // Calculate total pages
   const totalUpcomingPages =
@@ -544,7 +545,8 @@ function CrossContextProvider(props) {
       `${webinar.topic} ${webinar.presenter}`
         .toLowerCase()
         .includes(pastSearchTerm.toLowerCase()),
-    );
+    ).sort(
+          (a, b) => new Date(b.actualDate) - new Date(a.actualDate));
 
   // Calculate total pages
   const totalPastPages =
