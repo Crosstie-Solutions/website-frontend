@@ -182,17 +182,17 @@ export default function TalentDetailsModal(props) {
             <h3 className="mb-2 text-lg font-semibold">Salary Expectations</h3>
             <div className="flex gap-4">
               <div className="flex-1 rounded-lg border border-[#2A333F] p-1">
-                <label className="block mb-2 text-sm font-medium">
+                {/* <label className="block mb-2 text-sm font-medium">
                   Current Salary
-                </label>
+                </label> */}
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-medium">
-                    &#8358;{talent.currentSalary.toLocaleString()}
+                    &#8358;{talent.salaryRange}
                   </span>
                 </div>
               </div>
 
-              <div className="flex-1 rounded-lg border border-[#2A333F] p-1">
+              {/* <div className="flex-1 rounded-lg border border-[#2A333F] p-1">
                 <label className="block mb-2 text-sm font-medium">
                   Expected Salary
                 </label>
@@ -201,7 +201,7 @@ export default function TalentDetailsModal(props) {
                     &#8358;{talent.expectedSalary.toLocaleString()}
                   </span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

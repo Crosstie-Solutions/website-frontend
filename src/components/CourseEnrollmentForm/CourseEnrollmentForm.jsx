@@ -18,7 +18,6 @@ function CourseEnrollmentForm() {
 
   //state for enrollment
   const [enrollmentData, setEnrollmentData] =useState({
-    
     program: "",
     nameOfOrg: "",
     mode: "",

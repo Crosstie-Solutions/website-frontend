@@ -671,13 +671,17 @@ function ProgramDetailsPage() {
                       onChange={(e) => setMode(e.target.value)}
                     >
                       <option value="">-select-</option>
+                       {program && program.physicalCost !==0 &&
                       <option value="Classroom/Our Location">
                         Classroom/Our Location
-                      </option>
+                      </option>}
+                      {program && program.physicalCost !==0 &&
                       <option value="Classroom/Your Location">
                         Classroom/Your Location
-                      </option>
-                      <option value="Online/Live">Online/Live</option>
+                      </option>}
+                      
+                      {program && program.onlineCost !==0 &&
+                      <option value="Online/Live">Online/Live</option>}
                     </select>
                   </div>
 

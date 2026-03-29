@@ -36,8 +36,7 @@ export default function TalentNetworkForm() {
     mode: "",
     jobType: "",
     resume: null,
-    currentSalary: "",
-    expectedSalary: "",
+    salaryRange: "",
     yearsOfExperience: "",
     skills: [],
     linkedinUrl: "",
@@ -129,8 +128,7 @@ export default function TalentNetworkForm() {
   if (!formData.mode) newErrors.mode = "Job mode is required";
   if (!formData.jobType) newErrors.jobType = "Job type is required";
   if (!formData.resume) newErrors.resume = "Resume is required";
-  if (!formData.currentSalary) newErrors.currentSalary = "Current salary is required";
-  if (!formData.expectedSalary) newErrors.expectedSalary = "Expected salary is required";
+  if (!formData.salaryRange) newErrors.salaryRange = "Salary range is required";
   if (!formData.yearsOfExperience) newErrors.yearsOfExperience = "Experience is required";
   if (formData.skills.length === 0) newErrors.skills = "Select at least one skill";
   if (!formData.linkedinUrl) newErrors.linkedinUrl = "LinkedIn URL is required";
@@ -170,8 +168,7 @@ export default function TalentNetworkForm() {
       formDataToSend.append("resume", formData.resume);
     }
 
-    formDataToSend.append("currentSalary", formData.currentSalary);
-    formDataToSend.append("expectedSalary", formData.expectedSalary);
+    formDataToSend.append("salaryRange", formData.salaryRange);
     formDataToSend.append("yearsOfExperience", formData.yearsOfExperience);
      formData.skills.forEach(item => formDataToSend.append("skills[]", item));
     formDataToSend.append("linkedinUrl", formData.linkedinUrl);
@@ -204,8 +201,7 @@ export default function TalentNetworkForm() {
         mode: "",
         jobType: "",
         resume: null,
-        currentSalary: "",
-        expectedSalary: "",
+        salaryRange: "",
         yearsOfExperience: "",
         skills: [],
         linkedinUrl: "",
@@ -716,35 +712,22 @@ export default function TalentNetworkForm() {
           <div>
             <h2 className="mb-4 text-xl font-semibold text-black">Salary Expectations</h2>
             <div className="flex gap-4">
-              {/* Current Salary */}
               <div className="flex-1">
-                <label className="block mb-2 text-sm font-medium text-black">
-                  Current Net Salary <span className="text-vogueRed">*</span>
-                </label>
-                <input
-                  type="number"
-                  value={formData.currentSalary}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, currentSalary: e.target.value }))}
-                  className="w-full rounded-lg border border-gray-300 px-1 h-40px text-sm text-black placeholder-[#6B7280] focus:outline-none"
-                  placeholder="Enter current salary"
-                />
+                {/* <label className="block mb-2 text-sm font-medium text-black">
+                  Expected Salary Range <span className="text-vogueRed">*</span>
+                </label> */}
+                <select name="salaryRange" id="salaryRange" className="w-full rounded-lg border border-gray-300 px-1 h-40px text-sm text-black placeholder-[#6B7280] focus:outline-none mt-2" onChange={(e) => setFormData((prev) => ({ ...prev, salaryRange: e.target.value }))} value={formData.salaryRange}>
+                  <option value="">Select salary range</option>
+                  <option value="70,000 - 150,000">70,000 - 150,000</option>
+                  <option value="150,000 - 300,000">150,000 - 300,000</option>
+                  <option value="300,000 - 500,000">300,000 - 500,000</option>
+                  <option value="500,000 - 700,000">500,000 - 700,000</option>
+                  <option value="700,000 - 900,000">700,000 - 900,000</option>
+                  <option value="900,000+">900,000+</option>
+                </select>
                 {errors.currentSalary && <p className="mt-1 text-sm text-vogueRed">{errors.currentSalary}</p>}
               </div>
 
-              {/* Expected Salary */}
-              <div className="flex-1">
-                <label className="block mb-2 text-sm font-medium text-black">
-                  Expected Salary <span className="text-vogueRed">*</span>
-                </label>
-                <input
-                  type="number"
-                  value={formData.expectedSalary}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, expectedSalary: e.target.value }))}
-                  className="w-full rounded-lg border border-gray-300 px-1 h-40px text-sm text-black placeholder-[#6B7280] focus:outline-none"
-                  placeholder="Enter expected salary"
-                />
-                {errors.expectedSalary && <p className="mt-1 text-sm text-vogueRed">{errors.expectedSalary}</p>}
-              </div>
             </div>
           </div>
 

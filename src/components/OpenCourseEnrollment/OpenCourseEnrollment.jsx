@@ -182,8 +182,10 @@ function OpenCourseEnrollment() {
                     onChange={handleChange}
                   >
                     <option value="">-Select mode-</option>
-                    <option value="Physical">Physical</option>
-                    <option value="Online">Online</option>
+                     {program && program.physicalCost !==0 &&
+                    <option value="Physical">Physical</option>}
+                    {program && program.onlineCost !==0 &&
+                    <option value="Online">Online</option>}
                   </select>
                 </div>
 
