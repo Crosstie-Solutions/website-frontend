@@ -46,6 +46,12 @@ function AllCourseRegsTable() {
   return `${day}${getOrdinalSuffix(day)} ${month} ${year} - ${hours}:${minutes}${period}`;
 };
 
+console.log("currentCourseRegs", currentCourseRegs);
+
+  const sortedData = currentCourseRegs && currentCourseRegs.sort(
+  (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+);
+
 
   return (
     <div className="flex flex-col items-center h-auto gap-2 w-100">
@@ -68,8 +74,8 @@ function AllCourseRegsTable() {
           <div className="w-20">Date/Time</div>
         </div>
 
-        {currentCourseRegs &&
-          currentCourseRegs.map((reg, i) => (
+        {sortedData &&
+          sortedData.map((reg, i) => (
             <div
               className={`flex items-center justify-start h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-3`}
             >
@@ -129,7 +135,7 @@ function AllCourseRegsTable() {
       </div>
 
       {/* Pagination */}
-      {currentCourseRegs && currentCourseRegs.length > 0 && (
+      {sortedData && sortedData.length > 0 && (
         <div className="flex items-center justify-between h-auto gap-3 mt-4 large:w-50 small:w-80">
           <button
             className="flex items-center justify-center text-white rounded-full large:w-40px large:h-40px small:w-30px small:h-30px bg-crossLightPurple disabled:bg-gray-300 disabled:cursor-not-allowed"
@@ -157,7 +163,7 @@ function AllCourseRegsTable() {
         </div>
       )}
 
-      {currentCourseRegs && currentCourseRegs.length < 1 && (
+      {sortedData && sortedData.length < 1 && (
         <p className="mt-5 text-center w-100 text-15px">No result found.</p>
       )}
     </div>

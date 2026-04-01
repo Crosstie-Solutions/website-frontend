@@ -338,7 +338,7 @@ function OpenCourseEnrollment() {
 //for users to enroll after reading more details about open executive programs
 function SecondOpenCourseEnrollment() {
   
-  const { program, setLoading, baseUrl, executiveCourse, toggleOpenEnrollment, executiveEnrollmentData, toggleSecondOpenEnrollment, handleExecutiveChange, setExecutiveEnrollmentData} = useContext(CrossContext);
+  const { program, setLoading, baseUrl, executiveCourse, toggleOpenEnrollment, executiveEnrollmentData, toggleSecondOpenEnrollment, handleExecutiveChange, setExecutiveEnrollmentData, trainingMode} = useContext(CrossContext);
 
   
   const [activeForm, setActiveForm] = useState("courseDetails");
@@ -351,6 +351,8 @@ function SecondOpenCourseEnrollment() {
       setExecutiveEnrollmentData(prev => ({
         ...prev,
         program: program.title,
+        programId: program._id,
+        mode: program.mode,
       }));
     }
   }, [program]);
@@ -434,7 +436,7 @@ function SecondOpenCourseEnrollment() {
             {program && program.duration}
           </div>
 
-          {executiveEnrollmentData.mode.toLowerCase().includes("physical") ?
+          {trainingMode == "Physical" ?
           <div className="flex items-center justify-start gap-1 border rounded h-30px px-0.5">
             <TbMoneybag className="text-20px text-crossLightPurple" /> Physical -
             &#8358;{program && program.physicalCost.toLocaleString()}/participant

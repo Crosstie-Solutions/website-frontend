@@ -668,18 +668,6 @@ function CrossContextProvider(props) {
       setAllCourseRegs(response.data.data.data.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
         ));
-      // setAllCourseRegs(
-      //   [...response.data.data.data].sort((a, b) => {
-      //     const dateA = a.createdAt
-      //       ? new Date(a.createdAt).getTime()
-      //       : -Infinity;
-      //     const dateB = b.createdAt
-      //       ? new Date(b.createdAt).getTime()
-      //       : -Infinity;
-
-      //     return dateB - dateA;
-      //   }),
-      // );
     } catch (dupError) {
       console.log("error fetching all course regs:", dupError);
     } finally {

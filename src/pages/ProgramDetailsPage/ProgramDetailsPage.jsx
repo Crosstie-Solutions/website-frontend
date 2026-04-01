@@ -52,7 +52,7 @@ function ProgramDetailsPage() {
 
   // 67e7db4aaa370840c014ee9d
 
-  console.log("program:", program);
+  // console.log("program:", program);
 
   useEffect(() => {
     const viewProgram = async () => {
@@ -73,7 +73,7 @@ function ProgramDetailsPage() {
   //to get category route of current program
   const [catRoute, setCatRoute] = useState("");
 
-  console.log("category route:", catRoute);
+  // console.log("category route:", catRoute);
 
   const location = window.location.pathname;
 
@@ -97,6 +97,10 @@ function ProgramDetailsPage() {
     if (program && program.category.toLowerCase().includes("bonding")) {
       setCatRoute("team-bonding");
     }
+
+   setTrainingMode(program && program.mode);
+    
+    
   }, [programId, program]);
 
   //default messages
@@ -365,7 +369,41 @@ function ProgramDetailsPage() {
 
           <div className="flex flex-col h-auto gap-2 large:pl-5 w-100 small:px-1">
             <div className="text-crossTextGray">Training mode:</div>
+             {program && program.mode !== 'Physical/Online' && 
             <div className="flex w-auto h-auto gap-2">
+              {trainingMode == 'Online' && 
+              <button
+                className={`flex items-center justify-center w-auto px-2  h-40px rounded-20 ${trainingMode === "Online" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray"}`}
+                onClick={() => {
+                  setTrainingMode("Online");
+
+                  setExecutiveEnrollmentData((prev) => ({
+                    ...prev,
+                    mode: "Online",
+                  }));
+                }}
+              >
+                Online
+              </button>}
+              
+                 {trainingMode == 'Physical' && 
+              <button
+                className={`flex items-center justify-center w-auto px-2  h-40px rounded-20 ${trainingMode === "Physical" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray"}`}
+                onClick={() => {
+                  setTrainingMode("Physical");
+                  setExecutiveEnrollmentData((prev) => ({
+                    ...prev,
+                    mode: "Physical",
+                  }));
+                }}
+              >
+                Physical
+              </button>}
+            </div>}
+            
+             {program && program.mode == 'Physical/Online' && 
+             <div className="flex w-auto h-auto gap-2">
+              
               <button
                 className={`flex items-center justify-center w-auto px-2  h-40px rounded-20 ${trainingMode === "Online" ? "bg-crossLightPurple text-white" : "border border-[#D9D9D9] text-crossTextGray"}`}
                 onClick={() => {
@@ -392,7 +430,7 @@ function ProgramDetailsPage() {
               >
                 Physical
               </button>
-            </div>
+            </div>}
 
             <div className="flex flex-col h-auto gap-2 bg-white w-100">
               {program &&
