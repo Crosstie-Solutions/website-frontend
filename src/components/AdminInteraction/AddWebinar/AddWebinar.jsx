@@ -41,19 +41,19 @@ function AddWebinar() {
   //   console.log("webinarData:", webinarData);
   // };
 
-  const handleChange = (e) => {
+ const handleChange = (e) => {
   const { name, value } = e.target;
 
   if (name === "date" && value) {
-    const isoTimestamp = new Date(value + ":00.000Z")
+    const isoTimestamp = new Date(value)
       .toISOString()
       .replace("Z", "+00:00");
 
     setWebinarData({ ...webinarData, [name]: isoTimestamp });
     return;
   }
-  setWebinarData({ ...webinarData, [name]: value });
 
+  setWebinarData({ ...webinarData, [name]: value });
   console.log("webinarData:", webinarData);
 };
 
