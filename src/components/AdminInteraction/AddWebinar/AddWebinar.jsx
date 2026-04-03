@@ -30,17 +30,32 @@ function AddWebinar() {
 
   //webinar errors
   const [webinarErrors, setWebinarErrors] = useState({});
-  console.log('webinarData:', webinarData);
+  // console.log('webinarData:', webinarData);
 
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+
+  //   setWebinarData({ ...webinarData, [name]: value });
+
+  //   console.log("webinarData:", webinarData);
+  // };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+  const { name, value } = e.target;
 
-    setWebinarData({ ...webinarData, [name]: value });
+  if (name === "date" && value) {
+    const isoTimestamp = new Date(value + ":00.000Z")
+      .toISOString()
+      .replace("Z", "+00:00");
 
-    console.log("webinarData:", webinarData);
-  };
+    setWebinarData({ ...webinarData, [name]: isoTimestamp });
+    return;
+  }
+  setWebinarData({ ...webinarData, [name]: value });
 
+  console.log("webinarData:", webinarData);
+};
 
 
   
@@ -110,9 +125,6 @@ function AddWebinar() {
       }
     }
   };
-      
-
-
 
   return (
     <div className="flex flex-col items-start h-auto gap-2 w-100">
