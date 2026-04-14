@@ -1,0 +1,19 @@
+# Crosstie Solutions
+
+> Leading Management Consulting Firm & People Development Training provider in Lagos, Nigeria.
+
+## Core Services
+- **Executive Leadership Programmes**: Intensive training for senior executives and managers.
+- **Management Consulting**: Strategy development, business process documentation, and culture transformation.
+- **People Development Training**: Comprehensive training series for employees at all levels.
+- **Complete Employee Series**: Specialized curriculum for professional excellence.
+- **Open Executive Programmes**: Scheduled programs for individual and corporate enrollment.
+
+## Contact Information
+- **Address**: 7 Oyin Jolayemi Street, Victoria Island, Lagos, Nigeria.
+- **Website**: https://www.crosstiesolutions.com
+- **LinkedIn**: https://www.linkedin.com/company/crosstiesolutions/
+
+## Technical Details
+- **Sitemap**: https://www.crosstiesolutions.com/sitemap.xml
+- **Certification**: Registered with CIBN, Full Member of IFTDO, Accredited by CIMC.
