@@ -8,7 +8,7 @@ import { MdOutlineFileDownload } from "react-icons/md";
 function AdminWebinarFeedbackAction(reg) {
 
   
-    const { fullName, email, phone, topic, suggestion, rating, webinar } = reg;
+    const { fullName, email, phone, topic, suggestion, rating, webinar, isRelatable, isClear, isEngaging } = reg;
 
     
 
@@ -40,9 +40,15 @@ function AdminWebinarFeedbackAction(reg) {
             <div>Name: <span className='font-semibold'>{fullName}</span></div>
             <div>Phone number: <span className='font-semibold'>{phone}</span></div>
             <div>Email: <span className='font-semibold'>{email}</span></div>
+
+            <div>How well can you relate the webinar content to your role or personal life: <span className='font-semibold'>{isRelatable}</span></div>
+
+            <div>How would you rate the quality and clarity of the presentation and slides: <span className='font-semibold'>{isClear}</span></div>
+
+            <div>How clear, engaging, and easy to follow was the facilitator’s delivery: <span className='font-semibold'>{isEngaging}</span></div>
            
-            <div>Rating: <span className='font-semibold'>{rating}</span></div>
-            <div>Topic of interest: <span className='font-semibold'>{topic}</span></div>
+            <div>Overall Experience: <span className='font-semibold'>{rating}</span></div>
+            {/* <div>Topic of interest: <span className='font-semibold'>{topic}</span></div> */}
             
             <div>Suggestion: <span className='font-semibold'>{suggestion}</span></div>
           </div>

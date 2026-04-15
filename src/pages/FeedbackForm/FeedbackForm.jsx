@@ -20,9 +20,11 @@ function FeedbackForm() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [interest, setInterest] = useState("");
+  const [isRelatable, setIsRelatable] = useState("");
+  const [isClear, setIsClear] = useState("");
+  const [isEngaging, setIsEngaging] = useState("");
   const [suggestion, setSuggestion] = useState("");
-  const [topic, setTopic] = useState("");
+  // const [topic, setTopic] = useState("");
   const [rating, setRating] = useState("");
   
   
@@ -36,9 +38,11 @@ const [signupErrors, setSignupErrors] = useState({});
      fullName: fullName,
      email: email,
      phone: phone,
-     interest: interest,
+     isRelatable: isRelatable,
+     isClear: isClear,
+     isEngaging: isEngaging,
      rating: rating,
-     topic: topic,
+    //  topic: topic,
      suggestion: suggestion,
  };
 
@@ -78,9 +82,22 @@ const sendFeedback = async (event) => {
    validationErrors.rating = "please rate the webinar";
  }
 
- if (!interest) {
-   validationErrors.interest = "please let us know if you are interested";
+  if (!isClear) {
+   validationErrors.isClear = "please answer this question";
  }
+
+  if (!isRelatable) {
+   validationErrors.isRelatable = "please answer this question";
+ }
+
+  if (!isEngaging) {
+    validationErrors.isEngaging = "please answer this question";
+  }
+
+
+//  if (!interest) {
+//    validationErrors.interest = "please let us know if you are interested";
+//  }
  
  
 
@@ -154,7 +171,7 @@ const sendFeedback = async (event) => {
            </div>
 
             <div className="flex flex-row items-center justify-between h-auto w-100">
-              <div className="flex flex-col h-auto w-45">
+              <div className="flex flex-col h-auto w-100">
                 <label htmlFor="">Phone</label>
 
                 <input type="text" name="phone" className="p-1 border rounded h-40px w-100" 
@@ -163,7 +180,7 @@ const sendFeedback = async (event) => {
                 <p className="text-vogueRed">{signupErrors.phone}</p>
               </div>
 
-              <div className="flex flex-col h-auto w-45">
+              {/* <div className="flex flex-col h-auto w-45">
                 <label htmlFor="">Rate the webinar</label>
 
                 <select name="rating" id="" className="p-1 border rounded h-40px w-100" onChange={(e)=>setRating(e.target.value)}>
@@ -175,46 +192,146 @@ const sendFeedback = async (event) => {
                   <option value="5">5 - Below Satisfactory</option>
                 </select>
                 <p className="text-vogueRed">{signupErrors.rating}</p>
-              </div>
+              </div> */}
             </div>
 
+
+            <div className="flex flex-row items-center justify-between h-auto w-100">
+              
+              <div className="flex flex-col h-auto gap-1 w-45">
+                <label htmlFor="">How well can you relate the webinar content to your role or personal life?</label>
+
+                <div className="flex flex-col h-auto gap-1 w-100">
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="5" name="isRelatable" value="5" onChange={(e)=>setIsRelatable(e.target.value)} />
+                      <label for="5" className="cursor-pointer">5 (Excellent)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="4" name="isRelatable" value="4" onChange={(e)=>setIsRelatable(e.target.value)} />
+                      <label for="4" className="cursor-pointer">4 (Good)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="3" name="isRelatable" value="3" onChange={(e)=>setIsRelatable(e.target.value)} />
+                      <label for="3" className="cursor-pointer">3 (Average)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="2" name="isRelatable" value="2" onChange={(e)=>setIsRelatable(e.target.value)} />
+                      <label for="2" className="cursor-pointer">2 (Needs Improvement)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="1" name="isRelatable" value="1" onChange={(e)=>setIsRelatable(e.target.value)} />
+                      <label for="1" className="cursor-pointer">1 (Below Satisfactory)</label>
+                  </div>
+                </div>
+                <p className="text-vogueRed">{signupErrors.isRelatable}</p>
+              </div>
+
+              <div className="flex flex-col h-auto gap-1 w-45">
+                <label htmlFor="">How would you rate the quality and clarity of the presentation and slides?</label>
+
+                <div className="flex flex-col h-auto gap-1 w-100">
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="5" name="isClear" value="5" onChange={(e)=>setIsClear(e.target.value)} />
+                      <label for="5" className="cursor-pointer">5 (Excellent)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="4" name="isClear" value="4" onChange={(e)=>setIsClear(e.target.value)} />
+                      <label for="4" className="cursor-pointer">4 (Good)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="3" name="isClear" value="3" onChange={(e)=>setIsClear(e.target.value)} />
+                      <label for="3" className="cursor-pointer">3 (Average)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="2" name="isClear" value="2" onChange={(e)=>setIsClear(e.target.value)} />
+                      <label for="2" className="cursor-pointer">2 (Needs Improvement)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="1" name="isClear" value="1" onChange={(e)=>setIsClear(e.target.value)} />
+                      <label for="1" className="cursor-pointer">1 (Below Satisfactory)</label>
+                  </div>
+                </div>
+                <p className="text-vogueRed">{signupErrors.isClear}</p>
+              </div>              
+            </div>
 
              <div className="flex flex-row items-center justify-between h-auto w-100">
               
-              <div className="flex flex-col h-auto w-45">
-                <label htmlFor="">Are you interested in the training by Crosstie Solutions?</label>
+              <div className="flex flex-col h-auto gap-1 w-45">
+                <label htmlFor="">How clear, engaging, and easy to follow was the facilitator’s delivery?</label>
 
-                <div className="flex h-auto gap-2 w-100">
-                  <div>
-                      <input type="radio" id="Yes" name="interested" value="Yes" onChange={(e)=>setInterest(e.target.value)} />
-                      <label for="Yes">Yes</label>
+                <div className="flex flex-col h-auto gap-1 w-100">
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="5" name="isEngaging" value="5" onChange={(e)=>setIsEngaging(e.target.value)} />
+                      <label for="5" className="cursor-pointer">5 (Excellent)</label>
                   </div>
 
-                  <div>
-                     <input type="radio" id="No" name="interested" value="No" onChange={(e)=>setInterest(e.target.value)} />
-                      <label for="No">No</label>
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="4" name="isEngaging" value="4" onChange={(e)=>setIsEngaging(e.target.value)} />
+                      <label for="4" className="cursor-pointer">4 (Good)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="3" name="isEngaging" value="3" onChange={(e)=>setIsEngaging(e.target.value)} />
+                      <label for="3" className="cursor-pointer">3 (Average)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="2" name="isEngaging" value="2" onChange={(e)=>setIsEngaging(e.target.value)} />
+                      <label for="2" className="cursor-pointer">2 (Needs Improvement)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="1" name="isEngaging" value="1" onChange={(e)=>setIsEngaging(e.target.value)} />
+                      <label for="1" className="cursor-pointer">1 (Below Satisfactory)</label>
                   </div>
                 </div>
-                <div>
-                  
+                <p className="text-vogueRed">{signupErrors.isEngaging}</p>
+              </div>
+
+              <div className="flex flex-col h-auto gap-1 w-45">
+                <label htmlFor="">How would you rate your overall experience of the webinar?</label>
+
+                <div className="flex flex-col h-auto gap-1 w-100">
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="5" name="rating" value="5" onChange={(e)=>setRating(e.target.value)} />
+                      <label for="5" className="cursor-pointer">5 (Excellent)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="4" name="rating" value="4" onChange={(e)=>setRating(e.target.value)} />
+                      <label for="4" className="cursor-pointer">4 (Good)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="3" name="rating" value="3" onChange={(e)=>setRating(e.target.value)} />
+                      <label for="3" className="cursor-pointer">3 (Average)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="2" name="rating" value="2" onChange={(e)=>setRating(e.target.value)} />
+                      <label for="2" className="cursor-pointer">2 (Needs Improvement)</label>
+                  </div>
+
+                  <div className="flex items-center gap-1 cursor-pointer">
+                      <input type="radio" id="1" name="rating" value="1" onChange={(e)=>setRating(e.target.value)} />
+                      <label for="1" className="cursor-pointer">1 (Below Satisfactory)</label>
+                  </div>
                 </div>
-                <p className="text-vogueRed">{signupErrors.interest}</p>
-              </div>
-              
-              <div className="flex flex-col h-auto w-45">
-                <label htmlFor="topic">What topic would you like to see covered in future webinars?</label>
-
-                <input type="text" name="topic" className="p-1 border rounded h-40px w-100" 
-                onChange={(e)=>setTopic(e.target.value)}
-                />
-                {/* <p className="text-vogueRed">{signupErrors.topic}</p> */}
-              </div>
-
-              
+                <p className="text-vogueRed">{signupErrors.rating}</p>
+              </div>              
             </div>
 
             <div className="flex flex-col h-auto w-100">
-                <label htmlFor="suggestion">Suggestion for improving our webinars</label>
+                <label htmlFor="suggestion">What can we improve to make future sessions better?</label>
 
                 <textarea type="text" name="topic" className="p-1 border rounded h-100px w-100" 
                 onChange={(e)=>setSuggestion(e.target.value)}

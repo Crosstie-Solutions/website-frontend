@@ -50,6 +50,14 @@ const handleWebinarFeedbacksPageChange = (page) => {
   }
 };
     
+
+ function formatTimestamp(timestamp) {
+    const date = new Date(timestamp);
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
     
 
   return (
@@ -63,25 +71,24 @@ const handleWebinarFeedbacksPageChange = (page) => {
         </div>
       </div>
       
-      
 
       <div className='flex flex-col h-auto gap-1 w-100 large:text-15px small:text-13px'>
-      
-        <div className='flex justify-between h-auto border-b border-gray-200 large:font-semibold small:font-semibold w-100'>
+
+         <div className='flex justify-start h-auto gap-1 border-b border-gray-200 large:font-semibold small:font-semibold w-100'>
             <div>S/N</div>
-            <div className='large:relative large:right-3'>{type==='recruiter' ? 'Company' : ""} Attendee</div>
-            <div className='large:relative large:right-5'>{type==='recruiter' ? 'Preferred' : ""} Webinar</div>
-            <div className='large:relative large:right-7'>Phone</div>
-            <div className='large:relative large:right-2 text-vogueRed'>Email</div>
-            <div className='large:relative large:right-3'>Rating</div>
+            <div className='w-20'>Attendee</div>
+            <div className='w-20'>Webinar</div>
+            <div className='w-20'>Phone</div>
+            <div className='w-20'>Date</div>
+            <div className='w-20'>Rating</div>
         </div>
 
 
         {
             currentWebinarFeedbacks && currentWebinarFeedbacks.map((reg, i)=>
-                <div className={`flex items-center justify-between h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1`}>
+                <div className={`flex items-center justify-between h-auto w-100 ${i % 2 === 0 ? "bg-gray-100" : "bg-white"} pl-1 py-1 gap-1`}>
                     <div>{i + 1}.</div>
-                    <div className='flex flex-col gap-1 break-words large:w-15 small:w-20'>{type==='recruiter' ? reg.nameOfOrg : reg.fullName}
+                    <div className='flex flex-col w-20 gap-1 break-words'>{type==='recruiter' ? reg.nameOfOrg : reg.fullName}
                         
                         {/* <Link 
                         // to='/' 
@@ -94,14 +101,13 @@ const handleWebinarFeedbacksPageChange = (page) => {
                         >View</div>
                     </div>
                     
-                    <div className='relative large:right-5 small:right-2'>{reg.webinarId.topic}</div>
+                    <div className='w-20'>{reg.webinarId.topic.slice(0, 10)}...</div>
                     
-                    <div className='relative large:right-4 small:right-1'>{reg.phone}</div>
+                    <div className='w-20'>{reg.phone}</div>
                     
-                    <div className={`relative large:right-3 small:right-1 text-vogueRed`}>{reg.email.slice(0, 10)}...</div>
+                    <div className={`w-20`}>{formatTimestamp(reg.createdAt)}</div>
 
-                    <div className={`relative large:right-3 small:right-1`}>{reg.rating}</div>
-                    
+                    <div className={`w-20`}>{reg.rating}</div>
                     
                     {activeWebinarFeedback === i && (
                     <div>
@@ -115,9 +121,11 @@ const handleWebinarFeedbacksPageChange = (page) => {
                       email={reg.email}
                       phone={reg.phone}
                       rating={reg.rating}
-                      topic={reg.topic}
-                      suggestion={reg.suggestion}
-                                           
+                      isRelatable={reg.isRelatable ? reg.isRelatable : "N/A"}
+                      isClear={reg.isClear ? reg.isClear : "N/A"}
+                      isEngaging={reg.isEngaging ? reg.isEngaging : "N/A"}
+                      topic={reg.topic ? reg.topic : "N/A"}
+                      suggestion={reg.suggestion}                             
                       />
 
                     </div>)}
