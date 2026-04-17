@@ -226,7 +226,7 @@ function Footer() {
         </ul>
       </div>
 
-      <div className="flex flex-col gap-1 mt-2">
+      {/* <div className="flex flex-col gap-1 mt-2">
         <p className="font-bold">Head Office:</p>
         <p>7 Oyin Jolayemi Street, Victoria Island, Lagos, Nigeria.</p>
         <a
@@ -237,7 +237,7 @@ function Footer() {
         >
           Find us on Google Maps
         </a>
-      </div>
+      </div> */}
 
       <small className="mt-4 text-15px">All rights reserved. ©2013 – {year}. Crosstie Solutions Ltd.</small>
 
