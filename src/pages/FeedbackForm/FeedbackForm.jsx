@@ -128,7 +128,7 @@ function FeedbackForm() {
           <p className="text-crossLightPurple">We Are Eager To Hear From You</p>
       </div>
 
-        <div className="flex flex-col items-center gap-3 large:px-0 small:px-1 large:w-60 small:w-100">
+        <div className="flex flex-col items-center large:gap-3 large:px-0 small:px-1 large:w-60 small:w-100 small:gap-2">
           
           <div className="flex flex-row items-center justify-between h-auto w-100">
             <div className="flex flex-col h-auto w-45">
@@ -176,8 +176,8 @@ function FeedbackForm() {
                 personal life?
               </label>
 
-              <div className="flex flex-wrap h-auto gap-3 w-100">
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+              <div className="flex flex-row-reverse flex-wrap justify-end h-auto large:gap-3 small:gap-1 w-100">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                   <label for="5" className="text-gray-500 cursor-pointer">
                     Excellent
                   </label>
@@ -191,7 +191,7 @@ function FeedbackForm() {
                   />
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                    <label for="4" className="text-gray-500 cursor-pointer">
                     Good
                   </label>
@@ -206,7 +206,7 @@ function FeedbackForm() {
                  
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                   <label for="3" className="text-gray-500 cursor-pointer">
                     Average
                   </label>
@@ -221,7 +221,7 @@ function FeedbackForm() {
                   
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                   <label for="2" className="text-gray-500 cursor-pointer">
                     Needs Improvement
                   </label>
@@ -236,7 +236,7 @@ function FeedbackForm() {
                   
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                   <label for="1" className="text-gray-500 cursor-pointer">
                    Below Satisfactory
                   </label>
@@ -262,8 +262,8 @@ function FeedbackForm() {
                 and slides?
               </label>
 
-              <div className="flex flex-wrap h-auto gap-3 w-100">
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+              <div className="flex flex-row-reverse flex-wrap justify-end h-auto large:gap-3 small:gap-1 w-100">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                   <label for="5" className="text-gray-500 cursor-pointer">
                    Excellent
                   </label>
@@ -277,7 +277,7 @@ function FeedbackForm() {
                   />
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                   <label for="4" className="text-gray-500 cursor-pointer">
                     Good
                   </label>
@@ -292,7 +292,7 @@ function FeedbackForm() {
                   
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                   <label for="3" className="text-gray-500 cursor-pointer">
                     Average
                   </label>
@@ -307,7 +307,7 @@ function FeedbackForm() {
                   
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                    <label for="2" className="text-gray-500 cursor-pointer">
                     Needs Improvement
                   </label>
@@ -322,7 +322,7 @@ function FeedbackForm() {
                  
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                   <label for="1" className="text-gray-500 cursor-pointer">
                    Below Satisfactory
                   </label>
@@ -348,8 +348,8 @@ function FeedbackForm() {
                 delivery?
               </label>
 
-              <div className="flex flex-wrap h-auto gap-3 w-100">
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+              <div className="flex flex-row-reverse flex-wrap justify-end h-auto large:gap-3 small:gap-1 w-100">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                   <label for="5" className="text-gray-500 cursor-pointer">
                    Excellent
                   </label>
@@ -364,7 +364,7 @@ function FeedbackForm() {
                   
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                    <label for="4" className="text-gray-500 cursor-pointer">
                     Good
                   </label>
@@ -378,7 +378,7 @@ function FeedbackForm() {
                   />
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                    <label for="3" className="text-gray-500 cursor-pointer">
                     Average
                   </label>
@@ -393,7 +393,7 @@ function FeedbackForm() {
                  
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                   <label for="2" className="text-gray-500 cursor-pointer">
                     Needs Improvement
                   </label>
@@ -408,7 +408,7 @@ function FeedbackForm() {
                   
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                    <label for="1" className="text-gray-500 cursor-pointer">
                    Below Satisfactory
                   </label>
@@ -433,9 +433,9 @@ function FeedbackForm() {
                 How would you rate your overall experience of the webinar?
               </label>
 
-              <div className="flex flex-wrap h-auto gap-3 w-100">
+              <div className="flex flex-row-reverse flex-wrap justify-end h-auto large:gap-3 small:gap-1 w-100">
                 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                   <label for="5" className="text-gray-500 cursor-pointer">
                    Excellent
                   </label>
@@ -450,7 +450,7 @@ function FeedbackForm() {
                   
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                    <label for="4" className="text-gray-500 cursor-pointer">
                     Good
                   </label>
@@ -466,7 +466,7 @@ function FeedbackForm() {
                  
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                    <label for="3" className="text-gray-500 cursor-pointer">
                     Average
                   </label>
@@ -481,7 +481,7 @@ function FeedbackForm() {
                  
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                   <label for="2" className="text-gray-500 cursor-pointer">
                     Needs Improvement
                   </label>
@@ -496,7 +496,7 @@ function FeedbackForm() {
                   
                 </div>
 
-                <div className="flex flex-col gap-1 cursor-pointer large:items-center small:items-start">
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
                   <label for="1" className="text-gray-500 cursor-pointer">
                    Below Satisfactory
                   </label>
