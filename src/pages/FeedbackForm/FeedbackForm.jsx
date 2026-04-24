@@ -176,34 +176,37 @@ function FeedbackForm() {
                 personal life?
               </label>
 
-              <div className="flex flex-row-reverse flex-wrap justify-end h-auto large:gap-3 small:gap-1 w-100">
-                <div className="flex flex-col items-center gap-1 cursor-pointer">
-                  <label for="5" className="text-gray-500 cursor-pointer">
-                    Excellent
-                  </label>
-                  <input
-                  className="cursor-pointer"
-                    type="radio"
-                    id="5"
-                    name="isRelatable"
-                    value="5"
-                    onChange={(e) => setIsRelatable(e.target.value)}
-                  />
-                </div>
+              <div className="flex flex-wrap h-auto large:gap-3 small:gap-1 w-100">
+
 
                 <div className="flex flex-col items-center gap-1 cursor-pointer">
-                   <label for="4" className="text-gray-500 cursor-pointer">
-                    Good
+                  <label for="1" className="text-gray-500 cursor-pointer">
+                   Below Satisfactory
                   </label>
                   <input
                   className="cursor-pointer"
                     type="radio"
-                    id="4"
+                    id="1"
                     name="isRelatable"
-                    value="4"
+                    value="1"
                     onChange={(e) => setIsRelatable(e.target.value)}
                   />
-                 
+                  
+                </div>
+
+                 <div className="flex flex-col items-center gap-1 cursor-pointer">
+                  <label for="2" className="text-gray-500 cursor-pointer">
+                    Needs Improvement
+                  </label>
+                  <input
+                  className="cursor-pointer"
+                    type="radio"
+                    id="2"
+                    name="isRelatable"
+                    value="2"
+                    onChange={(e) => setIsRelatable(e.target.value)}
+                  />
+                  
                 </div>
 
                 <div className="flex flex-col items-center gap-1 cursor-pointer">
@@ -222,34 +225,34 @@ function FeedbackForm() {
                 </div>
 
                 <div className="flex flex-col items-center gap-1 cursor-pointer">
-                  <label for="2" className="text-gray-500 cursor-pointer">
-                    Needs Improvement
+                   <label for="4" className="text-gray-500 cursor-pointer">
+                    Good
                   </label>
                   <input
                   className="cursor-pointer"
                     type="radio"
-                    id="2"
+                    id="4"
                     name="isRelatable"
-                    value="2"
+                    value="4"
                     onChange={(e) => setIsRelatable(e.target.value)}
                   />
-                  
+                 
                 </div>
 
                 <div className="flex flex-col items-center gap-1 cursor-pointer">
-                  <label for="1" className="text-gray-500 cursor-pointer">
-                   Below Satisfactory
+                  <label for="5" className="text-gray-500 cursor-pointer">
+                    Excellent
                   </label>
                   <input
                   className="cursor-pointer"
                     type="radio"
-                    id="1"
+                    id="5"
                     name="isRelatable"
-                    value="1"
+                    value="5"
                     onChange={(e) => setIsRelatable(e.target.value)}
                   />
-                  
                 </div>
+                
               </div>
               <p className="text-vogueRed">{signupErrors.isRelatable}</p>
             </div>
@@ -262,19 +265,51 @@ function FeedbackForm() {
                 and slides?
               </label>
 
-              <div className="flex flex-row-reverse flex-wrap justify-end h-auto large:gap-3 small:gap-1 w-100">
+              <div className="flex flex-wrap h-auto large:gap-3 small:gap-1 w-100">
+
                 <div className="flex flex-col items-center gap-1 cursor-pointer">
-                  <label for="5" className="text-gray-500 cursor-pointer">
-                   Excellent
+                  <label for="1" className="text-gray-500 cursor-pointer">
+                   Below Satisfactory
                   </label>
                   <input
                   className="cursor-pointer"
                     type="radio"
-                    id="5"
+                    id="1"
                     name="isClear"
-                    value="5"
+                    value="1"
                     onChange={(e) => setIsClear(e.target.value)}
                   />
+                  
+                </div>
+
+                 <div className="flex flex-col items-center gap-1 cursor-pointer">
+                   <label for="2" className="text-gray-500 cursor-pointer">
+                    Needs Improvement
+                  </label>
+                  <input
+                  className="cursor-pointer"
+                    type="radio"
+                    id="2"
+                    name="isClear"
+                    value="2"
+                    onChange={(e) => setIsClear(e.target.value)}
+                  />
+                 
+                </div>
+
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
+                  <label for="3" className="text-gray-500 cursor-pointer">
+                    Average
+                  </label>
+                  <input
+                  className="cursor-pointer"
+                    type="radio"
+                    id="3"
+                    name="isClear"
+                    value="3"
+                    onChange={(e) => setIsClear(e.target.value)}
+                  />
+                  
                 </div>
 
                 <div className="flex flex-col items-center gap-1 cursor-pointer">
@@ -293,49 +328,19 @@ function FeedbackForm() {
                 </div>
 
                 <div className="flex flex-col items-center gap-1 cursor-pointer">
-                  <label for="3" className="text-gray-500 cursor-pointer">
-                    Average
+                  <label for="5" className="text-gray-500 cursor-pointer">
+                   Excellent
                   </label>
                   <input
                   className="cursor-pointer"
                     type="radio"
-                    id="3"
+                    id="5"
                     name="isClear"
-                    value="3"
+                    value="5"
                     onChange={(e) => setIsClear(e.target.value)}
                   />
-                  
                 </div>
-
-                <div className="flex flex-col items-center gap-1 cursor-pointer">
-                   <label for="2" className="text-gray-500 cursor-pointer">
-                    Needs Improvement
-                  </label>
-                  <input
-                  className="cursor-pointer"
-                    type="radio"
-                    id="2"
-                    name="isClear"
-                    value="2"
-                    onChange={(e) => setIsClear(e.target.value)}
-                  />
-                 
-                </div>
-
-                <div className="flex flex-col items-center gap-1 cursor-pointer">
-                  <label for="1" className="text-gray-500 cursor-pointer">
-                   Below Satisfactory
-                  </label>
-                  <input
-                  className="cursor-pointer"
-                    type="radio"
-                    id="1"
-                    name="isClear"
-                    value="1"
-                    onChange={(e) => setIsClear(e.target.value)}
-                  />
-                  
-                </div>
+                                
               </div>
               <p className="text-vogueRed">{signupErrors.isClear}</p>
             </div>
@@ -348,67 +353,9 @@ function FeedbackForm() {
                 delivery?
               </label>
 
-              <div className="flex flex-row-reverse flex-wrap justify-end h-auto large:gap-3 small:gap-1 w-100">
-                <div className="flex flex-col items-center gap-1 cursor-pointer">
-                  <label for="5" className="text-gray-500 cursor-pointer">
-                   Excellent
-                  </label>
-                  <input
-                  className="cursor-pointer"
-                    type="radio"
-                    id="5"
-                    name="isEngaging"
-                    value="5"
-                    onChange={(e) => setIsEngaging(e.target.value)}
-                  />
-                  
-                </div>
+              <div className="flex flex-wrap h-auto large:gap-3 small:gap-1 w-100">
 
-                <div className="flex flex-col items-center gap-1 cursor-pointer">
-                   <label for="4" className="text-gray-500 cursor-pointer">
-                    Good
-                  </label>
-                  <input
-                  className="cursor-pointer"
-                    type="radio"
-                    id="4"
-                    name="isEngaging"
-                    value="4"
-                    onChange={(e) => setIsEngaging(e.target.value)}
-                  />
-                </div>
-
-                <div className="flex flex-col items-center gap-1 cursor-pointer">
-                   <label for="3" className="text-gray-500 cursor-pointer">
-                    Average
-                  </label>
-                  <input
-                  className="cursor-pointer"
-                    type="radio"
-                    id="3"
-                    name="isEngaging"
-                    value="3"
-                    onChange={(e) => setIsEngaging(e.target.value)}
-                  />
-                 
-                </div>
-
-                <div className="flex flex-col items-center gap-1 cursor-pointer">
-                  <label for="2" className="text-gray-500 cursor-pointer">
-                    Needs Improvement
-                  </label>
-                  <input
-                  className="cursor-pointer"
-                    type="radio"
-                    id="2"
-                    name="isEngaging"
-                    value="2"
-                    onChange={(e) => setIsEngaging(e.target.value)}
-                  />
-                  
-                </div>
-
-                <div className="flex flex-col items-center gap-1 cursor-pointer">
+                 <div className="flex flex-col items-center gap-1 cursor-pointer">
                    <label for="1" className="text-gray-500 cursor-pointer">
                    Below Satisfactory
                   </label>
@@ -422,6 +369,66 @@ function FeedbackForm() {
                   />
                  
                 </div>
+                
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
+                  <label for="2" className="text-gray-500 cursor-pointer">
+                    Needs Improvement
+                  </label>
+                  <input
+                  className="cursor-pointer"
+                    type="radio"
+                    id="2"
+                    name="isEngaging"
+                    value="2"
+                    onChange={(e) => setIsEngaging(e.target.value)}
+                  />
+                  
+                </div>
+
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
+                   <label for="3" className="text-gray-500 cursor-pointer">
+                    Average
+                  </label>
+                  <input
+                  className="cursor-pointer"
+                    type="radio"
+                    id="3"
+                    name="isEngaging"
+                    value="3"
+                    onChange={(e) => setIsEngaging(e.target.value)}
+                  />
+                 
+                </div>
+
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
+                   <label for="4" className="text-gray-500 cursor-pointer">
+                    Good
+                  </label>
+                  <input
+                  className="cursor-pointer"
+                    type="radio"
+                    id="4"
+                    name="isEngaging"
+                    value="4"
+                    onChange={(e) => setIsEngaging(e.target.value)}
+                  />
+                </div>
+       
+                <div className="flex flex-col items-center gap-1 cursor-pointer">
+                  <label for="5" className="text-gray-500 cursor-pointer">
+                   Excellent
+                  </label>
+                  <input
+                  className="cursor-pointer"
+                    type="radio"
+                    id="5"
+                    name="isEngaging"
+                    value="5"
+                    onChange={(e) => setIsEngaging(e.target.value)}
+                  />
+                  
+                </div>
+ 
               </div>
               <p className="text-vogueRed">{signupErrors.isEngaging}</p>
             </div>
@@ -433,24 +440,54 @@ function FeedbackForm() {
                 How would you rate your overall experience of the webinar?
               </label>
 
-              <div className="flex flex-row-reverse flex-wrap justify-end h-auto large:gap-3 small:gap-1 w-100">
-                
+              <div className="flex flex-wrap h-auto large:gap-3 small:gap-1 w-100">
+
                 <div className="flex flex-col items-center gap-1 cursor-pointer">
-                  <label for="5" className="text-gray-500 cursor-pointer">
-                   Excellent
+                  <label for="1" className="text-gray-500 cursor-pointer">
+                   Below Satisfactory
                   </label>
                   <input
                   className="cursor-pointer"
                     type="radio"
-                    id="5"
+                    id="1"
                     name="rating"
-                    value="5"
+                    value="1"
                     onChange={(e) => setRating(e.target.value)}
                   />
                   
                 </div>
 
-                <div className="flex flex-col items-center gap-1 cursor-pointer">
+                 <div className="flex flex-col items-center gap-1 cursor-pointer">
+                  <label for="2" className="text-gray-500 cursor-pointer">
+                    Needs Improvement
+                  </label>
+                  <input
+                  className="cursor-pointer"
+                    type="radio"
+                    id="2"
+                    name="rating"
+                    value="2"
+                    onChange={(e) => setRating(e.target.value)}
+                  />
+                  
+                </div>
+
+                 <div className="flex flex-col items-center gap-1 cursor-pointer">
+                   <label for="3" className="text-gray-500 cursor-pointer">
+                    Average
+                  </label>
+                  <input
+                  className="cursor-pointer"
+                    type="radio"
+                    id="3"
+                    name="rating"
+                    value="3"
+                    onChange={(e) => setRating(e.target.value)}
+                  />
+                 
+                </div>
+
+                 <div className="flex flex-col items-center gap-1 cursor-pointer">
                    <label for="4" className="text-gray-500 cursor-pointer">
                     Good
                   </label>
@@ -467,49 +504,20 @@ function FeedbackForm() {
                 </div>
 
                 <div className="flex flex-col items-center gap-1 cursor-pointer">
-                   <label for="3" className="text-gray-500 cursor-pointer">
-                    Average
+                  <label for="5" className="text-gray-500 cursor-pointer">
+                   Excellent
                   </label>
                   <input
                   className="cursor-pointer"
                     type="radio"
-                    id="3"
+                    id="5"
                     name="rating"
-                    value="3"
-                    onChange={(e) => setRating(e.target.value)}
-                  />
-                 
-                </div>
-
-                <div className="flex flex-col items-center gap-1 cursor-pointer">
-                  <label for="2" className="text-gray-500 cursor-pointer">
-                    Needs Improvement
-                  </label>
-                  <input
-                  className="cursor-pointer"
-                    type="radio"
-                    id="2"
-                    name="rating"
-                    value="2"
+                    value="5"
                     onChange={(e) => setRating(e.target.value)}
                   />
                   
                 </div>
-
-                <div className="flex flex-col items-center gap-1 cursor-pointer">
-                  <label for="1" className="text-gray-500 cursor-pointer">
-                   Below Satisfactory
-                  </label>
-                  <input
-                  className="cursor-pointer"
-                    type="radio"
-                    id="1"
-                    name="rating"
-                    value="1"
-                    onChange={(e) => setRating(e.target.value)}
-                  />
-                  
-                </div>
+                
               </div>
               <p className="text-vogueRed">{signupErrors.rating}</p>
             </div>

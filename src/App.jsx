@@ -92,6 +92,7 @@ import PppPage from "./pages/PppPage/PppPage";
 import TalentNetworkForm from "./pages/TalentNetworkForm/TalentNetworkForm";
 import { pageView as trackMetaPageView } from "./lib/metaPixel";
 import { trackPageView } from "./lib/googleAnalytics";
+import MailCenter from "./pages/kominiti/Kominiti";
 
 
 function PageViewTracker() {
@@ -298,6 +299,8 @@ function App() {
           <Route path="/contact-us" element={<ContactPage />} />
           <Route path="/about-us/our-story" element={<OurStoryPage />} />
           <Route path="/about-us/leadership" element={<LeadershipPage />} />
+
+          {/* <Route path="/admin/mail-center" element={<MailCenter />} /> */}
           
           <Route path="/about-us/leadership/edit/:memberId" element={<EditMemberPage />} />
           <Route path="/about-us/our-clients" element={<OurClientsPage />} />
